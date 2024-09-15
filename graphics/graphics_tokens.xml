@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<icon name="advantage" file="graphics/token/token_cond_advantage.png" />
+	<icon name="bleed" file="graphics/token/token_cond_bleed.png" />
+	<icon name="blinded" file="graphics/token/token_cond_blinded.png" />
+	<icon name="bonus" file="graphics/token/token_cond_bonus.png" />
+	<icon name="charmed" file="graphics/token/token_cond_charmed.png" />
+	<icon name="conceal" file="graphics/token/token_cond_conceal.png" />
+	<icon name="confused" file="graphics/token/token_cond_confused.png" />
+	<icon name="cover" file="graphics/token/token_cond_cover.png" />
+	<icon name="dazed" file="graphics/token/token_cond_dazed.png" />
+	<icon name="prone" file="graphics/token/token_cond_prone.png" />
+	<icon name="slowed" file="graphics/token/token_cond_slowed.png" />
+	<icon name="stunned" file="graphics/token/token_cond_stunned.png" />
+	<icon name="disadvantagee" file="graphics/token/token_cond_disadvantage.png" />
+<root>
