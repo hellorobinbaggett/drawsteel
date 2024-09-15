@@ -5,15 +5,19 @@
   attribution and copyright information.
 -->
 
-<root version="1.0" release="1" logo="">
-	<announcement text="RPG Custom Ruleset created by EXXODIS for running Draw Steel playtest" font="emotefont" icon="" />
-
+<root version="1.0" release="1" logo="logo.png">
 	<!-- Attributes -->
 	<description>
 		<displayname>Draw Steel (v0.042)</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
+
+	<!-- Announcements -->
+	<icon name="logo" file="logo.png" />
+	<announcement text="Draw Steel Custom Ruleset (v.040)
+	\r\nBased on CoreRPG ruleset by SmiteWorks. Additional coding by EXXODIS.
+	" font="emotefont" icon="" />
 	
 	<!-- Tabletop settings -->
 	<includefile source="gameelements.xml" />
