@@ -21,7 +21,7 @@
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
-					<bottom offset="-150" />
+					<bottom offset="-160" />
 				</anchored>
 			</list_charmaincategory>
 			<scrollbar_list>
@@ -40,17 +40,27 @@
 
 			<!-- Class Resource -->
 			<label_charframetop name="classresourcetitle">
-				<anchored height="20">
-					<top anchor="bottom" offset="-165" />
+				<anchored height="30">
+					<top anchor="bottom" offset="-175" />
 					<left offset="105" />
 					<right offset="-105" />
 				</anchored>
 				<icons>char_stats</icons>
 			</label_charframetop>
 
+			<string_labeled name="classresourcestring" gravity="center">
+				<anchored height="20">
+					<top anchor="bottom" offset="-175" />
+					<left offset="105" />
+					<right offset="-105" />
+				</anchored>
+				<center />
+				<font>subwindowsmalltitle</font>
+			</string_labeled>
+
 			<basicnumber name="classresource" source="classresource">
 				<anchored to="classresourcetitle" width="86" height="30">
-					<top anchor="bottom" offset="10" />
+					<top anchor="bottom" offset="8" />
 					<left anchor="center" offset="-35" />
 				</anchored>
 				<font>reference-b-large</font>
@@ -61,9 +71,10 @@
 				</script>
 			</basicnumber>
 
-			<label_charfieldtop name="max_label">
-				<anchored to="classresource" offset="0,10" />
+			<label_charfieldtop name="classresourcetitle">
+				<anchored to="classresource" offset="0,5" />
 				<static textres="char_label_classresource" />
+				<font>sheetlabelmini</font>
 			</label_charfieldtop>
 
 			<!-- HEALTHS MATE -->

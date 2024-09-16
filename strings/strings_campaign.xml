@@ -65,6 +65,7 @@
 	<string name="charselect_label_ownedby">Owned by:</string>
 	<string name="charselect_label_owned">Owned</string>
 	<string name="char_label_name">NAME</string>
+	<string name="char_label_classresource">CLASS RESOURCE</string>
 	<string name="char_label_class">CLASS</string>
 	<string name="char_label_subclass">SUBCLASS</string>
 	<string name="char_label_level">LEVEL</string>

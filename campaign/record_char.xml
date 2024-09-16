@@ -41,12 +41,12 @@
 					<subwindow>main</subwindow>
 				</tab>
 				<tab>
-					<icon>tab_skills</icon>
-					<subwindow>skills</subwindow>
-				</tab>
-				<tab>
 					<icon>tab_abilities</icon>
 					<subwindow>abilities</subwindow>
+				</tab>
+				<tab>
+					<icon>tab_skills</icon>
+					<subwindow>skills</subwindow>
 				</tab>
 				<tab>
 					<icon>tab_notes</icon>
