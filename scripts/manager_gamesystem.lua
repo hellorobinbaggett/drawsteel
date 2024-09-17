@@ -14,8 +14,6 @@ targetactions = {
 	"effect",
 };
 
-languages = { };
-
 currencies = { };
 currencyDefault = nil;
 
@@ -23,6 +21,38 @@ currencyDefault = nil;
 function onInit()
 	CharEncumbranceManager.addStandardCalc();
 	CombatListManager.registerStandardInitSupport();
+	
+	languages = { 
+		-- Standard languages
+		[Interface.getString("language_value_caelian")] = "",
+		[Interface.getString("language_value_anjali")] = "",
+		[Interface.getString("language_value_filliaric")] = "",
+		[Interface.getString("language_value_higaran")] = "",
+		[Interface.getString("language_value_hyrallic")] = "",
+		[Interface.getString("language_value_kalliak")] = "",
+		[Interface.getString("language_value_kethaic")] = "",
+		[Interface.getString("language_value_khelt")] = "",
+		[Interface.getString("language_value_khemaric")] = "",
+		[Interface.getString("language_value_khoursirian")] = "",
+		[Interface.getString("language_value_kuric")] = "",
+		[Interface.getString("language_value_mindspeech")] = "",
+		[Interface.getString("language_value_oaxuatl")] = "",
+		[Interface.getString("language_value_phaedran")] = "",
+		[Interface.getString("language_value_protoctholl")] = "",
+		[Interface.getString("language_value_riojan")] = "",
+		[Interface.getString("language_value_szetch")] = "",
+		[Interface.getString("language_value_thefirstlanguage")] = "",
+		[Interface.getString("language_value_urollialic")] = "",
+		[Interface.getString("language_value_uvalic")] = "",
+		[Interface.getString("language_value_vanric")] = "",
+		[Interface.getString("language_value_variac")] = "",
+		[Interface.getString("language_value_voll")] = "",
+		[Interface.getString("language_value_xakalliac")] = "",
+		[Interface.getString("language_value_yllyric")] = "",
+		[Interface.getString("language_value_zaliac")] = "",
+	}
+	languagefonts = {
+	}
 end
 
 function getCharSelectDetailHost(nodeChar)
