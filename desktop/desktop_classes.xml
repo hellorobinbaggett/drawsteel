@@ -401,13 +401,13 @@
 					<bounds>80,6,60,18</bounds>
 					<text>Edge</text>
 				</button_modifierkey>		
- 				<button_modifierkey name="DOUBLEEDGE">
+ 				<button_modifierkey name="BANE">
 					<bounds>151,6,60,18</bounds>
-					<text>x2 Edge</text>
-				</button_modifierkey>		
-				<button_modifierkey name="BANE">
-					<bounds>80,36,60,18</bounds>
 					<text>Bane</text>
+				</button_modifierkey>		
+				<button_modifierkey name="DOUBLEEDGE">
+					<bounds>80,36,60,18</bounds>
+					<text>x2 Edge</text>
 				</button_modifierkey>		
 				<button_modifierkey name="DOUBLEBANE">
 					<bounds>151,36,60,18</bounds>

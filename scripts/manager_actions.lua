@@ -743,7 +743,7 @@ function encodeDesktopMods(rRoll)
 	if ModifierManager.getKey("DOUBLEEDGE") then
 		rRoll.sDesc = rRoll.sDesc .. " [Double Edge]";
 	end
-	if ModifierManager.getKey("BAN") then
+	if ModifierManager.getKey("BANE") then
 		rRoll.sDesc = rRoll.sDesc .. " [Bane]";
 	end
 	if ModifierManager.getKey("DOUBLEBANE") then
