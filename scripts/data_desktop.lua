@@ -5,7 +5,9 @@
 
 function onInit()
 	Desktop.registerPublicNodes();
+	ModifierManager.addModWindowPresets(_tModifierWindowPresets);
 end
+
 function onTabletopInit()
 	User.addEventHandler("onLogin", Desktop.onUserLogin);
 
@@ -163,5 +165,19 @@ aDataModuleSet =
 	},
 	["client"] =
 	{
+	},
+};
+
+_tModifierWindowPresets =
+{
+	{ 
+		sCategory = "powerroll",
+		tPresets = 
+		{
+			"EDGE",
+			"BANE",
+			"DOUBLEEDGE",
+			"DOUBLEBANE",
+		},
 	},
 };

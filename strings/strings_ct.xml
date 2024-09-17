@@ -128,4 +128,11 @@
 	<string name="language_value_xakalliac">Xakalliac</string>
 	<string name="language_value_yllyric">Yllyric</string>
 	<string name="language_value_zaliac">Zaliac</string>
+
+	<!-- Modifiers -->
+	<string name="modifier_category_powerroll">POWER ROLL</string>
+	<string name="modifier_label_EDGE">Edge</string>
+	<string name="modifier_label_BANE">Bane</string>
+	<string name="modifier_label_DOUBLEEDGE">x2 Edge</string>
+	<string name="modifier_label_DOUBLEBANE">x2 Bane</string>
 </root>

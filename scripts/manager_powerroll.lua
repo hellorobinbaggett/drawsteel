@@ -13,12 +13,12 @@ function powerRoll(rMessage, rRoll)
 
 		-- add +2 if edge is applied
 		if string.match(rRoll.sDesc, "Edge") then
-			powerRollTotalMod = powerRollTotalMod + 2;
+			rRoll.nMod = rRoll.nMod + 2;
 		end
 
 		-- add -2 if bane is applied
 		if string.match(rRoll.sDesc, "Bane") then
-			powerRollTotalMod = powerRollTotalMod -2;
+			rRoll.nMod = rRoll.nMod - 2;
 		end
 
 		-- write in chat what tier result it is
@@ -62,20 +62,6 @@ function powerRoll(rMessage, rRoll)
 		end
 
 	end
-
-	-- -- if 1d3 is rolled, it is for RAGE!
-	-- if rRoll.aDice.expr == "d3" then
-	-- 	rMessage.text = "[Heroic Resource: Rage] " .. tostring(rRoll.sDesc);
-	-- end
-
-	-- -- roll for initiative
-	-- if rMessage.text == "Draw Steel!" then
-	-- 	if rRoll.aDice[1].result > 5 then
-	-- 		rMessage.text = rMessage.text .. " [INITIATIVE ROLL: Heroes go first!]";
-	-- 	elseif rRoll.aDice[1].result < 6 then
-	-- 		rMessage.text = rMessage.text .. " [INITIATIVE ROLL: Villains go first!]";
-	-- 	end
-	-- end
 	
 	return rMessage;
 end
