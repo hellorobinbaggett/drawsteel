@@ -85,7 +85,7 @@ function updateDisplay()
 
 	if DB.getValue(getDatabaseNode(), "active", 0) == 1 then
 		name.setFont("sheetlabel");
-		nonid_name.setFont("sheetlabel");
+		-- nonid_name.setFont("sheetlabel");
 		
 		active_spacer_top.setVisible(true);
 		active_spacer_bottom.setVisible(true);

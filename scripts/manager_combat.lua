@@ -699,7 +699,7 @@ function sortfuncSimple(node1, node2)
 	return DB.getPath(node1) < DB.getPath(node2);
 end
 -- (node2, node1) reverses direction of turns (goes from lowest initiative to highest)
-function sortfuncStandard(node2, node1)
+function sortfuncStandard(node1, node2)
 	local bHost = Session.IsHost;
 	local sOptCTSI = OptionsManager.getOption("CTSI");
 	
