@@ -371,6 +371,51 @@
 		</sheetdata>
 	</windowclass>
 
+	<!-- testing new code -->
+	<windowclass name="modifierstack" merge="join">
+			<sheetdata>
+				<modifierstack_base name="base">
+					<acceptdrop>
+						<type merge="add">attack</type>
+						<type merge="add">damage</type>
+						<type merge="add">heal</type>
+						<type merge="add">init</type>
+						<type merge="add">save</type>
+						<type merge="add">check</type>
+						<type merge="add">recovery</type>
+					</acceptdrop>
+				</modifierstack_base>
+				<modifierstack_modifier name="modifier">
+					<acceptdrop>
+						<type merge="add">attack</type>
+						<type merge="add">damage</type>
+						<type merge="add">heal</type>
+						<type merge="add">init</type>
+						<type merge="add">save</type>
+						<type merge="add">check</type>
+						<type merge="add">recovery</type>
+					</acceptdrop>
+				</modifierstack_modifier>
+
+				<button_modifierkey name="EDGE">
+					<bounds>80,6,60,18</bounds>
+					<text>Edge</text>
+				</button_modifierkey>		
+ 				<button_modifierkey name="DOUBLEEDGE">
+					<bounds>151,6,60,18</bounds>
+					<text>x2 Edge</text>
+				</button_modifierkey>		
+				<button_modifierkey name="BANE">
+					<bounds>80,36,60,18</bounds>
+					<text>Bane</text>
+				</button_modifierkey>		
+				<button_modifierkey name="DOUBLEBANE">
+					<bounds>151,36,60,18</bounds>
+					<text>x2 Bane</text>
+				</button_modifierkey>						
+			</sheetdata>
+		</windowclass>
+
 	<windowclass name="dicetower">
 		<sizelimits>
 			<minimum width="100" height="100" />

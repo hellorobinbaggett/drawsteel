@@ -732,3 +732,28 @@ function messageResult(bSecret, rSource, rTarget, rMessageGM, rMessagePlayer)
 		end
 	end
 end
+
+-- new function for desktop buttons
+function encodeDesktopMods(rRoll)
+	local nMod = 0;
+	
+	if ModifierManager.getKey("EDGE") then
+		rRoll.sDesc = rRoll.sDesc .. " [Edge]";
+	end
+	if ModifierManager.getKey("DOUBLEEDGE") then
+		rRoll.sDesc = rRoll.sDesc .. " [Double Edge]";
+	end
+	if ModifierManager.getKey("BAN") then
+		rRoll.sDesc = rRoll.sDesc .. " [Bane]";
+	end
+	if ModifierManager.getKey("DOUBLEBANE") then
+		rRoll.sDesc = rRoll.sDesc .. " [Double Bane]";
+	end
+	
+	if nMod == 0 then
+		return;
+	end
+	
+	rRoll.nMod = rRoll.nMod + nMod;
+	rRoll.sDesc = rRoll.sDesc .. string.format(" [%+d]", nMod);
+end

@@ -3,6 +3,9 @@ function powerRoll(rMessage, rRoll)
     -- set crit threshold for power roll
 	local nCritThreshold = 19;
 
+	-- check to see if any edge/bane desktop buttons are pressed
+	ActionsManager.encodeDesktopMods(rRoll);
+
 	-- if 2d10 are rolled, it is a power roll.
 	if rRoll.aDice.expr == "2d10" then
 		local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
