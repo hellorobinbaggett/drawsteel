@@ -262,6 +262,24 @@
 	<string name="parcel_label_itemname">Item Name</string>
 	<string name="parcel_tooltip_id_all">Identify All Items</string>
 
+	<!-- Abilities -->
+	<string name="ability_label_name">Name</string>
+	<string name="ability_label_class">Class</string>
+	<string name="ability_label_subclass">Subclass</string>
+	<string name="ability_label_abilitytype">Ability Type</string>
+	<string name="ability_label_keywords">Keywords</string>
+	<string name="ability_label_type">Type</string>
+	<string name="ability_label_distance">Distance</string>
+	<string name="ability_label_target">Target</string>
+	<string name="ability_label_effect">Effect</string>
+	<string name="ability_label_special">Special</string>
+	<string name="ability_label_trigger">Trigger</string>
+	<string name="ability_label_spendresource">Spend Resource</string>
+	<string name="ability_label_powerroll">Power Roll</string>
+	<string name="ability_label_tier1">11 or lower</string>
+	<string name="ability_label_tier2">12-16</string>
+	<string name="ability_label_tier3">17+</string>
+
 	<!-- Vehicles -->
 	<string name="vehicle_grouped_label_name">Name</string>
 	<string name="vehicle_grouped_label_cost">Cost</string>

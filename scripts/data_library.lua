@@ -247,6 +247,41 @@ aRecords = {
 			["Type"] = { sField = "type" },
 		},
 	},
+	-- ["ancestry"] = { 
+	-- 	nExport = 2,
+	-- 	aDataMap = { "encounter", "reference.refmanualdata", "reference.encounters", }, 
+	-- 	sListDisplayClass = "masterindexitem_story",
+	-- 	fRecordDisplayClass = getStoryDisplayClass,
+	-- 	aRecordDisplayClasses = { "encounter", "referencemanualpage", },
+	-- 	aGMListButtons = { "button_storytemplate", },
+	-- 	aGMEditButtons = { "button_story_add_advanced", },
+	-- 	aExportAuxSource = { "reference.refmanualindex", },
+	-- 	aExportAuxTarget = { "reference.refmanualindex", },
+	-- 	-- bExport = true,
+	-- 	-- aDataMap = { "ancestry", "reference.stories" }, 
+	-- },
+	-- ["class"] = {
+	-- 	nExport = 2,
+	-- 	aDataMap = { "encounter", "reference.refmanualdata", "reference.encounters", }, 
+	-- 	sListDisplayClass = "masterindexitem_story",
+	-- 	fRecordDisplayClass = getStoryDisplayClass,
+	-- 	aRecordDisplayClasses = { "encounter", "referencemanualpage", },
+	-- 	aGMListButtons = { "button_storytemplate", },
+	-- 	aGMEditButtons = { "button_story_add_advanced", },
+	-- 	aExportAuxSource = { "reference.refmanualindex", },
+	-- 	aExportAuxTarget = { "reference.refmanualindex", }, 
+		-- bExport = true,
+		-- aDataMap = { "class", "reference.stories" }, 
+	-- },
+	["ability"] = { 
+		bExport = true,
+		aDataMap = { "ability", "reference.abilities" }, 
+		aCustomFilters = {
+			["Class"] = { sField = "class" },
+			["Subclass"] = { sField = "subclass" },
+			["Type"] = { sField = "abilitytype" },
+		},
+	},
 };
 
 aListViews = {

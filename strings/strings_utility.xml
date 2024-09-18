@@ -292,9 +292,17 @@
 	<string name="library_recordview_label_npc_byrole">By Role</string>
 	<string name="library_recordview_label_npc_bytype">By Type</string>
 
+	<string name="library_recordtype_label_ability">Abilities</string>
+	<string name="library_recordtype_single_ability">Ability</string>
+	<string name="library_recordtype_empty_ability">&#171; New Ability &#187;</string>
+
 	<string name="library_recordtype_label_power">Powers</string>
 	<string name="library_recordtype_single_power">Power</string>
 	<string name="library_recordtype_empty_power">&#171; New Power &#187;</string>
+
+	<string name="library_recordtype_label_ancestry">Ancestries</string>
+	<string name="library_recordtype_single_ancestry">Ancestry</string>
+	<string name="library_recordtype_empty_ancestry">&#171; New Ancestry &#187;</string>
 
 	<string name="library_recordtype_label_race">Races</string>
 	<string name="library_recordtype_single_race">Race</string>

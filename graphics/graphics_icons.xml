@@ -127,6 +127,9 @@
 	<!-- Powers -->
 	<icon name="power_use" file="graphics/icons/power_use.png" />
 
+	<!-- Abilities -->
+	<icon name="ability_use" file="graphics/icons/power_use.png" />
+
 	<!-- Images -->
 	<icon name="image_pin" file="graphics/icons/image_pin.png" />
 	<icon name="image_pin_public" file="graphics/icons/image_pin_public.png" />
@@ -224,19 +227,6 @@
 	<icon name="cond_regeneration" file="graphics/token/token_cond_regen.png" />
 	<icon name="cond_resistance" file="graphics/token/token_cond_resist.png" />
 	<icon name="cond_vulnerable" file="graphics/token/token_cond_vuln.png" />
-
-	<!-- Tokens - Effect - But they are the stupid little confusing icons from Elden Ring that make no sense -->
-	<icon name="er_cond_bleeding" file="graphics/token/ertoken_cond_bleeding.png" />
-	<icon name="er_cond_dazed" file="graphics/token/ertoken_cond_dazed.png" />
-	<icon name="er_cond_frightened" file="graphics/token/ertoken_cond_frightened.png" />
-	<icon name="er_cond_grabbed" file="graphics/token/ertoken_cond_grabbed.png" />
-	<icon name="er_cond_prone" file="graphics/token/ertoken_cond_prone.png" />
-	<icon name="er_cond_restrained" file="graphics/token/ertoken_cond_restrained.png" />
-	<icon name="er_cond_slowed" file="graphics/token/ertoken_cond_slowed.png" />
-	<icon name="er_cond_taunted" file="graphics/token/ertoken_cond_taunted.png" />
-	<icon name="er_cond_taunter" file="graphics/token/ertoken_cond_taunter.png" />
-	<icon name="er_cond_weakened" file="graphics/token/ertoken_cond_weakened.png" />
-	<icon name="er_cond_dying" file="graphics/token/ertoken_cond_dying.png" />
 
 	<!-- Tokens - Health -->
 	<icon name="healthbar" file="graphics/token/token_healthbar.png" />

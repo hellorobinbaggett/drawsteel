@@ -102,6 +102,7 @@
 	<icon name="sidebar_icon_recordtype_specialability" file="graphics/sidebar/sidebar_icon_fire.png" />
 	<icon name="sidebar_icon_recordtype_spell" file="graphics/sidebar/sidebar_icon_spell.png" />
 	<icon name="sidebar_icon_recordtype_talent" file="graphics/sidebar/sidebar_icon_feat.png" />
+	<icon name="sidebar_icon_recordtype_ability" file="graphics/sidebar/sidebar_icon_fire.png" />
 
 	<!-- AlienRpg -->
 	<!--

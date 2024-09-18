@@ -6,5 +6,95 @@
 -->
 
 <root>
-	<windowclass name="ability" copy="record_window_text" />
+	<windowclass name="ability" copy="record_window">
+		<minimize>minimized_item</minimize>
+	</windowclass>
+	
+	<windowclass name="ability_main">
+		<margins control="0,0,0,2" />
+		<script file="campaign/scripts/ability_main.lua" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+		<!-- DESCRIPTION -->
+      	<ft_columnh name="notes" copy="record_window_text" />
+
+		<!-- KEYWORDS -->
+		<line_column name="divider1" />
+		<label_column name="keywords_label">
+			<static textres="ability_label_keywords" />
+		</label_column>
+		<string_columnh name="keywords" />
+      	<label_column name="type_label">
+			<static textres="ability_label_type" />
+		</label_column>
+		<string_columnh name="type" />
+      	<label_column name="distance_label">
+			<static textres="ability_label_distance" />
+		</label_column>
+		<string_columnh name="distance" />
+      	<label_column name="target_label">
+			<static textres="ability_label_target" />
+		</label_column>
+		<string_columnh name="target" />
+
+		<!-- POWER ROLL -->
+		<line_column name="divider2" />
+		<ft_columnh name="powerroll" copy="record_window_text" />
+		<label_column name="tier1_label">
+			<static textres="ability_label_tier1" />
+		</label_column>
+		<string_columnh name="tier1" />
+		<label_column name="tier2_label">
+			<static textres="ability_label_tier2" />
+		</label_column>
+		<string_columnh name="tier2" />
+		<label_column name="tier3_label">
+			<static textres="ability_label_tier3" />
+		</label_column>
+		<string_columnh name="tier3" />
+
+		<!-- OTHER -->
+		<line_column name="divider3" />
+		<label_column name="trigger_label">
+			<static textres="ability_label_trigger" />
+		</label_column>
+		<string_columnh name="trigger">
+			<delaykeyupdate />
+		</string_columnh>
+		<label_column name="effect_label">
+			<static textres="ability_label_effect" />
+		</label_column>
+		<string_columnh name="effect">
+			<delaykeyupdate />
+		</string_columnh>
+		<label_column name="special_label">
+			<static textres="ability_label_special" />
+		</label_column>
+		<string_columnh name="special">
+			<delaykeyupdate />
+		</string_columnh>
+
+		<!-- CLASS SUBCLASS TAGS -->
+		<line_column name="divider4" />
+		<label_column name="class_label">
+			<static textres="ability_label_class" />
+		</label_column>
+		<string_columnh name="class">
+			<delaykeyupdate />
+		</string_columnh>
+		<label_column name="subclass_label">
+			<static textres="ability_label_subclass" />
+		</label_column>
+		<string_columnh name="subclass">
+			<delaykeyupdate />
+		</string_columnh>
+		<label_column name="abilitytype_label">
+			<static textres="ability_label_abilitytype" />
+		</label_column>
+		<string_columnh name="abilitytype">
+			<delaykeyupdate />
+		</string_columnh>
+
+		</sheetdata>
+	</windowclass>
 </root>

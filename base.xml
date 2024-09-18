@@ -8,19 +8,22 @@
 <root version="1.0" release="1" logo="logo.png">
 	<!-- Attributes -->
 	<description>
-		<displayname>Draw Steel (v.043)</displayname>
+		<displayname>Draw Steel (v.050)</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
 
 	<!-- Announcements -->
-	<announcement text="Draw Steel Custom Ruleset (v.043)
+	<announcement text="Draw Steel Custom Ruleset (v.050)
 	" font="emotefont" icon="rulesetlogo_DrawSteel" />
-	<announcement text="Draw Steel Custom Ruleset (v.043)' is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Custom Ruleset (v.050)' is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	<announcement text="Based on CoreRPG ruleset by SmiteWorks. The CoreRPG ruleset and all included files are copyright 2004-2024, Smiteworks USA LLC.
 	" font="emotefont" icon="" />
-	<announcement text="---CHANGELOG--- \r\nv.043 - fixed edges and banes desktop buttons
+	<announcement text="---CHANGELOG--- 
+	\r\nv.050 - added new ability class that allows you to create your own abilities
+	\r\nv.044 - changed layout of abilities tab (sorted by action type)
+	\r\nv.043 - fixed edges and banes desktop buttons
 	" font="emotefont" icon="" />
 	
 	
@@ -45,6 +48,7 @@
 	<includefile source="strings/strings_sound.xml" />
 	<includefile source="strings/strings_utility.xml" />
 	<includefile source="strings/strings_campaign.xml" />
+	<includefile source="strings/strings_drawsteel.xml" />
 	<includefile source="strings/strings_ct.xml" />
 	<includefile source="strings/strings_ps.xml" />
 

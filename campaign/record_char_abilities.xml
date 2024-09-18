@@ -27,16 +27,7 @@
 				<datasource>.actionslist</datasource>
 				<class>char_ability</class>
 				<acceptdrop>
-					<class>referencetext</class>
-					<class>referencetextwide</class>
 					<class>ability</class>
-					<class>note</class>
-					<class>encounter</class>
-					<class>story_book_page_advanced_header</class>
-					<class>story_content_advanced</class>
-					<class>referencemanualpage</class>
-					<class>story_book_list_item</class>
-					<class>story_header_advanced</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>
@@ -73,16 +64,7 @@
 				<datasource>.maneuverslist</datasource>
 				<class>char_ability</class>
 				<acceptdrop>
-					<class>referencetext</class>
-					<class>referencetextwide</class>
 					<class>ability</class>
-					<class>note</class>
-					<class>encounter</class>
-					<class>story_book_page_advanced_header</class>
-					<class>story_content_advanced</class>
-					<class>referencemanualpage</class>
-					<class>story_book_list_item</class>
-					<class>story_header_advanced</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>
@@ -119,16 +101,7 @@
 				<datasource>.triggeredactionslist</datasource>
 				<class>char_ability</class>
 				<acceptdrop>
-					<class>referencetext</class>
-					<class>referencetextwide</class>
 					<class>ability</class>
-					<class>note</class>
-					<class>encounter</class>
-					<class>story_book_page_advanced_header</class>
-					<class>story_content_advanced</class>
-					<class>referencemanualpage</class>
-					<class>story_book_list_item</class>
-					<class>story_header_advanced</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>
@@ -163,7 +136,7 @@
 				</anchored>
 				<columns width="222" filldown="true" />
 				<datasource>.featureslist</datasource>
-				<class>char_ability</class>
+				<class>char_features</class>
 				<acceptdrop>
 					<class>referencetext</class>
 					<class>referencetextwide</class>
@@ -249,4 +222,59 @@
 			</string_textlistitem>
 		</sheetdata>
 	</windowclass>	
+
+	<windowclass name="char_features">
+		<margins control="0,0,0,2" />
+		<sheetdata>
+			<genericcontrol name="rightanchor">
+				<anchored height="0" width="0">
+					<top offset="2" />
+					<right />
+				</anchored>
+			</genericcontrol>
+			<button_idelete name="idelete1">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>actions_iedit</editmode>
+			</button_idelete>
+			<button_idelete name="idelete2">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>maneuvers_iedit</editmode>
+			</button_idelete>
+			<button_idelete name="idelete3">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>triggeredactions_iedit</editmode>
+			</button_idelete>
+			<button_idelete name="idelete4">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>features_iedit</editmode>
+			</button_idelete>
+			<linkcontrol_static name="link">
+				<anchored to="rightanchor" width="20" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<class>record_window_text</class>
+			</linkcontrol_static>
+			<string_textlistitem name="name">
+				<anchored to="rightanchor">
+					<top />
+					<left parent="" offset="5" />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+			</string_textlistitem>
+		</sheetdata>
+	</windowclass>
 </root>

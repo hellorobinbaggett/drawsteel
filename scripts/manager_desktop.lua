@@ -66,6 +66,8 @@ local _tDefaultRecordTypeCategories = {
 	["talents"] = "create",
 	["theme"] = "create",
 	["trait"] = "create",
+	["ability"] = "create",
+	["abilities"] = "create",
 };
 
 --
