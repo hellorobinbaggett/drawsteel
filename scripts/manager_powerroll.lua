@@ -4,22 +4,12 @@ function powerRoll(rMessage, rRoll)
 	local nCritThreshold = 19;
 
 	-- check to see if any edge/bane desktop buttons are pressed
-	ActionsManager.encodeDesktopMods(rRoll);
+	ActionsManager2.encodeDesktopMods(rRoll);
 
 	-- if 2d10 are rolled, it is a power roll.
 	if rRoll.aDice.expr == "2d10" then
 		local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
-		local powerRollTotalMod = ActionsManager.total(rRoll);	
-
-		-- add +2 if edge is applied
-		if string.match(rRoll.sDesc, "Edge") then
-			rRoll.nMod = rRoll.nMod + 2;
-		end
-
-		-- add -2 if bane is applied
-		if string.match(rRoll.sDesc, "Bane") then
-			rRoll.nMod = rRoll.nMod - 2;
-		end
+		local powerRollTotalMod = ActionsManager.total(rRoll);
 
 		-- write in chat what tier result it is
 		if powerRollTotalMod <= 11 then

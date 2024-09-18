@@ -479,7 +479,11 @@ function unlockModifiers(bReset)
 	EffectManager.unlock();
 end
 
-function applyModifiers(rSource, rTarget, rRoll, bSkipModStack)	
+function applyModifiers(rSource, rTarget, rRoll, bSkipModStack)
+	if rRoll.aDice.expr == "2d10" then
+		ActionsManager2.encodeDesktopMods(rRoll);
+	end
+	
 	local bAddModStack = ActionsManager.doesRollHaveDice(rRoll);
 	if bSkipModStack then
 		bAddModStack = false;
@@ -731,31 +735,4 @@ function messageResult(bSecret, rSource, rTarget, rMessageGM, rMessagePlayer)
 			end
 		end
 	end
-end
-
--- new function for desktop buttons
-function encodeDesktopMods(rRoll)
-	local nMod = 0;
-	
-	if ModifierManager.getKey("EDGE") then
-		rRoll.sDesc = rRoll.sDesc .. " [Edge]";
-		rRoll.nMod = rRoll.nMod + 2;
-	end
-	if ModifierManager.getKey("DOUBLEEDGE") then
-		rRoll.sDesc = rRoll.sDesc .. " [Double Edge]";
-	end
-	if ModifierManager.getKey("BANE") then
-		rRoll.sDesc = rRoll.sDesc .. " [Bane]";
-		rRoll.nMod = rRoll.nMod - 2;
-	end
-	if ModifierManager.getKey("DOUBLEBANE") then
-		rRoll.sDesc = rRoll.sDesc .. " [Double Bane]";
-	end
-	
-	if nMod == 0 then
-		return;
-	end
-	
-	rRoll.nMod = rRoll.nMod + nMod;
-	rRoll.sDesc = rRoll.sDesc .. string.format(" [%+d]", nMod);
 end
