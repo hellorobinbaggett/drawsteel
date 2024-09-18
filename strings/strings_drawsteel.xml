@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<!-- Characters -->
+	<string name="char_label_classresource">CLASS RESOURCE</string>
+	<string name="char_label_class">CLASS</string>
+	<string name="char_label_subclass">SUBCLASS</string>
+	<string name="char_label_level">LEVEL</string>
+	<string name="char_label_race">ANCESTRY</string>
+	<string name="char_label_gender">GENDER</string>
+	<string name="char_label_age">AGE</string>
+	<string name="char_label_height">HEIGHT</string>
+	<string name="char_label_weight">WEIGHT</string>
+	<string name="char_label_career">CAREER</string>
+	<string name="char_label_title">TITLE</string>
+	<string name="char_label_environment">ENVIRONMENT</string>
+	<string name="char_label_organization">ORGANIZATION</string>
+	<string name="char_label_upbringing">UPBRINGING</string>
+	<string name="char_label_renown">RENOWN</string>
+	<string name="char_label_project">PROJECT</string>
+	<string name="char_label_points">POINTS</string>
+	<string name="char_label_complication">COMPLICATION</string>
+	<string name="char_label_kit">KIT</string>
+	<string name="char_label_type">TYPE</string>
+	<string name="char_label_equipment">EQUIPMENT</string>
+	<string name="char_label_armor">ARMOR</string>
+	<string name="char_label_weapon">WEAPON</string>
+	<string name="char_label_stamina">Stamina</string>
+	<string name="char_label_speed">SPEED</string>
+	<string name="char_label_stability">STABILITY</string>
+	<string name="char_label_melee">MELEE</string>
+	<string name="char_label_ranged">RANGED</string>
+	<string name="char_label_reach">REACH BNS</string>
+	<string name="char_label_mobility">MOBILITY</string>
+	<string name="char_label_implement">IMPLEMENT</string><string name="char_label_senses">Senses</string>
+	<string name="char_label_magical">MAGICAL</string>
+	<string name="char_label_distance">DISTANCE</string>
+	<string name="char_label_area">AREA BNS</string><string name="char_tooltip_portrait">Portrait</string>
+	<string name="char_tooltip_token">Token</string>
+	<string name="char_label_features">Features</string>
+	<string name="char_label_abilities">Abilities</string>
+	<string name="char_label_heroicabilities">Heroic Abilities</string>
+	<string name="char_label_kitabilities">Kit Abilities</string>
+	<string name="char_label_signatureabilities">Signature Abilities</string>
+	<string name="char_label_heroicabilities">Heroic Abilities</string>
+    <string name="char_label_actions">Actions</string>
+    <string name="char_label_maneuvers">Maneuvers</string>
+	<string name="char_label_triggeredactions">Triggered Actions</string>
+	<string name="char_label_freestrikes">Free Strikes</string>
+	<string name="char_label_max">MAX</string>
+	<string name="char_label_temp">TEMP</string>
+	<string name="char_label_classresource">Class Resource</string>
+	<string name="char_label_kitbonuses">Kit Bonuses</string>
+	<string name="char_label_damagebonuses">Damage Bonuses</string>
+	<string name="char_label_languages">Languages</string>
+	<string name="char_label_notes">Notes</string>
+	
+	<!-- NPCs -->
+	<string name="npc_label_ev">EV</string>
+	<string name="npc_label_unidentified">Non-ID Name</string>
+	<string name="npc_label_type">Type</string>
+	<string name="npc_label_stamina">Stamina</string>
+	<string name="npc_label_maxstamina">Max Stamina</string>
+	<string name="npc_label_stability">Stability</string>
+	<string name="npc_label_freestrike">Free Strike</string>
+	<string name="npc_label_size">Size</string>
+	<string name="npc_label_speed">Speed</string>
+	<string name="npc_label_reach">Reach</string>
+	<string name="npc_label_senses">Senses</string>
+	<string name="npc_label_skills">Rolls</string>
+	<string name="npc_label_items">Equipment</string>
+	<string name="npc_label_languages">Languages</string>
+	<string name="npc_label_traits">Traits</string>
+	<string name="npc_label_weaknesses">Weaknesses</string>
+	<string name="npc_label_immunities">Immunities</string>
+	<string name="npc_label_weight">Weight</string>
+	<string name="npc_label_mgt">MGT</string>
+	<string name="npc_label_agl">AGL</string>
+	<string name="npc_label_rea">REA</string>
+	<string name="npc_label_inu">INU</string>
+	<string name="npc_label_prs">PRS</string>
+	<string name="npc_label_interest">Interest:</string>
+	<string name="npc_label_patience">Patience:</string>
+	<string name="npc_label_impressionscore">Impression:</string>
+	<string name="npc_label_motivations">Motivations</string>
+	<string name="npc_label_pitfalls">Pitfalls</string>
+	<string name="npc_label_outcomes">Outcomes</string>
+</root>

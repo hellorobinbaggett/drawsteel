@@ -8,20 +8,20 @@
 <root>
 	<windowclass name="charsheet_abilities">
 		<sheetdata>
-			<!-- features strikes -->
+			<!-- actions -->
 			<frame_char name="featuresframe">
 				<bounds>0,0,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="featuresframe" />
-				<static textres="char_label_features" />
+				<static textres="char_label_actions" />
 			</label_frametop>
 			<list_text name="features">
 				<anchored to="featuresframe">
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
-					<bottom offset="-290" />
+					<bottom offset="-410" />
 				</anchored>
 				<columns width="222" filldown="true" />
 				<datasource>.featureslist</datasource>
@@ -54,20 +54,20 @@
 				<target>features</target>
 			</button_iadd>
 
-			<!--abilities-->
+			<!--maneuvers-->
 			<frame_char name="abilityframe">
-				<bounds>0,-300,-1,-5</bounds>
+				<bounds>0,-400,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="abilityframe" />
-				<static textres="char_label_abilities" />
+				<static textres="char_label_maneuvers" />
 			</label_frametop>
 			<list_text name="abilities">
 				<anchored to="abilityframe">
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
-					<bottom offset="-190" />
+					<bottom offset="-250" />
 				</anchored>
 				<columns width="222" filldown="true" />
 				<datasource>.abilitylist</datasource>
@@ -100,20 +100,20 @@
 				<target>abilities</target>
 			</button_iadd>
 
-			<!--heroic abilities-->
+			<!--triggered actions-->
 			<frame_char name="heroicabilityframe">
-				<bounds>0,-200,-1,-5</bounds>
+				<bounds>0,-250,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="heroicabilityframe" />
-				<static textres="char_label_heroicabilities" />
+				<static textres="char_label_triggeredactions" />
 			</label_frametop>
 			<list_text name="heroicabilities">
 				<anchored to="heroicabilityframe">
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
-					<bottom offset="-90" />
+					<bottom offset="-140" />
 				</anchored>
 				<columns width="222" filldown="true" />
 				<datasource>.heroicabilitylist</datasource>
@@ -146,13 +146,13 @@
 				<target>heroicabilities</target>
 			</button_iadd>
 
-			<!--free strikes-->
+			<!--features-->
 			<frame_char name="freestrikesframe">
-				<bounds>0,-100,-1,-5</bounds>
+				<bounds>0,-150,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="freestrikesframe" />
-				<static textres="char_label_freestrikes" />
+				<static textres="char_label_features" />
 			</label_frametop>
 			<list_text name="freestrikes">
 				<anchored to="freestrikesframe">
@@ -182,6 +182,15 @@
 				<anchored to="freestrikes" />
 				<target>freestrikes</target>
 			</scrollbar_list>
+
+			<button_iedit name="heroicabilities_iedit">
+				<anchored to="heroicabilities" position="aboveright" offset="-15,5" />
+				<edittarget>heroicabilities</edittarget>
+			</button_iedit>
+			<button_iadd name="heroicabilities_iadd">
+				<anchored to="heroicabilities" position="aboveright" offset="5,5" />
+				<target>heroicabilities</target>
+			</button_iadd>
 
 			<!-- <button_iedit name="freestrikes_iedit">
 				<anchored to="freestrikes" position="aboveright" offset="-15,5" />
