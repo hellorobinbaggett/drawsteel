@@ -22,6 +22,12 @@
 			<sub_charsheet name="main">
 				<class>charsheet_main</class>
 			</sub_charsheet>
+
+			<!-- TODO: for testing new main window -->
+			<!-- <sub_charsheet name="main">
+				<class>charsheet_main2</class>
+			</sub_charsheet> -->
+
 			<sub_charsheet name="skills">
 				<class>charsheet_skills</class>
 			</sub_charsheet>
@@ -37,23 +43,31 @@
 
 			<tabs_charsheet name="tabs">
 				<tab>
-					<icon>tab_main</icon>
+					<tabres>tab_main</tabres>
 					<subwindow>main</subwindow>
 				</tab>
+				<!-- <tab>
+					<tabres>tab_main</tabres>
+					<subwindow>oldmain</subwindow>
+				</tab> -->
 				<tab>
-					<icon>tab_abilities</icon>
+					<tabres>tab_abilities</tabres>
 					<subwindow>abilities</subwindow>
 				</tab>
 				<tab>
-					<icon>tab_skills</icon>
+					<tabres>tab_skills</tabres>
 					<subwindow>skills</subwindow>
 				</tab>
+				<!-- <tab>
+					<tabres>tab_kits</tabres>
+					<subwindow>kits</subwindow>
+				</tab> -->
 				<tab>
-					<icon>tab_notes</icon>
+					<tabres>tab_notes</tabres>
 					<subwindow>notes</subwindow>
 				</tab>
 				<tab>
-					<icon>tab_inventory</icon>
+					<tabres>tab_inventory</tabres>
 					<subwindow>inventory</subwindow>
 				</tab>
 			</tabs_charsheet>
@@ -85,15 +99,21 @@
 					<right relation="relative" />
 				</anchored>
 			</frame_char>
+
+			<!-- NAME -->
 			<string_labeled name="name">
 				<anchored to="overviewframe" position="insidetopleft" offset="15,10" width="100" />
 				<labelres>char_label_name</labelres>
 			</string_labeled>
+
+			<!-- ANCESTRY -->
 			<string_labeled name="ancestry">
 				<anchored to="name" position="righthigh" offset="5,0" width="70" />
 				<labelres>char_label_race</labelres>
 			</string_labeled>
-			<string_labeled name="class">
+
+			<!-- CLASS -->
+			<string_labeled name="classtitle">
 				<anchored to="ancestry" position="righthigh" offset="5,0" width="160" />
 				<labelres>char_label_class</labelres>
 			</string_labeled>

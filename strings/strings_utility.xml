@@ -10,7 +10,11 @@
 	<string name="tab_actions">Actions</string>
 	<string name="tab_inventory">Inventory</string>
 	<string name="tab_main">Main</string>
+	<string name="tab_skills">Skills</string>
+	<string name="tab_abilities">Abilities</string>
 	<string name="tab_notes">Notes</string>
+	<string name="tab_kits">Kits</string>
+	<string name="tab_career">Career</string>
 	<string name="tab_order">Order</string>
 	<string name="tab_other">Other</string>
 	<string name="tab_xp">XP</string>

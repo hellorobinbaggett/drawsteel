@@ -543,6 +543,7 @@
 		<label>
 			<anchored position="above" offset="0,3" />
 			<font>subwindowsmalltitle</font>
+			<color value="#FFFFFF" />
 			<center />
 		</label>
 	</template>

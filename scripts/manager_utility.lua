@@ -606,3 +606,37 @@ function decodeKVPFromString(s)
 	end
 	return tResults;
 end
+
+function getFontColorSansAlpha(sFont)
+	if Interface.isFont(sFont) then
+		sFontColor = Interface.getFontColor(sFont);
+	else
+		sFontColor = Interface.getFontColor("sheettext");
+	end
+	if sFontColor then
+		if #sFontColor == 8 then
+			return sFontColor:sub(3,8);
+		end
+		if #sFontColor == 9 then
+			return sFontColor:sub(4,9);
+		end
+	end
+	return "000000";
+end
+function getControlFontColor(w, sControl)
+	if w[sControl] then
+		return UtilityManager.getFontColorSansAlpha(w[sControl].getFont());
+	end
+	return UtilityManager.getFontColorSansAlpha("sheettext");
+end
+function getFullAndDisabledFontColors(sFont, sDisabledAlpha)
+	local sFontColorSansAlpha = UtilityManager.getFontColorSansAlpha(sFont);
+	return string.format("FF%s", sFontColorSansAlpha), string.format("%s%s", sDisabledAlpha or "80", sFontColorSansAlpha);
+end
+function getFullAndDisabledControlFontColors(w, sControl, sDisabledAlpha)
+	local sFontColorSansAlpha;
+	if w[sControl] then
+		return UtilityManager.getFullAndDisabledFontColors(w[sControl].getFont(), sDisabledAlpha);
+	end
+	return UtilityManager.getFullAndDisabledFontColors("sheettext", sDisabledAlpha);
+end

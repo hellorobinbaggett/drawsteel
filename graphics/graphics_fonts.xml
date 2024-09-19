@@ -216,6 +216,10 @@
 		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Regular.ttf" name="Noto Sans" size="14" />
 		<color value="#000000" />
 	</font>
+	<font name="sheetlabel2">
+		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Regular.ttf" name="Noto Sans" size="14" />
+		<color value="#FFFFFF" />
+	</font>
 	
 	<!-- Reference -->
 	<font name="reference-chapter">

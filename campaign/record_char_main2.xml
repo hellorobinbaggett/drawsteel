@@ -6,37 +6,82 @@
 -->
 
 <root>
-	<windowclass name="charsheet_main">
+	<windowclass name="charsheet_main2">
 		<margins control="0,0,0,2" />
 		<sheetdata>
-			<frame_char name="attributesframe">
-				<bounds>0,0,-1,-20</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="attributesframe" />
-				<static textres="char_label_attributes" />
-			</label_frametop>
-			<list_charmaincategory name="categories">
-				<anchored to="attributesframe">
-					<left offset="15" />
-					<top offset="35" />
-					<right offset="-20" />
-					<bottom offset="-160" />
-				</anchored>
-			</list_charmaincategory>
-			<scrollbar_list>
-				<anchored to="categories" />
-				<target>categories</target>
-			</scrollbar_list>
 
-			<button_iedit name="categories_iedit">
-				<anchored to="categories" position="aboveright" offset="-15,5" />
-				<edittarget>categories</edittarget>
-			</button_iedit>
-			<button_iadd name="categories_iadd">
-				<anchored to="categories" position="aboveright" offset="5,5" />
-				<target>categories</target>
-			</button_iadd>
+        <!-- CHARACTERISTICS -->
+            <frame_char name="characteristicsframe">
+				<bounds>0,0,150,200</bounds>
+			</frame_char>
+
+			<label_frametop>
+				<anchored to="characteristicsframe" />
+				<static textres="char_label_characteristics" />
+			</label_frametop>
+
+            <!-- MGT -->
+            <number_characteristicscore name="might" source="abilities.might.score">
+				<anchored to="characteristicsframe" position="insidetopleft" offset="90,40" />
+				<description textres="char_tooltip_mgt" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="might_label">
+				<anchored to="might" />
+				<static textres="might" />
+			</string_characteristiclabel>
+
+            <!-- AGL -->
+            <number_characteristicscore name="agility" source="abilities.agility.score">
+				<anchored to="might" />
+				<description textres="char_tooltip_agl" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="agility_label">
+				<anchored to="agility" />
+				<static textres="agility" />
+			</string_characteristiclabel>
+
+            <!-- REA -->
+            <number_characteristicscore name="reason" source="abilities.reaason.score">
+				<anchored to="agility" />
+				<description textres="char_tooltip_rea" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="reason_label">
+				<anchored to="reason" />
+				<static textres="reason" />
+			</string_characteristiclabel>
+
+            <!-- INU -->
+            <number_characteristicscore name="intuition" source="abilities.intuition.score">
+				<anchored to="reason" />
+				<description textres="char_tooltip_inu" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="intuition_label">
+				<anchored to="intuition" />
+				<static textres="intuition" />
+			</string_characteristiclabel>
+
+            <!-- PRS -->
+            <number_characteristicscore name="presence" source="abilities.presence.score">
+				<anchored to="intuition" />
+				<description textres="char_tooltip_prs" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="presence_label">
+				<anchored to="presence" />
+				<static textres="presence" />
+			</string_characteristiclabel>
+
+
+
+        <!-- STATS -->
+            <frame_char name="statsframe">
+				<bounds>220,0,200,200</bounds>
+			</frame_char>
+
+			<label_frametop>
+				<anchored to="statsframe" />
+				<static textres="char_label_stats" />
+			</label_frametop>
+
 
 			<!-- Class Resource -->
 			<label_charframetop name="classresourcetitle">
@@ -71,10 +116,10 @@
 				</script>
 			</basicnumber>
 
-			<label_charfieldtop name="classresourcetitlelable">
+			<label_charfieldtop name="classresourcetitle">
 				<anchored to="classresource" offset="0,5" />
 				<static textres="char_label_classresource" />
-				<font>sheetlabel2</font>
+				<font>sheetlabelmini</font>
 			</label_charfieldtop>
 
 			<!-- HEALTHS MATE -->

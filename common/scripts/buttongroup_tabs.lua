@@ -5,22 +5,30 @@
 
 local DEFAULT_TAB_SIZE = 67;
 local DEFAULT_TAB_MARGINS = 25;
-
-local DEFAULT_VERTICAL_OFFSETX = 7;
-local DEFAULT_VERTICAL_OFFSETY = 41;
-local DEFAULT_VERTICAL_HELPER_OFFSETX = 8;
-local DEFAULT_VERTICAL_HELPER_OFFSETY = 7;
-
 local DEFAULT_DISABLED_ALPHA = "80";
 
-local bHorizontal = false;
-local aVerticalHelperIconOffset = { DEFAULT_VERTICAL_HELPER_OFFSETX, DEFAULT_VERTICAL_HELPER_OFFSETY };
-local aHorizontalHelperIconOffset = { 7,10 };
-local aVerticalTabIconOffset = { DEFAULT_VERTICAL_OFFSETX, DEFAULT_VERTICAL_OFFSETY };
-local aHorizontalTabTextOffset = { 41,8 };
-local nTabSize = DEFAULT_TAB_SIZE;
-local nMargins = DEFAULT_TAB_MARGINS;
-local sDisabledAlpha = DEFAULT_DISABLED_ALPHA;
+local DEFAULT_VERTICAL_HELPER_OFFSETX = 8;
+local DEFAULT_VERTICAL_HELPER_OFFSETY = 7;
+local DEFAULT_HORIZONTAL_HELPER_OFFSETX = 7;
+local DEFAULT_HORIZONTAL_HELPER_OFFSETY = 10;
+
+local DEFAULT_VERTICAL_TEXT_OFFSETX = 8;
+local DEFAULT_VERTICAL_TEXT_OFFSETY = 41;
+local DEFAULT_HORIZONTAL_TEXT_OFFSETX = 41;
+local DEFAULT_HORIZONTAL_TEXT_OFFSETY = 10;
+local DEFAULT_VERTICAL_ICON_OFFSETX = 7;
+local DEFAULT_VERTICAL_ICON_OFFSETY = 41;
+
+local _bHorizontal = false;
+local _nTabSize = DEFAULT_TAB_SIZE;
+local _nMargins = DEFAULT_TAB_MARGINS;
+local _sDisabledAlpha = DEFAULT_DISABLED_ALPHA;
+
+local _tVertHelperIconOffset = { DEFAULT_VERTICAL_HELPER_OFFSETX, DEFAULT_VERTICAL_HELPER_OFFSETY };
+local _tHorzHelperIconOffset = { DEFAULT_HORIZONTAL_HELPER_OFFSETX, DEFAULT_HORIZONTAL_HELPER_OFFSETY };
+local _tVertTextOffset = { DEFAULT_VERTICAL_TEXT_OFFSETX, DEFAULT_VERTICAL_TEXT_OFFSETY };
+local _tHorzTextOffset = { DEFAULT_HORIZONTAL_TEXT_OFFSETX, DEFAULT_HORIZONTAL_TEXT_OFFSETY };
+local _tVertIconOffset = { DEFAULT_VERTICAL_ICON_OFFSETX, DEFAULT_VERTICAL_ICON_OFFSETY };
 
 function onInit()
 	self.parseSettings();
@@ -28,30 +36,41 @@ function onInit()
 	self.parseTabs();
 end
 function parseSettings()
-	if horizontal then
-		bHorizontal = true;
+	_bHorizontal = self.parseTagBooleanSetting("horizontal");
+
+	_nTabSize = self.parseTagNumberSetting("tabsize", DEFAULT_TAB_SIZE);
+	_nMargins = self.parseTagNumberSetting("tabmargins", DEFAULT_TAB_MARGINS);
+	_sDisabledAlpha = self.parseTagStringSetting("disabledalpha", DEFAULT_DISABLED_ALPHA);
+
+	_tVertHelperIconOffset[1] = self.parseTagNumberSetting("tabverticalhelperoffsetx", DEFAULT_VERTICAL_HELPER_OFFSETX);
+	_tVertHelperIconOffset[2] = self.parseTagNumberSetting("tabverticalhelperoffsety", DEFAULT_VERTICAL_HELPER_OFFSETY);
+	_tHorzHelperIconOffset[1] = self.parseTagNumberSetting("tabhorizontalhelperoffsetx", DEFAULT_HORIZONTAL_HELPER_OFFSETX);
+	_tHorzHelperIconOffset[2] = self.parseTagNumberSetting("tabhorizontalhelperoffsety", DEFAULT_HORIZONTAL_HELPER_OFFSETY);
+
+	_tVertTextOffset[1] = self.parseTagNumberSetting("tabverticaltextoffsetx", DEFAULT_VERTICAL_TEXT_OFFSETX);
+	_tVertTextOffset[2] = self.parseTagNumberSetting("tabverticaltextoffsety", DEFAULT_VERTICAL_TEXT_OFFSETY);
+	_tHorzTextOffset[1] = self.parseTagNumberSetting("tabhorzizontaloffsetx", DEFAULT_HORIZONTAL_TEXT_OFFSETX);
+	_tHorzTextOffset[2] = self.parseTagNumberSetting("tabhorzizontaloffsety", DEFAULT_HORIZONTAL_TEXT_OFFSETY);
+	_tVertIconOffset[1] = self.parseTagNumberSetting("tabverticaloffsetx", DEFAULT_VERTICAL_ICON_OFFSETX);
+	_tVertIconOffset[2] = self.parseTagNumberSetting("tabverticaloffsety", DEFAULT_VERTICAL_ICON_OFFSETY);
+end
+function parseTagBooleanSetting(sTag)
+	if self[sTag] then
+		return true;
 	end
-	if tabsize then
-		nTabSize = tonumber(tabsize[1]) or DEFAULT_TAB_SIZE;
+	return false;
+end
+function parseTagNumberSetting(sTag, nDefault)
+	if self[sTag] then
+		return tonumber(self[sTag][1]) or nDefault;
 	end
-	if tabmargins then
-		nMargins = tonumber(tabmargins[1]) or DEFAULT_TAB_MARGINS;
+	return nDefault;
+end
+function parseTagStringSetting(sTag, sDefault)
+	if self[sTag] then
+		return self[sTag][1] or sDefault;
 	end
-	if tabverticaloffsetx then
-		aVerticalTabIconOffset[1] = tonumber(tabverticaloffsetx[1]) or DEFAULT_VERTICAL_OFFSETX;
-	end
-	if tabverticaloffsety then
-		aVerticalTabIconOffset[2] = tonumber(tabverticaloffsety[1]) or DEFAULT_VERTICAL_OFFSETY;
-	end
-	if tabverticalhelperoffsetx then
-		aVerticalHelperIconOffset[1] = tonumber(tabverticalhelperoffsetx[1]) or DEFAULT_VERTICAL_HELPER_OFFSETX;
-	end
-	if tabverticalhelperoffsety then
-		aVerticalHelperIconOffset[2] = tonumber(tabverticalhelperoffsety[1]) or DEFAULT_VERTICAL_HELPER_OFFSETY;
-	end
-	if disabledalpha then
-		sDisabledAlpha = disabledalpha[1] or DEFAULT_DISABLED_ALPHA;
-	end
+	return sDefault;
 end
 function parseTabs()
 	local tTabs = {};
@@ -64,13 +83,15 @@ function parseTabs()
 		for k, v in ipairs(tab) do
 			if type(v) == "table" then
 				local tData = { sName = v.subwindow[1], };
-				if bHorizontal then
-					if v.textres then
-						tData.sTextRes = v.textres[1];
-					elseif v.text then
-						tData.sText = v.text[1];
-					end
-				else
+				if v.tabres then
+					tData.sTabRes = v.tabres[1];
+				end
+				if v.textres then
+					tData.sTextRes = v.textres[1];
+				elseif v.text then
+					tData.sText = v.text[1];
+				end
+				if v.icon then
 					tData.sIcon = v.icon[1];
 				end
 				if k == nActivate then
@@ -91,6 +112,7 @@ function setIndex(n)
 	_nIndex = n;
 end
 
+local _bUpdatingAllTabs = false;
 local _tTabs = {};
 function getTabCount()
 	return #_tTabs;
@@ -110,12 +132,23 @@ function setTabData(n, tData)
 	WindowTabManager.cleanupTabDisplay(window, _tTabs[n], tData);
 
 	_tTabs[n] = UtilityManager.copyDeep(tData);
-	self.updateTabWidget(n, tData);
+	self.updateTabWidget(n);
 
 	WindowTabManager.updateTabDisplay(w, tData);
-	if n == self.getIndex() then
-		self.activateTabEntry(n);
+
+	if not _bUpdatingAllTabs then
+		if n == self.getIndex() then
+			self.activateTabEntry(n);
+		else
+			self.updateTabWidgetsDisplay();
+		end
 	end
+end
+function addTabData(tData)
+	if not tData then
+		return;
+	end
+	self.setTabData(self.getTabCount() + 1, tData);
 end
 function clearTabData(n)
 	_tTabs[n] = nil;
@@ -132,6 +165,7 @@ function setTabsData(tTabs)
 	self.deactivateTabEntry(self.getIndex());
 	self.setIndex(0);
 
+	_bUpdatingAllTabs = true;
 	local nActivate = 1;
 	local nCount = math.max(self.getTabCount(), #tTabs);
 	for i = 1, nCount do
@@ -141,16 +175,30 @@ function setTabsData(tTabs)
 			if t.bActivate then
 				nActivate = i;
 			end
-			self.deactivateTabEntry(i)
 		else
 			self.clearTabData(i);
 		end
 	end
+	_bUpdatingAllTabs = true;
 
 	self.updateDisplay();
 	self.activateTab(nActivate);
 end
+function getTabIndexByName(s)
+	local nIndex = 0;
+	for i = 1, self.getTabCount() do
+		local tData = self.getTabData(i);
+		if tData.sName == s then
+			nIndex = i;
+			break;
+		end
+	end
+	return nIndex;	
+end
 
+function activateTabByName(s)
+	self.activateTab(self.getTabIndexByName(s));
+end
 function activateTab(n)
 	local nCurrIndex = self.getIndex();
 	local nNewIndex = tonumber(n) or 1;
@@ -185,7 +233,7 @@ function createTopWidget()
 		return;
 	end
 
-	if bHorizontal then
+	if _bHorizontal then
 		addBitmapWidget({ name = "tabtop", icon = "tabtop_h" }).setVisible(false);
 	else
 		addBitmapWidget({ name = "tabtop", icon = "tabtop" }).setVisible(false);
@@ -198,10 +246,10 @@ function updateTopWidget()
 	end
 
 	local nIndex = self.getIndex();
-	if bHorizontal then
-		wgt.setPosition("topleft", (nTabSize * (nIndex - 1)) + aHorizontalHelperIconOffset[1], aHorizontalHelperIconOffset[2]);
+	if _bHorizontal then
+		wgt.setPosition("topleft", (_nTabSize * (nIndex - 1)) + _tHorzHelperIconOffset[1], _tHorzHelperIconOffset[2]);
 	else
-		wgt.setPosition("topleft", aVerticalHelperIconOffset[1], (nTabSize * (nIndex - 1)) + aVerticalHelperIconOffset[2]);
+		wgt.setPosition("topleft", _tVertHelperIconOffset[1], (_nTabSize * (nIndex - 1)) + _tVertHelperIconOffset[2]);
 	end
 	if nIndex == 1 then
 		wgt.setVisible(false);
@@ -212,25 +260,36 @@ end
 function getTabWidget(n)
 	return findWidget("tab" .. n);
 end
-function updateTabWidget(n, tData)
+function updateTabWidget(n)
+	local tData = self.getTabData(n);
+	local sText = tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes);
 	local wgt = self.getTabWidget(n);
 	if not wgt then
-		if bHorizontal then
+		if _bHorizontal then
 			wgt = addTextWidget({ 
 				name = "tab" .. n,
-				font = "tabfont", text = tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes), 
-				position = "topleft", x = (nTabSize * (n - 1)) + aHorizontalTabTextOffset[1], y = aHorizontalTabTextOffset[2],
+				font = "tabfont", text = sText, 
+				position = "topleft", x = (_nTabSize * (n - 1)) + _tHorzTextOffset[1], y = _tHorzTextOffset[2],
 			});
 		else
-			wgt = addBitmapWidget({	
-				name = "tab" .. n,
-				icon = tData.sIcon or tData.sTabRes, 
-				position = "topleft", x = aVerticalTabIconOffset[1], y = (nTabSize * (n - 1)) + aVerticalTabIconOffset[2],
-			});
+			if sText ~= "" then
+				wgt = addTextWidget({	
+					name = "tab" .. n,
+					font = "tabfont", text = tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes), 
+					position = "topleft", x = _tVertTextOffset[1], y = (_nTabSize * (n - 1)) + _tVertTextOffset[2],
+					rotation = 270,
+				});
+			else
+				wgt = addBitmapWidget({	
+					name = "tab" .. n,
+					icon = tData.sIcon or tData.sTabRes, 
+					position = "topleft", x = _tVertIconOffset[1], y = (_nTabSize * (n - 1)) + _tVertIconOffset[2],
+				});
+			end
 		end
 	else
-		if bHorizontal then
-			wgt.setText(tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes));
+		if _bHorizontal or (sText ~= "") then
+			wgt.setText(sText);
 		else
 			wgt.setBitmap(tData.sIcon or tData.sTabRes);
 		end
@@ -243,21 +302,25 @@ function cleanupTabWidget(n)
 	end
 end
 function updateTabWidgetsDisplay()
+	local sFullColor, sDisabledColor = UtilityManager.getFullAndDisabledFontColors("tabfont", _sDisabledAlpha);
+
 	local n = self.getIndex();
 	for i = 1, self.getTabCount() do
 		local wgt = self.getTabWidget(i);
 		if wgt then
+			local tData = self.getTabData(i);
+			local sText = tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes);
 			if i == n then
-				if bHorizontal then
-					wgt.setColor("FF000000");
+				if _bHorizontal or (sText ~= "") then
+					wgt.setColor(sFullColor);
 				else
 					wgt.setColor("FFFFFFFF");
 				end
 			else
-				if bHorizontal then
-					wgt.setColor(sDisabledAlpha .. "000000");
+				if _bHorizontal or (sText ~= "") then
+					wgt.setColor(sDisabledColor);
 				else
-					wgt.setColor(sDisabledAlpha .. "FFFFFF");
+					wgt.setColor(_sDisabledAlpha .. "FFFFFF");
 				end
 			end
 		end
@@ -265,10 +328,10 @@ function updateTabWidgetsDisplay()
 end
 function updateDisplay()
 	local n = self.getTabCount();
-	if bHorizontal then
-		setAnchoredWidth(nMargins + (nTabSize * n));
+	if _bHorizontal then
+		setAnchoredWidth(_nMargins + (_nTabSize * n));
 	else
-		setAnchoredHeight(nMargins + (nTabSize * n));
+		setAnchoredHeight(_nMargins + (_nTabSize * n));
 	end
 	if self.getIndex() > n then
 		self.activateTab(n);
@@ -292,12 +355,12 @@ function onClickDown(button, x, y)
 end
 function onClickRelease(button, x, y)
 	local i;
-	if bHorizontal then
-		local adjx = x - (aHorizontalTabTextOffset[1] - (nTabSize / 2));
-		i = math.ceil(adjx / nTabSize);
+	if _bHorizontal then
+		local adjx = x - (_tHorzTextOffset[1] - (_nTabSize / 2));
+		i = math.ceil(adjx / _nTabSize);
 	else
-		local adjy = y - (aVerticalTabIconOffset[2] - (nTabSize / 2));
-		i = math.ceil(adjy / nTabSize);
+		local adjy = y - (_tVertIconOffset[2] - (_nTabSize / 2));
+		i = math.ceil(adjy / _nTabSize);
 	end
 
 	if i >= 1 and i <= self.getTabCount() then
@@ -346,8 +409,9 @@ function getTab(n)
 	if not tData then
 		return nil, nil;
 	end
-	if bHorizontal then
-		return tData.sName, tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes);
+	local sText = tData.sText or Interface.getString(tData.sTextRes or tData.sTabRes);
+	if _bHorizontal or (sText ~= "") then
+		return tData.sName, sText;
 	end
 	return tData.sName, tData.sIcon or tData.sTabRes;
 end
@@ -359,6 +423,8 @@ function setTab(n, sSub, sDisplay)
 		self.setTabData(n, tData);
 		if self.getIndex() == n then
 			self.activateTabEntry(n);
+		else
+			self.updateTabWidgetsDisplay();
 		end
 	else
 		self.clearTabData(n);
@@ -373,6 +439,8 @@ function addTab(sSub, sDisplay, bActivate)
 	self.updateDisplay();
 	if bActivate then
 		self.activateTab(nIndex);
+	else
+		self.updateTabWidgetsDisplay();
 	end
 end
 -- BoL

@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<windowclass name="charsheet_notes">
+	<windowclass name="charsheet_kits">
 		<sheetdata>
 			<frame_char name="detailframe">
 				<bounds>0,0,-1,70</bounds>

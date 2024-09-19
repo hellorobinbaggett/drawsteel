@@ -1,7 +1,43 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
 <root>
+	<!-- Common -->
+	<string name="mgt">MGT</string>
+	<string name="agl">AGL</string>
+	<string name="rea">REA</string>
+	<string name="inu">INU</string>
+	<string name="prs">PRS</string>
+	<string name="might">Might</string>
+	<string name="agility">Agility</string>
+	<string name="reason">Reasons</string>
+	<string name="intuition">Intuition</string>
+	<string name="presence">Presence</string>
+	<string name="reach">Reach</string>
+	<string name="size">Size</string>
+	<string name="speed">Speed</string>
+	<string name="stability">Stability</string>
+	<string name="weight">Weight</string>
+	<string name="victories">Victories</string>
+
 	<!-- Characters -->
+	<string name="char_label_characteristics">Characteristics</string>
+	<string name="char_label_stats">Stats</string>
+	<string name="char_tooltip_mgt">Might score</string>
+	<string name="char_tooltip_agl">Agility score</string>
+	<string name="char_tooltip_rea">Reason score</string>
+	<string name="char_tooltip_inu">Intuition score</string>
+	<string name="char_tooltip_prs">Presence score</string>
+	<string name="char_tooltip_reach">Reach</string>
+	<string name="char_tooltip_size">Size</string>
+	<string name="char_tooltip_speed">Speed</string>
+	<string name="char_tooltip_stability">Stability</string>
+	<string name="char_tooltip_weight">Weight</string>
+	<string name="char_tooltip_victories">Victories</string>
+	<string name="char_label_strength">Strength</string>
+	<string name="char_label_agility">Agility</string>
+	<string name="char_label_intuition">Intuition</string>
+	<string name="char_label_reason">Reason</string>
+	<string name="char_label_presence">Presence</string>
 	<string name="char_label_classresource">CLASS RESOURCE</string>
 	<string name="char_label_class">CLASS</string>
 	<string name="char_label_subclass">SUBCLASS</string>
