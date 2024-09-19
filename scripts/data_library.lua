@@ -242,7 +242,7 @@ aRecords = {
 		bID = true,
 		aDataMap = { "vehicle", "reference.vehicles" }, 
 		-- sRecordDisplayClass = "vehicle", 
-		aGMListButtons = { "button_vehicle_type" },
+		aGMListButtons = { "" },
 		aCustomFilters = {
 			["Type"] = { sField = "type" },
 		},
@@ -294,6 +294,17 @@ aListViews = {
 			},
 			aFilters = {},
 			aGroups = { { sDBField = "type" } },
+			aGroupValueOrder = {},
+		},
+	},
+	["ability"] = {
+		["byclass"] = {
+			aColumns = {
+				{ sName = "name", sType = "string", sHeadingRes = "ability_grouped_label_name", nWidth=200 },
+				{ sName = "cost", sType = "string", sHeadingRes = "ability_grouped_label_cost", nWidth=200 },
+			},
+			aFilters = {},
+			aGroups = { { sDBField = "class" } },
 			aGroupValueOrder = {},
 		},
 	},

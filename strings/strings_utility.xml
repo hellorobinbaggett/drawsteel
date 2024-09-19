@@ -295,6 +295,8 @@
 	<string name="library_recordtype_label_ability">Abilities</string>
 	<string name="library_recordtype_single_ability">Ability</string>
 	<string name="library_recordtype_empty_ability">&#171; New Ability &#187;</string>
+	<string name="library_recordview_label_ability_bytype">By Type</string>
+	<string name="library_recordview_label_ability_byclass">By Class</string>
 
 	<string name="library_recordtype_label_power">Powers</string>
 	<string name="library_recordtype_single_power">Power</string>
@@ -320,6 +322,7 @@
 	<string name="library_recordtype_single_specialability">Special Ability</string>
 	<string name="library_recordtype_empty_specialability">&#171; New Special Ability &#187;</string>
 	<string name="library_recordview_label_specialability_bytype">By Type</string>
+	<string name="library_recordview_label_specialability_byclass">By Class</string>
 
 	<string name="library_recordtype_label_spell">Spells</string>
 	<string name="library_recordtype_single_spell">Spell</string>

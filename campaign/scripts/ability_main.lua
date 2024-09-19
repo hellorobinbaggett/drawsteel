@@ -42,6 +42,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "distance", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "cost", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "class", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "effect", bReadOnly);

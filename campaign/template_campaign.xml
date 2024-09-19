@@ -887,4 +887,11 @@
 			<recordview>bytype</recordview>
 		</button_masterindex_option_view>
 	</template>
+
+	<template name="button_ability_class">
+		<button_masterindex_option_view>
+			<recordtype>ability</recordtype>
+			<recordview>byclass</recordview>
+		</button_masterindex_option_view>
+	</template>
 </root>

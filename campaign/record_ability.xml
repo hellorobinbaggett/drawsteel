@@ -76,6 +76,12 @@
 
 		<!-- CLASS SUBCLASS TAGS -->
 		<line_column name="divider4" />
+		<label_column name="cost_label">
+			<static textres="ability_label_cost" />
+		</label_column>
+		<string_columnh name="cost">
+			<delaykeyupdate />
+		</string_columnh>
 		<label_column name="class_label">
 			<static textres="ability_label_class" />
 		</label_column>

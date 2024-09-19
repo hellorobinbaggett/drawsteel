@@ -264,6 +264,7 @@
 
 	<!-- Abilities -->
 	<string name="ability_label_name">Name</string>
+	<string name="ability_label_cost">Cost</string>
 	<string name="ability_label_class">Class</string>
 	<string name="ability_label_subclass">Subclass</string>
 	<string name="ability_label_abilitytype">Ability Type</string>
@@ -279,6 +280,8 @@
 	<string name="ability_label_tier1">11 or lower</string>
 	<string name="ability_label_tier2">12-16</string>
 	<string name="ability_label_tier3">17+</string>
+	<string name="ability_grouped_label_name">Name</string>
+	<string name="ability_grouped_label_cost">Cost</string>
 
 	<!-- Vehicles -->
 	<string name="vehicle_grouped_label_name">Name</string>
