@@ -711,6 +711,29 @@
 			</script>
 		</button_masterindex_option>
 	</template>
+
+	<template name="button_classtemplate">
+		<button_masterindex_option>
+			<state textres="class_button_templates" />
+			<script>
+				function onButtonPress()
+					RecordManager.openRecordIndex("classtemplate");
+				end
+			</script>
+		</button_masterindex_option>
+	</template>
+
+	<template name="button_ancestrytemplate">
+		<button_masterindex_option>
+			<state textres="ancestry_button_templates" />
+			<script>
+				function onButtonPress()
+					RecordManager.openRecordIndex("ancestrytemplate");
+				end
+			</script>
+		</button_masterindex_option>
+	</template>
+
 	<template name="button_battlerandom">
 		<button_masterindex_option>
 			<state textres="battle_button_random" />

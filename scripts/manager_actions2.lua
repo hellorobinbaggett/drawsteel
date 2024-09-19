@@ -14,6 +14,12 @@ function encodeDesktopMods(rRoll)
 		nMod = nMod - 2;
         rRoll.sDesc = rRoll.sDesc .. " [Bane]";
 	end
+	if ModifierManager.getKey("DOUBLEEDGE") then
+        rRoll.sDesc = rRoll.sDesc .. " [Double Edge]";
+	end
+	if ModifierManager.getKey("DOUBLEBANE") then
+        rRoll.sDesc = rRoll.sDesc .. " [Double Bane]";
+	end
 	
 	if nMod == 0 then
 		return;
