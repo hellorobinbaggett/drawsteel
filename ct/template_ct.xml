@@ -31,21 +31,21 @@
 	<template name="label_ct_header_hp">
 		<label_ct_right>
 			<anchored width="50">
-				<right offset="-17" />
+				<right offset="0" />
 			</anchored>
 			<static textres="ct_label_stamina" />
 		</label_ct_right>
 	</template>
 
-
 	<template name="label_ct_header_init">
 		<label_ct_right>
-			<anchored width="30">
-				<right offset="-15" />
+			<anchored width="40">
+				<right offset="0" />
 			</anchored>
 			<static textres="ct_label_init" />
 		</label_ct_right>
 	</template>
+
 	<template name="label_ct_header_name">
 		<label_ct>
 			<anchored>

@@ -191,6 +191,14 @@
 			</script>
 		</button_faction>
 	</template>
+	<template name="button_ctentry_gone">
+		<button_status>
+			<anchored to="rightanchor">
+				<top />
+				<right anchor="left" relation="relative" offset="-5" />
+			</anchored>
+		</button_status>
+	</template>
 	<template name="number_ctentry_initresult">
 		<number_ct_crosslink name="initresult">
 			<anchored to="rightanchor" width="30" height="20">

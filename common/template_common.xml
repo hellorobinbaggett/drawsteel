@@ -433,6 +433,19 @@
 		</button_iconcycler>
 	</template>
 
+	<template name="button_status">
+		<button_iconcycler>
+			<anchored width="20" height="20" />
+			<gmeditonly />
+			<parameters>
+				<icons>ct_faction_check</icons>
+				<values>gone</values>
+				<tooltipsres>ct_tooltip_gone</tooltipsres>
+				<defaulticon>ct_faction_empty</defaulticon>
+			</parameters>
+		</button_iconcycler>
+	</template>
+
 	<template name="button_dialog_ok" >
 		<buttoncontrol>
 			<anchored width="35" height="35" />

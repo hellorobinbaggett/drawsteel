@@ -26,7 +26,7 @@
 			<anchor_ct_entry_right name="rightanchor" />
 			<button_ct_section_effects name="button_section_effects" />
 			<button_ctentry_friendfoe name="friendfoe" />
-			<number_clientct_init name="initresult" />
+			<button_ctentry_gone name="statusresult" />
 			<number_clientct_stamina name="staminaresult" />
 
 			<string_clientct_name name="name" />

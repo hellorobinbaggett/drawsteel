@@ -17,7 +17,7 @@
 	<string name="menu_initclear">Clear All Initiatives</string>
 	
 	<string name="ct_label_name">Name</string>
-	<string name="ct_label_init">Init</string>
+	<string name="ct_label_init">Gone</string>
 	<string name="ct_label_hptemp">Tmp</string>
 	<string name="ct_label_nonlethal">Sbd</string>
 	<string name="ct_label_wounds">Wnd</string>
@@ -33,6 +33,7 @@
 	<string name="ct_label_menu">MENU</string>
 	<string name="ct_label_round">ROUND</string>
 
+	<string name="ct_tooltip_gone">Gone</string>
 	<string name="ct_tooltip_hptemp">Temporary Hit Points</string>
 	<string name="ct_tooltip_nonlethal">Nonlethal Wounds</string>
 	<string name="ct_tooltip_wounds">Wounds</string>

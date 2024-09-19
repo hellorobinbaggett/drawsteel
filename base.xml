@@ -8,7 +8,7 @@
 <root version="1.0" release="1" logo="logo.png">
 	<!-- Attributes -->
 	<description>
-		<displayname>Draw Steel (v.051)</displayname>
+		<displayname>Draw Steel (DEV)</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
@@ -20,12 +20,6 @@
 	" font="emotefont" icon="" />
 	<announcement text="Based on CoreRPG ruleset by SmiteWorks. The CoreRPG ruleset and all included files are copyright 2004-2024, Smiteworks USA LLC.
 	" font="emotefont" icon="" />
-	<announcement text="---CHANGELOG--- 
-	\r\nv.050 - added new ability class that allows you to create your own abilities
-	\r\nv.044 - changed layout of abilities tab (sorted by action type)
-	\r\nv.043 - fixed edges and banes desktop buttons
-	" font="emotefont" icon="" />
-	
 	
 	<!-- Tabletop settings -->
 	<includefile source="gameelements.xml" />
