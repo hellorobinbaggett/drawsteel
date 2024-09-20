@@ -29,7 +29,7 @@
 
 			<line_column name="divider" />
 
-			<label_column name="prerequisite_label">
+			<label_column name="prerequisites_label">
 				<static textres="item_label_prerequisites" />
 			</label_column>
 			<string_columnh name="prerequisites" />
