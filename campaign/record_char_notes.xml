@@ -70,15 +70,15 @@
 				<labelres>char_label_complication</labelres>
 			</string_labeled>
 
-			<frame_char name="appearanceframe">
+			<frame_char name="complicationsframe">
 				<bounds>0,70,320,190</bounds>
-			</frame_char>
-			<!-- <label_frametop>
-				<anchored to="appearanceframe" offset="125,50"/>
-				<static textres="char_label_kitnonuses" />
-			</label_frametop> -->
-			<!-- <stringu name="appearance">
-				<anchored to="appearanceframe">
+			</frame_char>	
+			<label_frametop>
+				<anchored to="complicationsframe" />
+				<static textres="char_label_complications" />
+			</label_frametop>
+			<stringu name="complications">
+				<anchored to="complicationsframe">
 					<top offset="30" />
 					<left offset="15" />
 					<right offset="-20" />
@@ -86,85 +86,11 @@
 				</anchored>
 				<multilinespacing>20</multilinespacing>
 				<nodrag />
-			</stringu> -->
-			<!-- <scrollbar_list>
-				<anchored to="appearance" />
-				<target>appearance</target>
-			</scrollbar_list> -->
-			<string_labeled name="kit">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="155" />
-				<labelres>char_label_kit</labelres>
-			</string_labeled>
-			<string_labeled name="kittype">
-				<anchored to="kit" position="righthigh" offset="5,0" width="135" />
-				<labelres>char_label_type</labelres>
-			</string_labeled>
-
-			<string_labeled name="kitarmor">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="70" />
-				<labelres>char_label_armor</labelres>
-			</string_labeled>
-			<string_labeled name="kitweapon">
-				<anchored to="kitarmor" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_weapon</labelres>
-			</string_labeled>
-			<string_labeled name="kitimplement">
-				<anchored to="kitweapon" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_implement</labelres>
-			</string_labeled>
-
-			<label_frametop>
-				<anchored to="appearanceframe" offset="125,60"/>
-				<static textres="char_label_kitbonuses" />
-			</label_frametop>
-
-			<string_labeled name="kitstamina">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,77" width="90" />
-				<labelres>char_label_stamina</labelres>
-			</string_labeled>
-			<string_labeled name="kitspeed">
-				<anchored to="kitstamina" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_speed</labelres>
-			</string_labeled>
-			<string_labeled name="kitstability">
-				<anchored to="kitspeed" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_stability</labelres>
-			</string_labeled>
-
-			<string_labeled name="kitdistance">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,107" width="90" />
-				<labelres>char_label_distance</labelres>
-			</string_labeled>
-			<string_labeled name="kitreach">
-				<anchored to="kitdistance" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_reach</labelres>
-			</string_labeled>
-			<string_labeled name="kitarea">
-				<anchored to="kitreach" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_area</labelres>
-			</string_labeled>
-
-			<label_frametop>
-				<anchored to="appearanceframe" offset="125,135"/>
-				<static textres="char_label_damagebonuses" />
-			</label_frametop>
-
-			<string_labeled name="kitmeleedmg">
-				<default>+0/+0/+0</default>
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,155" width="90" />
-				<labelres>char_label_melee</labelres>
-			</string_labeled>
-			<string_labeled name="kitrangeddmg">
-				<default>+0/+0/+0</default>
-				<anchored to="kitmeleedmg" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_ranged</labelres>
-			</string_labeled>
-			<string_labeled name="kitmagicaldmg">
-				<default>+0/+0/+0</default>
-				<anchored to="kitrangeddmg" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_magical</labelres>
-			</string_labeled>			
-
+			</stringu>
+			<scrollbar_list>
+				<anchored to="complications" />
+				<target>complications</target>
+			</scrollbar_list>		
 			
 			<frame_char name="languageframe">
 				<bounds>320,70,-1,190</bounds>

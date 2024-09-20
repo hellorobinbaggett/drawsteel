@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<windowclass name="charsheet_main2">
+	<windowclass name="charsheet_main_ds">
 		<margins control="0,0,0,2" />
 		<sheetdata>
 
@@ -70,18 +70,176 @@
 				<static textres="presence" />
 			</string_characteristiclabel>
 
-
-
-        <!-- STATS -->
-            <frame_char name="statsframe">
-				<bounds>220,0,200,200</bounds>
+        <!-- RECOVERIES -->
+            <frame_char name="recoveriesframe">
+				<bounds>140,0,150,200</bounds>
 			</frame_char>
 
 			<label_frametop>
-				<anchored to="statsframe" />
-				<static textres="char_label_stats" />
+				<anchored to="recoveriesframe" />
+				<static textres="char_label_recoveries" />
 			</label_frametop>
 
+			<basicnumber name="recoverycurrent" source="recoverycurrent">
+				<anchored to="recoveriesframe" width="86" height="30">
+					<top anchor="top" offset="40" />
+					<left anchor="center" offset="-44" />
+				</anchored>
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_currentrecoveries" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
+			
+			<label_charfieldbottom name="recoverycurrent_label">
+				<anchored to="recoverycurrent" offset="0,0" />
+				<static textres="char_label_current" />
+			</label_charfieldbottom>
+
+			<basicnumber name="recoverymax" source="recoverymax">
+				<anchored to="recoveriesframe" width="86" height="30">
+					<top anchor="top" offset="90" />
+					<left anchor="center" offset="-44" />
+				</anchored>
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_maxrecoveries" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
+			
+			<label_charfieldbottom name="recoverymax_label">
+				<anchored to="recoverymax" offset="0,0" />
+				<static textres="char_label_max" />
+			</label_charfieldbottom>
+
+			<basicnumber name="recoveryvalue" source="recoveryvalue">
+				<anchored to="recoveriesframe" width="86" height="30">
+					<top anchor="top" offset="140" />
+					<left anchor="center" offset="-44" />
+				</anchored>
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_recoveryvalue" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
+			
+			<label_charfieldbottom name="recoveryvalue_label">
+				<anchored to="recoveryvalue" offset="0,0" />
+				<static textres="char_label_value" />
+			</label_charfieldbottom>
+
+        	<!-- STATS -->
+            <frame_char name="statsframe">
+				<bounds>280,0,210,200</bounds>
+			</frame_char>
+
+			<!-- <label_frametop>
+				<anchored to="statsframe" />
+				<static textres="char_label_stats" />
+			</label_frametop> -->
+
+			<!-- REACH -->
+			<number_characteristicscore name="reach" source="abilities.reach.value">
+				<anchored to="statsframe" position="insidetopleft" offset="125,15" />
+				<description textres="char_tooltip_reach" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="reach_label">
+				<anchored to="reach" />
+				<static textres="reach" />
+			</string_characteristiclabel>
+
+			<!-- SIZE -->
+			<number_characteristicscore name="size" source="abilities.size.value">
+				<anchored to="reach"/>
+				<description textres="char_tooltip_size" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="size_label">
+				<anchored to="size" />
+				<static textres="size" />
+			</string_characteristiclabel>
+
+			<!-- SPEED -->
+			<number_characteristicscore name="speed" source="abilities.speed.value">
+				<anchored to="size" />
+				<description textres="char_tooltip_speed" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="speed_label">
+				<anchored to="speed" />
+				<static textres="speed" />
+			</string_characteristiclabel>
+
+			<!-- STABILITY -->
+			<number_characteristicscore name="stability" source="abilities.stability.value">
+				<anchored to="speed"  />
+				<description textres="char_tooltip_stability" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="stability_label">
+				<anchored to="stability" />
+				<static textres="stability" />
+			</string_characteristiclabel>
+
+			<!-- WEIGHT -->
+			<number_characteristicscore name="weight" source="abilities.weight.value">
+				<anchored to="stability" />
+				<description textres="char_tooltip_weight" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="weight_label">
+				<anchored to="weight" />
+				<static textres="weight" />
+			</string_characteristiclabel>
+
+			<!-- VICTORIES -->
+			<number_characteristicscore name="victories" source="abilities.victories.value">
+				<anchored to="weight" />
+				<description textres="char_tooltip_victories" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="victories_label">
+				<anchored to="victories" />
+				<static textres="victories" />
+			</string_characteristiclabel>
+
+
+			<frame_char name="weaknessframe">
+				<bounds>0,195,490,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="weaknessframe" />
+				<static textres="char_label_weaknessess" />
+			</label_frametop>
+			<stringu name="weaknessess">
+				<anchored to="weaknessframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
+
+			<frame_char name="immunityframe">
+				<bounds>0,245,490,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="immunityframe" />
+				<static textres="char_label_immunities" />
+			</label_frametop>
+			<stringu name="immunities">
+				<anchored to="immunityframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
 
 			<!-- Class Resource -->
 			<label_charframetop name="classresourcetitle">
@@ -116,10 +274,10 @@
 				</script>
 			</basicnumber>
 
-			<label_charfieldtop name="classresourcetitle">
+			<label_charfieldtop name="classresourcetitlelable">
 				<anchored to="classresource" offset="0,5" />
 				<static textres="char_label_classresource" />
-				<font>sheetlabelmini</font>
+				<font>sheetlabel2</font>
 			</label_charfieldtop>
 
 			<!-- HEALTHS MATE -->
@@ -187,7 +345,7 @@
 
 			<label_charfieldtop name="max_label">
 				<anchored to="max" offset="0,10" />
-				<static textres="char_label_max" />
+				<static textres="char_label_maxhp" />
 			</label_charfieldtop>
 
 			<label_charfieldtop name="temp_label">

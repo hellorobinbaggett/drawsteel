@@ -2,6 +2,8 @@
 
 <root>
 	<!-- Common -->
+	<string name="value">Value (1/3 Max)</string>
+	<string name="slash">/</string>
 	<string name="mgt">MGT</string>
 	<string name="agl">AGL</string>
 	<string name="rea">REA</string>
@@ -9,7 +11,7 @@
 	<string name="prs">PRS</string>
 	<string name="might">Might</string>
 	<string name="agility">Agility</string>
-	<string name="reason">Reasons</string>
+	<string name="reason">Reason</string>
 	<string name="intuition">Intuition</string>
 	<string name="presence">Presence</string>
 	<string name="reach">Reach</string>
@@ -18,6 +20,7 @@
 	<string name="stability">Stability</string>
 	<string name="weight">Weight</string>
 	<string name="victories">Victories</string>
+	<string name="char_label_value">Value</string>
 
 	<!-- Characters -->
 	<string name="char_label_characteristics">Characteristics</string>
@@ -33,6 +36,9 @@
 	<string name="char_tooltip_stability">Stability</string>
 	<string name="char_tooltip_weight">Weight</string>
 	<string name="char_tooltip_victories">Victories</string>
+	<string name="char_tooltip_currentrecoveries">Current Recoveries</string>
+	<string name="char_tooltip_maxrecoveries">Max Recoveries</string>
+	<string name="char_tooltip_recoveryvalue">Recovery Value</string>
 	<string name="char_label_strength">Strength</string>
 	<string name="char_label_agility">Agility</string>
 	<string name="char_label_intuition">Intuition</string>
@@ -83,13 +89,23 @@
     <string name="char_label_maneuvers">Maneuvers</string>
 	<string name="char_label_triggeredactions">Triggered Actions</string>
 	<string name="char_label_freestrikes">Free Strikes</string>
-	<string name="char_label_max">MAX</string>
+	<string name="char_label_max">Max</string>
+	<string name="char_label_maxhp">MAX</string>
 	<string name="char_label_temp">TEMP</string>
+	<string name="char_label_current">Current</string>
 	<string name="char_label_classresource">Class Resource</string>
 	<string name="char_label_kitbonuses">Kit Bonuses</string>
+	<string name="char_label_recoveries">Recoveries</string>
+	<string name="char_label_immunities">Damage Immunities</string>
+	<string name="char_label_weaknessess">Damage Weaknessess</string>
+	<string name="char_label_crafting">Crafting</string>
+	<string name="char_label_complications">Complications</string>
+	<string name="char_label_kit1">Kit #1</string>
+	<string name="char_label_kit2">Kit #2</string>
 	<string name="char_label_damagebonuses">Damage Bonuses</string>
 	<string name="char_label_languages">Languages</string>
 	<string name="char_label_notes">Notes</string>
+	<string name="char_label_damages">Damage Weaknesses and Immunities</string>
 	
 	<!-- NPCs -->
 	<string name="npc_label_ev">EV</string>

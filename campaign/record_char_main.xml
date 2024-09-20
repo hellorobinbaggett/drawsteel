@@ -142,7 +142,7 @@
 
 			<label_charfieldtop name="max_label">
 				<anchored to="max" offset="0,10" />
-				<static textres="char_label_max" />
+				<static textres="char_label_maxhp" />
 			</label_charfieldtop>
 
 			<label_charfieldtop name="temp_label">

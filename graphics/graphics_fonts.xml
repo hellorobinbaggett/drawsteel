@@ -298,6 +298,10 @@
 		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="16" />
 		<color value="FFF1CC" />
 	</font>
+	<font name="subwindowsmalltitle2">
+		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="16" />
+		<color value="000000" />
+	</font>
 	<font name="subwindowsmalltitle_disabled">
 		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="16" />
 		<color value="606060" />

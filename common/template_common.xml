@@ -547,6 +547,14 @@
 			<center />
 		</label>
 	</template>
+	<template name="label_charfieldbottom">
+		<label>
+			<anchored position="below" offset="0,3" />
+			<font>subwindowsmalltitle2</font>
+			<color value="#000000" />
+			<center />
+		</label>
+	</template>
 
 	<template name="string_columnh_multiroll">
 		<string_columnh>
