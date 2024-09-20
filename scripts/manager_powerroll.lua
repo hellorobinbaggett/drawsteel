@@ -7,7 +7,7 @@ function powerRoll(rMessage, rRoll)
 	ActionsManager2.encodeDesktopMods(rRoll);
 
 	-- if 2d10 are rolled, it is a power roll.
-	if rRoll.aDice.expr == "2d10" then
+	if string.match(rRoll.aDice.expr, "2d10") then
 		local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
 		local powerRollTotalMod = ActionsManager.total(rRoll);
 
