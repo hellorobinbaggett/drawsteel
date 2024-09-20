@@ -95,7 +95,7 @@
 		<class>dicepanel</class>
 		<anchored width="50" height="50">
 			<top anchor="bottom" offset="-105" />
-			<left offset="75" />
+			<left offset="200" />
 		</anchored>
 		<dynamic />
 		<locked />

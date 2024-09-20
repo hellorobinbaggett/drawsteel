@@ -24,7 +24,7 @@
 	
 	<font name="tabfont">
 		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="14" />
-		<color value="#FFFFFF" />
+		<!-- <color value="#FFFFFF" /> -->
 	</font>
 	
 	<!-- LEGACY - TO BE DEPRECATED (2024-08-13) -->
