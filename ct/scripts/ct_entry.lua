@@ -57,7 +57,7 @@ function onIDChanged()
 	local bID = LibraryData.getIDState(sRecordType, nodeRecord, true);
 	
 	name.setVisible(bID);
-	-- nonid_name.setVisible(not bID);
+	nonid_name.setVisible(not bID);
 
 	isidentified.setVisible(LibraryData.getIDMode(sRecordType));
 end
@@ -85,7 +85,7 @@ function updateDisplay()
 
 	if DB.getValue(getDatabaseNode(), "active", 0) == 1 then
 		name.setFont("sheetlabel");
-		-- nonid_name.setFont("sheetlabel");
+		nonid_name.setFont("sheetlabel");
 		
 		active_spacer_top.setVisible(true);
 		active_spacer_bottom.setVisible(true);
@@ -101,7 +101,7 @@ function updateDisplay()
 		end
 	else
 		name.setFont("sheettext");
-		-- nonid_name.setFont("sheettext");
+		nonid_name.setFont("sheettext");
 		
 		active_spacer_top.setVisible(false);
 		active_spacer_bottom.setVisible(false);

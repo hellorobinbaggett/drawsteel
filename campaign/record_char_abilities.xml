@@ -8,7 +8,7 @@
 <root>
 	<windowclass name="charsheet_abilities">
 		<sheetdata>
-			<!-- actions -->
+			<!-- actions  section-->
 			<frame_char name="actionsframe">
 				<bounds>0,0,-1,-5</bounds>
 			</frame_char>
@@ -45,9 +45,9 @@
 				<target>actions</target>
 			</button_iadd>
 
-			<!--maneuvers-->
+			<!--maneuvers section-->
 			<frame_char name="maneuversframe">
-				<bounds>0,-400,-1,-5</bounds>
+				<bounds>0,-360,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="maneuversframe" />
@@ -82,7 +82,7 @@
 				<target>maneuvers</target>
 			</button_iadd>
 
-			<!--triggered actions-->
+			<!--triggered actions section-->
 			<frame_char name="triggeredactionsframe">
 				<bounds>0,-250,-1,-5</bounds>
 			</frame_char>
@@ -119,7 +119,7 @@
 				<target>triggeredactions</target>
 			</button_iadd>
 
-			<!--features-->
+			<!--features section-->
 			<frame_char name="featuresframe">
 				<bounds>0,-150,-1,-5</bounds>
 			</frame_char>

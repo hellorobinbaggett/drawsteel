@@ -30,9 +30,9 @@
 			<number_clientct_stamina name="staminaresult" />
 
 			<string_clientct_name name="name" />
-			<!-- <string_ct_entry_name name="nonid_name">
+			<string_ct_entry_name name="nonid_name">
 				<invisible />
-			</string_ct_entry_name> -->
+			</string_ct_entry_name>
 
 			<sub_ct_section name="sub_effects" />
 

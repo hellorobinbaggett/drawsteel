@@ -42,7 +42,7 @@
 			<number_ctentry_hpresult name="hpresult" />
 
 			<string_ct_entry_name name="name" />
-			<!-- <string_ct_entry_name_nonid name="nonid_name" /> -->
+			<string_ct_entry_name_nonid name="nonid_name" />
 			
 			<sub_ct_section name="sub_targets" />
 			<sub_ct_section name="sub_space" />
