@@ -55,7 +55,7 @@
 		</sheetdata>
 	</windowclass>
 	<windowclass name="ancestry_content_advanced">
-		<script file="campaign/scripts/story_advanced_content.lua" />
+		<script file="campaign/scripts/ancestry_advanced_content.lua" />
 		<sheetdata>
 			<anchor_content_top />
 			
@@ -63,26 +63,27 @@
 			<footer_story_blocks name="footer" />
 
 			<anchor_story_block_iadd_right />
-			<button_story_block_iadd name="button_iadd_block_textrimagel">
+			<button_ancestry_block_iadd name="button_iadd_block_textrimagel">
 				<blocktype>textrimagel</blocktype>
-			</button_story_block_iadd>
-			<button_story_block_iadd name="button_iadd_block_textlimager">
+			</button_ancestry_block_iadd>
+			<button_ancestry_block_iadd name="button_iadd_block_textlimager">
 				<blocktype>textlimager</blocktype>
-			</button_story_block_iadd>
-			<button_story_block_iadd name="button_iadd_block_image">
+			</button_ancestry_block_iadd>
+			<button_ancestry_block_iadd name="button_iadd_block_image">
 				<blocktype>image</blocktype>
-			</button_story_block_iadd>
-			<button_story_block_iadd name="button_iadd_block_header">
+			</button_ancestry_block_iadd>
+			<button_ancestry_block_iadd name="button_iadd_block_header">
 				<blocktype>header</blocktype>
-			</button_story_block_iadd>
-			<button_story_block_iadd name="button_iadd_block_dualtext">
+			</button_ancestry_block_iadd>
+			<button_ancestry_block_iadd name="button_iadd_block_dualtext">
 				<blocktype>dualtext</blocktype>
-			</button_story_block_iadd>
-			<button_story_block_iadd name="button_iadd_block_text">
+			</button_ancestry_block_iadd>
+			<button_ancestry_block_iadd name="button_iadd_block_text">
 				<blocktype>text</blocktype>
-			</button_story_block_iadd>
+			</button_ancestry_block_iadd>
 		</sheetdata>
 	</windowclass>
+
 	<windowclass name="story_block">
 		<margins control="0,0,0,10" />
 		<sheetdata>

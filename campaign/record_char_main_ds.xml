@@ -21,50 +21,50 @@
 			</label_frametop>
 
             <!-- MGT -->
-            <number_characteristicscore name="might" source="abilities.might.score">
+            <number_powerroll_might name="might" source="abilities.might.score">
 				<anchored to="characteristicsframe" position="insidetopleft" offset="90,40" />
 				<description textres="char_tooltip_mgt" />
-			</number_characteristicscore>
+			</number_powerroll_might>
             <string_characteristiclabel name="might_label">
 				<anchored to="might" />
 				<static textres="might" />
 			</string_characteristiclabel>
 
             <!-- AGL -->
-            <number_characteristicscore name="agility" source="abilities.agility.score">
+            <number_powerroll_agility name="agility" source="abilities.agility.score">
 				<anchored to="might" />
 				<description textres="char_tooltip_agl" />
-			</number_characteristicscore>
+			</number_powerroll_agility>
             <string_characteristiclabel name="agility_label">
 				<anchored to="agility" />
 				<static textres="agility" />
 			</string_characteristiclabel>
 
             <!-- REA -->
-            <number_characteristicscore name="reason" source="abilities.reaason.score">
+            <number_powerroll_reason name="reason" source="abilities.reason.score">
 				<anchored to="agility" />
 				<description textres="char_tooltip_rea" />
-			</number_characteristicscore>
+			</number_powerroll_reason>
             <string_characteristiclabel name="reason_label">
 				<anchored to="reason" />
 				<static textres="reason" />
 			</string_characteristiclabel>
 
             <!-- INU -->
-            <number_characteristicscore name="intuition" source="abilities.intuition.score">
+            <number_powerroll_intuition name="intuition" source="abilities.intuition.score">
 				<anchored to="reason" />
 				<description textres="char_tooltip_inu" />
-			</number_characteristicscore>
+			</number_powerroll_intuition>
             <string_characteristiclabel name="intuition_label">
 				<anchored to="intuition" />
 				<static textres="intuition" />
 			</string_characteristiclabel>
 
             <!-- PRS -->
-            <number_characteristicscore name="presence" source="abilities.presence.score">
+            <number_powerroll_presence name="presence" source="abilities.presence.score">
 				<anchored to="intuition" />
 				<description textres="char_tooltip_prs" />
-			</number_characteristicscore>
+			</number_powerroll_presence>
             <string_characteristiclabel name="presence_label">
 				<anchored to="presence" />
 				<static textres="presence" />
@@ -267,7 +267,7 @@
 					<left anchor="center" offset="-35" />
 				</anchored>
 				<font>reference-b-large</font>
-				<description textres="Class Resource" />
+				<description textres="char_tooltip_classresource" />
 				<script>
 					function onValueChanged()
 					end
@@ -295,13 +295,13 @@
 					<top anchor="bottom" offset="10" />
 					<left anchor="center" offset="-75" />
 				</anchored>
+				<description textres="char_tooltip_stamina" />
 
 				<!-- <anchored width="40" height="30">
 					<top anchor="bottom" offset="-65" />
 					<left offset="220" />
 				</anchored> -->
 				<font>reference-b-large</font>
-				<description textres="stamina" />
 				<script>
 					function onInit()
 							if super and super.onInit then
@@ -328,7 +328,7 @@
 			<basicnumber name="max" source="hp.max">
 				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
-				<description textres="max" />
+				<description textres="char_tooltip_max" />
 				<min value="0" />
 				<script>
 					function onValueChanged()
@@ -339,7 +339,7 @@
 			<basicnumber name="temp" source="hp.temporary">
 				<anchored to="max" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
-				<description textres="temphp" />
+				<description textres="char_tooltip_temp" />
 				<hideonvalue>0</hideonvalue>
 			</basicnumber>
 

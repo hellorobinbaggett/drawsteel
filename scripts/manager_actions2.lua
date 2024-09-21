@@ -7,11 +7,11 @@ function encodeDesktopMods(rRoll)
 	local nMod = 0;
 	
 	if ModifierManager.getKey("EDGE") then
-		nMod = nMod + 2;
+		nMod = 2;
         rRoll.sDesc = rRoll.sDesc .. " [Edge]";
 	end
 	if ModifierManager.getKey("BANE") then
-		nMod = nMod - 2;
+		nMod = -2;
         rRoll.sDesc = rRoll.sDesc .. " [Bane]";
 	end
 	if ModifierManager.getKey("DOUBLEEDGE") then

@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<template name="button_ancestry_add_advanced">
+	<!-- <template name="button_ancestry_add_advanced">
 		<buttoncontrol insertbefore="filter_sharedonly">
 			<anchored to="rightanchor" width="20" height="20">
 				<top />
@@ -36,7 +36,7 @@
 				end
 			</script>
 		</buttoncontrol>
-	</template>
+	</template> -->
 
 	<!-- Book - General -->
 	<template name="button_story_book_idelete">
@@ -137,7 +137,7 @@
 			</anchored>
 			<script>
 				function onButtonPress()
-					StoryManager.onBookIndexAdd(window);
+					AncestryManager.onBookIndexAdd(window);
 				end
 			</script>
 		</button_text>
@@ -147,7 +147,7 @@
 			<script>
 				function onButtonPress()
 					if getValue() == 0 then
-						StoryManager.onBookIndexDelete(window);
+						AncestryManager.onBookIndexDelete(window);
 					end
 				end
 			</script>
@@ -158,7 +158,7 @@
 			<invisible />
 			<script>
 				function onButtonPress()
-					StoryManager.onBookIndexMoveUp(window);
+					AncestryManager.onBookIndexMoveUp(window);
 				end
 			</script>
 		</button_story_book_imoveup>
@@ -168,7 +168,7 @@
 			<invisible />
 			<script>
 				function onButtonPress()
-					StoryManager.onBookIndexMoveDown(window);
+					AncestryManager.onBookIndexMoveDown(window);
 				end
 			</script>
 		</button_story_book_imovedown>
@@ -331,7 +331,7 @@
 			<readonly />
 			<script>
 				function onLinkActivated(sClass, sRecord)
-					StoryManager.onLinkActivated(window, sClass, sRecord);
+					AncestryManager.onLinkActivated(window, sClass, sRecord);
 				end
 			</script>
 		</simpleft>
@@ -354,7 +354,7 @@
 			<noscroll />
 			<script>
 				function onDrop(x, y, draginfo)
-					return StoryManager.onBlockDrop(getWindowAt(x, y), draginfo);
+					return AncestryManager.onBlockDrop(getWindowAt(x, y), draginfo);
 				end
 			</script>
 		</windowlist>
@@ -379,7 +379,7 @@
 			<invisible />
 		</genericcontrol>
 	</template>
-	<template name="button_story_block_iadd">
+	<template name="button_ancestry_block_iadd">
 		<buttoncontrol>
 			<anchored to="rightanchor_add" width="20" height="20">
 				<top />
@@ -389,12 +389,12 @@
 			<invisible />
 			<script>
 				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
+					setColor(AncestryManager.getBlockButtonIconColor());
 					setIcons("button_ref_block_" .. blocktype[1]);
 					setTooltipText(Interface.getString("story_tooltip_block_" .. blocktype[1]));
 				end
 				function onButtonPress()
-					StoryManager.onBlockAdd(window, blocktype[1]);
+					AncestryManager.onBlockAdd(window, blocktype[1]);
 				end
 			</script>
 		</buttoncontrol>
@@ -405,7 +405,7 @@
 			<script>
 				function onButtonPress()
 					if getValue() == 0 then
-						StoryManager.onBlockDelete(window);
+						AncestryManager.onBlockDelete(window);
 					end
 				end
 			</script>
@@ -415,7 +415,7 @@
 		<button_story_book_imoveup>
 			<script>
 				function onButtonPress()
-					StoryManager.onBlockMoveUp(window);
+					AncestryManager.onBlockMoveUp(window);
 				end
 			</script>
 		</button_story_book_imoveup>
@@ -424,7 +424,7 @@
 		<button_story_book_imovedown>
 			<script>
 				function onButtonPress()
-					StoryManager.onBlockMoveDown(window);
+					AncestryManager.onBlockMoveDown(window);
 				end
 			</script>
 		</button_story_book_imovedown>
@@ -435,11 +435,11 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_linkclear" tooltipres="story_tooltip_block_image_linkclear" />
 			<script>
 				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
+					setColor(AncestryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					DB.setValue(window.getDatabaseNode(), "imagelink", "windowreference", "", "");
-					StoryManager.onBlockNodeRebuild(window.getDatabaseNode());
+					AncestryManager.onBlockNodeRebuild(window.getDatabaseNode());
 				end
 			</script>
 		</buttoncontrol>
@@ -450,10 +450,10 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_scaleup" tooltipres="story_tooltip_block_image_scaleup" />
 			<script>
 				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
+					setColor(AncestryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
-					StoryManager.onBlockScaleUp(window);
+					AncestryManager.onBlockScaleUp(window);
 				end
 			</script>
 		</buttoncontrol>
@@ -464,10 +464,10 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_scaledown" tooltipres="story_tooltip_block_image_scaledown" />
 			<script>
 				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
+					setColor(AncestryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
-					StoryManager.onBlockScaleDown(window);
+					AncestryManager.onBlockScaleDown(window);
 				end
 			</script>
 		</buttoncontrol>
@@ -478,10 +478,10 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_sizeclear" tooltipres="story_tooltip_block_image_sizeclear" />
 			<script>
 				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
+					setColor(AncestryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
-					StoryManager.onBlockSizeClear(window);
+					AncestryManager.onBlockSizeClear(window);
 				end
 			</script>
 		</buttoncontrol>
@@ -492,7 +492,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_frame" tooltipres="story_tooltip_block_frame" />
 			<script>
 				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
+					setColor(AncestryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					local bLeft = (frameleft ~= nil);
@@ -553,7 +553,7 @@
 				end
 				function onAssetUpdate(sAsset)
 					if bInitialized then
-						StoryManager.adjustBlockToImageSize(window);
+						AncestryManager.adjustBlockToImageSize(window);
 					end
 				end
 			</script>
@@ -612,7 +612,7 @@
 				end
 				function onAssetUpdate(sAsset)
 					if bInitialized then
-						StoryManager.adjustBlockToImageSize(window);
+						AncestryManager.adjustBlockToImageSize(window);
 					end
 				end
 			</script>
