@@ -503,6 +503,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "abilities.might.score", 0);
 					};
+					ActionsManager2.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end
@@ -510,7 +511,7 @@
 				function onDragStart(button, x, y, draginfo)
 					return action(draginfo);
 				end
-					
+
 				function onDoubleClick(x,y)
 					return action();
 				end
@@ -531,6 +532,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "abilities.agility.score", 0);
 					};
+					ActionsManager2.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end
@@ -559,6 +561,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "abilities.reason.score", 0);
 					};
+					ActionsManager2.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end
@@ -587,6 +590,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "abilities.intuition.score", 0);
 					};
+					ActionsManager2.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end
@@ -615,6 +619,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "abilities.presence.score", 0);
 					};
+					ActionsManager2.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end
