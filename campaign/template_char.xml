@@ -180,6 +180,26 @@
 		</windowlist>
 	</template>
 
+	<template name="list_charskillcategory_ds">
+		<windowlist>
+			<class>char_skills_category_ds</class>
+			<datasource>.skillcategorylist_ds</datasource> 
+			<columns width="222" filldown="true" />
+			<allowcreate />
+			<allowdelete />
+			<sortby><field>label</field></sortby>
+			<script>
+				function addEntry(bFocus)
+					local w = createWindow();
+					if bFocus then
+						w.header.subwindow.label.setFocus();
+					end
+					return w;
+				end
+			</script>
+		</windowlist>
+	</template>
+
 	<template name="list_charmainattribute">
 		<windowlist>
 			<child></child>
@@ -488,6 +508,44 @@
 			<anchored position="lefthigh" width="70" height="24" />
 			<static />
 		</label>
+	</template>
+	<template name="string_skilllabel">
+		<label>
+			<anchored position="lefthigh" width="100" height="24" />
+			<static />
+		</label>
+	</template>
+
+	<template name="number_powerroll_skill">
+		<number_characteristicscore>
+			<rollable />
+			<script>		
+				function action(draginfo)
+
+				local sPath = tostring(target[1]);
+
+				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+				local nodePC = ActorManager.getCreatureNode(rActor);
+					local rRoll = { 
+						sType = "dice", 
+						sDesc = "skill test: " .. tostring(target[1]), 
+						aDice = { "d10", "d10" },
+						nMod = DB.getValue(nodePC, "skills." .. sPath, 0);
+					};
+					ActionsManager2.encodeDesktopMods(rRoll);
+					ActionsManager.performAction(draginfo, rActor, rRoll);
+					return true;
+				end
+				
+				function onDragStart(button, x, y, draginfo)
+					return action(draginfo);
+				end
+
+				function onDoubleClick(x,y)
+					return action();
+				end
+			</script>
+		</number_characteristicscore>
 	</template>
 	
 	<template name="number_powerroll_might">
