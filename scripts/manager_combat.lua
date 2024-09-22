@@ -717,8 +717,9 @@ function sortfuncStandard(node1, node2)
 		end
 	else
 		if bShowInit1 then
-			local nValue1 = DB.getValue(node1, "initresult", 0);
-			local nValue2 = DB.getValue(node2, "initresult", 0);
+			-- changed from "initresult" to "friendfoe" to order by faction
+			local nValue1 = DB.getValue(node1, "friendfoe", 0);
+			local nValue2 = DB.getValue(node2, "friendfoe", 0);
 			if nValue1 ~= nValue2 then
 				return nValue1 > nValue2;
 			end
