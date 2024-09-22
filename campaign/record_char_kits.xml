@@ -117,7 +117,7 @@
 				<anchored to="notesframe" />
 				<static textres="char_label_notes" />
 			</label_frametop>
-			<stringu name="notes">
+			<stringu name="kitnotes1">
 				<anchored to="notesframe">
 					<top offset="30" />
 					<left offset="15" />
@@ -128,8 +128,8 @@
 				<nodrag />
 			</stringu>
 			<scrollbar_list>
-				<anchored to="notes" />
-				<target>notes</target>
+				<anchored to="kitnotes1" />
+				<target>kitnotes1</target>
 			</scrollbar_list>
 
 
@@ -243,7 +243,7 @@
 				<anchored to="notesframe2" />
 				<static textres="char_label_notes" />
 			</label_frametop>
-			<stringu name="notes2">
+			<stringu name="kitnotes2">
 				<anchored to="notesframe2">
 					<top offset="30" />
 					<left offset="15" />
@@ -254,8 +254,8 @@
 				<nodrag />
 			</stringu>
 			<scrollbar_list>
-				<anchored to="notes2" />
-				<target>notes2</target>
+				<anchored to="kitnotes2" />
+				<target>kitnotes2</target>
 			</scrollbar_list>
 		</sheetdata>
 	</windowclass>

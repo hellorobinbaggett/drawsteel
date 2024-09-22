@@ -25,7 +25,7 @@
 			<anchor_ct_client_label_right name="rightanchor" />
 			<spacer_ct_client_header_buttons name="spacer_buttons_header" />
 			<label_ct_header_init name="label_init" />
-			<label_ct_header_hp name="label_hp" />
+			<!-- <label_ct_header_hp name="label_hp" /> -->
 			<label_ct_header_name name="label_name" />
 
 			<list_ctbox_client name="list" />

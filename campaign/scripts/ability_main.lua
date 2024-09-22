@@ -25,6 +25,10 @@ function update()
 	local bSection3 = false;
 	if WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly) then bSection3 = true; end;
 	local bSection4 = false;
+	if WindowManager.callSafeControlUpdate(self, "effect", bReadOnly) then bSection3 = true; end;
+	local bSection4 = false;
+	if WindowManager.callSafeControlUpdate(self, "special", bReadOnly) then bSection3 = true; end;
+	local bSection4 = false;
 	if WindowManager.callSafeControlUpdate(self, "class", bReadOnly) then bSection4 = true; end;
 
 	divider1.setVisible(bSection1);

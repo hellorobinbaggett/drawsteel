@@ -140,7 +140,6 @@
 				<acceptdrop>
 					<class>referencetext</class>
 					<class>referencetextwide</class>
-					<class>ability</class>
 					<class>note</class>
 					<class>encounter</class>
 					<class>story_book_page_advanced_header</class>

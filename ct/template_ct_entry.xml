@@ -221,7 +221,7 @@
 				<top />
 				<right anchor="left" relation="relative" offset="-17" />
 			</anchored>
-			<!-- <tabtarget prev="nonid_name" /> -->
+			<tabtarget prev="nonid_name" />
 			<script file="ct/scripts/ct_stamina.lua" />
 		</basicnumber>
 	</template>
