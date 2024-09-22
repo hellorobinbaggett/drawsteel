@@ -38,6 +38,7 @@
 	<string name="char_tooltip_stamina">Current Stamina</string>
 	<string name="char_tooltip_max">Max Stamina</string>
 	<string name="char_tooltip_temp">Temporary Stamina</string>
+	<string name="char_tooltip_winded">Winded Value</string>
 	<string name="char_tooltip_weight">Weight</string>
 	<string name="char_tooltip_victories">Victories</string>
 	<string name="char_tooltip_currentrecoveries">Current Recoveries</string>
@@ -96,6 +97,7 @@
 	<string name="char_label_max">Max</string>
 	<string name="char_label_maxhp">MAX</string>
 	<string name="char_label_temp">TEMP</string>
+	<string name="char_label_winded">Winded</string>
 	<string name="char_label_current">Current</string>
 	<string name="char_label_classresource">Class Resource</string>
 	<string name="char_label_kitbonuses">Kit Bonuses</string>

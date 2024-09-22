@@ -284,8 +284,8 @@
 			<label_charframetop name="healthtitle">
 				<anchored height="20">
 					<top anchor="bottom" offset="-95" />
-					<left offset="105" />
-					<right offset="-105" />
+					<left offset="70" />
+					<right offset="-70" />
 				</anchored>
 				<icons>char_stats</icons>
 			</label_charframetop>
@@ -293,7 +293,7 @@
 			<number_charstamina name="stamina" source="hp.stamina">
 				<anchored to="healthtitle" width="48" height="30">
 					<top anchor="bottom" offset="10" />
-					<left anchor="center" offset="-75" />
+					<left anchor="center" offset="-110" />
 				</anchored>
 				<description textres="char_tooltip_stamina" />
 
@@ -343,6 +343,43 @@
 				<hideonvalue>0</hideonvalue>
 			</basicnumber>
 
+			<number_linked_framed name="winded" source="hp.winded">
+				<anchored to="temp" position="righthigh" offset="15,0" width="48" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_winded" />
+				<target>max</target>
+				<hideonvalue>0</hideonvalue>
+				<script>
+				function onInit()
+					addSource("hp.max");
+
+					super.onInit();
+				end
+
+				function onSourceUpdate()
+					local nodeWin = window.getDatabaseNode();
+					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					
+					local nBonus;
+
+					nBonus = math.floor(nCurrentScore / 2);
+
+					setValue(nBonus);
+				end
+
+				function onDoubleClick()
+					local nodeWin = window.getDatabaseNode();
+					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					
+					local nBonus;
+
+					nBonus = math.floor(nCurrentScore / 2);
+
+					setValue(nBonus);
+				end
+				</script>
+			</number_linked_framed>
+
 			<label_charfieldtop name="max_label">
 				<anchored to="max" offset="0,10" />
 				<static textres="char_label_maxhp" />
@@ -356,6 +393,11 @@
 			<label_charfieldtop name="stamina_label">
 				<anchored to="stamina" offset="0,10" />
 				<static textres="char_label_stamina" />
+			</label_charfieldtop>
+
+			<label_charfieldtop name="winded_label">
+				<anchored to="winded" offset="0,10" />
+				<static textres="char_label_winded" />
 			</label_charfieldtop>
 
 		</sheetdata>

@@ -38,7 +38,10 @@
 			<button_ctentry_friendfoe name="friendfoe" />
 
 			<button_ctentry_gone name="statusresult" />
-			<number_ctentry_stamina name="stamina" />
+
+			<number_ctentry_stamina name="stamina">
+			<hideonvalue value="0" />
+			</number_ctentry_stamina>
 
 			<string_ct_entry_name name="name" />
 			<string_ct_entry_name_nonid name="nonid_name" />
