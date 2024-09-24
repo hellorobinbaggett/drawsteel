@@ -39,6 +39,8 @@
 
 			<button_ctentry_gone name="statusresult" />
 
+			<button_ctentry_gone name="triggeredaction" />
+
 			<number_ctentry_stamina name="stamina">
 			<hideonvalue value="0" />
 			</number_ctentry_stamina>

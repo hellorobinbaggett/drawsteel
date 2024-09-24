@@ -277,6 +277,7 @@
 	<string name="ability_label_trigger">Trigger</string>
 	<string name="ability_label_spendresource">Spend Resource</string>
 	<string name="ability_label_powerroll">Power Roll</string>
+	<string name="ability_label_powerrollplus">Power Roll + </string>
 	<string name="ability_label_tier1">11 or lower</string>
 	<string name="ability_label_tier2">12-16</string>
 	<string name="ability_label_tier3">17+</string>

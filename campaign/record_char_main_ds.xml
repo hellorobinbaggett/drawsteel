@@ -21,50 +21,55 @@
 			</label_frametop>
 
             <!-- MGT -->
-            <number_powerroll_might name="might" source="abilities.might.score">
+            <number_powerroll_characteristic name="might" source="MGT">
 				<anchored to="characteristicsframe" position="insidetopleft" offset="90,40" />
 				<description textres="char_tooltip_mgt" />
-			</number_powerroll_might>
+				<target>MGT</target>
+			</number_powerroll_characteristic>
             <string_characteristiclabel name="might_label">
 				<anchored to="might" />
 				<static textres="might" />
 			</string_characteristiclabel>
 
             <!-- AGL -->
-            <number_powerroll_agility name="agility" source="abilities.agility.score">
+            <number_powerroll_characteristic name="agility" source="AGL">
 				<anchored to="might" />
 				<description textres="char_tooltip_agl" />
-			</number_powerroll_agility>
+				<target>AGL</target>
+			</number_powerroll_characteristic>
             <string_characteristiclabel name="agility_label">
 				<anchored to="agility" />
 				<static textres="agility" />
 			</string_characteristiclabel>
 
             <!-- REA -->
-            <number_powerroll_reason name="reason" source="abilities.reason.score">
+            <number_powerroll_characteristic name="reason" source="REA">
 				<anchored to="agility" />
 				<description textres="char_tooltip_rea" />
-			</number_powerroll_reason>
+				<target>REA</target>
+			</number_powerroll_characteristic>
             <string_characteristiclabel name="reason_label">
 				<anchored to="reason" />
 				<static textres="reason" />
 			</string_characteristiclabel>
 
             <!-- INU -->
-            <number_powerroll_intuition name="intuition" source="abilities.intuition.score">
+            <number_powerroll_characteristic name="intuition" source="INU">
 				<anchored to="reason" />
 				<description textres="char_tooltip_inu" />
-			</number_powerroll_intuition>
+				<target>INU</target>
+			</number_powerroll_characteristic>
             <string_characteristiclabel name="intuition_label">
 				<anchored to="intuition" />
 				<static textres="intuition" />
 			</string_characteristiclabel>
 
             <!-- PRS -->
-            <number_powerroll_presence name="presence" source="abilities.presence.score">
+            <number_powerroll_characteristic name="presence" source="PRS">
 				<anchored to="intuition" />
 				<description textres="char_tooltip_prs" />
-			</number_powerroll_presence>
+				<target>PRS</target>
+			</number_powerroll_characteristic>
             <string_characteristiclabel name="presence_label">
 				<anchored to="presence" />
 				<static textres="presence" />

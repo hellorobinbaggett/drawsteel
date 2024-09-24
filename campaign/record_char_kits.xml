@@ -93,21 +93,47 @@
 				<static textres="char_label_damagebonuses" />
 			</label_frametop>
 
-			<string_labeled name="kitmeleedmg">
-				<default>+0/+0/+0</default>
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,155" width="90" />
+			<string_labeled name="Kit.Melee.Damage.Tier1" source="Kit.Melee.Damage.Tier1">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,155" width="20" />
 				<labelres>char_label_melee</labelres>
+				<default>+0</default>
 			</string_labeled>
-			<string_labeled name="kitrangeddmg">
-				<default>+0/+0/+0</default>
-				<anchored to="kitmeleedmg" position="righthigh" offset="5,0" width="90" />
+			<string_labeled name="Kit.Melee.Damage.Tier2" source="Kit.Melee.Damage.Tier2">
+				<anchored to="Kit.Melee.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Melee.Damage.Tier3" source="Kit.Melee.Damage.Tier3">
+				<anchored to="Kit.Melee.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+
+			<string_labeled name="Kit.Ranged.Damage.Tier1" source="Kit.Ranged.Damage.Tier1">
+				<anchored to="Kit.Melee.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
 				<labelres>char_label_ranged</labelres>
+				<default>+0</default>
 			</string_labeled>
-			<string_labeled name="kitmagicaldmg">
-				<default>+0/+0/+0</default>
-				<anchored to="kitrangeddmg" position="righthigh" offset="5,0" width="90" />
+			<string_labeled name="Kit.Ranged.Damage.Tier2" source="Kit.Ranged.Damage.Tier2">
+				<anchored to="Kit.Ranged.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Ranged.Damage.Tier3" source="Kit.Ranged.Damage.Tier3">
+				<anchored to="Kit.Ranged.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+
+			<string_labeled name="Kit.Magic.Damage.Tier1" source="Kit.Magic.Damage.Tier1">
+				<anchored to="Kit.Ranged.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
 				<labelres>char_label_magical</labelres>
-			</string_labeled>			
+				<default>+0</default>
+			</string_labeled>		
+			<string_labeled name="Kit.Magic.Damage.Tier2" source="Kit.Magic.Damage.Tier2">
+				<anchored to="Kit.Magic.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Magic.Damage.Tier3" source="Kit.Magic.Damage.Tier3">
+				<anchored to="Kit.Magic.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>	
 
 			<frame_char name="notesframe">
 				<bounds>310,20,-1,190</bounds>
@@ -218,21 +244,47 @@
 				<anchored to="appearanceframe2" offset="125,135"/>
 				<static textres="char_label_damagebonuses" />
 			</label_frametop>
-
-			<string_labeled name="kitmeleedmg2">
-				<default>+0/+0/+0</default>
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,155" width="90" />
+			
+			<string_labeled name="Kit2.Melee.Damage.Tier1" source="Kit2.Melee.Damage.Tier1">
+				<anchored to="appearanceframe2" position="insidetopleft" offset="15,155" width="20" />
 				<labelres>char_label_melee</labelres>
+				<default>+0</default>
 			</string_labeled>
-			<string_labeled name="kitrangeddmg2">
-				<default>+0/+0/+0</default>
-				<anchored to="kitmeleedmg2" position="righthigh" offset="5,0" width="90" />
+			<string_labeled name="Kit2.Melee.Damage.Tier2" source="Kit2.Melee.Damage.Tier2">
+				<anchored to="Kit2.Melee.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit2.Melee.Damage.Tier3" source="Kit2.Melee.Damage.Tier3">
+				<anchored to="Kit2.Melee.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+
+			<string_labeled name="Kit2.Ranged.Damage.Tier1" source="Kit2.Ranged.Damage.Tier1">
+				<anchored to="Kit2.Melee.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
 				<labelres>char_label_ranged</labelres>
+				<default>+0</default>
 			</string_labeled>
-			<string_labeled name="kitmagicaldmg2">
-				<default>+0/+0/+0</default>
-				<anchored to="kitrangeddmg2" position="righthigh" offset="5,0" width="90" />
+			<string_labeled name="Kit2.Ranged.Damage.Tier2" source="Kit2.Ranged.Damage.Tier2">
+				<anchored to="Kit2.Ranged.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit2.Ranged.Damage.Tier3" source="Kit2.Ranged.Damage.Tier3">
+				<anchored to="Kit2.Ranged.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+
+			<string_labeled name="Kit2.Magic.Damage.Tier1" source="Kit2.Magic.Damage.Tier1">
+				<anchored to="Kit2.Ranged.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
 				<labelres>char_label_magical</labelres>
+				<default>+0</default>
+			</string_labeled>		
+			<string_labeled name="Kit2.Magic.Damage.Tier2" source="Kit2.Magic.Damage.Tier2">
+				<anchored to="Kit2.Magic.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit2.Magic.Damage.Tier3" source="Kit2.Magic.Damage.Tier3">
+				<anchored to="Kit2.Magic.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
 			</string_labeled>			
 
 			<frame_char name="notesframe2">

@@ -46,6 +46,15 @@
 		</label_ct_right>
 	</template>
 
+	<template name="label_ct_header_triggeredaction">
+		<label_ct_right>
+			<anchored width="30">
+				<right offset="0" />
+			</anchored>
+			<static textres="ct_label_triggeredaction" />
+		</label_ct_right>
+	</template>
+
 	<template name="label_ct_header_name">
 		<label_ct>
 			<anchored>

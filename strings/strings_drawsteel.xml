@@ -81,6 +81,7 @@
 	<string name="rumors">Rumors</string>
 	<string name="society">Society</string>
 	<string name="timescape">Timescape</string>
+	<string name="tooltip_pr">Power Roll</string>
 
 	<!-- Characters -->
 	<string name="char_label_skills">Skills</string>

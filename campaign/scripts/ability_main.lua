@@ -38,7 +38,7 @@ function update()
 
 	-- space.setReadOnly(bReadOnly);
 	-- reach.setReadOnly(bReadOnly);
-	WindowManager.callSafeControlUpdate(self, "powerroll", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "characteristic", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier2", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier3", bReadOnly);

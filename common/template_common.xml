@@ -436,7 +436,6 @@
 	<template name="button_status">
 		<button_iconcycler>
 			<anchored width="20" height="20" />
-			<gmeditonly />
 			<parameters>
 				<icons>ct_faction_check</icons>
 				<values>gone</values>
