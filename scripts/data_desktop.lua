@@ -178,6 +178,7 @@ _tModifierWindowPresets =
 			"BANE",
 			"DOUBLEEDGE",
 			"DOUBLEBANE",
+			"SKILLED",
 		},
 	},
 };

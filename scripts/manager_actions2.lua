@@ -20,6 +20,10 @@ function encodeDesktopMods(rRoll)
 	if ModifierManager.getKey("DOUBLEBANE") then
         rRoll.sDesc = rRoll.sDesc .. " [Double Bane]";
 	end
+	if ModifierManager.getKey("SKILLED") then
+		nMod = nMod + 2;
+        rRoll.sDesc = rRoll.sDesc .. " [Skilled]";
+	end
 	
 	if nMod == 0 then
 		return;

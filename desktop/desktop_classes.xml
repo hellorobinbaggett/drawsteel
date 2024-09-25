@@ -389,6 +389,10 @@
 				<button_modifierkey name="DOUBLEBANE">
 					<bounds>151,36,60,18</bounds>
 					<text>x2 Bane</text>
+				</button_modifierkey>	
+				<button_modifierkey name="SKILLED">
+					<bounds>222,6,60,48</bounds>
+					<text>Skilled</text>
 				</button_modifierkey>						
 			</sheetdata>
 		</windowclass>

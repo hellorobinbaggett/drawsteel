@@ -28,9 +28,9 @@ function powerRoll(rMessage, rRoll)
 		if powerRollTotalMod <= 11 then
 			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
 		elseif powerRollTotalMod >= 17 then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
+			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t3) .. "\n" .. tostring(rRoll.effect);
 		elseif powerRollTotalMod == powerRollTotalMod then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t3) .. "\n" .. tostring(rRoll.effect);
+			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
 		end
 
 		-- check for double edges
@@ -44,7 +44,7 @@ function powerRoll(rMessage, rRoll)
 			end
 		end
 
-		-- check for double banes
+		-- check for double baness
 		if string.match(rRoll.sDesc, "Double Bane") then
 			if powerRollTotalMod <= 11 then
 				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
