@@ -90,6 +90,12 @@
 	<string name="char_label_interpersonal">Interpersonal</string>
 	<string name="char_label_intrigue">Intrigue</string>
 	<string name="char_label_lore">Lore</string>
+	<string name="char_label_skills">Skills</string>
+	<string name="char_label_crafting">Crafting</string>
+	<string name="char_label_exploration">Exploration</string>
+	<string name="char_label_interpersonal">Interpersonal</string>
+	<string name="char_label_intrigue">Intrigue</string>
+	<string name="char_label_lore">Lore</string>
 	<string name="char_label_characteristics">Characteristics</string>
 	<string name="char_label_stats">Stats</string>
 	<string name="char_tooltip_mgt">Might score</string>

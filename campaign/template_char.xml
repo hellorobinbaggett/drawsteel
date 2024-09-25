@@ -200,6 +200,26 @@
 		</windowlist>
 	</template>
 
+	<template name="list_charskillcategory_ds">
+		<windowlist>
+			<class>char_skills_category_ds</class>
+			<datasource>.skillcategorylist_ds</datasource> 
+			<columns width="222" filldown="true" />
+			<allowcreate />
+			<allowdelete />
+			<sortby><field>label</field></sortby>
+			<script>
+				function addEntry(bFocus)
+					local w = createWindow();
+					if bFocus then
+						w.header.subwindow.label.setFocus();
+					end
+					return w;
+				end
+			</script>
+		</windowlist>
+	</template>
+
 	<template name="list_charmainattribute">
 		<windowlist>
 			<child></child>
