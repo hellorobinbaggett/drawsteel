@@ -21,7 +21,7 @@ function update()
 	local bSection1 = false;
 	if WindowManager.callSafeControlUpdate(self, "notes", bReadOnly) then bSection1 = true; end;
 	local bSection2 = false;
-	if WindowManager.callSafeControlUpdate(self, "type", bReadOnly) then bSection2 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic", bReadOnly) then bSection2 = true; end;
 	local bSection3 = false;
 	if WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly) then bSection3 = true; end;
 	local bSection4 = false;

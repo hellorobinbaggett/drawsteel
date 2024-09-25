@@ -75,7 +75,7 @@
 			</frame_char>	
 			<label_frametop>
 				<anchored to="complicationsframe" />
-				<static textres="char_label_complications" />
+				<static textres="char_label_titles" />
 			</label_frametop>
 			<stringu name="complications">
 				<anchored to="complicationsframe">

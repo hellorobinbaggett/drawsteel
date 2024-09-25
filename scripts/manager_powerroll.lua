@@ -15,6 +15,9 @@ function powerRoll(rMessage, rRoll)
 	if rRoll.t3 == nill then
 		rRoll.t3 = "";
 	end
+	if rRoll.effect == nill then
+		rRoll.effect = "";
+	end
 
 	-- if 2d10 are rolled, it is a power roll.
 	if string.match(rRoll.aDice.expr, "2d10") then
@@ -23,32 +26,32 @@ function powerRoll(rMessage, rRoll)
 
 		-- write in chat what tier result it is
 		if powerRollTotalMod <= 11 then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1);
+			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
 		elseif powerRollTotalMod >= 17 then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t2);
+			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
 		elseif powerRollTotalMod == powerRollTotalMod then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t3);
+			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t3) .. "\n" .. tostring(rRoll.effect);
 		end
 
 		-- check for double edges
 		if string.match(rRoll.sDesc, "Double Edge") then
 			if powerRollTotalMod <= 11 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t2);
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
 			elseif powerRollTotalMod >= 17 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t3);
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t3) .. "\n" .. tostring(rRoll.effect);
 			elseif powerRollTotalMod == powerRollTotalMod then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t3);
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: " .. tostring(rRoll.t3) .. "\n" .. tostring(rRoll.effect);
 			end
 		end
 
 		-- check for double banes
 		if string.match(rRoll.sDesc, "Double Bane") then
 			if powerRollTotalMod <= 11 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1);
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
 			elseif powerRollTotalMod >= 17 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t2);
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: " .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
 			elseif powerRollTotalMod == powerRollTotalMod then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1);
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: " .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
 			end
 		end
 

@@ -236,38 +236,38 @@
 				<static textres="npc_label_interest" />
 			</label_column>
 			<number_column name="interest">
-				<default>1</default>
+				<default>0</default>
 			</number_column>
 			<!-- Patience -->	
 			<label_column name="patience_label">
 				<static textres="npc_label_patience" />
 			</label_column>
 			<number_column name="patience">
-				<default>2</default>
+				<default>0</default>
 			</number_column>
 			<!-- Impression score -->	
 			<label_column name="impressionscore_label">
 				<static textres="npc_label_impressionscore" />
 			</label_column>
 			<number_column name="impressionscore">
-				<default>1</default>
+				<default>0</default>
 			</number_column>
 			
 
 			<!-- Motivations -->
-			<label_column name="motivations_name_label">
+			<label_column name="motivations_label">
 				<static textres="npc_label_motivations" />
 			</label_column>
 			<string_columnh name="motivations" />
 
 			<!-- Pitfalls -->
-			<label_column name="pitfalls_name_label">
+			<label_column name="pitfalls_label">
 				<static textres="npc_label_pitfalls" />
 			</label_column>
 			<string_columnh name="pitfalls" />			
 
 			<!-- Outcomes -->
-			<label_column name="outcomes_name_label">
+			<label_column name="outcomes_label">
 				<static textres="npc_label_outcomes" />
 			</label_column>
 			<string_columnh name="outcomes" />	

@@ -173,6 +173,7 @@
 	<string name="char_label_weaknessess">Damage Weaknessess</string>
 	<string name="char_label_crafting">Crafting</string>
 	<string name="char_label_complications">Complications</string>
+	<string name="char_label_titles">Titles</string>
 	<string name="char_label_kit1">Kit #1</string>
 	<string name="char_label_kit2">Kit #2</string>
 	<string name="char_label_damagebonuses">Damage Bonuses</string>

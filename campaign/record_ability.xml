@@ -60,46 +60,6 @@
 		</label_column>
 		<string_columnh name="tier3" source="tier3" />
 
-		<!-- // power roll button -->
-		<button_roll name="button_roll">
-			<anchored to="columnanchor" width="30" height="30">
-				<top offset="-30" />
-				<left anchor="right" relation="relative" offset="0" />
-			</anchored>
-			<tooltip textres="tooltip_pr" />
-			<script>	
-				function action(draginfo)
-				local nodeWin = window.getDatabaseNode();
-				local characteristic = DB.getValue(nodeWin, "ability.characteristic");
-				local tier1Result = DB.getValue(nodeWin, "tier1");
-				local tier2Result = DB.getValue(nodeWin, "tier2");
-				local tier3Result = DB.getValue(nodeWin, "tier3");
-				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-				local nodePC = ActorManager.getCreatureNode(rActor);
-					local rRoll = { 
-						sType = "dice", 
-						sDesc = "(Power Roll + " .. characteristic .. ")", 
-						aDice = { "d10", "d10" },
-						nMod = DB.getValue(nodePC, "characteristic", 0),
-						t1 = tier1Result,
-						t2 = tier2Result,
-						t3 = tier3Result;
-					};
-					ActionsManager2.encodeDesktopMods(rRoll);
-					ActionsManager.performAction(draginfo, rActor, rRoll);
-					return true;
-				end
-				
-				function onDragStart(button, x, y, draginfo)
-					return action(draginfo);
-				end
-
-				function onButtonPress()
-					return action();
-				end
-			</script>
-		</button_roll>	
-
 		<!-- OTHER -->
 		<line_column name="divider3" />
 		<label_column name="trigger_label">
@@ -111,7 +71,7 @@
 		<label_column name="effect_label">
 			<static textres="ability_label_effect" />
 		</label_column>
-		<string_columnh name="effect">
+		<string_columnh name="effect" source="ability.effect">
 			<delaykeyupdate />
 		</string_columnh>
 		<label_column name="special_label">
@@ -147,6 +107,48 @@
 		<string_columnh name="abilitytype">
 			<delaykeyupdate />
 		</string_columnh>
+
+				<!-- // power roll button -->
+		<button_roll name="button_roll">
+			<anchored to="columnanchor" width="30" height="30">
+				<top offset="-30" />
+				<left anchor="right" relation="relative" offset="0" />
+			</anchored>
+			<tooltip textres="tooltip_pr" />
+			<script>	
+				function action(draginfo)
+				local nodeWin = window.getDatabaseNode();
+				local characteristic = DB.getValue(nodeWin, "ability.characteristic");
+				local effect = DB.getValue(nodeWin, "ability.effect");
+				local tier1Result = DB.getValue(nodeWin, "tier1");
+				local tier2Result = DB.getValue(nodeWin, "tier2");
+				local tier3Result = DB.getValue(nodeWin, "tier3");
+				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+				local nodePC = ActorManager.getCreatureNode(rActor);
+					local rRoll = { 
+						sType = "dice", 
+						sDesc = "(Power Roll + " .. characteristic .. ")", 
+						aDice = { "d10", "d10" },
+						nMod = characteristic,
+						t1 = tier1Result,
+						t2 = tier2Result,
+						t3 = tier3Result;
+						effect = effect;
+					};
+					ActionsManager2.encodeDesktopMods(rRoll);
+					ActionsManager.performAction(draginfo, rActor, rRoll);
+					return true;
+				end
+				
+				function onDragStart(button, x, y, draginfo)
+					return action(draginfo);
+				end
+
+				function onButtonPress()
+					return action();
+				end
+			</script>
+		</button_roll>	
 
 		</sheetdata>
 	</windowclass>

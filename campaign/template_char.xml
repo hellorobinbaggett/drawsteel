@@ -528,7 +528,7 @@
 				local nodePC = ActorManager.getCreatureNode(rActor);
 					local rRoll = { 
 						sType = "dice", 
-						sDesc = "skill test: " .. tostring(target[1]), 
+						sDesc = "Skill Test: " .. tostring(target[1]), 
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "skills." .. sPath, 0);
 					};
