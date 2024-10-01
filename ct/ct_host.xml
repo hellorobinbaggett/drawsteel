@@ -27,15 +27,15 @@
 			<anchor_ct_host_label_right name="rightanchor" />
 			<spacer_ct_host_header_buttons name="spacer_buttons_header" />
 			<label_ct_header_triggeredaction name="label_triggeredaction" />
-			<label_ct_header_init name="label_init" />
-			<label_ct_header_hp name="label_hp" />
+			<label_ct_header_init name="label_gone" />
+			<label_ct_header_stamina name="label_stamina" />
 			<label_ct_header_name name="label_name" />
 				
 			<list_ctbox_host name="list" />
 			<scrollbar_list name="scrollbar_list" />
 			
-			<button_ct_setactive name="button_setactive" />
-			<button_ct_nextactor name="button_nextactor" />
+			<!-- <button_ct_setactive name="button_setactive" />
+			<button_ct_nextactor name="button_nextactor" /> -->
 
 			<button_ct_faction_friend name="button_faction_friend" />
 			<button_ct_faction_neutral name="button_faction_neutral" />

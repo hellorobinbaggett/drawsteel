@@ -1004,6 +1004,13 @@ function nextRound(nRounds)
 		return;
 	end
 
+	for _,v in pairs(CombatManager.getCombatantNodes()) do
+		-- resets checkbox for gone
+		DB.setValue(v, "gone", "string", "ct_faction_empty");
+		-- resets checkbox for T.A.s
+		DB.setValue(v, "triggeredaction", "string", "ct_faction_empty");
+	end
+
 	local nodeActive = CombatManager.getActiveCT();
 	local nCurrent = DB.getValue(CombatManager.CT_ROUND, 0);
 
@@ -1011,7 +1018,7 @@ function nextRound(nRounds)
 	local nStartCounter = 1;
 	local aEntries = CombatManager.getSortedCombatantList();
 	if nodeActive then
-		DB.setValue(nodeActive, "active", "number", 0);
+		-- DB.setValue(nodeActive, "active", "number", 0);
 		CombatManager.clearGMIdentity();
 
 		local bFastTurn = false;
@@ -1025,7 +1032,7 @@ function nextRound(nRounds)
 			end
 		end
 		
-		CombatManager.onInitChangeEvent(nodeActive);
+		-- CombatManager.onInitChangeEvent(nodeActive);
 
 		nStartCounter = nStartCounter + 1;
 
@@ -1057,12 +1064,12 @@ function nextRound(nRounds)
 	CombatManager.onRoundStartEvent(nCurrent);
 	
 	-- Check option to see if we should advance to first actor or stop on round start
-	if OptionsManager.isOption("RNDS", "off") then
-		local bSkipBell = (nRounds > 1);
-		if #aEntries > 0 then
-			CombatManager.nextActor(bSkipBell, true);
-		end
-	end
+	-- if OptionsManager.isOption("RNDS", "off") then
+	-- 	local bSkipBell = (nRounds > 1);
+	-- 	if #aEntries > 0 then
+	-- 		CombatManager.nextActor(bSkipBell, true);
+	-- 	end
+	-- end
 end
 function nextTurn()
 	if Session.IsHost then
@@ -1128,6 +1135,10 @@ end
 function resetInit()
 	-- De-activate all entries
 	for _,v in pairs(CombatManager.getCombatantNodes()) do
+		-- resets checkbox for gone
+		DB.setValue(v, "gone", "string", "ct_faction_empty");
+		-- resets checkbox for T.A.s
+		DB.setValue(v, "triggeredaction", "string", "ct_faction_empty");
 		DB.setValue(v, "active", "number", 0);
 	end
 	

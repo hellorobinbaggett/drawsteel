@@ -37,9 +37,9 @@
 			
 			<button_ctentry_friendfoe name="friendfoe" />
 
-			<button_ctentry_gone name="statusresult" />
 
-			<button_ctentry_gone name="triggeredaction" />
+			<button_ctentry_ta name="triggeredaction" />
+			<button_ctentry_gone name="gone" />
 
 			<number_ctentry_stamina name="stamina">
 			<hideonvalue value="0" />

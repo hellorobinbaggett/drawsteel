@@ -28,7 +28,7 @@
 		</label_ct>
 	</template>
 
-	<template name="label_ct_header_hp">
+	<template name="label_ct_header_stamina">
 		<label_ct_right>
 			<anchored width="50">
 				<right offset="0" />
@@ -42,7 +42,7 @@
 			<anchored width="40">
 				<right offset="0" />
 			</anchored>
-			<static textres="ct_label_init" />
+			<static textres="ct_label_gone" />
 		</label_ct_right>
 	</template>
 
@@ -197,7 +197,7 @@
 	</template>
 	<template name="button_ct_menu">
 		<buttoncontrol>
-			<bounds>120,-45,50,26</bounds>
+			<bounds>20,-45,50,26</bounds>
 			<icon normal="button_menu" pressed="button_menu_down" />
 			<tooltip textres="ct_tooltip_menu" />
 			<script file="ct/scripts/ct_menu.lua" />

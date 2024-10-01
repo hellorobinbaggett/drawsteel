@@ -33,7 +33,7 @@ function linkPCFields()
 
 	local nodeChar = link.getTargetDatabaseNode();
 	if nodeChar then
-		wounds.setLink(DB.createChild(nodeChar, "hp.wounds", "number"));
+		stamina.setLink(DB.createChild(nodeChar, "hp.stamina", "number"));
 	end
 end
 
@@ -127,11 +127,15 @@ end
 
 function linkPCFields()
 	local nodeChar = link.getTargetDatabaseNode();
+	-- Debug.chat("FETCHED NODE", nodeChar)
+	-- Debug.chat("STAMINA", DB.getValue(nodeChar, "hp.stamina", -1));
 	if nodeChar then
+		-- Debug.chat(self)
 		name.setLink(DB.createChild(nodeChar, "name", "string"), true);
 		token.setLink(DB.createChild(nodeChar, "token", "token"));
 		token3Dflat.setLink(DB.createChild(nodeChar, "token3Dflat", "token"));
-
+		stamina.setLink(DB.createChild(nodeChar, "hp.stamina", "number"));
+		
 		if Session.RulesetName == "CoreRPG" then
 			senses.setLink(DB.createChild(nodeChar, "senses", "string"), true);
 		end

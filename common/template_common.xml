@@ -445,6 +445,18 @@
 		</button_iconcycler>
 	</template>
 
+	<template name="button_triggeredaction">
+		<button_iconcycler>
+			<anchored width="20" height="20" />
+			<parameters>
+				<icons>ct_faction_check</icons>
+				<values>triggerd action</values>
+				<tooltipsres>ct_tooltip_ta</tooltipsres>
+				<defaulticon>ct_faction_empty</defaulticon>
+			</parameters>
+		</button_iconcycler>
+	</template>
+
 	<template name="button_dialog_ok" >
 		<buttoncontrol>
 			<anchored width="35" height="35" />

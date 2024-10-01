@@ -192,12 +192,20 @@
 		</button_faction>
 	</template>
 	<template name="button_ctentry_gone">
-		<button_status>
+		<button_status name="gone">
 			<anchored to="rightanchor">
 				<top />
 				<right anchor="left" relation="relative" offset="-5" />
 			</anchored>
 		</button_status>
+	</template>
+	<template name="button_ctentry_ta">
+		<button_triggeredaction name="triggeredaction">
+			<anchored to="rightanchor">
+				<top />
+				<right anchor="left" relation="relative" offset="-5" />
+			</anchored>
+		</button_triggeredaction>
 	</template>
 	<template name="number_ctentry_initresult">
 		<number_ct_crosslink name="initresult">
@@ -216,14 +224,14 @@
 	</template>
 
 	<template name="number_ctentry_stamina">
-		<basicnumber name="stamina">
+		<number_ct_crosslink name="stamina">
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
 				<right anchor="left" relation="relative" offset="-17" />
 			</anchored>
 			<tabtarget prev="nonid_name" />
 			<script file="ct/scripts/ct_stamina.lua" />
-		</basicnumber>
+		</number_ct_crosslink>
 	</template>
 
 
