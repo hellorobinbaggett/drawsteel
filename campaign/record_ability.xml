@@ -117,23 +117,27 @@
 			<tooltip textres="tooltip_pr" />
 			<script>	
 				function action(draginfo)
-				local nodeWin = window.getDatabaseNode();
-				local characteristic = DB.getValue(nodeWin, "ability.characteristic");
-				local effect = DB.getValue(nodeWin, "ability.effect");
-				local tier1Result = DB.getValue(nodeWin, "tier1");
-				local tier2Result = DB.getValue(nodeWin, "tier2");
-				local tier3Result = DB.getValue(nodeWin, "tier3");
-				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-				local nodePC = ActorManager.getCreatureNode(rActor);
+					local nodeWin = window.getDatabaseNode();
+					local abilityName = DB.getValue(nodeWin, "name", "");
+
+					local characteristic = DB.getValue(nodeWin, "ability.characteristic");
+
+					if (characteristic or "") == "" then
+						characteristic = "0";
+					end
+
+					local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+					local nodePC = ActorManager.getCreatureNode(rActor);
+
 					local rRoll = { 
 						sType = "dice", 
-						sDesc = "(Power Roll + " .. characteristic .. ")", 
+						sDesc = "" .. abilityName .. " \n (Power Roll + " .. characteristic .. ")", 
 						aDice = { "d10", "d10" },
 						nMod = characteristic,
-						t1 = tier1Result,
-						t2 = tier2Result,
-						t3 = tier3Result;
-						effect = effect;
+						t1 = DB.getValue(nodeWin, "tier1"),
+						t2 = DB.getValue(nodeWin, "tier2"),
+						t3 = DB.getValue(nodeWin, "tier3");
+						effect = DB.getValue(nodeWin, "ability.effect");
 					};
 					ActionsManager2.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);

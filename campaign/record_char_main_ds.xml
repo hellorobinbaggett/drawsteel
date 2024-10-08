@@ -153,6 +153,7 @@
 			<number_characteristicscore name="reach" source="abilities.reach.value">
 				<anchored to="statsframe" position="insidetopleft" offset="125,15" />
 				<description textres="char_tooltip_reach" />
+				<default>1</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="reach_label">
 				<anchored to="reach" />
@@ -163,6 +164,7 @@
 			<number_characteristicscore name="size" source="abilities.size.value">
 				<anchored to="reach"/>
 				<description textres="char_tooltip_size" />
+				<default>1</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="size_label">
 				<anchored to="size" />
@@ -173,6 +175,7 @@
 			<number_characteristicscore name="speed" source="abilities.speed.value">
 				<anchored to="size" />
 				<description textres="char_tooltip_speed" />
+				<default>5</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="speed_label">
 				<anchored to="speed" />
@@ -183,6 +186,7 @@
 			<number_characteristicscore name="stability" source="abilities.stability.value">
 				<anchored to="speed"  />
 				<description textres="char_tooltip_stability" />
+				<default>0</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="stability_label">
 				<anchored to="stability" />
@@ -193,6 +197,7 @@
 			<number_characteristicscore name="weight" source="abilities.weight.value">
 				<anchored to="stability" />
 				<description textres="char_tooltip_weight" />
+				<default>4</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="weight_label">
 				<anchored to="weight" />

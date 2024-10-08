@@ -5,37 +5,28 @@
 
 -- Values supported in effect conditionals
 conditionaltags = {
-	"blinded", 
-	"charmed",
-	"cursed",
-	"deafened",
-	"encumbered",
-	"frightened", 
-	"grappled", 
-	"incapacitated",
-	"intoxicated",
-	"invisible", 
-	"paralyzed",
-	"petrified",
-	"poisoned",
-	"prone", 
-	"restrained",
-	"stable", 
-	"stunned",
-	"turned",
-	"unconscious",
 	"bleeding", 
 	"dazed",
-	"grabbed", 
+	"frightened",
+	"grabbed",
+	"prone",
+	"restrained", 
 	"slowed", 
-	"taunted",
-	"taunter",
 	"weakened",
+	-- psuedo conditions
+	"covered",
+	"concealed",
+	"death",
+	"defending",
 	"dying",
-	"edge",
-	"double edge",
-	"bane",
-	"double bane"
+	"falling",
+	"flanking",
+	"hidden",
+	"high ground",
+	"invisible",
+	"sneaking",
+	"unconscious",
+	"winded"
 };
 
 -- Conditions supported in effect conditionals and for token widgets
@@ -48,15 +39,22 @@ conditions = {
 	"prone",
 	"restrained", 
 	"slowed", 
-	"taunted",
-	"taunter",
 	"weakened",
+	-- psuedo conditions
+	"covered",
+	"concealed",
+	"death",
+	"defending",
 	"dying",
-	"dead",
-	"edge",
-	"double edge",
-	"bane",
-	"double bane"
+	"falling",
+	"flanking",
+	"hidden",
+	"high ground",
+	"invisible",
+	"sneaking",
+	"taunted",
+	"unconscious",
+	"winded"
 };
 
 -- Condition effect types for token widgets
@@ -68,48 +66,21 @@ condcomps = {
 	["prone"] = "cond_prone",
 	["restrained"] = "cond_restrained",
 	["slowed"] = "cond_slowed",
-	["taunted"] = "cond_surprised",
-	["taunter"] = "cond_cover",
 	["weakened"] = "cond_weakened",
+	-- psuedo conditions
+	["covered"] = "cond_cover",
+	["concealed"] = "cond_cover",
+	["death"] = "cond_dead",
 	["dying"] = "cond_dying",
-	["dead"] = "cond_dead",
-	["edge"] = "cond_edge",
-	["double edge"] = "cond_doubleedge",
-	["bane"] = "cond_bane",
-	["double bane"] = "cond_doublebane",
-
-	--effects but they are actually indescipherable
-	-- ["bleeding"] = "er_cond_bleeding", 
-	-- ["dazed"] = "er_cond_dazed",
-	-- ["frightened"] = "er_cond_frightened",
-	-- ["grabbed"] = "er_cond_grabbed",
-	-- ["prone"] = "er_cond_prone",
-	-- ["restrained"] = "er_cond_restrained",
-	-- ["slowed"] = "er_cond_slowed",
-	-- ["taunted"] = "er_cond_taunted",
-	-- ["taunter"] = "er_cond_taunter",
-	-- ["weakened"] = "er_cond_weakened",
-	-- ["dying"] = "er_cond_dying",
-
-	-- Similar to conditions
-	["cover"] = "cond_cover",
-	["scover"] = "cond_cover",
-	-- ADV
-	["advatk"] = "cond_advantage",
-	["advchk"] = "cond_advantage",
-	["advskill"] = "cond_advantage",
-	["advinit"] = "cond_advantage",
-	["advsav"] = "cond_advantage",
-	["advdeath"] = "cond_advantage",
-	["grantdisatk"] = "cond_advantage",
-	-- DIS
-	["disatk"] = "cond_disadvantage",
-	["dischk"] = "cond_disadvantage",
-	["disskill"] = "cond_disadvantage",
-	["disinit"] = "cond_disadvantage",
-	["dissav"] = "cond_disadvantage",
-	["disdeath"] = "cond_disadvantage",
-	["grantadvatk"] = "cond_disadvantage",
+	["falling"] = "cond_pinned",
+	["flanking"] = "cond_edge",
+	["hidden"] = "cond_invisible",
+	["high ground"] = "cond_edge",
+	["invisible"] = "cond_invisible",
+	["sneaking"] = "cond_incorporeal",
+	["taunted"] = "cond_surprised",
+	["unconscious"] = "cond_unconscious",
+	["winded"] = "cond_weakened"
 };
 
 -- Other visible effect types for token widgets

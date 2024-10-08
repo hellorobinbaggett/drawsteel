@@ -34,6 +34,10 @@ function onInit()
 		end
 	end
 	
+	if prefix then
+		sTitle = Interface.getString(prefix[1]) .. " - " .. sTitle;
+	end
+
 	self.setValue(sTitle);
 	if not window.tooltip then
 		window.setTooltipText(sTitle);
