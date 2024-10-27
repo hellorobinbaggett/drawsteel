@@ -85,6 +85,7 @@
 	
 	<string name="effect_header_lights">LIGHTS</string>
 	<string name="effect_header_conditions">CONDITIONS</string>
+	<string name="effect_header_others">OTHERS</string>
 
 	<string name="effect_label_durunitrnd">RND</string>
 	<string name="effect_label_durunitmin">MIN</string>

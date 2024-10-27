@@ -904,3 +904,16 @@ function openRecordWindow(sRecordType, node)
 		w.header.subwindow.name.setFocus();
 	end
 end
+
+function getRecordData()
+	if not aRecords then
+		aRecords = {};
+	end
+	return aRecords;
+end
+function getRecordViewData()
+	if not aListViews then
+		aListViews = {};
+	end
+	return aListViews;
+end

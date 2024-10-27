@@ -25,4 +25,15 @@ function onInit()
 		conditions_label.setVisible(false);
 		conditions_list.setVisible(false);
 	end
+
+	if DataCommon and DataCommon.others and (#(DataCommon.others) > 0) then
+		for _,sCondition in ipairs(DataCommon.others) do
+			local rEffect = { sName = StringManager.capitalize(sCondition) };
+			local w = others_list.createWindow();
+			w.setEffect(rEffect);
+		end
+	else
+		others_label.setVisible(false);
+		others_list.setVisible(false);
+	end
 end

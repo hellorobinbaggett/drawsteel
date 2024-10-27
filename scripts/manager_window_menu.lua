@@ -110,6 +110,16 @@ function registerToolbarButtons()
 			bHostOnly = true,
 		});
 
+	ToolbarManager.registerButton("token_find",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_ping",
+			sTooltipRes = "record_toolbar_token_find",
+			fnActivate = WindowMenuManager.performMenuTokenFind,
+			bHostOnly = true,
+		});
+
+
 	-- Record: Parcel
 	ToolbarManager.registerButton("id_all",
 		{
@@ -146,14 +156,13 @@ function populate(w)
 end
 function buildToolbar(w)
 	local wTop = UtilityManager.getTopWindow(w);
-
-	local sRecordType = LibraryData.getRecordTypeFromWindow(wTop);
+	local sRecordType = RecordDataManager.getRecordTypeFromWindow(wTop);
 
 	local tCustomRecordType;
 	if (sRecordType or "") ~= "" then
-		tCustomRecordType = LibraryData.getCustomData(sRecordType, "tWindowMenu") or {};
+		tCustomRecordType = RecordDataManager.getCustomData(sRecordType, "tWindowMenu", {});
 	else
-		tCustomRecordType = WindowMenuManager.getCustomMenuData(wTop) or {};
+		tCustomRecordType = WindowMenuManager.getCustomMenuData(wTop);
 	end
 	tCustomRecordType["left"] = WindowMenuManager.checkButtons(tCustomRecordType["left"]);
 	tCustomRecordType["right"] = WindowMenuManager.checkButtons(tCustomRecordType["right"]);
@@ -215,9 +224,9 @@ function buildToolbar(w)
 	local bLock = false;
 	local bID = false;
 	if ((sRecordType or "") ~= "") then
-		bShare = bOwner and LibraryData.getShareMode(sRecordType);
-		bLock = bOwner and LibraryData.getLockMode(sRecordType);
-		bID = LibraryData.isIdentifiable(sRecordType, nodeWin);
+		bShare = bOwner and RecordDataManager.getShareMode(sRecordType);
+		bLock = bOwner and RecordDataManager.getLockMode(sRecordType);
+		bID = RecordDataManager.isIdentifiable(sRecordType, nodeWin);
 	else
 		if (wTop.getFrame() == "recordsheet") and (not wTop.windowmenu or not wTop.windowmenu[1].nolock) then
 			bLock = true;
@@ -304,9 +313,9 @@ function onMenuLinkDrag(c, draginfo)
 	local nodeWin = c.window.getDatabaseNode();
 	
 	local sDesc;
-	local sRecordType = LibraryData.getRecordTypeFromDisplayClass(sClass);
+	local sRecordType = RecordDataManager.getRecordTypeFromDisplayClass(sClass);
 	if (sRecordType or "") ~= "" then
-		if LibraryData.getIDState(sRecordType, nodeWin, true) then
+		if RecordDataManager.getIDState(sRecordType, nodeWin, true) then
 			sDesc = DB.getValue(nodeWin, "name", "");
 			if sDesc == "" then
 				sDesc = Interface.getString("library_recordtype_empty_" .. sRecordType);
@@ -318,7 +327,7 @@ function onMenuLinkDrag(c, draginfo)
 			end
 		end
 
-		local sDisplayTitle = LibraryData.getSingleDisplayText(sRecordType);
+		local sDisplayTitle = RecordDataManager.getRecordTypeDisplayTextSingle(sRecordType);
 		if (sDisplayTitle or "") ~= "" then
 			sDesc = sDisplayTitle .. ": " .. sDesc;
 		end
@@ -405,28 +414,7 @@ function onDatabaseEventMenuRevert(c)
 	WindowMenuManager.updateMenuRevertDisplay(c);
 end
 function performMenuRevert(c)
-	local w = UtilityManager.getTopWindow(c.window);
-	local node = w.getDatabaseNode();
-	if node then
-		if not DB.isIntact(node) then
-			local tData = {
-				sTitleRes = "revert_dialog_title",
-				sPath = w.getDatabasePath(),
-				fnCallback = WindowMenuManager.handleMenuRevertDialog,
-			};
-			local sDisplayText = Interface.getString("revert_dialog_text");
-			local sDisplayType = LibraryData.getSingleDisplayText(LibraryData.getRecordTypeFromWindow(w));
-			local sDisplayName = DB.getValue(node, "name", "");
-			tData.sText = string.format("%s\r\r%s: %s", sDisplayText, sDisplayType, sDisplayName);
-
-			DialogManager.openDialog("dialog_okcancel", tData);
-		end
-	end
-end
-function handleMenuRevertDialog(sResult, tData)
-	if sResult == "ok" then
-		DB.revert(tData.sPath);
-	end
+	RecordManager.performRevertByWindow(UtilityManager.getTopWindow(c.window));
 end
 function updateMenuRevertDisplay(c)
 	local wTop = UtilityManager.getTopWindow(c.window);
@@ -492,6 +480,13 @@ end
 
 function performMenuChatSpeak(c)
 	GmIdentityManager.addIdentity(ActorManager.getDisplayName(c.window.getDatabaseNode()));
+end
+
+function performMenuTokenFind(c)
+	local nodeActor = c.window.getDatabaseNode();
+	if not CombatManager.openMap(nodeActor) then
+		ChatManager.SystemMessage(string.format(Interface.getString("record_message_token_find_fail"), DB.getValue(nodeActor, "name", "")));
+	end
 end
 
 function performMenuIDAll(c)

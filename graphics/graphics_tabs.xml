@@ -24,11 +24,11 @@
 	
 	<font name="tabfont">
 		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="14" />
-		<!-- <color value="#FFFFFF" /> -->
+		<color value="#FFFFFF" />
 	</font>
 	
 	<!-- LEGACY - TO BE DEPRECATED (2024-08-13) -->
-	<!-- <icon name="tab_inventory" file="graphics/tabs/tab_inventory.png" />
+	<icon name="tab_inventory" file="graphics/tabs/tab_inventory.png" />
 	<icon name="tab_main" file="graphics/tabs/tab_main.png" />
 	<icon name="tab_notes" file="graphics/tabs/tab_notes.png" />
 	<icon name="tab_order" file="graphics/tabs/tab_order.png" />
@@ -41,5 +41,5 @@
 	<icon name="tab_skills" file="graphics/tabs/tab_skills.png" />
 	<icon name="tab_spells" file="graphics/tabs/tab_spells.png" />
 	<icon name="tab_xp" file="graphics/tabs/tab_xp.png" />
-	<icon name="tab_log" file="graphics/tabs/tab_log.png" /> -->
+	<icon name="tab_log" file="graphics/tabs/tab_log.png" />
 </root>

@@ -73,6 +73,7 @@
 	<script name="Effects" file="scripts/data_common.lua" />
 
 	<!-- Global scripts -->
+	<script name="AssetManager" file="scripts/manager_asset.lua" />
 	<script name="AssetWindowManager" file="scripts/manager_asset_window.lua" />
 	<script name="ChatManager" file="scripts/manager_chat.lua" />
 	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
@@ -95,6 +96,9 @@
 	<script name="OptionsCore" file="scripts/data_options_core.lua" />
 	<script name="RecordManager" file="scripts/manager_record.lua" />
 	<script name="RecordAssetManager" file="scripts/manager_record_asset.lua" />
+	<script name="RecordDataManager" file="scripts/manager_record_data.lua" />
+	<script name="RecordIndexManager" file="scripts/manager_record_index.lua" />
+	<script name="RecordIndexViewManager" file="scripts/manager_record_index_view.lua" />
 	<script name="RecordShareManager" file="scripts/manager_record_share.lua" />
 	<script name="SoundManager" file="scripts/manager_sound.lua" />
 	<script name="SoundManagerSyrinscape" file="scripts/manager_sound_syrinscape.lua" />

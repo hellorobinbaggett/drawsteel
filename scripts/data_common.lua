@@ -39,8 +39,10 @@ conditions = {
 	"prone",
 	"restrained", 
 	"slowed", 
-	"weakened",
-	-- psuedo conditions
+	"weakened"
+};
+
+others = {
 	"covered",
 	"concealed",
 	"death",

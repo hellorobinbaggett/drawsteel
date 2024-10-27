@@ -15,11 +15,11 @@
 
 	<!-- Fonts -->
 	<font name="sidebar_dock_category">
-		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="18" />
+		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold-Caps.ttf" name="Noto Sans Bold Caps" size="16" />
 		<color value="#FFFFFF" />
 	</font>
 	<font name="sidebar_dock_entry">
-		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="18" />
+		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold-Caps.ttf" name="Noto Sans Bold Caps" size="16" />
 		<color value="#FFFFFF" />
 	</font>
 
@@ -34,15 +34,19 @@
 	</framedef>
 	<framedef name="sidebar_dock_entry_icon">
 		<bitmap file="graphics/sidebar/sidebar_dock_icon.png" />
-		<offset>12,24,12,24</offset>
+		<offset>24,24,24,24</offset>
 	</framedef>
- 	<framedef name="sidebar_dock_entry">
+	<framedef name="sidebar_dock_entry_icon_down">
+		<bitmap file="graphics/sidebar/sidebar_dock_entry_down.png" />
+		<offset>12,12,64,12</offset>
+	</framedef>
+	<framedef name="sidebar_dock_entry">
 		<bitmap file="graphics/sidebar/sidebar_dock_entry.png" />
-		<offset>12,24,12,24</offset>
+		<offset>12,12,64,12</offset>
 	</framedef>
 	<framedef name="sidebar_dock_entry_down">
 		<bitmap file="graphics/sidebar/sidebar_dock_entry_down.png" />
-		<offset>12,24,12,24</offset>
+		<offset>12,12,64,12</offset>
 	</framedef>
 
 	<icon name="sidebar_action_expand" file="graphics/sidebar/sidebar_action_expand.png" />
@@ -72,7 +76,7 @@
 
 	<icon name="sidebar_icon_link_library" file="graphics/sidebar/sidebar_icon_modules.png" />
 	<icon name="sidebar_icon_link_tokenbag" file="graphics/sidebar/sidebar_icon_assets.png" />
-	<icon name="sidebar_icon_link_story_book" file="graphics/sidebar/sidebar_icon_story.png" />
+	<icon name="sidebar_icon_link_story_book" file="graphics/sidebar/sidebar_icon_link_story_book.png" />
 
 	<icon name="sidebar_icon_recordtype_battle" file="graphics/sidebar/sidebar_icon_battle.png" />
 	<icon name="sidebar_icon_recordtype_charsheet" file="graphics/sidebar/sidebar_icon_charsheet.png" />
@@ -102,7 +106,6 @@
 	<icon name="sidebar_icon_recordtype_specialability" file="graphics/sidebar/sidebar_icon_fire.png" />
 	<icon name="sidebar_icon_recordtype_spell" file="graphics/sidebar/sidebar_icon_spell.png" />
 	<icon name="sidebar_icon_recordtype_talent" file="graphics/sidebar/sidebar_icon_feat.png" />
-	<icon name="sidebar_icon_recordtype_ability" file="graphics/sidebar/sidebar_icon_fire.png" />
 
 	<!-- AlienRpg -->
 	<!--

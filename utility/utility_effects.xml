@@ -198,6 +198,15 @@
 				<readonly />
 				<class>effect_preset_item</class>
 			</list_content_noscroll_top>
+
+			<header_content_framed_headersimple name="others_label">
+				<static textres="effect_header_others" />
+			</header_content_framed_headersimple>
+			<list_content_noscroll_top name="others_list">
+				<columns width="120" fillwidth="true" />
+				<readonly />
+				<class>effect_preset_item</class>
+			</list_content_noscroll_top>
 		</sheetdata>
 	</windowclass>
 	<windowclass name="effect_preset_item">

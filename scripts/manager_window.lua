@@ -3,8 +3,40 @@
 -- attribution and copyright information.
 --
 
+function onTabletopInit()
+	Module.addEventHandler("onUnloadedReference", WindowManager.onUnloadedModuleReference);
+
+	local nMajor, nMinor = Interface.getVersion();
+	if (nMajor >= 4) and (nMinor >= 6) then
+		Interface.addEventHandler("onLinkClassMissing", WindowManager.onLinkClassMissing);
+		Interface.addEventHandler("onLinkRecordMissing", WindowManager.onLinkRecordMissing);
+	end
+end
+
+--
+--	MISSING WINDOW DATA HANDLING
+--
+
+function onUnloadedModuleReference(sModule, sClass, sPath)
+	ModuleManager.handleRecordModulesLoad({ sPath }, WindowManager.onUnloadedModuleLoadCallback, { sClass = sClass, sPath = sPath });
+end
+function onUnloadedModuleLoadCallback(tCustom)
+	Interface.openWindow(tCustom.sClass, tCustom.sPath);
+end
+
+function onLinkClassMissing(sClass, sRecord)
+	ChatManager.SystemMessage(string.format(Interface.getString("record_message_link_class_missing"), sClass, sRecord));
+end
+function onLinkRecordMissing(sClass, sRecord)
+	ChatManager.SystemMessage(string.format(Interface.getString("record_message_link_record_missing"), sClass, sRecord));
+end
+
+--
+--	GENERAL
+--
+
 function getRecordType(w)
-	return LibraryData.getRecordTypeFromWindow(UtilityManager.getTopWindow(w));
+	return RecordDataManager.getRecordTypeFromWindow(UtilityManager.getTopWindow(w));
 end
 function updateTooltip(w)
 	local sRecordType = WindowManager.getRecordType(w);
@@ -17,7 +49,7 @@ function updateTooltip(w)
 	end
 
 	local sTooltip;
-	if LibraryData.getIDState(sRecordType, nodeRecord) then
+	if RecordDataManager.getIDState(sRecordType, nodeRecord) then
 		sTooltip = DB.getValue(nodeRecord, "name", "");
 		if sTooltip == "" then
 			sTooltip = Interface.getString("library_recordtype_empty_" .. sRecordType);
@@ -28,7 +60,7 @@ function updateTooltip(w)
 			sTooltip = Interface.getString("library_recordtype_empty_nonid_" .. sRecordType);
 		end
 	end
-	local sDisplayTitle = LibraryData.getSingleDisplayText(sRecordType);
+	local sDisplayTitle = RecordDataManager.getRecordTypeDisplayTextSingle(sRecordType);
 	if (sDisplayTitle or "") ~= "" then
 		sTooltip = sDisplayTitle .. ": " .. sTooltip;
 	end
@@ -122,6 +154,38 @@ function getInnerControlValue(v, s)
 
 	return nil;
 end
+function setInnerControlValue(v, s, vValue)
+	if not v or not s then
+		return false;
+	end
+
+	local sType = type(v);
+	if sType == "windowinstance" then
+		if v[s] then
+			v[s].getValue(vValue);
+			return true;
+		end
+		for _,c in pairs(v.getControls()) do
+			if WindowManager.getInnerControlValue(c, s, vValue) then
+				return true;
+			end
+		end
+	elseif sType == "windowlist" then
+		for _,wChild in ipairs(v.getWindows()) do
+			if WindowManager.getInnerControlValue(wChild, s, vValue) then
+				return true;
+			end
+		end
+	elseif sType == "subwindow" then
+		if v.subwindow then
+			if WindowManager.getInnerControlValue(v.subwindow, s, vValue) then
+				return true;
+			end
+		end
+	end
+
+	return false;
+end
 
 -- NOTE: UI cascade function calls should not return early, 
 --		as all UI children up/down need to be have the option to react to function event.
@@ -207,6 +271,15 @@ function callOuterWindowFunction(v, sFunc, ...)
 	end
 end
 
+function callSafeControlsUpdate(w, tControls, bReadOnly, bForceHide)
+	if not w or not tControls then
+		return;
+	end
+
+	for _,sControl in ipairs(tControls) do
+		WindowManager.callSafeControlUpdate(w, sControl, bReadOnly, bForceHide);
+	end
+end
 function callSafeControlUpdate(w, sControl, bReadOnly, bForceHide)
 	if not w or not sControl then
 		return false;
