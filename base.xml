@@ -14,9 +14,9 @@
 	</description>
 
 	<!-- Announcements -->
-	<announcement text="Draw Steel Custom Ruleset (build v.0625)
+	<announcement text="Draw Steel Custom Ruleset (build v.070)
 	" font="emotefont" icon="rulesetlogo_DrawSteel" />
-	<announcement text="Draw Steel Custom Ruleset (build v.0625)' is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Custom Ruleset (build v.070)' is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	<announcement text="Based on CoreRPG ruleset by SmiteWorks. The CoreRPG ruleset and all included files are copyright 2004-2024, Smiteworks USA LLC.
 	" font="emotefont" icon="" />
@@ -253,6 +253,7 @@
 	<includefile source="campaign/record_char_skills_ds.xml" />
 	<includefile source="campaign/record_char_notes.xml" />
 	<includefile source="campaign/record_char_kits.xml" />
+	<includefile source="campaign/record_char_titles.xml" />
 	<includefile source="campaign/record_ability.xml" />
 
 	<includefile source="campaign/record_power_action.xml" />

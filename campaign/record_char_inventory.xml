@@ -9,7 +9,7 @@
 	<windowclass name="charsheet_inventory">
 		<sheetdata>
 			<frame_char name="inventoryframe">
-				<bounds>0,0,-1,-30</bounds>
+				<bounds>0,0,-1,-55</bounds>
 			</frame_char>
 			
 			<label name="count_label">
@@ -106,18 +106,25 @@
 				<static textres="char_label_totalweight" />
 			</label> -->		
 
-			<!-- <frame_char name="coinframe">
-				<bounds>0,-205,-1,200</bounds>
+			<frame_char name="coinframe">
+				<bounds>0,-65,-1,60</bounds>
 			</frame_char>
+
 			<label_frametop name="coin_label">
 				<anchored to="coinframe" />
 				<static textres="char_label_money" />
 			</label_frametop>
 
-			<sub_charcurrency name="sub_currency" />
-			<scrollbar_sub_charcurrency name="scrollbar_currency" />
-			<button_iadd_sub_charcurrency name="currency_iadd" />
-			<button_iedit_sub_charcurrency name="currency_iedit" /> -->
+			<basicnumber name="wealthlevel">
+				<anchored to="coinframe">
+					<top offset="30" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<default>1</default>
+				<target>wealthlevel</target>
+			</basicnumber>
 		</sheetdata>
 	</windowclass>
 

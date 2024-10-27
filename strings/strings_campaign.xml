@@ -122,7 +122,7 @@
 	<string name="char_label_itemlocation">Location</string>
 	<string name="char_label_itemname">Name</string>
 	<string name="char_label_totalweight">Total encumbrance</string>
-	<string name="char_label_money">Wealth</string>
+	<string name="char_label_money">Wealth Level</string>
 	<string name="char_label_appearance">Appearance</string>
 	<string name="char_label_max">MAX</string>
 	<string name="char_label_temp">TEMP</string>
@@ -251,6 +251,8 @@
 	<string name="item_label_cost">Cost</string>
 	<string name="item_label_prerequisites">Prerequisites</string>
 	<string name="item_label_researchmaterials">Materials</string>
+	<string name="item_label_projectsource">Source</string>
+	<string name="item_label_keywords">Keywords</string>
 	<string name="item_label_projectroll">Project Roll</string>
 	<string name="item_label_projectgoal">Project Goal</string>
 	<string name="item_label_weight">Weight</string>

@@ -253,7 +253,7 @@
 
 			<!-- Class Resource -->
 			<label_charframetop name="classresourcetitle">
-				<anchored height="30">
+				<anchored height="20">
 					<top anchor="bottom" offset="-175" />
 					<left offset="105" />
 					<right offset="-105" />
@@ -261,7 +261,7 @@
 				<icons>char_stats</icons>
 			</label_charframetop>
 
-			<string_labeled name="classresourcestring" gravity="center">
+			<!-- <string_labeled name="classresourcestring" gravity="center">
 				<anchored height="20">
 					<top anchor="bottom" offset="-175" />
 					<left offset="105" />
@@ -269,10 +269,10 @@
 				</anchored>
 				<center />
 				<font>subwindowsmalltitle</font>
-			</string_labeled>
+			</string_labeled> -->
 
 			<basicnumber name="classresource" source="classresource">
-				<anchored to="classresourcetitle" width="86" height="30">
+				<anchored to="classresourcetitle" width="90" height="30">
 					<top anchor="bottom" offset="8" />
 					<left anchor="center" offset="-35" />
 				</anchored>
@@ -284,11 +284,50 @@
 				</script>
 			</basicnumber>
 
-			<label_charfieldtop name="classresourcetitlelable">
+			<label_charfieldtop name="classresource_label">
+				<anchored to="classresource" offset="0,8" />
+				<static textres="char_label_classresource" />
+			</label_charfieldtop>
+
+			<basicnumber name="surges" source="surges">
+				<anchored to="classresource" position="righthigh" offset="-160,0" width="48" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_surges" />
+				<tooltip textres="char_tooltip_surgesdescription" />
+				<min value="0" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
+
+			<basicnumber name="shields" source="shields">
+				<anchored to="classresource" position="righthigh" offset="22,0" width="48" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_shields" />
+				<tooltip textres="char_tooltip_shieldsdescription" />
+				<min value="0" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
+
+			<label_charfieldtop name="surges_label">
+				<anchored to="surges" offset="0,8" />
+				<static textres="char_label_surges" />
+			</label_charfieldtop>
+
+			<label_charfieldtop name="shields_label">
+				<anchored to="shields" offset="0,8" />
+				<static textres="char_label_shields" />
+			</label_charfieldtop>
+
+			<!-- <label_charfieldtop name="classresourcetitlelable">
 				<anchored to="classresource" offset="0,5" />
 				<static textres="char_label_classresource" />
 				<font>sheetlabel2</font>
-			</label_charfieldtop>
+			</label_charfieldtop> -->
 
 			<!-- HEALTHS MATE -->
 			<label_charframetop name="healthtitle">

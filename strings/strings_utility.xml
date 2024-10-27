@@ -9,6 +9,7 @@
 	<!-- Tabs -->
 	<string name="tab_actions">Actions</string>
 	<string name="tab_inventory">Inventory</string>
+	<string name="tab_titles">Titles</string>
 	<string name="tab_main">Main</string>
 	<string name="tab_skills">Skills</string>
 	<string name="tab_abilities">Abilities</string>

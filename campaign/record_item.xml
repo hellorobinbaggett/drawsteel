@@ -29,13 +29,18 @@
 
 			<line_column name="divider" />
 
+			<label_column name="keywords_label">
+				<static textres="item_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords" />
+
 			<label_column name="prerequisites_label">
 				<static textres="item_label_prerequisites" />
 			</label_column>
 			<string_columnh name="prerequisites" />
 
 			<label_column name="researchmaterials_label">
-				<static textres="item_label_researchmaterials" />
+				<static textres="item_label_projectsource" />
 			</label_column>
 			<string_columnh name="researchmaterials" />
 

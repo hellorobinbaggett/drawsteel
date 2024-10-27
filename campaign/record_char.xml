@@ -47,6 +47,9 @@
 			<sub_charsheet name="notes">
 				<class>charsheet_notes</class>
 			</sub_charsheet>
+			<sub_charsheet name="titles">
+				<class>charsheet_titles</class>
+			</sub_charsheet>
 
 			<tabs_charsheet name="tabs">
 				<!-- default core RPG main tab -->
@@ -59,6 +62,10 @@
 					<subwindow>main_ds</subwindow>
 				</tab>
 				<tab>
+					<tabres>tab_skills</tabres>
+					<subwindow>skills_ds</subwindow>
+				</tab>
+				<tab>
 					<tabres>tab_abilities</tabres>
 					<subwindow>abilities</subwindow>
 				</tab>
@@ -68,20 +75,20 @@
 					<subwindow>skills</subwindow>
 				</tab> -->
 				<tab>
-					<tabres>tab_skills</tabres>
-					<subwindow>skills_ds</subwindow>
+					<tabres>tab_notes</tabres>
+					<subwindow>notes</subwindow>
 				</tab>
 				<tab>
 					<tabres>tab_kits</tabres>
 					<subwindow>kits</subwindow>
 				</tab>
 				<tab>
-					<tabres>tab_notes</tabres>
-					<subwindow>notes</subwindow>
-				</tab>
-				<tab>
 					<tabres>tab_inventory</tabres>
 					<subwindow>inventory</subwindow>
+				</tab>
+				<tab>
+					<tabres>tab_titles</tabres>
+					<subwindow>titles</subwindow>
 				</tab>
 			</tabs_charsheet>
 		

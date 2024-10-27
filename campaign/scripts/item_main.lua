@@ -42,7 +42,8 @@ function update()
 	local bSection2 = false;
 	if WindowManager.callSafeControlUpdate(self, "cost", bReadOnly, not bID) then bSection2 = true; end
 	if WindowManager.callSafeControlUpdate(self, "weight", bReadOnly, not bID) then bSection2 = true; end
-	if WindowManager.callSafeControlUpdate(self, "researchmaterials", bReadOnly, not bID) then bSection2 = true; end
+	if WindowManager.callSafeControlUpdate(self, "source", bReadOnly, not bID) then bSection2 = true; end
+	if WindowManager.callSafeControlUpdate(self, "keywords", bReadOnly, not bID) then bSection2 = true; end
 	if WindowManager.callSafeControlUpdate(self, "projectroll", bReadOnly, not bID) then bSection2 = true; end
 	if WindowManager.callSafeControlUpdate(self, "projectgoal", bReadOnly, not bID) then bSection2 = true; end
 	if WindowManager.callSafeControlUpdate(self, "prerequisites", bReadOnly, not bID) then bSection2 = true; end

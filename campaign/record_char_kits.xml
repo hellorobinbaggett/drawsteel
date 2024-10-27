@@ -36,26 +36,26 @@
 			</label_frametop>
 
 			<string_labeled name="kit">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="155" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="280" />
 				<labelres>char_label_kit</labelres>
 			</string_labeled>
-			<string_labeled name="kittype">
-				<anchored to="kit" position="righthigh" offset="5,0" width="135" />
+			<!-- <string_labeled name="kittype2">
+				<anchored to="kit2" position="righthigh" offset="5,0" width="135" />
 				<labelres>char_label_type</labelres>
-			</string_labeled>
+			</string_labeled> -->
 
 			<string_labeled name="kitarmor">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="70" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="140" />
 				<labelres>char_label_armor</labelres>
 			</string_labeled>
 			<string_labeled name="kitweapon">
-				<anchored to="kitarmor" position="righthigh" offset="5,0" width="90" />
+				<anchored to="kitarmor" position="righthigh" offset="5,0" width="135" />
 				<labelres>char_label_weapon</labelres>
 			</string_labeled>
-			<string_labeled name="kitimplement">
+			<!-- <string_labeled name="kitimplement">
 				<anchored to="kitweapon" position="righthigh" offset="5,0" width="90" />
 				<labelres>char_label_implement</labelres>
-			</string_labeled>
+			</string_labeled> -->
 
 			<label_frametop>
 				<anchored to="appearanceframe" offset="125,60"/>
@@ -75,17 +75,17 @@
 				<labelres>char_label_stability</labelres>
 			</string_labeled>
 
-			<string_labeled name="kitdistance">
+			<string_labeled name="kitrangeddistance">
 				<anchored to="appearanceframe" position="insidetopleft" offset="15,107" width="90" />
-				<labelres>char_label_distance</labelres>
+				<labelres>char_label_rangeddistance</labelres>
 			</string_labeled>
-			<string_labeled name="kitreach">
-				<anchored to="kitdistance" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_reach</labelres>
+			<string_labeled name="kitmeleedistance">
+				<anchored to="kitrangeddistance" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_meleedistance</labelres>
 			</string_labeled>
-			<string_labeled name="kitarea">
-				<anchored to="kitreach" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_area</labelres>
+			<string_labeled name="kitdisengage">
+				<anchored to="kitmeleedistance" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_disengage</labelres>
 			</string_labeled>
 
 			<label_frametop>
@@ -94,7 +94,7 @@
 			</label_frametop>
 
 			<string_labeled name="Kit.Melee.Damage.Tier1" source="Kit.Melee.Damage.Tier1">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,155" width="20" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="75,155" width="20" />
 				<labelres>char_label_melee</labelres>
 				<default>+0</default>
 			</string_labeled>
@@ -121,7 +121,7 @@
 				<default>+0</default>
 			</string_labeled>
 
-			<string_labeled name="Kit.Magic.Damage.Tier1" source="Kit.Magic.Damage.Tier1">
+			<!-- <string_labeled name="Kit.Magic.Damage.Tier1" source="Kit.Magic.Damage.Tier1">
 				<anchored to="Kit.Ranged.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
 				<labelres>char_label_magical</labelres>
 				<default>+0</default>
@@ -133,7 +133,7 @@
 			<string_labeled name="Kit.Magic.Damage.Tier3" source="Kit.Magic.Damage.Tier3">
 				<anchored to="Kit.Magic.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
 				<default>+0</default>
-			</string_labeled>	
+			</string_labeled>	 -->
 
 			<frame_char name="notesframe">
 				<bounds>310,20,-1,190</bounds>
@@ -188,26 +188,26 @@
 			</label_frametop>
 
 			<string_labeled name="kit2">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,10" width="155" />
+				<anchored to="appearanceframe2" position="insidetopleft" offset="15,10" width="280" />
 				<labelres>char_label_kit</labelres>
 			</string_labeled>
-			<string_labeled name="kittype2">
+			<!-- <string_labeled name="kittype2">
 				<anchored to="kit2" position="righthigh" offset="5,0" width="135" />
 				<labelres>char_label_type</labelres>
-			</string_labeled>
+			</string_labeled> -->
 
 			<string_labeled name="kitarmor2">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,35" width="70" />
+				<anchored to="appearanceframe2" position="insidetopleft" offset="15,35" width="140" />
 				<labelres>char_label_armor</labelres>
 			</string_labeled>
 			<string_labeled name="kitweapon2">
-				<anchored to="kitarmor2" position="righthigh" offset="5,0" width="90" />
+				<anchored to="kitarmor2" position="righthigh" offset="5,0" width="135" />
 				<labelres>char_label_weapon</labelres>
 			</string_labeled>
-			<string_labeled name="kitimplement2">
+			<!-- <string_labeled name="kitimplement2">
 				<anchored to="kitweapon2" position="righthigh" offset="5,0" width="90" />
 				<labelres>char_label_implement</labelres>
-			</string_labeled>
+			</string_labeled> -->
 
 			<label_frametop>
 				<anchored to="appearanceframe2" offset="125,60"/>
@@ -227,17 +227,17 @@
 				<labelres>char_label_stability</labelres>
 			</string_labeled>
 
-			<string_labeled name="kitdistance2">
+			<string_labeled name="kitrangeddistance2">
 				<anchored to="appearanceframe2" position="insidetopleft" offset="15,107" width="90" />
-				<labelres>char_label_distance</labelres>
+				<labelres>char_label_rangeddistance</labelres>
 			</string_labeled>
-			<string_labeled name="kitreach2">
-				<anchored to="kitdistance2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_reach</labelres>
+			<string_labeled name="kitmeleedistance2">
+				<anchored to="kitrangeddistance2" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_meleedistance</labelres>
 			</string_labeled>
-			<string_labeled name="kitarea2">
-				<anchored to="kitreach2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_area</labelres>
+			<string_labeled name="kitdisengage2">
+				<anchored to="kitmeleedistance2" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_disengage</labelres>
 			</string_labeled>
 
 			<label_frametop>
@@ -246,7 +246,7 @@
 			</label_frametop>
 			
 			<string_labeled name="Kit2.Melee.Damage.Tier1" source="Kit2.Melee.Damage.Tier1">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,155" width="20" />
+				<anchored to="appearanceframe2" position="insidetopleft" offset="75,155" width="20" />
 				<labelres>char_label_melee</labelres>
 				<default>+0</default>
 			</string_labeled>
@@ -273,7 +273,7 @@
 				<default>+0</default>
 			</string_labeled>
 
-			<string_labeled name="Kit2.Magic.Damage.Tier1" source="Kit2.Magic.Damage.Tier1">
+			<!-- <string_labeled name="Kit2.Magic.Damage.Tier1" source="Kit2.Magic.Damage.Tier1">
 				<anchored to="Kit2.Ranged.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
 				<labelres>char_label_magical</labelres>
 				<default>+0</default>
@@ -285,7 +285,7 @@
 			<string_labeled name="Kit2.Magic.Damage.Tier3" source="Kit2.Magic.Damage.Tier3">
 				<anchored to="Kit2.Magic.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
 				<default>+0</default>
-			</string_labeled>			
+			</string_labeled>			 -->
 
 			<frame_char name="notesframe2">
 				<bounds>310,250,-1,190</bounds>

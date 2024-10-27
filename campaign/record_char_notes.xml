@@ -75,7 +75,7 @@
 			</frame_char>	
 			<label_frametop>
 				<anchored to="complicationsframe" />
-				<static textres="char_label_titles" />
+				<static textres="char_label_complications" />
 			</label_frametop>
 			<stringu name="complications">
 				<anchored to="complicationsframe">
@@ -125,7 +125,7 @@
 			</frame_char>
 			<label_frametop>
 				<anchored to="notesframe" />
-				<static textres="char_label_notes" />
+				<static textres="char_label_notesanddowntime" />
 			</label_frametop>
 			<stringu name="notes">
 				<anchored to="notesframe">

@@ -245,7 +245,9 @@
 	<icon name="visibilityon" file="graphics/icons/visibilityon.png" />
 	<icon name="visibilityoff" file="graphics/icons/visibilityoff.png" />
 	<icon name="field_rollable" file="graphics/icons/field_rollable.png" />
+	<icon name="field_rollable2" file="graphics/icons/field_rollable2.png" />
 	<icon name="field_rollable_transparent" file="graphics/icons/field_rollable_transparent.png" />
+	<icon name="field_rollable_transparent2" file="graphics/icons/field_rollable_transparent2.png" />
 	<icon name="field_linked" file="graphics/icons/field_linked.png" />
 	<icon name="field_dice_empty" file="graphics/icons/field_dice_empty.png" />
 	<icon name="padlock_open" file="graphics/icons/padlock_open.png" />

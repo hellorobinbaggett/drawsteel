@@ -98,6 +98,8 @@
 	<string name="char_label_lore">Lore</string>
 	<string name="char_label_characteristics">Characteristics</string>
 	<string name="char_label_stats">Stats</string>
+	<string name="char_label_surges">Surges</string>
+	<string name="char_label_shields">Shields</string>
 	<string name="char_tooltip_mgt">Might score</string>
 	<string name="char_tooltip_agl">Agility score</string>
 	<string name="char_tooltip_rea">Reason score</string>
@@ -110,6 +112,10 @@
 	<string name="char_tooltip_classresource">Class Resource</string>
 	<string name="char_tooltip_stamina">Current Stamina</string>
 	<string name="char_tooltip_max">Max Stamina</string>
+	<string name="char_tooltip_surges">Surges</string>
+	<string name="char_tooltip_surgesdescription">Each surge has a value equal to your highest characteristic score</string>
+	<string name="char_tooltip_shields">Shields</string>
+	<string name="char_tooltip_shieldsdescription">Each shield has a value equal to your highest characteristic score</string>
 	<string name="char_tooltip_temp">Temporary Stamina</string>
 	<string name="char_tooltip_winded">Winded Value</string>
 	<string name="char_tooltip_weight">Weight</string>
@@ -143,8 +149,8 @@
 	<string name="char_label_kit">KIT</string>
 	<string name="char_label_type">TYPE</string>
 	<string name="char_label_equipment">EQUIPMENT</string>
-	<string name="char_label_armor">ARMOR</string>
-	<string name="char_label_weapon">WEAPON</string>
+	<string name="char_label_armor">ARMOR CATEGORY</string>
+	<string name="char_label_weapon">WEAPON CATEGORY</string>
 	<string name="char_label_stamina">Stamina</string>
 	<string name="char_label_speed">SPEED</string>
 	<string name="char_label_stability">STABILITY</string>
@@ -154,8 +160,11 @@
 	<string name="char_label_mobility">MOBILITY</string>
 	<string name="char_label_implement">IMPLEMENT</string><string name="char_label_senses">Senses</string>
 	<string name="char_label_magical">MAGICAL</string>
-	<string name="char_label_distance">DISTANCE</string>
+	<string name="char_label_distance">DISTANCE BNS</string>
 	<string name="char_label_area">AREA BNS</string><string name="char_tooltip_portrait">Portrait</string>
+	<string name="char_label_disengage">DISENGAGE</string><string name="char_tooltip_portrait">Portrait</string>
+	<string name="char_label_meleedistance">Melee Dist</string><string name="char_tooltip_portrait">Portrait</string>
+	<string name="char_label_rangeddistance">Ranged Dist</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_tooltip_token">Token</string>
 	<string name="char_label_features">Features</string>
 	<string name="char_label_abilities">Abilities</string>
@@ -178,13 +187,15 @@
 	<string name="char_label_immunities">Damage Immunities</string>
 	<string name="char_label_weaknessess">Damage Weaknessess</string>
 	<string name="char_label_crafting">Crafting</string>
-	<string name="char_label_complications">Complications</string>
+	<string name="char_label_classresource">Class Resource</string>
+	<string name="char_label_complications">Complications &amp; Perks</string>
 	<string name="char_label_titles">Titles</string>
 	<string name="char_label_kit1">Kit #1</string>
 	<string name="char_label_kit2">Kit #2</string>
 	<string name="char_label_damagebonuses">Damage Bonuses</string>
 	<string name="char_label_languages">Languages</string>
 	<string name="char_label_notes">Notes</string>
+	<string name="char_label_notesanddowntime">Notes &amp; Downtime Projects</string>
 	<string name="char_label_damages">Damage Weaknesses and Immunities</string>
 	
 	<!-- NPCs -->
