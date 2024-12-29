@@ -20,6 +20,7 @@ function update()
 
 	local bSection1 = false;
 	if Session.IsHost then
+		if WindowManager.callSafeControlUpdate(self, "level_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "creaturerole_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "organization_name", bReadOnly) then bSection1 = true; end;
@@ -47,6 +48,7 @@ function update()
 		WindowManager.callSafeControlUpdate(self, "freestrike", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "ev_name", bReadOnly, true);
+		WindowManager.callSafeControlUpdate(self, "level_name", bReadOnly, true);
 	end
 	-- divider.setVisible(bSection1);
 

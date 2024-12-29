@@ -42,20 +42,22 @@
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
+			<label_column name="level_name_label">
+				<static textres="npc_label_level" />
+			</label_column>
+			<number_column name="level_name">
+			</number_column>	
+
+			<label_column name="ev_name_label">
+				<static textres="npc_label_ev" />
+			</label_column>
+			<number_column name="ev_name">
+			</number_column>	
+
 			<label_column name="creaturerole_name_label">
 				<static textres="npc_label_creaturerole" />
 			</label_column>
 			<string_columnh name="creaturerole_name" />
-
-
-			<label_column_right name="level_name_label">
-				<anchored to="creaturerole_name" />
-				<static textres="npc_label_level" />
-			</label_column_right>
-			<number_column_right name="level_name">
-				<anchored to="creaturerole_name" />
-				<default>0</default>
-			</number_column_right>
 
 			<label_column name="keywords_name_label">
 				<static textres="npc_label_keywords" />
@@ -63,14 +65,7 @@
 			<string_columnh name="keywords_name" />
 
 
-			<label_column_right name="ev_name_label">
-				<anchored to="keywords_name_label" />
-				<static textres="npc_label_ev" />
-			</label_column_right>
-			<number_column_right name="ev_name">
-				<anchored to="keywords_name_label" />
-				<default>0</default>
-			</number_column_right>
+			
 
 			<label_column name="organization_name_label">
 				<static textres="npc_label_organization" />
@@ -109,7 +104,7 @@
 				<static textres="npc_label_size" />
 			</label_column>
 			<string_columnh name="size">
-				<default>1L</default>
+				<default>1M</default>
 			</string_columnh>
 			
 			<!--Reach | Stability -->
@@ -132,7 +127,7 @@
 				<static textres="npc_label_withcaptain" />
 			</label_column>
 			<string_columnh name="withcaptain">
-				<default>Strike damage +0</default>
+				<default></default>
 			</string_columnh>
 			
 			<!-- traits -->
