@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="charsheet_other">
+		<sheetdata>
+			<frame_char name="appearanceframe">
+				<bounds>0,0,-1,140</bounds>
+			</frame_char>
+
+			<label_frametop>
+				<anchored to="appearanceframe" offset="125,8"/>
+				<static textres="char_label_projects" />
+			</label_frametop>
+
+			<string_labeled name="project1">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,25" width="165" />
+				<labelres>char_label_project</labelres>
+			</string_labeled>
+			<string_labeled name="assigned1">
+				<anchored to="project1" position="righthigh" offset="5,0" width="125" />
+				<labelres>char_label_assigned</labelres>
+			</string_labeled>
+			<string_labeled name="points1">
+				<anchored to="assigned1" position="righthigh" offset="5,0" width="50" />
+				<labelres>char_label_points</labelres>
+				<default>0/0</default>
+			</string_labeled>
+			<string_labeled name="roll1">
+				<anchored to="points1" position="righthigh" offset="5,0" width="100" />
+				<labelres>char_label_roll</labelres>
+			</string_labeled>
+
+			<string_labeled name="project2">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,50" width="165" />
+				<labelres>char_label_project</labelres>
+			</string_labeled>
+			<string_labeled name="assigned2">
+				<anchored to="project2" position="righthigh" offset="5,0" width="125" />
+				<labelres>char_label_assigned</labelres>
+			</string_labeled>
+			<string_labeled name="points2">
+				<anchored to="assigned2" position="righthigh" offset="5,0" width="50" />
+				<labelres>char_label_points</labelres>
+				<default>0/0</default>
+			</string_labeled>
+			<string_labeled name="roll2">
+				<anchored to="points2" position="righthigh" offset="5,0" width="100" />
+				<labelres>char_label_roll</labelres>
+			</string_labeled>
+
+			<string_labeled name="project3">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,75" width="165" />
+				<labelres>char_label_project</labelres>
+			</string_labeled>
+			<string_labeled name="assigned3">
+				<anchored to="project3" position="righthigh" offset="5,0" width="125" />
+				<labelres>char_label_assigned</labelres>
+			</string_labeled>
+			<string_labeled name="points3">
+				<anchored to="assigned3" position="righthigh" offset="5,0" width="50" />
+				<labelres>char_label_points</labelres>
+				<default>0/0</default>
+			</string_labeled>
+			<string_labeled name="roll3">
+				<anchored to="points3" position="righthigh" offset="5,0" width="100" />
+				<labelres>char_label_roll</labelres>
+			</string_labeled>
+
+			<string_labeled name="project4">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,100" width="165" />
+				<labelres>char_label_project</labelres>
+			</string_labeled>
+			<string_labeled name="assigned4">
+				<anchored to="project4" position="righthigh" offset="5,0" width="125" />
+				<labelres>char_label_assigned</labelres>
+			</string_labeled>
+			<string_labeled name="points4">
+				<anchored to="assigned4" position="righthigh" offset="5,0" width="50" />
+				<labelres>char_label_points</labelres>
+				<default>0/0</default>
+			</string_labeled>
+			<string_labeled name="roll4">
+				<anchored to="points4" position="righthigh" offset="5,0" width="100" />
+				<labelres>char_label_roll</labelres>
+			</string_labeled>
+
+			<frame_char name="titlesframe">
+				<bounds>0,135,-1,160</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="titlesframe" />
+				<static textres="char_label_titles" />
+			</label_frametop>
+			<stringu name="titles">
+				<anchored to="titlesframe">
+					<top offset="30" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+				<nodrag />
+			</stringu>
+			<scrollbar_list>
+				<anchored to="titles" />
+				<target>titles</target>
+			</scrollbar_list>
+
+			<frame_char name="perksframe">
+				<bounds>0,290,-1,-5</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="perksframe" />
+				<static textres="char_label_perks" />
+			</label_frametop>
+			<stringu name="perks">
+				<anchored to="perksframe">
+					<top offset="30" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+				<nodrag />
+			</stringu>
+			<scrollbar_list>
+				<anchored to="perks" />
+				<target>perks</target>
+			</scrollbar_list>
+		</sheetdata>
+	</windowclass>
+\
+</root>

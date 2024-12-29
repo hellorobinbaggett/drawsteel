@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<windowclass name="charsheet_kits">
+	<windowclass name="charsheet_modifiers">
 		<sheetdata>
 			<frame_char name="appearanceframe">
 				<bounds>0,20,320,190</bounds>
@@ -32,25 +32,26 @@
 
 			<label_frametop>
 				<anchored to="appearanceframe" offset="200,-15"/>
-				<static textres="char_label_kit1" />
+				<static textres="char_label_modifier" />
 			</label_frametop>
 
 			<string_labeled name="kit">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="280" />
-				<labelres>char_label_kit</labelres>
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="160" />
+				<labelres>char_label_name</labelres>
 			</string_labeled>
-			<!-- <string_labeled name="kittype2">
-				<anchored to="kit2" position="righthigh" offset="5,0" width="135" />
-				<labelres>char_label_type</labelres>
-			</string_labeled> -->
 
-			<string_labeled name="kitarmor">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="140" />
-				<labelres>char_label_armor</labelres>
+			<string_labeled name="type">
+				<anchored to="appearanceframe" position="insidetopleft" offset="180,10" width="110" />
+				<labelres>char_label_type</labelres>
 			</string_labeled>
+
 			<string_labeled name="kitweapon">
-				<anchored to="kitarmor" position="righthigh" offset="5,0" width="135" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="140" />
 				<labelres>char_label_weapon</labelres>
+			</string_labeled>
+			<string_labeled name="kitarmor">
+				<anchored to="kitweapon" position="righthigh" offset="5,0" width="135" />
+				<labelres>char_label_armor</labelres>
 			</string_labeled>
 			<!-- <string_labeled name="kitimplement">
 				<anchored to="kitweapon" position="righthigh" offset="5,0" width="90" />
@@ -62,30 +63,30 @@
 				<static textres="char_label_kitbonuses" />
 			</label_frametop>
 
-			<string_labeled name="kitstamina">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,77" width="90" />
-				<labelres>char_label_stamina</labelres>
-			</string_labeled>
 			<string_labeled name="kitspeed">
-				<anchored to="kitstamina" position="righthigh" offset="5,0" width="90" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,77" width="90" />
 				<labelres>char_label_speed</labelres>
 			</string_labeled>
-			<string_labeled name="kitstability">
+			<string_labeled name="kitmeleedistance">
 				<anchored to="kitspeed" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_stability</labelres>
+				<labelres>char_label_melee</labelres>
+			</string_labeled>
+			<string_labeled name="kitranged">
+				<anchored to="kitmeleedistance" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_ranged</labelres>
 			</string_labeled>
 
-			<string_labeled name="kitrangeddistance">
+			<string_labeled name="kitarea">
 				<anchored to="appearanceframe" position="insidetopleft" offset="15,107" width="90" />
-				<labelres>char_label_rangeddistance</labelres>
+				<labelres>char_label_area</labelres>
 			</string_labeled>
-			<string_labeled name="kitmeleedistance">
-				<anchored to="kitrangeddistance" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_meleedistance</labelres>
+			<string_labeled name="kitstability">
+				<anchored to="kitarea" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_stability</labelres>
 			</string_labeled>
-			<string_labeled name="kitdisengage">
-				<anchored to="kitmeleedistance" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_disengage</labelres>
+			<string_labeled name="kitstamina">
+				<anchored to="kitstability" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_stamina</labelres>
 			</string_labeled>
 
 			<label_frametop>
@@ -141,7 +142,7 @@
 			</frame_char>
 			<label_frametop>
 				<anchored to="notesframe" />
-				<static textres="char_label_notes" />
+				<static textres="char_label_benefits" />
 			</label_frametop>
 			<stringu name="kitnotes1">
 				<anchored to="notesframe">
@@ -156,158 +157,6 @@
 			<scrollbar_list>
 				<anchored to="kitnotes1" />
 				<target>kitnotes1</target>
-			</scrollbar_list>
-
-
-
-
-			<frame_char name="appearanceframe2">
-				<bounds>0,250,320,190</bounds>
-			</frame_char>
-			<!-- <label_frametop>
-				<anchored to="appearanceframe" offset="125,50"/>
-				<static textres="char_label_kitnonuses" />
-			</label_frametop> -->
-			<!-- <stringu name="appearance">
-				<anchored to="appearanceframe">
-					<top offset="30" />
-					<left offset="15" />
-					<right offset="-20" />
-					<bottom offset="-15" />
-				</anchored>
-				<multilinespacing>20</multilinespacing>
-				<nodrag />
-			</stringu> -->
-			<!-- <scrollbar_list>
-				<anchored to="appearance" />
-				<target>appearance</target>
-			</scrollbar_list> -->
-			<label_frametop>
-				<anchored to="appearanceframe2" offset="200,-15"/>
-				<static textres="char_label_kit2" />
-			</label_frametop>
-
-			<string_labeled name="kit2">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,10" width="280" />
-				<labelres>char_label_kit</labelres>
-			</string_labeled>
-			<!-- <string_labeled name="kittype2">
-				<anchored to="kit2" position="righthigh" offset="5,0" width="135" />
-				<labelres>char_label_type</labelres>
-			</string_labeled> -->
-
-			<string_labeled name="kitarmor2">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,35" width="140" />
-				<labelres>char_label_armor</labelres>
-			</string_labeled>
-			<string_labeled name="kitweapon2">
-				<anchored to="kitarmor2" position="righthigh" offset="5,0" width="135" />
-				<labelres>char_label_weapon</labelres>
-			</string_labeled>
-			<!-- <string_labeled name="kitimplement2">
-				<anchored to="kitweapon2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_implement</labelres>
-			</string_labeled> -->
-
-			<label_frametop>
-				<anchored to="appearanceframe2" offset="125,60"/>
-				<static textres="char_label_kitbonuses" />
-			</label_frametop>
-
-			<string_labeled name="kitstamina2">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,77" width="90" />
-				<labelres>char_label_stamina</labelres>
-			</string_labeled>
-			<string_labeled name="kitspeed2">
-				<anchored to="kitstamina2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_speed</labelres>
-			</string_labeled>
-			<string_labeled name="kitstability2">
-				<anchored to="kitspeed2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_stability</labelres>
-			</string_labeled>
-
-			<string_labeled name="kitrangeddistance2">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="15,107" width="90" />
-				<labelres>char_label_rangeddistance</labelres>
-			</string_labeled>
-			<string_labeled name="kitmeleedistance2">
-				<anchored to="kitrangeddistance2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_meleedistance</labelres>
-			</string_labeled>
-			<string_labeled name="kitdisengage2">
-				<anchored to="kitmeleedistance2" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_disengage</labelres>
-			</string_labeled>
-
-			<label_frametop>
-				<anchored to="appearanceframe2" offset="125,135"/>
-				<static textres="char_label_damagebonuses" />
-			</label_frametop>
-			
-			<string_labeled name="Kit2.Melee.Damage.Tier1" source="Kit2.Melee.Damage.Tier1">
-				<anchored to="appearanceframe2" position="insidetopleft" offset="75,155" width="20" />
-				<labelres>char_label_melee</labelres>
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit2.Melee.Damage.Tier2" source="Kit2.Melee.Damage.Tier2">
-				<anchored to="Kit2.Melee.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit2.Melee.Damage.Tier3" source="Kit2.Melee.Damage.Tier3">
-				<anchored to="Kit2.Melee.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-
-			<string_labeled name="Kit2.Ranged.Damage.Tier1" source="Kit2.Ranged.Damage.Tier1">
-				<anchored to="Kit2.Melee.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
-				<labelres>char_label_ranged</labelres>
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit2.Ranged.Damage.Tier2" source="Kit2.Ranged.Damage.Tier2">
-				<anchored to="Kit2.Ranged.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit2.Ranged.Damage.Tier3" source="Kit2.Ranged.Damage.Tier3">
-				<anchored to="Kit2.Ranged.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-
-			<!-- <string_labeled name="Kit2.Magic.Damage.Tier1" source="Kit2.Magic.Damage.Tier1">
-				<anchored to="Kit2.Ranged.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
-				<labelres>char_label_magical</labelres>
-				<default>+0</default>
-			</string_labeled>		
-			<string_labeled name="Kit2.Magic.Damage.Tier2" source="Kit2.Magic.Damage.Tier2">
-				<anchored to="Kit2.Magic.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit2.Magic.Damage.Tier3" source="Kit2.Magic.Damage.Tier3">
-				<anchored to="Kit2.Magic.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>			 -->
-
-			<frame_char name="notesframe2">
-				<bounds>310,250,-1,190</bounds>
-				<!-- <bounds>0,0,-1,-5</bounds> -->
-			</frame_char>
-			<label_frametop>
-				<anchored to="notesframe2" />
-				<static textres="char_label_notes" />
-			</label_frametop>
-			<stringu name="kitnotes2">
-				<anchored to="notesframe2">
-					<top offset="30" />
-					<left offset="15" />
-					<right offset="-20" />
-					<bottom offset="-15" />
-				</anchored>
-				<multilinespacing>20</multilinespacing>
-				<nodrag />
-			</stringu>
-			<scrollbar_list>
-				<anchored to="kitnotes2" />
-				<target>kitnotes2</target>
 			</scrollbar_list>
 		</sheetdata>
 	</windowclass>

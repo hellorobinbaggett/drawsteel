@@ -30,6 +30,7 @@
 	<string name="ct_label_effects">Effects:</string>
 	<string name="ct_label_space_size">Space</string>
 	<string name="ct_label_space_reach">Reach</string>
+	<string name="ct_label_experience">Experience</string>
 	<string name="ct_label_effectappliedby">Applied by:</string>
 	<string name="ct_label_effecttargets">Targets:</string>
 	<string name="ct_label_menu">MENU</string>

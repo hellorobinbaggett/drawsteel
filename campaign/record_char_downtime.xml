@@ -6,10 +6,10 @@
 -->
 
 <root>
-	<windowclass name="charsheet_notes">
+	<windowclass name="charsheet_downtime">
 		<sheetdata>
 			<frame_char name="detailframe">
-				<bounds>0,0,-1,70</bounds>
+				<bounds>0,0,-1,50</bounds>
 			</frame_char>
 			<!-- <string_labeled name="race">
 				<anchored to="detailframe" position="insidetopleft" offset="15,10" width="150" />
@@ -41,33 +41,20 @@
 				<labelres>char_label_title</labelres>
 			</string_labeled> -->
 			<string_labeled name="environment">
-				<anchored to="detailframe" position="insidetopleft" offset="15,10" width="140" />
+				<anchored to="detailframe" position="insidetopleft" offset="15,10" width="120" />
 				<labelres>char_label_environment</labelres>
 			</string_labeled>
 			<string_labeled name="organization">
-				<anchored to="environment" position="righthigh" offset="5,0" width="140" />
+				<anchored to="environment" position="righthigh" offset="5,0" width="120" />
 				<labelres>char_label_organization</labelres>
 			</string_labeled>
 			<string_labeled name="upbrining">
-				<anchored to="organization" position="righthigh" offset="5,0" width="140" />
+				<anchored to="organization" position="righthigh" offset="5,0" width="120" />
 				<labelres>char_label_upbringing</labelres>
 			</string_labeled>
-
 			<string_labeled name="renown">
-				<anchored to="detailframe" position="insidetopleft" offset="15,35" width="60" />
+				<anchored to="upbrining" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_renown</labelres>
-			</string_labeled>
-			<string_labeled name="wealth">
-				<anchored to="renown" position="righthigh" offset="5,0" width="80" />
-				<labelres>char_label_wealthlevel</labelres>
-			</string_labeled>
-			<string_labeled name="currentfollowers">
-				<anchored to="wealth" position="righthigh" offset="5,0" width="140" />
-				<labelres>char_label_currentfollowers</labelres>
-			</string_labeled>
-			<string_labeled name="totalfollowers">
-				<anchored to="currentfollowers" position="righthigh" offset="5,0" width="140" />
-				<labelres>char_label_maxfollowers</labelres>
 			</string_labeled>
 
 			<!-- <string_labeled name="project">
@@ -84,7 +71,7 @@
 			</string_labeled> -->
 
 			<frame_char name="complicationsframe">
-				<bounds>0,70,320,190</bounds>
+				<bounds>0,50,320,190</bounds>
 			</frame_char>	
 			<label_frametop>
 				<anchored to="complicationsframe" />
@@ -106,7 +93,7 @@
 			</scrollbar_list>		
 			
 			<frame_char name="languageframe">
-				<bounds>320,70,-1,190</bounds>
+				<bounds>320,50,-1,190</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="languageframe" />
@@ -134,7 +121,7 @@
 			</button_iadd>
 
 			<frame_char name="notesframe">
-				<bounds>0,260,-1,-5</bounds>
+				<bounds>0,240,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="notesframe" />

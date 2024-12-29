@@ -80,6 +80,9 @@
 	<string name="char_label_organization">ORGANIZATION</string>
 	<string name="char_label_upbringing">UPBRINGING</string>
 	<string name="char_label_renown">RENOWN</string>
+	<string name="char_label_wealthlevel">Wealth Level</string>
+	<string name="char_label_currentfollowers">Current Followers</string>
+	<string name="char_label_maxfollowers">Max Followers</string>
 	<string name="char_label_project">PROJECT</string>
 	<string name="char_label_points">POINTS</string>
 	<string name="char_label_complication">COMPLICATION</string>
@@ -98,7 +101,8 @@
 	<string name="char_label_implement">IMPLEMENT</string><string name="char_label_senses">Senses</string>
 	<string name="char_label_magical">MAGICAL</string>
 	<string name="char_label_distance">DISTANCE</string>
-	<string name="char_label_area">AREA BNS</string><string name="char_tooltip_portrait">Portrait</string>
+	<string name="char_label_benefits">BENEFITS</string>
+	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_tooltip_token">Token</string>
 	<string name="char_tooltip_speak">Speak as PC</string>
 	<string name="char_tooltip_activate">Set as active PC</string>
@@ -131,6 +135,9 @@
 	<string name="char_label_damagebonuses">Damage Bonuses</string>
 	<string name="char_label_languages">Languages</string>
 	<string name="char_label_notes">Notes</string>
+	<string name="char_label_perks">Perks</string>
+	<string name="char_label_titles">Titles</string>
+	<string name="char_label_projects">Projects</string>
 	<string name="char_menu_delete">Delete Character</string>
 	<string name="char_menu_ownerclear">Clear owner</string>
 	<string name="char_menu_ownergm">Take ownership (as %s)</string>

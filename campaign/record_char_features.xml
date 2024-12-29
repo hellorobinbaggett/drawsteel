@@ -6,57 +6,49 @@
 -->
 
 <root>
-	<windowclass name="charsheet_titles">
+	<windowclass name="charsheet_features">
 		<sheetdata>
-			<!-- titles section-->
-			<frame_char name="titlesframe">
+			<!-- features  section-->
+			<frame_char name="featuresframe">
 				<bounds>0,0,-1,-5</bounds>
 			</frame_char>
 			<label_frametop>
-				<anchored to="titlesframe" />
-				<static textres="char_label_titles" />
+				<anchored to="featuresframe" />
+				<static textres="char_label_features" />
 			</label_frametop>
-			<list_text name="titles">
-				<anchored to="titlesframe">
+			<list_text name="features">
+				<anchored to="featuresframe">
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
 					<bottom offset="-350" />
 				</anchored>
 				<columns width="222" filldown="true" />
-				<datasource>.titleslist</datasource>
-				<class>char_features</class>
+				<datasource>.featureslist</datasource>
+				<class>char_ability</class>
 				<acceptdrop>
-					<class>referencetext</class>
-					<class>referencetextwide</class>
-					<class>note</class>
-					<class>encounter</class>
-					<class>story_book_page_advanced_header</class>
-					<class>story_content_advanced</class>
-					<class>referencemanualpage</class>
-					<class>story_book_list_item</class>
-					<class>story_header_advanced</class>
+					<class>ability</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>
 			<scrollbar_list>
-				<anchored to="titles" />
-				<target>titles</target>
+				<anchored to="features" />
+				<target>features</target>
 			</scrollbar_list>
 
-			<button_iedit name="titles_iedit">
-				<anchored to="titles" position="aboveright" offset="-15,5" />
-				<edittarget>titles</edittarget>
+			<button_iedit name="features_iedit">
+				<anchored to="features" position="aboveright" offset="-15,5" />
+				<edittarget>actions</edittarget>
 			</button_iedit>
-			<button_iadd name="titles_iadd">
-				<anchored to="titles" position="aboveright" offset="5,5" />
-				<target>titles</target>
+			<button_iadd name="features_iadd">
+				<anchored to="features" position="aboveright" offset="5,5" />
+				<target>features</target>
 			</button_iadd>
 
 		</sheetdata>
 	</windowclass>
 
-    <windowclass name="char_ability">
+	    <windowclass name="char_ability">
 		<margins control="0,0,0,2" />
 		<sheetdata>
 			<genericcontrol name="rightanchor">

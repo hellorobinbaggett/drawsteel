@@ -32,23 +32,26 @@
 			<sub_charsheet name="main_ds">
 				<class>charsheet_main_ds</class>
 			</sub_charsheet>
-			<sub_charsheet name="skills_ds">
+			<sub_charsheet name="modifiers">
+				<class>charsheet_modifiers</class>
+			</sub_charsheet>
+			<!-- <sub_charsheet name="skills_ds">
 				<class>charsheet_skills_ds</class>
+			</sub_charsheet> -->
+			<sub_charsheet name="actions">
+				<class>charsheet_actions</class>
 			</sub_charsheet>
-			<sub_charsheet name="abilities">
-				<class>charsheet_abilities</class>
-			</sub_charsheet>
-			<sub_charsheet name="inventory">
-				<class>charsheet_inventory</class>
-			</sub_charsheet>
-			<sub_charsheet name="kits">
-				<class>charsheet_kits</class>
+			<sub_charsheet name="features">
+				<class>charsheet_features</class>
 			</sub_charsheet>
 			<sub_charsheet name="notes">
 				<class>charsheet_notes</class>
 			</sub_charsheet>
-			<sub_charsheet name="titles">
-				<class>charsheet_titles</class>
+			<sub_charsheet name="other">
+				<class>charsheet_other</class>
+			</sub_charsheet>
+			<sub_charsheet name="inventory">
+				<class>charsheet_inventory</class>
 			</sub_charsheet>
 
 			<tabs_charsheet name="tabs">
@@ -62,12 +65,20 @@
 					<subwindow>main_ds</subwindow>
 				</tab>
 				<tab>
+					<tabres>tab_modifiers</tabres>
+					<subwindow>modifiers</subwindow>
+				</tab>
+				<!-- <tab>
 					<tabres>tab_skills</tabres>
 					<subwindow>skills_ds</subwindow>
+				</tab> -->
+				<tab>
+					<tabres>tab_actions</tabres>
+					<subwindow>actions</subwindow>
 				</tab>
 				<tab>
-					<tabres>tab_abilities</tabres>
-					<subwindow>abilities</subwindow>
+					<tabres>tab_features</tabres>
+					<subwindow>features</subwindow>
 				</tab>
 				<!-- default core RPG skills tab -->
 				<!-- <tab>
@@ -79,16 +90,12 @@
 					<subwindow>notes</subwindow>
 				</tab>
 				<tab>
-					<tabres>tab_kits</tabres>
-					<subwindow>kits</subwindow>
+					<tabres>tab_other</tabres>
+					<subwindow>other</subwindow>
 				</tab>
 				<tab>
 					<tabres>tab_inventory</tabres>
 					<subwindow>inventory</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_titles</tabres>
-					<subwindow>titles</subwindow>
 				</tab>
 			</tabs_charsheet>
 		
@@ -113,7 +120,7 @@
 			<button_charactivate_charsheet name="speak" />
 			
 			<frame_char name="overviewframe">
-				<anchored to="rightanchor" height="45">
+				<anchored to="rightanchor" height="70">
 					<top />
 					<left parent="leftanchor" relation="relative" />
 					<right relation="relative" />
@@ -122,20 +129,32 @@
 
 			<!-- NAME -->
 			<string_labeled name="name">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,10" width="100" />
+				<anchored to="overviewframe" position="insidetopleft" offset="15,10" width="160" />
 				<labelres>char_label_name</labelres>
 			</string_labeled>
 
 			<!-- ANCESTRY -->
 			<string_labeled name="ancestry">
-				<anchored to="name" position="righthigh" offset="5,0" width="70" />
+				<anchored to="name" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_race</labelres>
 			</string_labeled>
 
+			<!-- CAREER -->
+			<string_labeled name="career">
+				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
+				<labelres>char_label_career</labelres>
+			</string_labeled>			
+
 			<!-- CLASS -->
 			<string_labeled name="classtitle">
-				<anchored to="ancestry" position="righthigh" offset="5,0" width="160" />
+				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="160" />
 				<labelres>char_label_class</labelres>
+			</string_labeled>
+
+			<!-- SUBCLASS -->
+			<string_labeled name="subclasstitle">
+				<anchored to="classtitle" position="righthigh" offset="5,0" width="160" />
+				<labelres>char_label_subclass</labelres>
 			</string_labeled>
 
 			<!-- <string_labeled name="subclass">

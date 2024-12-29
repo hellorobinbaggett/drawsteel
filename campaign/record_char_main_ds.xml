@@ -149,20 +149,11 @@
 				<static textres="char_label_stats" />
 			</label_frametop> -->
 
-			<!-- REACH -->
-			<number_characteristicscore name="reach" source="abilities.reach.value">
-				<anchored to="statsframe" position="insidetopleft" offset="125,15" />
-				<description textres="char_tooltip_reach" />
-				<default>1</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="reach_label">
-				<anchored to="reach" />
-				<static textres="reach" />
-			</string_characteristiclabel>
+			<!-- size, speed, stability -->
 
 			<!-- SIZE -->
 			<number_characteristicscore name="size" source="abilities.size.value">
-				<anchored to="reach"/>
+				<anchored to="statsframe" position="insidetopleft" offset="125,15" />
 				<description textres="char_tooltip_size" />
 				<default>1</default>
 			</number_characteristicscore>
@@ -180,7 +171,7 @@
             <string_characteristiclabel name="speed_label">
 				<anchored to="speed" />
 				<static textres="speed" />
-			</string_characteristiclabel>
+			</string_characteristiclabel>		
 
 			<!-- STABILITY -->
 			<number_characteristicscore name="stability" source="abilities.stability.value">
@@ -191,7 +182,7 @@
             <string_characteristiclabel name="stability_label">
 				<anchored to="stability" />
 				<static textres="stability" />
-			</string_characteristiclabel>
+			</string_characteristiclabel>	
 
 			<!-- WEIGHT -->
 			<number_characteristicscore name="weight" source="abilities.weight.value">
@@ -214,9 +205,54 @@
 				<static textres="victories" />
 			</string_characteristiclabel>
 
+			<!-- Experience -->
+			<number_characteristicscore name="experience" source="abilities.experience.value">
+				<anchored to="victories" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="experience_label">
+				<anchored to="experience" />
+				<static textres="experience" />
+			</string_characteristiclabel>			
+
+			<frame_char name="skillsframe">
+				<bounds>0,195,290,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="skillsframe" />
+				<static textres="char_label_skills" />
+			</label_frametop>
+			<stringu name="skillslist">
+				<anchored to="skillsframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
+
+			<frame_char name="movementframe">
+				<bounds>280,195,210,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="movementframe" />
+				<static textres="char_label_movement" />
+			</label_frametop>
+			<stringu name="movement">
+				<anchored to="movementframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
 
 			<frame_char name="weaknessframe">
-				<bounds>0,195,490,57</bounds>
+				<bounds>0,245,250,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="weaknessframe" />
@@ -234,7 +270,7 @@
 			</stringu>
 
 			<frame_char name="immunityframe">
-				<bounds>0,245,490,57</bounds>
+				<bounds>240,245,250,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="immunityframe" />
@@ -242,6 +278,61 @@
 			</label_frametop>
 			<stringu name="immunities">
 				<anchored to="immunityframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
+
+			<!-- POTENCIES -->
+			<frame_char name="weakpotenciesframe">
+				<bounds>0,295,170,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="weakpotenciesframe" />
+				<static textres="char_label_weak" />
+			</label_frametop>
+			<stringu name="weakpotencies">
+				<anchored to="weakpotenciesframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
+
+			<frame_char name="averagepotenciesframe">
+				<bounds>160,295,170,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="averagepotenciesframe" />
+				<static textres="char_label_average" />
+			</label_frametop>
+			<stringu name="averagepotencies">
+				<anchored to="averagepotenciesframe">
+					<top offset="25" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<!-- <multilinespacing>20</multilinespacing> -->
+				<nodrag />
+			</stringu>
+
+			<frame_char name="strongpotenciesframe">
+				<bounds>320,295,170,57</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="strongpotenciesframe" />
+				<static textres="char_label_strong" />
+			</label_frametop>
+			<stringu name="strongpotencies">
+				<anchored to="strongpotenciesframe">
 					<top offset="25" />
 					<left offset="15" />
 					<right offset="-20" />
@@ -274,7 +365,7 @@
 			<basicnumber name="classresource" source="classresource">
 				<anchored to="classresourcetitle" width="90" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-35" />
+					<left anchor="center" offset="-80" />
 				</anchored>
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_classresource" />
@@ -290,7 +381,7 @@
 			</label_charfieldtop>
 
 			<basicnumber name="surges" source="surges">
-				<anchored to="classresource" position="righthigh" offset="-160,0" width="48" height="30" />
+				<anchored to="classresource" position="righthigh" offset="30,0" width="48" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_surges" />
 				<tooltip textres="char_tooltip_surgesdescription" />
@@ -301,26 +392,9 @@
 				</script>
 			</basicnumber>
 
-			<basicnumber name="shields" source="shields">
-				<anchored to="classresource" position="righthigh" offset="22,0" width="48" height="30" />
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_shields" />
-				<tooltip textres="char_tooltip_shieldsdescription" />
-				<min value="0" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
-			</basicnumber>
-
 			<label_charfieldtop name="surges_label">
 				<anchored to="surges" offset="0,8" />
 				<static textres="char_label_surges" />
-			</label_charfieldtop>
-
-			<label_charfieldtop name="shields_label">
-				<anchored to="shields" offset="0,8" />
-				<static textres="char_label_shields" />
 			</label_charfieldtop>
 
 			<!-- <label_charfieldtop name="classresourcetitlelable">

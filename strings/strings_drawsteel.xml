@@ -15,6 +15,7 @@
 	<string name="intuition">Intuition</string>
 	<string name="presence">Presence</string>
 	<string name="reach">Reach</string>
+	<string name="experience">XP/Epic</string>
 	<string name="size">Size</string>
 	<string name="speed">Speed</string>
 	<string name="stability">Stability</string>
@@ -147,12 +148,18 @@
 	<string name="char_label_points">POINTS</string>
 	<string name="char_label_complication">COMPLICATION</string>
 	<string name="char_label_kit">KIT</string>
+	<string name="char_label_modifier">MODIFIER</string>
 	<string name="char_label_type">TYPE</string>
+	<string name="char_label_name">NAME</string>
 	<string name="char_label_equipment">EQUIPMENT</string>
-	<string name="char_label_armor">ARMOR CATEGORY</string>
-	<string name="char_label_weapon">WEAPON CATEGORY</string>
+	<string name="char_label_armor">ARMOR</string>
+	<string name="char_label_weapon">WEAPON/IMPLEMENT</string>
 	<string name="char_label_stamina">Stamina</string>
 	<string name="char_label_speed">SPEED</string>
+	<string name="char_label_project">PROJECT</string>
+	<string name="char_label_assigned">ASSIGNED</string>
+	<string name="char_label_points">POINTS</string>
+	<string name="char_label_roll">ROLL</string>
 	<string name="char_label_stability">STABILITY</string>
 	<string name="char_label_melee">MELEE</string>
 	<string name="char_label_ranged">RANGED</string>
@@ -161,7 +168,7 @@
 	<string name="char_label_implement">IMPLEMENT</string><string name="char_label_senses">Senses</string>
 	<string name="char_label_magical">MAGICAL</string>
 	<string name="char_label_distance">DISTANCE BNS</string>
-	<string name="char_label_area">AREA BNS</string><string name="char_tooltip_portrait">Portrait</string>
+	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_disengage">DISENGAGE</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_meleedistance">Melee Dist</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_rangeddistance">Ranged Dist</string><string name="char_tooltip_portrait">Portrait</string>
@@ -173,6 +180,7 @@
 	<string name="char_label_signatureabilities">Signature Abilities</string>
 	<string name="char_label_heroicabilities">Heroic Abilities</string>
     <string name="char_label_actions">Actions</string>
+	<string name="char_label_features">Features</string>
     <string name="char_label_maneuvers">Maneuvers</string>
 	<string name="char_label_triggeredactions">Triggered Actions</string>
 	<string name="char_label_freestrikes">Free Strikes</string>
@@ -186,9 +194,14 @@
 	<string name="char_label_recoveries">Recoveries</string>
 	<string name="char_label_immunities">Damage Immunities</string>
 	<string name="char_label_weaknessess">Damage Weaknessess</string>
+	<string name="char_label_weak">Weak Potency</string>
+	<string name="char_label_strong">Strong Potency</string>
+	<string name="char_label_average">Average Potency</string>
+	<string name="char_label_movement">Movement Keywords</string>
+	<string name="char_label_skills">Skills</string>
 	<string name="char_label_crafting">Crafting</string>
 	<string name="char_label_classresource">Class Resource</string>
-	<string name="char_label_complications">Complications &amp; Perks</string>
+	<string name="char_label_complications">Complication</string>
 	<string name="char_label_titles">Titles</string>
 	<string name="char_label_kit1">Kit #1</string>
 	<string name="char_label_kit2">Kit #2</string>
