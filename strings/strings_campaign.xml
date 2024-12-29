@@ -260,6 +260,9 @@
 	<string name="item_label_researchmaterials">Materials</string>
 	<string name="item_label_projectsource">Source</string>
 	<string name="item_label_keywords">Keywords</string>
+	<string name="item_label_level">Level</string>
+	<string name="item_label_type">Type</string>
+	<string name="item_label_echelon">Echelon</string>
 	<string name="item_label_projectroll">Project Roll</string>
 	<string name="item_label_projectgoal">Project Goal</string>
 	<string name="item_label_weight">Weight</string>

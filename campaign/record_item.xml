@@ -23,11 +23,21 @@
 			<string_columnh name="nonid_name" />
 			
 			<label_column name="nonid_notes_label">
-				<static textres="item_label_unidentifiednotes" />
+				<static textres="item_label_type" />
 			</label_column>
 			<string_columnh name="nonid_notes" />
 
 			<line_column name="divider" />
+
+			<label_column name="echelon_label">
+				<static textres="item_label_echelon" />
+			</label_column>
+			<number_columnh name="echelon" />
+
+			<label_column name="level_label">
+				<static textres="item_label_level" />
+			</label_column>
+			<number_columnh name="level" />
 
 			<label_column name="keywords_label">
 				<static textres="item_label_keywords" />
