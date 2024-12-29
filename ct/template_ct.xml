@@ -222,6 +222,28 @@
 			<frame name="ct_groupbox" offset="3,3,3,3" />
 		</simplenumber>
 	</template>
+
+	<template name="label_ct_host_malice">
+		<label_ct>
+			<anchored height="20">
+				<bottom offset="-22" />
+				<left parent="contentanchor" offset="40" />
+			</anchored>
+			<static textres="ct_label_malice" />
+			<center />
+		</label_ct>
+	</template>
+
+	<template name="number_ct_host_malice">
+		<simplenumber name="malice">
+			<anchored width="40" height="25">
+				<bottom offset="-20" />
+				<left parent="contentanchor" offset="90" />
+			</anchored>
+			<frame name="ct_groupbox" offset="3,3,3,3" />
+		</simplenumber>
+	</template>
+
 	<template name="button_ct_nextround_base">
 		<buttoncontrol>
 			<anchored width="33" height="26" />

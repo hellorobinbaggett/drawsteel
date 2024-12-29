@@ -21,7 +21,7 @@
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
-					<bottom offset="-350" />
+					<bottom offset="-6" />
 				</anchored>
 				<columns width="222" filldown="true" />
 				<datasource>.featureslist</datasource>

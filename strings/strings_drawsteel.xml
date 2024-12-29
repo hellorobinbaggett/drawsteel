@@ -197,7 +197,7 @@
 	<string name="char_label_weak">Weak Potency</string>
 	<string name="char_label_strong">Strong Potency</string>
 	<string name="char_label_average">Average Potency</string>
-	<string name="char_label_movement">Movement Keywords</string>
+	<string name="char_label_movement">Movement</string>
 	<string name="char_label_skills">Skills</string>
 	<string name="char_label_crafting">Crafting</string>
 	<string name="char_label_classresource">Class Resource</string>
@@ -215,12 +215,18 @@
 	<string name="npc_label_ev">EV</string>
 	<string name="npc_label_unidentified">Non-ID Name</string>
 	<string name="npc_label_type">Type</string>
+	<string name="npc_label_level">Level</string>
+	<string name="npc_label_organization">Organization</string>
+	<string name="npc_label_creaturerole">Creature Role</string>
+	<string name="npc_label_keywords">Keywords</string>
 	<string name="npc_label_stamina">Stamina</string>
 	<string name="npc_label_maxstamina">Max Stamina</string>
 	<string name="npc_label_stability">Stability</string>
 	<string name="npc_label_freestrike">Free Strike</string>
+	<string name="npc_label_withcaptain">With Captain</string>
 	<string name="npc_label_size">Size</string>
 	<string name="npc_label_speed">Speed</string>
+	<string name="npc_label_movement">Movement</string>
 	<string name="npc_label_reach">Reach</string>
 	<string name="npc_label_senses">Senses</string>
 	<string name="npc_label_skills">Rolls</string>

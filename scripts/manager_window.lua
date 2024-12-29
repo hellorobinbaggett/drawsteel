@@ -3,15 +3,15 @@
 -- attribution and copyright information.
 --
 
-function onTabletopInit()
-	Module.addEventHandler("onUnloadedReference", WindowManager.onUnloadedModuleReference);
+-- function onTabletopInit()
+-- 	Module.addEventHandler("onUnloadedReference", WindowManager.onUnloadedModuleReference);
 
-	local nMajor, nMinor = Interface.getVersion();
-	if (nMajor >= 4) and (nMinor >= 6) then
-		Interface.addEventHandler("onLinkClassMissing", WindowManager.onLinkClassMissing);
-		Interface.addEventHandler("onLinkRecordMissing", WindowManager.onLinkRecordMissing);
-	end
-end
+-- 	local nMajor, nMinor = Interface.getVersion();
+-- 	if (nMajor >= 4) and (nMinor >= 6) then
+-- 		Interface.addEventHandler("onLinkClassMissing", WindowManager.onLinkClassMissing);
+-- 		Interface.addEventHandler("onLinkRecordMissing", WindowManager.onLinkRecordMissing);
+-- 	end
+-- end
 
 --
 --	MISSING WINDOW DATA HANDLING

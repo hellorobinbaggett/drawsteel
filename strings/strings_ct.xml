@@ -35,6 +35,7 @@
 	<string name="ct_label_effecttargets">Targets:</string>
 	<string name="ct_label_menu">MENU</string>
 	<string name="ct_label_round">ROUND</string>
+	<string name="ct_label_malice">MALICE</string>
 
 	<string name="ct_tooltip_gone">Gone</string>
 	<string name="ct_tooltip_ta">Triggered Action</string>

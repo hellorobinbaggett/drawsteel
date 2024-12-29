@@ -32,8 +32,6 @@
 			<list_ctbox_client name="list" />
 			<scrollbar_list name="scrollbar_list" />
 			
-			<button_ct_endturn name="turn_complete" />
-			
 			<label_ct_client_rounds name="label_round" />
 			<number_ct_client_rounds name="round" />
 

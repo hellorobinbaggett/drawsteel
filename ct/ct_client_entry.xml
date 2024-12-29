@@ -26,8 +26,9 @@
 			<anchor_ct_entry_right name="rightanchor" />
 			<button_ct_section_effects name="button_section_effects" />
 			<button_ctentry_friendfoe name="friendfoe" />
-			<button_ctentry_gone name="gone" />
+			
 			<button_ctentry_ta name="triggeredaction" />
+			<button_ctentry_gone name="gone" />
 
 			<string_clientct_name name="name" />
 			<string_ct_entry_name name="nonid_name">

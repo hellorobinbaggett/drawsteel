@@ -216,7 +216,7 @@
 			</string_characteristiclabel>			
 
 			<frame_char name="skillsframe">
-				<bounds>0,195,290,57</bounds>
+				<bounds>0,195,400,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="skillsframe" />
@@ -234,7 +234,7 @@
 			</stringu>
 
 			<frame_char name="movementframe">
-				<bounds>280,195,210,57</bounds>
+				<bounds>390,195,100,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="movementframe" />
@@ -345,7 +345,7 @@
 			<!-- Class Resource -->
 			<label_charframetop name="classresourcetitle">
 				<anchored height="20">
-					<top anchor="bottom" offset="-175" />
+					<top anchor="bottom" offset="-130" />
 					<left offset="105" />
 					<right offset="-105" />
 				</anchored>
@@ -406,7 +406,7 @@
 			<!-- HEALTHS MATE -->
 			<label_charframetop name="healthtitle">
 				<anchored height="20">
-					<top anchor="bottom" offset="-95" />
+					<top anchor="bottom" offset="-60" />
 					<left offset="70" />
 					<right offset="-70" />
 				</anchored>

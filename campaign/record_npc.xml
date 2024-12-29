@@ -42,26 +42,40 @@
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
-			<label_column name="nonid_name_label">
-				<static textres="npc_label_unidentified" />
+			<label_column name="creaturerole_name_label">
+				<static textres="npc_label_creaturerole" />
 			</label_column>
-			<string_columnh name="nonid_name" />
+			<string_columnh name="creaturerole_name" />
 
 
-			<label_column_right name="ev_name_label">
-				<anchored to="nonid_name_label" />
-				<static textres="npc_label_ev" />
+			<label_column_right name="level_name_label">
+				<anchored to="creaturerole_name" />
+				<static textres="npc_label_level" />
 			</label_column_right>
-			<number_column_right name="ev_name">
-				<anchored to="nonid_name_label" />
+			<number_column_right name="level_name">
+				<anchored to="creaturerole_name" />
 				<default>0</default>
 			</number_column_right>
 
-
-			<label_column name="type_name_label">
-				<static textres="npc_label_type" />
+			<label_column name="keywords_name_label">
+				<static textres="npc_label_keywords" />
 			</label_column>
-			<string_columnh name="type_name" />
+			<string_columnh name="keywords_name" />
+
+
+			<label_column_right name="ev_name_label">
+				<anchored to="keywords_name_label" />
+				<static textres="npc_label_ev" />
+			</label_column_right>
+			<number_column_right name="ev_name">
+				<anchored to="keywords_name_label" />
+				<default>0</default>
+			</number_column_right>
+
+			<label_column name="organization_name_label">
+				<static textres="npc_label_organization" />
+			</label_column>
+			<string_columnh name="organization_name" />
 
 			<line_column name="divider" />
 
@@ -90,48 +104,36 @@
 				<default>0</default>
 			</number_column_right>
 
-			<!-- Size | Weight --> 
-						
-			<label_column name="space_label">
+			<!-- Size --> 
+			<label_column name="size_name_label">
 				<static textres="npc_label_size" />
 			</label_column>
-			<number_column name="space">
-				<default>1</default>
-			</number_column>
-
-			<label_column_right name="weight_label">
-				<anchored to="space" />
-				<static textres="npc_label_weight" />
-			</label_column_right>
-			<number_column_right name="weight">
-				<anchored to="space" />
-				<default>4</default>
-			</number_column_right>
+			<string_columnh name="size">
+				<default>1L</default>
+			</string_columnh>
 			
 			<!--Reach | Stability -->
-			<label_column name="reach_label">
-				<static textres="npc_label_reach" />
-			</label_column>
-			<number_column name="reach">
-				<default>1</default>
-			</number_column>
-
-			<label_column_right name="stability_label">
-				<anchored to="reach" />
+			<label_column name="stability_label">
 				<static textres="npc_label_stability" />
-			</label_column_right>
-			<number_column_right name="stability_label">
-				<anchored to="reach" />
+			</label_column>
+			<number_column name="stability_label">
 				<default>0</default>
-			</number_column_right>
+			</number_column>
 
 			<!-- Free Strike -->
 			<label_column name="freestrike_label">
 				<static textres="npc_label_freestrike" />
 			</label_column>
 			<number_column name="freestrike">
-				<default>0</default>
 			</number_column>
+
+			<!-- With Captain -->
+			<label_column name="withcaptain_label">
+				<static textres="npc_label_withcaptain" />
+			</label_column>
+			<string_columnh name="withcaptain">
+				<default>Strike damage +0</default>
+			</string_columnh>
 			
 			<!-- traits -->
 			<label_column name="traits_name_label">
@@ -153,7 +155,7 @@
 
 			<!-- speed types -->
 			<label_column name="speedtype_name_label">
-				<static textres="npc_label_speed" />
+				<static textres="npc_label_movement" />
 			</label_column>
 			<string_columnh name="speedtype_name" />
 
