@@ -280,6 +280,7 @@
 	<string name="ability_label_class">Class</string>
 	<string name="ability_label_subclass">Subclass</string>
 	<string name="ability_label_abilitytype">Ability Type</string>
+	<string name="ability_label_abilitylevel">Level</string>
 	<string name="ability_label_keywords">Keywords</string>
 	<string name="ability_label_type">Type</string>
 	<string name="ability_label_distance">Distance</string>

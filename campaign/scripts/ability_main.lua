@@ -28,8 +28,8 @@ function update()
 	if WindowManager.callSafeControlUpdate(self, "effect", bReadOnly) then bSection3 = true; end;
 	local bSection4 = false;
 	if WindowManager.callSafeControlUpdate(self, "special", bReadOnly) then bSection3 = true; end;
-	local bSection4 = false;
-	if WindowManager.callSafeControlUpdate(self, "class", bReadOnly) then bSection4 = true; end;
+	local bSection5 = false;
+	if WindowManager.callSafeControlUpdate(self, "class", bReadOnly) then bSection5 = true; end;
 
 	divider1.setVisible(bSection1);
 	divider2.setVisible(bSection2);
@@ -53,6 +53,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "special", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "subclass", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "abilitytype", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "abilitylevel", bReadOnly);
 	
 	notes.setReadOnly(bReadOnly);
 end

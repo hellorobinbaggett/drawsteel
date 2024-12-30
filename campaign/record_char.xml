@@ -32,17 +32,19 @@
 			<sub_charsheet name="main_ds">
 				<class>charsheet_main_ds</class>
 			</sub_charsheet>
-			<sub_charsheet name="modifiers">
-				<class>charsheet_modifiers</class>
+			<sub_charsheet name="features">
+				<class>charsheet_features</class>
 			</sub_charsheet>
-			<!-- <sub_charsheet name="skills_ds">
-				<class>charsheet_skills_ds</class>
-			</sub_charsheet> -->
 			<sub_charsheet name="actions">
 				<class>charsheet_actions</class>
 			</sub_charsheet>
-			<sub_charsheet name="features">
-				<class>charsheet_features</class>
+
+			<!-- <sub_charsheet name="skills_ds">
+				<class>charsheet_skills_ds</class>
+			</sub_charsheet> -->
+
+			<sub_charsheet name="modifiers">
+				<class>charsheet_modifiers</class>
 			</sub_charsheet>
 			<sub_charsheet name="notes">
 				<class>charsheet_notes</class>
@@ -60,31 +62,28 @@
 					<tabres>tab_main</tabres>
 					<subwindow>main</subwindow>
 				</tab> -->
-				<tab>
-					<tabres>tab_main</tabres>
-					<subwindow>main_ds</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_modifiers</tabres>
-					<subwindow>modifiers</subwindow>
-				</tab>
-				<!-- <tab>
-					<tabres>tab_skills</tabres>
-					<subwindow>skills_ds</subwindow>
-				</tab> -->
-				<tab>
-					<tabres>tab_actions</tabres>
-					<subwindow>actions</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_features</tabres>
-					<subwindow>features</subwindow>
-				</tab>
 				<!-- default core RPG skills tab -->
 				<!-- <tab>
 					<tabres>tab_skills</tabres>
 					<subwindow>skills</subwindow>
 				</tab> -->
+				<tab>
+					<tabres>tab_main</tabres>
+					<subwindow>main_ds</subwindow>
+				</tab>
+				<tab>
+					<tabres>tab_features</tabres>
+					<subwindow>features</subwindow>
+				</tab>
+				<tab>
+					<tabres>tab_actions</tabres>
+					<subwindow>actions</subwindow>
+				</tab>
+
+				<tab>
+					<tabres>tab_modifiers</tabres>
+					<subwindow>modifiers</subwindow>
+				</tab>
 				<tab>
 					<tabres>tab_notes</tabres>
 					<subwindow>notes</subwindow>
@@ -147,14 +146,20 @@
 
 			<!-- CLASS -->
 			<string_labeled name="classtitle">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="160" />
+				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="120" />
 				<labelres>char_label_class</labelres>
 			</string_labeled>
 
 			<!-- SUBCLASS -->
 			<string_labeled name="subclasstitle">
-				<anchored to="classtitle" position="righthigh" offset="5,0" width="160" />
+				<anchored to="classtitle" position="righthigh" offset="5,0" width="120" />
 				<labelres>char_label_subclass</labelres>
+			</string_labeled>
+
+			<!-- SUBCLASS -->
+			<string_labeled name="leveltitle">
+				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="80" />
+				<labelres>char_label_level</labelres>
 			</string_labeled>
 
 			<!-- <string_labeled name="subclass">

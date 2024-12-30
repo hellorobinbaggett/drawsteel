@@ -107,6 +107,12 @@
 		<string_columnh name="abilitytype">
 			<delaykeyupdate />
 		</string_columnh>
+		<label_column name="abilitylevel_label">
+			<static textres="ability_label_abilitylevel" />
+		</label_column>
+		<string_columnh name="abilitylevel">
+			<delaykeyupdate />
+		</string_columnh>
 
 				<!-- // power roll button -->
 		<button_roll name="button_roll">
