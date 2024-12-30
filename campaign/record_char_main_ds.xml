@@ -152,11 +152,16 @@
 			<!-- size, speed, stability -->
 
 			<!-- SIZE -->
-			<number_characteristicscore name="size" source="abilities.size.value">
+			<string_labeled name="size">
+				<anchored to="statsframe" position="insidetopleft" offset="125,30" />
+				<description textres="char_tooltip_size" />
+				<default>1M</default>
+			</string_labeled>
+			<!-- <number_characteristicscore name="size" source="abilities.size.value">
 				<anchored to="statsframe" position="insidetopleft" offset="125,15" />
 				<description textres="char_tooltip_size" />
 				<default>1</default>
-			</number_characteristicscore>
+			</number_characteristicscore> -->
             <string_characteristiclabel name="size_label">
 				<anchored to="size" />
 				<static textres="size" />
@@ -185,7 +190,7 @@
 			</string_characteristiclabel>	
 
 			<!-- WEIGHT -->
-			<number_characteristicscore name="weight" source="abilities.weight.value">
+			<!-- <number_characteristicscore name="weight" source="abilities.weight.value">
 				<anchored to="stability" />
 				<description textres="char_tooltip_weight" />
 				<default>4</default>
@@ -193,11 +198,11 @@
             <string_characteristiclabel name="weight_label">
 				<anchored to="weight" />
 				<static textres="weight" />
-			</string_characteristiclabel>
+			</string_characteristiclabel> -->
 
 			<!-- VICTORIES -->
 			<number_characteristicscore name="victories" source="abilities.victories.value">
-				<anchored to="weight" />
+				<anchored to="stability" />
 				<description textres="char_tooltip_victories" />
 			</number_characteristicscore>
             <string_characteristiclabel name="victories_label">
