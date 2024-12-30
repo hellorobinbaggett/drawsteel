@@ -9,7 +9,7 @@
 	<windowclass name="charsheet_modifiers">
 		<sheetdata>
 			<frame_char name="appearanceframe">
-				<bounds>0,20,320,190</bounds>
+				<bounds>0,20,320,-6</bounds>
 			</frame_char>
 			<!-- <label_frametop>
 				<anchored to="appearanceframe" offset="125,50"/>
@@ -137,7 +137,7 @@
 			</string_labeled>	 -->
 
 			<frame_char name="notesframe">
-				<bounds>310,20,-1,190</bounds>
+				<bounds>310,20,-1,-6</bounds>
 				<!-- <bounds>0,0,-1,-5</bounds> -->
 			</frame_char>
 			<label_frametop>

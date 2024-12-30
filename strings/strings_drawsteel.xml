@@ -175,11 +175,12 @@
 	<string name="char_tooltip_token">Token</string>
 	<string name="char_label_features">Features</string>
 	<string name="char_label_abilities">Abilities</string>
-	<string name="char_label_heroicabilities">Heroic Abilities</string>
 	<string name="char_label_kitabilities">Kit Abilities</string>
 	<string name="char_label_signatureabilities">Signature Abilities</string>
 	<string name="char_label_heroicabilities">Heroic Abilities</string>
     <string name="char_label_actions">Actions</string>
+	<string name="char_label_ancestrytraits">Ancestry Traits</string>
+	<string name="char_label_classfeatures">Class Features</string>
 	<string name="char_label_features">Features</string>
     <string name="char_label_maneuvers">Maneuvers</string>
 	<string name="char_label_triggeredactions">Triggered Actions</string>
