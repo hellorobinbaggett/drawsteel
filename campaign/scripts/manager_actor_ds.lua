@@ -764,6 +764,24 @@ function getConditionImmunities(rActor, rSource)
 
 	return tResults;
 end
+
+function getPCSheetWoundColor(nodePC)
+	local nHP = 0;
+	local nWounds = 0;
+	if nodePC then
+		nHP = math.max(DB.getValue(nodePC, "hp.total", 0), 0);
+		nWounds = math.max(DB.getValue(nodePC, "hp.wounds", 0), 0);
+	end
+
+	local nPercentWounded = 0;
+	if nHP > 0 then
+		nPercentWounded = nWounds / nHP;
+	end
+	
+	local sColor = ColorManager.getHealthColor(nPercentWounded, false);
+	return sColor;
+end
+
 function getNonPCActorConditionImmunitiesHelper(rActor)
 	local nodeActor = ActorManager.getCreatureNode(rActor);
 	if not nodeActor then

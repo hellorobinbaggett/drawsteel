@@ -35,8 +35,8 @@
 			<sub_charsheet name="features">
 				<class>charsheet_features</class>
 			</sub_charsheet>
-			<sub_charsheet name="actions">
-				<class>charsheet_actions</class>
+			<sub_charsheet name="abilities">
+				<class>charsheet_abilities</class>
 			</sub_charsheet>
 
 			<!-- <sub_charsheet name="skills_ds">
@@ -76,8 +76,8 @@
 					<subwindow>features</subwindow>
 				</tab>
 				<tab>
-					<tabres>tab_actions</tabres>
-					<subwindow>actions</subwindow>
+					<tabres>tab_abilities</tabres>
+					<subwindow>abilities</subwindow>
 				</tab>
 
 				<tab>

@@ -42,8 +42,11 @@
 	
 		<label_column name="characteristic_label">
 			<static textres="ability_label_powerrollplus" />
+			<tooltip textres="char_tooltip_modifierdescription" />
 		</label_column>
-		<string_columnh name="characteristic" source="ability.characteristic"/>
+		<string_columnh name="characteristic" source="ability.characteristic">
+			<tooltip textres="char_tooltip_modifierdescription" />
+		</string_columnh>
 
 		<label_column name="tier1_label">
 			<static textres="ability_label_tier1" />
@@ -137,7 +140,7 @@
 
 					local rRoll = { 
 						sType = "dice", 
-						sDesc = "" .. abilityName .. " \n (Power Roll + " .. characteristic .. ")", 
+						sDesc = "" .. abilityName .. "", 
 						aDice = { "d10", "d10" },
 						nMod = characteristic,
 						t1 = DB.getValue(nodeWin, "tier1"),

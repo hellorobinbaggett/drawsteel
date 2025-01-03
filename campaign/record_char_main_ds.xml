@@ -7,6 +7,38 @@
 
 <root>
 	<windowclass name="charsheet_main_ds">
+		<script>
+			function onValueChanged()
+				window.onHealthChanged();
+			end
+
+			function onHealthChanged()
+				stamina.setColor(getPCSheetWoundColor(getDatabaseNode()));
+			end
+
+			function getPCSheetWoundColor(nodePC)
+				local nMaxStamina = 0;
+				local nCurrentStamina = 0;
+				if nodePC then
+					nMaxStamina = math.max(DB.getValue(nodePC, "hp.max", 0), 0);
+					nCurrentStamina = math.max(DB.getValue(nodePC, "hp.stamina", 0), 0);
+				end
+
+				local sColor = "630000";
+
+				local nWindedValue = nMaxStamina / 2;
+				
+				if nCurrentStamina > nWindedValue then
+					sColor = "1a6313";
+				end
+
+				if nWindedValue > nCurrentStamina and nCurrentStamina > 0 then
+					sColor = "a37800";
+				end
+
+				return sColor;
+			end
+		</script>
 		<margins control="0,0,0,2" />
 		<sheetdata>
 
@@ -19,7 +51,6 @@
 				<anchored to="characteristicsframe" />
 				<static textres="char_label_characteristics" />
 			</label_frametop>
-
             <!-- MGT -->
             <number_powerroll_characteristic name="might" source="MGT">
 				<anchored to="characteristicsframe" position="insidetopleft" offset="90,40" />
@@ -30,7 +61,6 @@
 				<anchored to="might" />
 				<static textres="might" />
 			</string_characteristiclabel>
-
             <!-- AGL -->
             <number_powerroll_characteristic name="agility" source="AGL">
 				<anchored to="might" />
@@ -41,7 +71,6 @@
 				<anchored to="agility" />
 				<static textres="agility" />
 			</string_characteristiclabel>
-
             <!-- REA -->
             <number_powerroll_characteristic name="reason" source="REA">
 				<anchored to="agility" />
@@ -52,7 +81,6 @@
 				<anchored to="reason" />
 				<static textres="reason" />
 			</string_characteristiclabel>
-
             <!-- INU -->
             <number_powerroll_characteristic name="intuition" source="INU">
 				<anchored to="reason" />
@@ -63,7 +91,6 @@
 				<anchored to="intuition" />
 				<static textres="intuition" />
 			</string_characteristiclabel>
-
             <!-- PRS -->
             <number_powerroll_characteristic name="presence" source="PRS">
 				<anchored to="intuition" />
@@ -75,9 +102,63 @@
 				<static textres="presence" />
 			</string_characteristiclabel>
 
+        <!-- STATS -->
+            <frame_char name="statsframe">
+				<bounds>140,0,210,200</bounds>
+			</frame_char>
+			<!-- SIZE -->
+			<string_labeled name="size">
+				<anchored to="statsframe" position="insidetopleft" offset="125,30" />
+				<description textres="char_tooltip_size" />
+				<default>1M</default>
+			</string_labeled>
+            <string_characteristiclabel name="size_label">
+				<anchored to="size" />
+				<static textres="size" />
+			</string_characteristiclabel>
+			<!-- SPEED -->
+			<number_characteristicscore name="speed" source="abilities.speed.value">
+				<anchored to="size" />
+				<description textres="char_tooltip_speed" />
+				<default>5</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="speed_label">
+				<anchored to="speed" />
+				<static textres="speed" />
+			</string_characteristiclabel>		
+			<!-- STABILITY -->
+			<number_characteristicscore name="stability" source="abilities.stability.value">
+				<anchored to="speed"  />
+				<description textres="char_tooltip_stability" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="stability_label">
+				<anchored to="stability" />
+				<static textres="stability" />
+			</string_characteristiclabel>	
+			<!-- VICTORIES -->
+			<number_characteristicscore name="victories" source="abilities.victories.value">
+				<anchored to="stability" />
+				<description textres="char_tooltip_victories" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="victories_label">
+				<anchored to="victories" />
+				<static textres="victories" />
+			</string_characteristiclabel>
+			<!-- Experience -->
+			<number_characteristicscore name="experience" source="abilities.experience.value">
+				<anchored to="victories" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="experience_label">
+				<anchored to="experience" />
+				<static textres="experience" />
+			</string_characteristiclabel>	
+
+
         <!-- RECOVERIES -->
             <frame_char name="recoveriesframe">
-				<bounds>140,0,150,200</bounds>
+				<bounds>340,0,-1,200</bounds>
 			</frame_char>
 
 			<label_frametop>
@@ -97,7 +178,6 @@
 					end
 				</script>
 			</basicnumber>
-			
 			<label_charfieldbottom name="recoverycurrent_label">
 				<anchored to="recoverycurrent" offset="0,0" />
 				<static textres="char_label_current" />
@@ -115,7 +195,6 @@
 					end
 				</script>
 			</basicnumber>
-			
 			<label_charfieldbottom name="recoverymax_label">
 				<anchored to="recoverymax" offset="0,0" />
 				<static textres="char_label_max" />
@@ -133,95 +212,14 @@
 					end
 				</script>
 			</basicnumber>
-			
 			<label_charfieldbottom name="recoveryvalue_label">
 				<anchored to="recoveryvalue" offset="0,0" />
 				<static textres="char_label_value" />
 			</label_charfieldbottom>
 
-        	<!-- STATS -->
-            <frame_char name="statsframe">
-				<bounds>280,0,210,200</bounds>
-			</frame_char>
-
-			<!-- <label_frametop>
-				<anchored to="statsframe" />
-				<static textres="char_label_stats" />
-			</label_frametop> -->
-
-			<!-- size, speed, stability -->
-
-			<!-- SIZE -->
-			<string_labeled name="size">
-				<anchored to="statsframe" position="insidetopleft" offset="125,30" />
-				<description textres="char_tooltip_size" />
-				<default>1M</default>
-			</string_labeled>
-			<!-- <number_characteristicscore name="size" source="abilities.size.value">
-				<anchored to="statsframe" position="insidetopleft" offset="125,15" />
-				<description textres="char_tooltip_size" />
-				<default>1</default>
-			</number_characteristicscore> -->
-            <string_characteristiclabel name="size_label">
-				<anchored to="size" />
-				<static textres="size" />
-			</string_characteristiclabel>
-
-			<!-- SPEED -->
-			<number_characteristicscore name="speed" source="abilities.speed.value">
-				<anchored to="size" />
-				<description textres="char_tooltip_speed" />
-				<default>5</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="speed_label">
-				<anchored to="speed" />
-				<static textres="speed" />
-			</string_characteristiclabel>		
-
-			<!-- STABILITY -->
-			<number_characteristicscore name="stability" source="abilities.stability.value">
-				<anchored to="speed"  />
-				<description textres="char_tooltip_stability" />
-				<default>0</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="stability_label">
-				<anchored to="stability" />
-				<static textres="stability" />
-			</string_characteristiclabel>	
-
-			<!-- WEIGHT -->
-			<!-- <number_characteristicscore name="weight" source="abilities.weight.value">
-				<anchored to="stability" />
-				<description textres="char_tooltip_weight" />
-				<default>4</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="weight_label">
-				<anchored to="weight" />
-				<static textres="weight" />
-			</string_characteristiclabel> -->
-
-			<!-- VICTORIES -->
-			<number_characteristicscore name="victories" source="abilities.victories.value">
-				<anchored to="stability" />
-				<description textres="char_tooltip_victories" />
-			</number_characteristicscore>
-            <string_characteristiclabel name="victories_label">
-				<anchored to="victories" />
-				<static textres="victories" />
-			</string_characteristiclabel>
-
-			<!-- Experience -->
-			<number_characteristicscore name="experience" source="abilities.experience.value">
-				<anchored to="victories" />
-				<default>0</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="experience_label">
-				<anchored to="experience" />
-				<static textres="experience" />
-			</string_characteristiclabel>			
-
+		<!-- SKILLS -->
 			<frame_char name="skillsframe">
-				<bounds>0,195,400,57</bounds>
+				<bounds>0,190,350,80</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="skillsframe" />
@@ -234,12 +232,13 @@
 					<right offset="-20" />
 					<bottom offset="-15" />
 				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
+				<multilinespacing>20</multilinespacing>
 				<nodrag />
 			</stringu>
 
+		<!-- MOVEMENT -->
 			<frame_char name="movementframe">
-				<bounds>390,195,100,57</bounds>
+				<bounds>340,190,-1,80</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="movementframe" />
@@ -252,12 +251,13 @@
 					<right offset="-20" />
 					<bottom offset="-15" />
 				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
+				<multilinespacing>20</multilinespacing>
 				<nodrag />
 			</stringu>
 
+		<!-- WEAKNESSESS AND IMMUNITIES-->
 			<frame_char name="weaknessframe">
-				<bounds>0,245,250,57</bounds>
+				<bounds>0,260,250,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="weaknessframe" />
@@ -270,12 +270,10 @@
 					<right offset="-20" />
 					<bottom offset="-15" />
 				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
 				<nodrag />
 			</stringu>
-
 			<frame_char name="immunityframe">
-				<bounds>240,245,250,57</bounds>
+				<bounds>240,260,-1,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="immunityframe" />
@@ -288,89 +286,41 @@
 					<right offset="-20" />
 					<bottom offset="-15" />
 				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
 				<nodrag />
 			</stringu>
 
-			<!-- POTENCIES -->
-			<frame_char name="weakpotenciesframe">
-				<bounds>0,295,170,57</bounds>
+		<!-- unique effects/ conditions - -->
+			<frame_char name="conditionsframe">
+				<bounds>1,307,-1,57</bounds>
 			</frame_char>
 			<label_frametop>
-				<anchored to="weakpotenciesframe" />
-				<static textres="char_label_weak" />
+				<anchored to="conditionsframe" />
+				<static textres="char_label_uniqueeffects" />
 			</label_frametop>
-			<stringu name="weakpotencies">
-				<anchored to="weakpotenciesframe">
+			<stringu name="conditions">
+				<anchored to="conditionsframe">
 					<top offset="25" />
 					<left offset="15" />
 					<right offset="-20" />
 					<bottom offset="-15" />
 				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
 				<nodrag />
 			</stringu>
 
-			<frame_char name="averagepotenciesframe">
-				<bounds>160,295,170,57</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="averagepotenciesframe" />
-				<static textres="char_label_average" />
-			</label_frametop>
-			<stringu name="averagepotencies">
-				<anchored to="averagepotenciesframe">
-					<top offset="25" />
-					<left offset="15" />
-					<right offset="-20" />
-					<bottom offset="-15" />
-				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
-				<nodrag />
-			</stringu>
-
-			<frame_char name="strongpotenciesframe">
-				<bounds>320,295,170,57</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="strongpotenciesframe" />
-				<static textres="char_label_strong" />
-			</label_frametop>
-			<stringu name="strongpotencies">
-				<anchored to="strongpotenciesframe">
-					<top offset="25" />
-					<left offset="15" />
-					<right offset="-20" />
-					<bottom offset="-15" />
-				</anchored>
-				<!-- <multilinespacing>20</multilinespacing> -->
-				<nodrag />
-			</stringu>
-
-			<!-- Class Resource -->
+		<!-- CLASS RESOURCE AND SURGES -->
 			<label_charframetop name="classresourcetitle">
 				<anchored height="20">
-					<top anchor="bottom" offset="-130" />
-					<left offset="105" />
-					<right offset="-105" />
+					<top anchor="bottom" offset="-140" />
+					<left offset="90" />
+					<right offset="-90" />
 				</anchored>
 				<icons>char_stats</icons>
 			</label_charframetop>
 
-			<!-- <string_labeled name="classresourcestring" gravity="center">
-				<anchored height="20">
-					<top anchor="bottom" offset="-175" />
-					<left offset="105" />
-					<right offset="-105" />
-				</anchored>
-				<center />
-				<font>subwindowsmalltitle</font>
-			</string_labeled> -->
-
 			<basicnumber name="classresource" source="classresource">
-				<anchored to="classresourcetitle" width="90" height="30">
+				<anchored to="classresourcetitle" width="100" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-80" />
+					<left anchor="center" offset="-120" />
 				</anchored>
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_classresource" />
@@ -386,7 +336,7 @@
 			</label_charfieldtop>
 
 			<basicnumber name="surges" source="surges">
-				<anchored to="classresource" position="righthigh" offset="30,0" width="48" height="30" />
+				<anchored to="classresource" position="righthigh" offset="15,0" width="40" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_surges" />
 				<tooltip textres="char_tooltip_surgesdescription" />
@@ -402,59 +352,37 @@
 				<static textres="char_label_surges" />
 			</label_charfieldtop>
 
-			<!-- <label_charfieldtop name="classresourcetitlelable">
-				<anchored to="classresource" offset="0,5" />
-				<static textres="char_label_classresource" />
-				<font>sheetlabel2</font>
-			</label_charfieldtop> -->
+			<basicnumber name="herotokens" source="herotokens">
+				<anchored to="surges" position="righthigh" offset="15,0" width="90" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_herotokens" />
+				<min value="0" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
 
-			<!-- HEALTHS MATE -->
+			<label_charfieldtop name="herotokens_label">
+				<anchored to="herotokens" offset="300,8" />
+				<static textres="char_label_herotokens" />
+			</label_charfieldtop>
+
+		<!-- STAMINA SECTION -->
 			<label_charframetop name="healthtitle">
 				<anchored height="20">
-					<top anchor="bottom" offset="-60" />
+					<top anchor="bottom" offset="-70" />
 					<left offset="70" />
 					<right offset="-70" />
 				</anchored>
 				<icons>char_stats</icons>
 			</label_charframetop>
 
-			<number_charstamina name="stamina" source="hp.stamina">
+			<basicnumber name="max" source="hp.max">
 				<anchored to="healthtitle" width="48" height="30">
-					<top anchor="bottom" offset="10" />
+					<top anchor="bottom" offset="15" />
 					<left anchor="center" offset="-110" />
 				</anchored>
-				<description textres="char_tooltip_stamina" />
-
-				<!-- <anchored width="40" height="30">
-					<top anchor="bottom" offset="-65" />
-					<left offset="220" />
-				</anchored> -->
-				<font>reference-b-large</font>
-				<script>
-					function onInit()
-							if super and super.onInit then
-								super.onInit();
-							end
-						end
-						function onDrop(x, y, draginfo)
-							if draginfo.getType() == "number" then
-								if draginfo.getNumberData() &gt; 0 then
-									setValue(draginfo.getNumberData());
-								else
-									setValue(getValue() + draginfo.getNumberData());
-								end
-							end
-							
-							return true;
-						end
-						
-					function onValueChanged()
-					end
-				</script>
-			</number_charstamina>
-
-			<basicnumber name="max" source="hp.max">
-				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_max" />
 				<min value="0" />
@@ -464,11 +392,23 @@
 				</script>
 			</basicnumber>
 
-			<basicnumber name="temp" source="hp.temporary">
+			<number_charstamina name="stamina" source="hp.stamina">
 				<anchored to="max" position="righthigh" offset="15,0" width="48" height="30" />
+				<description textres="char_tooltip_stamina" />
+				<font>reference-b-large</font>
+				<script>
+					function onValueChanged()
+						window.onHealthChanged();
+					end
+				</script>
+			</number_charstamina>
+
+			<basicnumber name="temp" source="hp.temporary">
+				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_temp" />
 				<hideonvalue>0</hideonvalue>
+				<color>0000AA</color>
 			</basicnumber>
 
 			<number_linked_framed name="winded" source="hp.winded">
@@ -506,26 +446,36 @@
 					setValue(nBonus);
 				end
 				</script>
+				<color>303030</color>
 			</number_linked_framed>
 
-			<label_charfieldtop name="max_label">
-				<anchored to="max" offset="0,10" />
-				<static textres="char_label_maxhp" />
-			</label_charfieldtop>
-
-			<label_charfieldtop name="temp_label">
-				<anchored to="temp" offset="0,10" />
-				<static textres="char_label_temp" />
-			</label_charfieldtop>
-
 			<label_charfieldtop name="stamina_label">
-				<anchored to="stamina" offset="0,10" />
+				<anchored to="healthtitle" offset="0,-20" />
 				<static textres="char_label_stamina" />
 			</label_charfieldtop>
 
+			<label_charfieldtop name="max_label">
+				<anchored to="max" offset="0,-4" />
+				<static textres="char_label_maxhp" />
+				<color>000000</color>
+			</label_charfieldtop>
+
+			<label_charfieldtop name="temp_label">
+				<anchored to="temp" offset="0,-4" />
+				<static textres="char_label_temp" />
+				<color>000000</color>
+			</label_charfieldtop>
+
+			<label_charfieldtop name="stamina_label">
+				<anchored to="stamina" offset="0,-4" />
+				<static textres="char_label_current" />
+				<color>000000</color>
+			</label_charfieldtop>
+
 			<label_charfieldtop name="winded_label">
-				<anchored to="winded" offset="0,10" />
+				<anchored to="winded" offset="0,-4" />
 				<static textres="char_label_winded" />
+				<color>000000</color>
 			</label_charfieldtop>
 
 		</sheetdata>

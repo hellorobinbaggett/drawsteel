@@ -377,22 +377,27 @@
 				<button_modifierkey name="EDGE">
 					<bounds>80,6,60,18</bounds>
 					<text>Edge</text>
+					<tooltip textres="char_tooltip_edge" />
 				</button_modifierkey>		
  				<button_modifierkey name="BANE">
 					<bounds>151,6,60,18</bounds>
 					<text>Bane</text>
+					<tooltip textres="char_tooltip_bane" />
 				</button_modifierkey>		
 				<button_modifierkey name="DOUBLEEDGE">
 					<bounds>80,36,60,18</bounds>
 					<text>x2 Edge</text>
+					<tooltip textres="char_tooltip_doubleedge" />
 				</button_modifierkey>		
 				<button_modifierkey name="DOUBLEBANE">
 					<bounds>151,36,60,18</bounds>
 					<text>x2 Bane</text>
+					<tooltip textres="char_tooltip_doublebane" />
 				</button_modifierkey>	
-				<button_modifierkey name="SKILLED">
+				<button_modifierkey name="SKILL">
 					<bounds>222,6,60,48</bounds>
-					<text>Skilled</text>
+					<text>Skill</text>
+					<tooltip textres="char_tooltip_skill" />
 				</button_modifierkey>						
 			</sheetdata>
 		</windowclass>

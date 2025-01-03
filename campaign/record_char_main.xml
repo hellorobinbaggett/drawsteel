@@ -59,12 +59,12 @@
 			</string_labeled>
 
 			<basicnumber name="classresource" source="classresource">
-				<anchored to="classresourcetitle" width="86" height="30">
+				<anchored to="classresourcetitle" width="95" height="30">
 					<top anchor="bottom" offset="8" />
 					<left anchor="center" offset="-35" />
 				</anchored>
 				<font>reference-b-large</font>
-				<description textres="Class Resource" />
+				<description textres="Heroic Resource" />
 				<script>
 					function onValueChanged()
 					end
