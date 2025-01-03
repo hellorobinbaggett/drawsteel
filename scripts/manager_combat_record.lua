@@ -561,3 +561,28 @@ function onBattleButtonAdd(w)
 		CombatRecordManager.onRecordTypeEvent(sRecordType, { sRecordType = sRecordType, nodeRecord = w.getDatabaseNode() });
 	end
 end
+
+--
+--	XP FUNCTIONS
+--
+
+function calcBattleXP(nodeBattle)
+	local sTargetNPCList = LibraryData.getCustomData("battle", "npclist") or "npclist";
+
+	local nXP = 0;
+	for _, vNPCItem in ipairs(DB.getChildList(nodeBattle, sTargetNPCList)) do
+		local sClass, sRecord = DB.getValue(vNPCItem, "link", "", "");
+		if sRecord ~= "" then
+			local nodeNPC = DB.findNode(sRecord);
+			if nodeNPC then
+				nXP = nXP + (DB.getValue(vNPCItem, "count", 0) * DB.getValue(nodeNPC, "xp", 0));
+			else
+				local sMsg = string.format(Interface.getString("battle_error_missingnpclink"), DB.getValue(vNPCItem, "name", ""));
+				ChatManager.SystemMessage(sMsg);
+			end
+		end
+	end
+	
+	DB.setValue(nodeBattle, "exp", "number", nXP);
+end
+	

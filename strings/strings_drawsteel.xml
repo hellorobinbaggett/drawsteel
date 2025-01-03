@@ -222,6 +222,9 @@
 	<string name="char_label_notesanddowntime">Notes &amp; Downtime Projects</string>
 	<string name="char_label_damages">Damage Weaknesses and Immunities</string>
 	
+	<!-- BATTLE -->
+	<string name="battle_tooltip_refreshev">Calculate EV</string>
+
 	<!-- NPCs -->
 	<string name="npc_label_ev">EV</string>
 	<string name="npc_label_unidentified">Non-ID Name</string>
@@ -229,6 +232,7 @@
 	<string name="npc_label_level">Level</string>
 	<string name="npc_label_organization">Organization</string>
 	<string name="npc_label_creaturerole">Creature Role</string>
+	<string name="npc_label_organization">Organization</string>
 	<string name="npc_label_keywords">Keywords</string>
 	<string name="npc_label_stamina">Stamina</string>
 	<string name="npc_label_maxstamina">Max Stamina</string>

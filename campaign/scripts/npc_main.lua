@@ -4,6 +4,7 @@
 --
 
 function onInit()
+	-- self.onSummaryChanged();
 	update();
 end
 function VisDataCleared()
@@ -13,10 +14,41 @@ function InvisDataAdded()
 	update();
 end
 
+-- function onSummaryChanged()
+-- 	local nodeRecord = getDatabaseNode();
+
+-- 	local tFirstSummary = {};
+-- 	local sSize = DB.getValue(nodeRecord, "level_name", "");
+-- 	if sSize ~= "" then
+-- 		table.insert(tFirstSummary, sSize);
+-- 	end
+-- 	local sType = DB.getValue(nodeRecord, "level_name", "");
+-- 	if sType ~= "" then
+-- 		table.insert(tFirstSummary, sType);
+-- 	end
+-- 	local sFirstSummary = table.concat(tFirstSummary, " ");
+
+-- 	local tSecondSummary = {};
+-- 	if sFirstSummary ~= "" then
+-- 		table.insert(tSecondSummary, sFirstSummary);
+-- 	end
+-- 	local sAlign = DB.getValue(nodeRecord, "level_name", "");
+-- 	if sAlign ~= "" then
+-- 		table.insert(tSecondSummary, sAlign);
+-- 	end
+
+-- 	summary.setValue(table.concat(tSecondSummary, ", "));
+-- end
+
 function update()
 	local nodeRecord = getDatabaseNode();
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID = LibraryData.getIDState("npc", nodeRecord);
+	local tFields = { 
+		"level_name", "organization_name",
+		"ev",
+	};
+	WindowManager.callSafeControlsUpdate(self, tFields, bReadOnly);
 
 	local bSection1 = false;
 	if Session.IsHost then
@@ -33,7 +65,7 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "stability_label", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "freestrike", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly) then bSection1 = true; end;
-		if WindowManager.callSafeControlUpdate(self, "ev_name", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "ev", bReadOnly) then bSection1 = true; end;
 	else
 		WindowManager.callSafeControlUpdate(self, "traits_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "creaturerole_name", bReadOnly, true);
@@ -47,7 +79,7 @@ function update()
 		WindowManager.callSafeControlUpdate(self, "stability_label", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "freestrike", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly, true);
-		WindowManager.callSafeControlUpdate(self, "ev_name", bReadOnly, true);
+		WindowManager.callSafeControlUpdate(self, "ev", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "level_name", bReadOnly, true);
 	end
 	-- divider.setVisible(bSection1);

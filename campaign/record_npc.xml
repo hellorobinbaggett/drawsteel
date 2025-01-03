@@ -46,24 +46,34 @@
 				<static textres="npc_label_level" />
 			</label_column>
 			<number_column name="level_name">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
 			</number_column>	
 
 			<label_column name="ev_name_label">
 				<static textres="npc_label_ev" />
 			</label_column>
-			<number_column name="ev_name">
+			<number_column name="ev">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
 			</number_column>	
-
-			<label_column name="creaturerole_name_label">
-				<static textres="npc_label_creaturerole" />
-			</label_column>
-			<string_columnh name="creaturerole_name" />
 
 			<label_column name="keywords_name_label">
 				<static textres="npc_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords_name" />
-
+			<string_columnh name="keywords_name">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
 			
 

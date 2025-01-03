@@ -39,6 +39,7 @@ conditions = {
 	"prone",
 	"restrained", 
 	"slowed", 
+	"taunted",
 	"weakened"
 };
 
@@ -54,7 +55,6 @@ others = {
 	"high ground",
 	"invisible",
 	"sneaking",
-	"taunted",
 	"unconscious",
 	"winded"
 };
@@ -69,6 +69,7 @@ condcomps = {
 	["restrained"] = "cond_restrained",
 	["slowed"] = "cond_slowed",
 	["weakened"] = "cond_weakened",
+	["taunted"] = "cond_surprised",
 	-- psuedo conditions
 	["covered"] = "cond_cover",
 	["concealed"] = "cond_cover",
@@ -80,7 +81,6 @@ condcomps = {
 	["high ground"] = "cond_edge",
 	["invisible"] = "cond_invisible",
 	["sneaking"] = "cond_incorporeal",
-	["taunted"] = "cond_surprised",
 	["unconscious"] = "cond_unconscious",
 	["winded"] = "cond_weakened"
 };

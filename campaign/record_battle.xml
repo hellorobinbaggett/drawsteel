@@ -84,6 +84,46 @@
 		<sheetdata>
 			<anchor_content_top />
 
+						<area_content_record_header_details name="area_details" />
+
+			<button_refresh name="button_refreshev">
+				<anchored to="area_details" position="insidetopright" offset="120,0" />
+				<tooltip textres="battle_tooltip_refreshev" />
+				<script>
+					function onButtonPress()
+						calcBattleXP(window.getDatabaseNode());
+					end
+
+					function calcBattleXP(nodeBattle)
+						local sTargetNPCList = LibraryData.getCustomData("battle", "npclist") or "npclist";
+
+						local nEV = 0;
+						for _, vNPCItem in ipairs(DB.getChildList(nodeBattle, sTargetNPCList)) do
+							local sClass, sRecord = DB.getValue(vNPCItem, "link", "", "");
+							if sRecord ~= "" then
+								local nodeNPC = DB.findNode(sRecord);
+								if nodeNPC then
+									nEV = nEV + (DB.getValue(vNPCItem, "count", 0) * DB.getValue(nodeNPC, "ev", 0));
+								else
+									local sMsg = string.format(Interface.getString("battle_error_missingnpclink"), DB.getValue(vNPCItem, "name", ""));
+									ChatManager.SystemMessage(sMsg);
+								end
+							end
+						end
+						
+						DB.setValue(nodeBattle, "ev", "number", nEV);
+					end
+				</script>
+			</button_refresh>
+			<number_listitem_base name="ev">
+				<anchored to="button_refreshev" position="lefthigh" offset="10,0" width="70" height="20" />
+				<description textres="xp" />
+			</number_listitem_base>
+			<label name="ev_label">
+				<anchored to="ev" position="lefthigh" offset="10,0" />
+				<static textres="ev" />
+			</label>
+
 			<list_content_labeled_alternating_top name="list">
 				<datasource>.npclist</datasource>
 				<class>battle_npc</class>

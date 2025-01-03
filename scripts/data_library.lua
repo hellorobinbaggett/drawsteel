@@ -203,6 +203,11 @@ aRecords = {
 		aCustom = {
 			tWindowMenu = { ["left"] = { "chat_speak" } },
 		},
+		aCustomFilters = {
+			["Level"] = { sField = "level_name" },
+			["Organization"] = { sField = "organization_name" },
+			["Keywords"] = { sField = "keywords_name" },
+		},
 	},
 	["battle"] = { 
 		bExport = true,
@@ -276,6 +281,8 @@ aRecords = {
 			["Class"] = { sField = "class" },
 			["Subclass"] = { sField = "subclass" },
 			["Type"] = { sField = "abilitytype" },
+			["Cost"] = { sField = "cost" },
+			["Level"] = { sField = "level" },
 		},
 	},
 };
@@ -916,4 +923,34 @@ function getRecordViewData()
 		aListViews = {};
 	end
 	return aListViews;
+end
+
+function getNPCLevelValue(vNode)
+	local v = StringManager.trim(DB.getValue(vNode, "level_name", ""));
+	local sType = v:match("^[^(%s]+");
+	if sType then
+		v = StringManager.trim(sType);
+	end
+	v = StringManager.capitalize(v);
+	return v;
+end
+
+function getNPCEVValue(vNode)
+	local v = StringManager.trim(DB.getValue(vNode, "ev_name", ""));
+	local sType = v:match("^[^(%s]+");
+	if sType then
+		v = StringManager.trim(sType);
+	end
+	v = StringManager.capitalize(v);
+	return v;
+end
+
+function getNPCKeywordsValue(vNode)
+	local v = StringManager.trim(DB.getValue(vNode, "keywords_name", ""));
+	local sType = v:match("^[^(%s]+");
+	if sType then
+		v = StringManager.trim(sType);
+	end
+	v = StringManager.capitalize(v);
+	return v;
 end
