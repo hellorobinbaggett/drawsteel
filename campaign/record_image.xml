@@ -45,7 +45,10 @@
 			<imagedata_content name="imagedata" source="image" />
 			<image_content name="image" />
 
+			<anchor_image_controls_right />
+			<anchor_image_controls_bottom />
 			<sub_image_camera_controls name="sub_camera_controls" />
+			<sub_image_view_tokenmove name="sub_view_tokenmove" />
 			<sub_image_hover_token_detail name="sub_hover_token_detail" />
 			<sub_image_view_token_detail name="sub_view_token_detail" />
 			<list_viewers name="list_viewers" />

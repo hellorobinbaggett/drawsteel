@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
-<!-- 
-  Please see the license.html file included with this distribution for 
+<!--
+  Please see the license.html file included with this distribution for
   attribution and copyright information.
 -->
 
 <root>
-	<!-- Basic Menu - REQUIRED -->
-	<icon name="menubackground" file="graphics/radial/menubackground.png" />
-	<icon name="menuhub" file="graphics/radial/menuhub.png" />
-	<icon name="menuback" file="graphics/radial/menuback.png" />
+	<!-- Context Menu - REQUIRED -->
+	<icon name="context_more" file="graphics/radial/arrow-50.webp" />
 
 	<!-- Generic -->
 	<icon name="insert" file="graphics/radial/icon_insert.png" />
@@ -32,10 +30,10 @@
 	<icon name="bell" file="graphics/radial/icon_char_bell.png" />
 	<icon name="kick" file="graphics/radial/icon_char_kick.png" />
 	<icon name="kickconfirm" file="graphics/radial/icon_char_kick_confirm.png" />
-	
+
 	<!-- Tables -->
 	<icon name="radial_plus" file="graphics/radial/icon_plus.png" />
-	
+
 	<!-- Images -->
 	<icon name="imagesize" file="graphics/radial/icon_image_size_menu.png" />
 	<icon name="imagesizesynch" file="graphics/radial/icon_image_size_synch.png" />
@@ -69,11 +67,11 @@
 	<icon name="num20" file="graphics/radial/icon_dice_20.png" />
 	<icon name="percent" file="graphics/radial/icon_dice_percent.png" />
 	<icon name="customdice" file="graphics/radial/icon_dice_custom.png" />
-	
+
 	<!-- Hot Keys - REQUIRED -->
 	<icon name="hotkeyedit" file="graphics/radial/icon_hotkey_edit.png" />
 	<icon name="hotkeyclear" file="graphics/radial/icon_hotkey_delete.png" />
-	
+
 	<!-- Windows - REQUIRED -->
 	<icon name="windowclosemenu" file="graphics/radial/icon_window_close_menu.png" />
 	<icon name="lock" file="graphics/radial/icon_window_lock.png" />
@@ -88,7 +86,7 @@
 	<icon name="windowunshare" file="graphics/radial/icon_window_unshare.png" />
 	<icon name="windowdelete" file="graphics/radial/icon_window_delete.png" />
 	<icon name="windowexport" file="graphics/radial/icon_tokenbag_insert.png" />
-	
+
 	<!-- Tokens - REQUIRED -->
 	<icon name="rotatecw" file="graphics/radial/icon_token_rotate_cw.png" />
 	<icon name="rotateccw" file="graphics/radial/icon_token_rotate_ccw.png" />
@@ -110,29 +108,25 @@
 	<icon name="tokenfowoff" file="graphics/radial/icon_token_fow_off.png" />
 	<icon name="tokentoback" file="graphics/radial/icon_token_back.png" />
 	<icon name="tokentofront" file="graphics/radial/icon_token_front.png" />
-	
+
 	<!-- Category Selection Control - REQUIRED -->
 	<icon name="categoryinsert" file="graphics/radial/icon_category_insert.png" />
 	<icon name="categorydelete" file="graphics/radial/icon_category_delete.png" />
 	<icon name="categorystyle" file="graphics/radial/icon_category_style.png" />
 	<icon name="categoryicon" file="graphics/radial/icon_category_icon.png" />
-	
+
 	<!-- Chat Window - REQUIRED -->
 	<icon name="chatclipboard" file="graphics/radial/icon_chat_clipboard.png" />
-	<icon name="prompt" file="graphics/radial/icon_chat_prompt.png" />
-	<icon name="hand" file="graphics/radial/icon_chat_hand.png" />
 	<icon name="chatclear" file="graphics/radial/icon_chat_clear.png" />
-	<icon name="log" file="graphics/radial/icon_chat_logon.png" />
-	<icon name="logoff" file="graphics/radial/icon_chat_logoff.png" />
 	<icon name="crossed" file="graphics/radial/icon_chat_total_off.png" />
 	<icon name="equals" file="graphics/radial/icon_chat_total_on.png" />
 	<icon name="halve" file="graphics/radial/icon_chat_total_half.png" />
 	<icon name="double" file="graphics/radial/icon_chat_total_double.png" />
 	<icon name="negate" file="graphics/radial/icon_chat_total_negate.png" />
-	
+
 	<!-- Die Control - REQUIRED -->
 	<icon name="dieclear" file="graphics/radial/icon_die_clear.png" />
-	
+
 	<!-- Formatted Text Control - REQUIRED -->
 	<!-- <icon name="textedit" file="graphics/radial/icon_edit.png" /> -->
 	<!-- <icon name="textstopedit" file="graphics/radial/icon_stopedit.png" /> -->
@@ -214,7 +208,7 @@
 	<!-- Supported rulesets - Common radials-->
 	<!-- Generic -->
 	<icon name="radial_magicwand" file="graphics/radial/icon_magicwand.png" />
-	
+
 	<!-- Spell actions -->
 	<icon name="radial_sword" file="graphics/radial/icon_sword.png" />
 	<icon name="radial_damage" file="graphics/radial/icon_damage.png" />

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+  Please see the license.html file included with this distribution for
+  attribution and copyright information.
+-->
+
+<root>
+	<icon name="rulesetlogo_CoreRPG" file="graphics/icons/rulesetlogo_CoreRPG.png" />
+
+	<!-- Combat tracker -->
+	<icon name="ct_faction_check" file="graphics/icons/ct_faction_check.png" />
+    <icon name="rulesetlogo_DrawSteel" file="graphics/logos/logo.png" />
+
+</root>

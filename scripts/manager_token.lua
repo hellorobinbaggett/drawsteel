@@ -34,6 +34,14 @@ function onTabletopInit()
 	TokenManager.initOptionTracking();
 end
 
+function onImageInit(cImage)
+	for _,token in ipairs(cImage.getTokens()) do
+		TokenManager.updateAttributesFromToken(token);
+	end
+end
+function onImageClose(_)
+end
+
 --
 --	Theming
 --

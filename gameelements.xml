@@ -11,17 +11,19 @@
 	<tokenroot source="tokens" />
 
 	<characterdbroot>charsheet</characterdbroot>
-	
+
 	<!-- Can also use ARGB format for colors if you want to change transparency -->
 	<menusettings>
-		<radial>
-			<hubicon>menuhub</hubicon>
-			<backicon>menuback</backicon>
-			<background>menubackground</background>
-			<hubcolor>FFF7DE</hubcolor>
-			<backgroundcolor>FFF7DE</backgroundcolor>
-			<iconcolor>FFF7DE</iconcolor>
-		</radial>
+		<context>
+			<topframe name="context_top" hover="context_top_hover" offset="8,8,8,8" />
+			<middleframe name="context_middle" hover="context_middle_hover" offset="8,8,8,8" />
+			<bottomframe name="context_bottom" hover="context_bottom_hover" offset="8,8,8,8" />
+			<singleframe name="context_single" hover="context_single_hover" offset="8,8,8,8" />
+			<font name="context_font" />
+			<spacing>10</spacing>
+			<submenu icon="context_more" />
+			<iconcolor>FFFFFF</iconcolor>
+		</context>
 	</menusettings>
 
 	<dicesettings>
@@ -41,12 +43,12 @@
 		<font expression="diceexpr" total="diemod" dieresult="dieresult"/>
 		<icons secret="gmdieicon" defaultdie="die_general_icon" />
 	</diebox>
-	
+
 	<pollbox>
 		<frame name="diebox" offset="4,4,4,4" />
 		<icons empty="poll_empty" positive="poll_check" negative="poll_negative" />
 	</pollbox>
-	
+
 	<hotkeybar>
 		<frame>hotkeybox</frame>
 		<location offset="0" height="33" />
@@ -56,19 +58,59 @@
 	</hotkeybar>
 
 	<tooltip>
-		<frame name="tooltipbox" margins="7,4,7,4" wrapwidth="300" />
-		<radial name="mini_name" margins="7,2,7,2" />
-		<font name="mini_name" />
+		<frame name="tooltipbox" margins="8,4,8,4" wrapwidth="300" />
+		<font name="tooltipbox" />
 	</tooltip>
-	
-	<distance>
-		<font>distancelabel</font>
-	</distance>
 
 	<imagesettings>
 		<shortcut icon="image_pin" iconpublic="image_pin_public" hotspot="2,21" />
+		<distance>
+			<frame name="distance" overlay="distance_overlay" offset="10,10,10,10" />
+			<fonts value="distance_value" suffix="distance_suffix" incr="distance_incr" />
+			<spacing>6</spacing>
+			<confirm icon="token_move_confirm" />
+			<cancel icon="token_move_cancel" />
+			<arrow icon="distance_arrow" />
+		</distance>
+		<token>
+			<target_arrow icon="token_target_arrow" />
+			<target_self icon="token_selftarget_arrow" color="FFFF00" />
+			<facing_arrow icon="token_facing_arrow"  color="FFFF00" />
+		</token>
+		<textfont file="graphics/fonts/BebasNeue-Regular.ttf" />
+		<textfont file="graphics/fonts/Lugrasimo-Regular.ttf" />
+		<textfont file="graphics/fonts/Noto_Sans/NotoSans-Regular.ttf" />
+		<textfont file="graphics/fonts/Noto_Sans/NotoSans-Italic.ttf" />
+		<textfont file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" />
+		<textfont file="graphics/fonts/Noto_Sans/NotoSans-BoldItalic.ttf" />
+		<textfont file="graphics/fonts/Noto_Serif/NotoSerif-Regular.ttf" />
+		<textfont file="graphics/fonts/Noto_Serif/NotoSerif-Italic.ttf" />
+		<textfont file="graphics/fonts/Noto_Serif/NotoSerif-Bold.ttf" />
+		<textfont file="graphics/fonts/Noto_Serif/NotoSerif-BoldItalic.ttf" />
+		<textfont file="graphics/fonts/PermanentMarker-Regular.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-Regular.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-Italic.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-Bold.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-BoldItalic.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-Light.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-LightItalic.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-Black.ttf" />
+		<textfont file="graphics/fonts/RobotoCondensed/RobotoCondensed-BlackItalic.ttf" />
+		<textfont file="graphics/fonts/RobotoMono/RobotoMono-Regular.ttf" />
+		<textfont file="graphics/fonts/RobotoMono/RobotoMono-Italic.ttf" />
+		<textfont file="graphics/fonts/RobotoMono/RobotoMono-Bold.ttf" />
+		<textfont file="graphics/fonts/RobotoMono/RobotoMono-BoldItalic.ttf" />
+		<textfont file="graphics/fonts/RobotoMono/RobotoMono-Light.ttf" />
+		<textfont file="graphics/fonts/RobotoMono/RobotoMono-LightItalic.ttf" />
+		<textfont file="graphics/fonts/VujahdayScript-Regular.ttf" />
+		<textfont file="graphics/fonts/Languages/Celestial.ttf" />
+		<textfont file="graphics/fonts/Languages/Draconic.ttf" />
+		<textfont file="graphics/fonts/Languages/Dwarven.ttf" />
+		<textfont file="graphics/fonts/Languages/Elven.ttf" />
+		<textfont file="graphics/fonts/Languages/Infernal.ttf" />
+		<textfont file="graphics/fonts/Languages/Primordial.ttf" />
 	</imagesettings>
-	
+
 	<textsettings>
 		<selectioncolor>BCD2E9</selectioncolor>
 		<icon link="button_link" linkshare="button_link_share" emptylink="button_link_empty" chat="button_speak" />
@@ -138,10 +180,10 @@
 	</visionsettings>
 
 	<!-- Desktop Dice -->
-	<die name="dF">
+	<!-- <die name="dF">
 		<icon>d6icon</icon>
 		<default />
-	</die>
+	</die> -->
 	<die name="d4">
 		<icon>d4icon</icon>
 		<default />
@@ -166,12 +208,40 @@
 		<icon>d20icon</icon>
 		<default />
 	</die>
-	
+
 	<die name="d100">
 		<icon>d10icon</icon>
 		<menuicon>percent</menuicon>
 		<default />
 	</die>
+
+	<!-- custom djordice for power rolls -->
+	<!-- <die name="dj10">
+		<model>d20</model>
+		<icon>d20ricon</icon>
+		<menuicon>customdice</menuicon>
+		<side result="1" value="1" />
+		<side result="1" value="1" />
+		<side result="2" value="2" />
+		<side result="2" value="2" />
+		<side result="3" value="3" />
+		<side result="3" value="3" />
+		<side result="4" value="4" />
+		<side result="4" value="4" />
+		<side result="5" value="5" />
+		<side result="5" value="5" />
+		<side result="6" value="6" />
+		<side result="6" value="6" />
+		<side result="7" value="7" />
+		<side result="7" value="7" />
+		<side result="8" value="8" />
+		<side result="8" value="8" />
+		<side result="9" value="9" />
+		<side result="9" value="9" />
+		<side result="10" value="10" />
+		<side result="10" value="10" />		
+		<default />
+	</die> -->
 	<customdie name="d3">
 		<model>d6</model>
 		<menuicon>customdice</menuicon>

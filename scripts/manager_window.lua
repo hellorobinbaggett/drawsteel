@@ -1,34 +1,21 @@
--- 
--- Please see the license.html file included with this distribution for 
+--
+-- Please see the license.html file included with this distribution for
 -- attribution and copyright information.
 --
 
--- function onTabletopInit()
--- 	Module.addEventHandler("onUnloadedReference", WindowManager.onUnloadedModuleReference);
-
--- 	local nMajor, nMinor = Interface.getVersion();
--- 	if (nMajor >= 4) and (nMinor >= 6) then
--- 		Interface.addEventHandler("onLinkClassMissing", WindowManager.onLinkClassMissing);
--- 		Interface.addEventHandler("onLinkRecordMissing", WindowManager.onLinkRecordMissing);
--- 	end
--- end
+function onTabletopInit()
+	Module.addEventHandler("onUnloadedReference", WindowManager.onUnloadedModuleReference);
+end
 
 --
 --	MISSING WINDOW DATA HANDLING
 --
 
-function onUnloadedModuleReference(sModule, sClass, sPath)
+function onUnloadedModuleReference(_, sClass, sPath)
 	ModuleManager.handleRecordModulesLoad({ sPath }, WindowManager.onUnloadedModuleLoadCallback, { sClass = sClass, sPath = sPath });
 end
 function onUnloadedModuleLoadCallback(tCustom)
 	Interface.openWindow(tCustom.sClass, tCustom.sPath);
-end
-
-function onLinkClassMissing(sClass, sRecord)
-	ChatManager.SystemMessage(string.format(Interface.getString("record_message_link_class_missing"), sClass, sRecord));
-end
-function onLinkRecordMissing(sClass, sRecord)
-	ChatManager.SystemMessage(string.format(Interface.getString("record_message_link_record_missing"), sClass, sRecord));
 end
 
 --
@@ -64,7 +51,7 @@ function updateTooltip(w)
 	if (sDisplayTitle or "") ~= "" then
 		sTooltip = sDisplayTitle .. ": " .. sTooltip;
 	end
-	
+
 	UtilityManager.getTopWindow(w).setTooltipText(sTooltip);
 end
 
@@ -162,23 +149,23 @@ function setInnerControlValue(v, s, vValue)
 	local sType = type(v);
 	if sType == "windowinstance" then
 		if v[s] then
-			v[s].getValue(vValue);
+			v[s].setValue(vValue);
 			return true;
 		end
 		for _,c in pairs(v.getControls()) do
-			if WindowManager.getInnerControlValue(c, s, vValue) then
+			if WindowManager.setInnerControlValue(c, s, vValue) then
 				return true;
 			end
 		end
 	elseif sType == "windowlist" then
 		for _,wChild in ipairs(v.getWindows()) do
-			if WindowManager.getInnerControlValue(wChild, s, vValue) then
+			if WindowManager.setInnerControlValue(wChild, s, vValue) then
 				return true;
 			end
 		end
 	elseif sType == "subwindow" then
 		if v.subwindow then
-			if WindowManager.getInnerControlValue(v.subwindow, s, vValue) then
+			if WindowManager.setInnerControlValue(v.subwindow, s, vValue) then
 				return true;
 			end
 		end
@@ -187,7 +174,7 @@ function setInnerControlValue(v, s, vValue)
 	return false;
 end
 
--- NOTE: UI cascade function calls should not return early, 
+-- NOTE: UI cascade function calls should not return early,
 --		as all UI children up/down need to be have the option to react to function event.
 function callInnerFunction(v, sFunc, ...)
 	if not v or not sFunc then
@@ -241,34 +228,107 @@ function hasOuterWindowFunction(v, sFunc)
 		return false;
 	end
 
-	if type(v) == "windowinstance" then
-		if v[sFunc] then
-			return true;
-		elseif v.parentcontrol then
-			return WindowManager.hasOuterWindowFunction(v.parentcontrol.window, sFunc);
-		elseif v.windowlist then
-			return WindowManager.hasOuterWindowFunction(v.windowlist.window, sFunc);
-		end
-	else
+	if type(v) ~= "windowinstance" then
 		return WindowManager.hasOuterWindowFunction(v.window, sFunc);
 	end
+
+	if v[sFunc] then
+		return true;
+	elseif v.parentcontrol then
+		return WindowManager.hasOuterWindowFunction(v.parentcontrol.window, sFunc);
+	elseif v.windowlist then
+		return WindowManager.hasOuterWindowFunction(v.windowlist.window, sFunc);
+	end
+
+	return false;
 end
 function callOuterWindowFunction(v, sFunc, ...)
 	if not v or not sFunc then
 		return;
 	end
 
-	if type(v) == "windowinstance" then
-		if v[sFunc] then
-			return v[sFunc](...);
-		elseif v.parentcontrol then
-			return WindowManager.callOuterWindowFunction(v.parentcontrol.window, sFunc, ...);
-		elseif v.windowlist then
-			return WindowManager.callOuterWindowFunction(v.windowlist.window, sFunc, ...);
-		end
-	else
+	if type(v) ~= "windowinstance" then
 		return WindowManager.callOuterWindowFunction(v.window, sFunc, ...);
 	end
+
+	if v[sFunc] then
+		return v[sFunc](...);
+	elseif v.parentcontrol then
+		return WindowManager.callOuterWindowFunction(v.parentcontrol.window, sFunc, ...);
+	elseif v.windowlist then
+		return WindowManager.callOuterWindowFunction(v.windowlist.window, sFunc, ...);
+	end
+end
+
+function getOuterWindowDatabaseNode(v)
+	if not v then
+		return nil;
+	end
+
+	if type(v) ~= "windowinstance" then
+		return WindowManager.getOuterWindowDatabaseNode(v.window);
+	end
+
+	local node = v.getDatabaseNode();
+	if node then
+		return node;
+	end
+
+	if v.parentcontrol then
+		return WindowManager.callOuterWindowFunction(v.parentcontrol.window);
+	elseif v.windowlist then
+		return WindowManager.callOuterWindowFunction(v.windowlist.window);
+	end
+	return nil;
+end
+
+function callSafeControlsSetLockMode(w, tControls, bLock)
+	if not w or not tControls then
+		return;
+	end
+	for _,sControl in ipairs(tControls) do
+		WindowManager.callSafeControlSetLockMode(w, sControl, bLock);
+	end
+end
+function callSafeControlSetLockMode(w, sControl, bLock)
+	if not w or not sControl then
+		return false;
+	end
+	local c = w[sControl];
+	if not c or type(c) == "function" then
+		return false;
+	end
+
+	if c.setLockMode then
+		c.setLockMode(bLock);
+		return true;
+	end
+	c.setReadOnly(bLock);
+	return true;
+end
+function callSafeControlsSetVisible(w, tControls, bVisible)
+	if not w or not tControls then
+		return;
+	end
+	for _,sControl in ipairs(tControls) do
+		WindowManager.callSafeControlSetVisible(w, sControl, bVisible);
+	end
+end
+function callSafeControlSetVisible(w, sControl, bVisible)
+	if not w or not sControl then
+		return false;
+	end
+	local c = w[sControl];
+	if not c or type(c) == "function" then
+		return false;
+	end
+
+	if c.setVisibleMode then
+		c.setVisibleMode(bVisible);
+		return true;
+	end
+	c.setVisible(bVisible);
+	return true;
 end
 
 function callSafeControlsUpdate(w, tControls, bReadOnly, bForceHide)
@@ -295,6 +355,7 @@ function callSafeControlUpdate(w, sControl, bReadOnly, bForceHide)
 	c.setReadOnly(bReadOnly);
 	return true;
 end
+
 function setControlVisibleWithLabel(w, sControl, bVisible)
 	if not w or not sControl then
 		return;
@@ -325,6 +386,59 @@ function getAnyControlVisible(w, tControls)
 	return false;
 end
 
+--
+--	COLUMN CONTROL COMMON CODE
+--
+
+function onColumnControlInit(c)
+	if c.isReadOnly() or DB.isReadOnly(c.getDatabaseNode()) then
+		WindowManager.onColumnControlSetLockMode(c, true);
+	end
+end
+function onColumnControlSetLockMode(c, bReadOnly)
+	local bShow = not bReadOnly or c.nohide or not c.isEmpty();
+	c.setVisible(bShow);
+	c.setReadOnly(bReadOnly);
+end
+function onColumnControlGetLockMode(c)
+	return c.isReadOnly();
+end
+function onColumnControlVisibilityChanged(c)
+	local bShow = c.isVisible();
+	local sName = c.getName();
+	if c.window[sName .. "_label"] then
+		c.window[sName .. "_label"].setVisible(bShow);
+	end
+	if c.window[sName .. "_header"] then
+		c.window[sName .. "_header"].setVisible(bShow);
+	end
+	if c.separator and c.window[c.separator[1]] then
+		c.window[c.separator[1]].setVisible(bShow);
+	end
+end
+function onColumnControlValueChanged(c)
+	if c.isVisible() ~= c.isEmpty() then
+		return;
+	end
+	if c.window.onLockModeChanged then
+		c.window.onLockModeChanged(WindowManager.getWindowReadOnlyState(c.window));
+	elseif c.window.update then
+		local wTop = UtilityManager.getTopWindow(c.window);
+		local nodeRecord = wTop.getDatabaseNode();
+		local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
+		local bID = RecordDataManager.getIDState(WindowManager.getRecordType(wTop), nodeRecord);
+		c.window.update(bReadOnly, bID);
+	end
+end
+function onColumnControlUpdateLegacy(c, bReadOnly, bForceHide)
+	local bShow = not bForceHide and (not bReadOnly or c.nohide or not c.isEmpty());
+	c.setVisible(bShow);
+	c.setReadOnly(bReadOnly);
+	if c.onUpdate then
+		c.onUpdate(bShow);
+	end
+	return bShow;
+end
 --
 --	REORDER HANDLING
 --		NOTE: Assumes child records use numerical "order" field

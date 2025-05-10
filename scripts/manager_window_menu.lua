@@ -1,5 +1,5 @@
--- 
--- Please see the license.html file included with this distribution for 
+--
+-- Please see the license.html file included with this distribution for
 -- attribution and copyright information.
 --
 
@@ -9,7 +9,7 @@ end
 
 function registerToolbarButtons()
 	-- Window: General
-	ToolbarManager.registerButton("link", 
+	ToolbarManager.registerButton("link",
 		{
 			sType = "action",
 			sIcon = "button_toolbar_link",
@@ -17,14 +17,14 @@ function registerToolbarButtons()
 			fnDrag = WindowMenuManager.onMenuLinkDrag,
 			sHoverCursor = "hand",
 		});
-	ToolbarManager.registerButton("close", 
+	ToolbarManager.registerButton("close",
 		{
 			sType = "action",
 			sIcon = "button_toolbar_window_close",
 			sTooltipRes = "button_toolbar_window_close",
 			fnActivate = WindowMenuManager.performMenuClose,
 		});
-	ToolbarManager.registerButton("help", 
+	ToolbarManager.registerButton("help",
 		{
 			sType = "action",
 			sIcon = "button_toolbar_help",
@@ -47,23 +47,25 @@ function registerToolbarButtons()
 			sTooltipRes = "button_toolbar_readonly",
 			bReadOnly = true,
 		});
-	ToolbarManager.registerButton("locked", 
-		{ 
+	ToolbarManager.registerButton("locked",
+		{
 			sType = "field",
 			{ icon="button_toolbar_locked_false", tooltipres="button_toolbar_locked_false" },
 			{ icon="button_toolbar_locked_true", tooltipres="button_toolbar_locked_true" },
 			fnOnInit = WindowMenuManager.onMenuLockInit,
 			fnGetDefault = WindowMenuManager.onMenuLockGetDefault,
 			sValueChangeEvent = "onLockChanged",
+			fnOnValueChange = WindowMenuManager.onMenuLockChanged,
 		});
-	ToolbarManager.registerButton("isidentified", 
-		{ 
+	ToolbarManager.registerButton("isidentified",
+		{
 			sType = "field",
 			{ icon="button_toolbar_id_false", tooltipres="button_toolbar_id_false" },
 			{ icon="button_toolbar_id_true", tooltipres="button_toolbar_id_true" },
 			nDefault = 1,
 			fnOnInit = WindowMenuManager.onMenuIdentifiedInit,
 			sValueChangeEvent = "onIDChanged",
+			fnOnValueChange = WindowMenuManager.onMenuIDChanged,
 		});
 	ToolbarManager.registerButton("module",
 		{
@@ -83,6 +85,21 @@ function registerToolbarButtons()
 			sDatabaseEvent = "onIntegrityChange",
 			fnOnDatabaseEvent = WindowMenuManager.onDatabaseEventMenuRevert,
 			bHostOnly = true,
+		});
+
+	ToolbarManager.registerButton("duplicate",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_copy",
+			sTooltipRes = "button_toolbar_duplicate",
+			fnActivate = WindowMenuManager.performMenuDuplicate,
+		});
+	ToolbarManager.registerButton("export",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_export",
+			sTooltipRes = "button_toolbar_export",
+			fnActivate = WindowMenuManager.performMenuExport,
 		});
 
 	ToolbarManager.registerButton("share",
@@ -116,10 +133,24 @@ function registerToolbarButtons()
 			sIcon = "button_toolbar_ping",
 			sTooltipRes = "record_toolbar_token_find",
 			fnActivate = WindowMenuManager.performMenuTokenFind,
+		});
+	-- Record: Battle
+	ToolbarManager.registerButton("battle_addtoquickmap",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_image",
+			sTooltipRes = "battle_tooltip_addtoquickmap",
+			fnActivate = WindowMenuManager.performMenuBattleAddToQuickMap,
 			bHostOnly = true,
 		});
-
-
+	ToolbarManager.registerButton("battle_addtotracker",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_addtotracker",
+			sTooltipRes = "battle_tooltip_addtotracker",
+			fnActivate = WindowMenuManager.performMenuBattleAddToTracker,
+			bHostOnly = true,
+		});
 	-- Record: Parcel
 	ToolbarManager.registerButton("id_all",
 		{
@@ -129,7 +160,14 @@ function registerToolbarButtons()
 			fnActivate = WindowMenuManager.performMenuIDAll,
 			bHostOnly = true,
 		});
-
+	ToolbarManager.registerButton("parcel_addtotracker",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_addtotracker",
+			sTooltipRes = "parcel_tooltip_addtotracker",
+			fnActivate = WindowMenuManager.performMenuParcelAddToTracker,
+			bHostOnly = true,
+		});
 	-- Record: Image
 	ToolbarManager.registerButton("size_up",
 		{
@@ -156,10 +194,26 @@ function populate(w)
 end
 function buildToolbar(w)
 	local wTop = UtilityManager.getTopWindow(w);
+
+	if wTop.windowmenu and wTop.windowmenu[1].simple then
+		local tRightButtons = {};
+		if wTop and not wTop.noclose then
+			table.insert(tRightButtons, "close");
+		end
+		if wTop and wTop.isMinimizeable() then
+			table.insert(tRightButtons, "minimize");
+		end
+		if wTop and wTop.helplinkres or wTop.helplink or wTop.getWindowMenuHelpLink then
+			table.insert(tRightButtons, "help");
+		end
+		ToolbarManager.addList(w, tRightButtons, "right");
+		return;
+	end
+
 	local sRecordType = RecordDataManager.getRecordTypeFromWindow(wTop);
 
 	local tCustomRecordType;
-	if (sRecordType or "") ~= "" then
+	if (sRecordType or "") ~= "" and (not wTop.windowmenu or not wTop.windowmenu[1].nocustom) then
 		tCustomRecordType = RecordDataManager.getCustomData(sRecordType, "tWindowMenu", {});
 	else
 		tCustomRecordType = WindowMenuManager.getCustomMenuData(wTop);
@@ -177,23 +231,46 @@ function buildToolbar(w)
 
 	-- LEFT MENU BUTTONS
 	local tLeftButtons = {};
-	if (sRecordType or "") ~= "" then
+	if not wTop.windowmenu or not wTop.windowmenu[1].nolink then
 		table.insert(tLeftButtons, "link");
+	end
+	if nodeWin and ((sRecordType or "") ~= "") and (not wTop.windowmenu or not wTop.windowmenu[1].norecord) then
+		local bModule = false;
+		local bRevert = false;
+		local bDuplicate = false;
+		local bExport = false;
 
-		if nodeWin then
-			if Session.IsHost then
-				if ((DB.getModule(nodeWin) or "") ~= "") then
-					table.insert(tLeftButtons, "");
-					table.insert(tLeftButtons, "module");
-					if not bReadOnly then
-						table.insert(tLeftButtons, "revert");
-					end
-				end
+		if Session.IsHost then
+			if ((DB.getModule(nodeWin) or "") ~= "") then
+				bModule = true;
+				bRevert = not bReadOnly;
+			else
+				bExport = RecordDataManager.getExportMode(sRecordType);
+			end
+
+			bDuplicate = RecordDataManager.getDuplicateMode(sRecordType);
+		else
+			if ((DB.getModule(nodeWin) or "") == "") then
+				bExport = RecordDataManager.getExportMode(sRecordType);
 			end
 		end
-	else
-		if not wTop.windowmenu or not wTop.windowmenu[1].nolink then
-			table.insert(tLeftButtons, "link");
+
+		if bModule or bRevert or bDuplicate or bExport then
+			if #tLeftButtons > 0 then
+				table.insert(tLeftButtons, "");
+			end
+			if bModule then
+				table.insert(tLeftButtons, "module");
+			end
+			if bRevert then
+				table.insert(tLeftButtons, "revert");
+			end
+			if bDuplicate then
+				table.insert(tLeftButtons, "duplicate");
+			end
+			if bExport then
+				table.insert(tLeftButtons, "export");
+			end
 		end
 	end
 	if tCustomRecordType["left"] then
@@ -217,37 +294,39 @@ function buildToolbar(w)
 	if wTop and wTop.isMinimizeable() then
 		table.insert(tRightButtons, "minimize");
 	end
-	if wTop and wTop.helplinkres or wTop.helplink or w.getWindowMenuHelpLink then
+	if wTop and wTop.helplinkres or wTop.helplink or wTop.getWindowMenuHelpLink then
 		table.insert(tRightButtons, "help");
 	end
-	local bShare = false;
-	local bLock = false;
-	local bID = false;
-	if ((sRecordType or "") ~= "") then
-		bShare = bOwner and RecordDataManager.getShareMode(sRecordType);
-		bLock = bOwner and RecordDataManager.getLockMode(sRecordType);
-		bID = RecordDataManager.isIdentifiable(sRecordType, nodeWin);
-	else
-		if (wTop.getFrame() == "recordsheet") and (not wTop.windowmenu or not wTop.windowmenu[1].nolock) then
-			bLock = true;
-		end
-	end
-	if bShare or bLock or bID then
-		if #tRightButtons > 0 then
-			table.insert(tRightButtons, "");
-		end
-		if bShare then
-			table.insert(tRightButtons, "share");
-		end
-		if bLock then
-			if bReadOnly then
-				table.insert(tRightButtons, "static");
-			else
-				table.insert(tRightButtons, "locked");
+	if (not wTop.windowmenu or not wTop.windowmenu[1].norecord) then
+		local bShare = false;
+		local bLock = false;
+		local bID = false;
+		if ((sRecordType or "") ~= "") then
+			bShare = bOwner and RecordDataManager.getShareMode(sRecordType) and (not wTop.windowmenu or not wTop.windowmenu[1].noshare);
+			bLock = bOwner and RecordDataManager.getLockMode(sRecordType) and (not wTop.windowmenu or not wTop.windowmenu[1].nolock);
+			bID = RecordDataManager.isIdentifiable(sRecordType, nodeWin);
+		else
+			if (wTop.getFrame() == "recordsheet") and (not wTop.windowmenu or not wTop.windowmenu[1].nolock) then
+				bLock = true;
 			end
 		end
-		if bID then
-			table.insert(tRightButtons, "isidentified");
+		if bShare or bLock or bID then
+			if #tRightButtons > 0 then
+				table.insert(tRightButtons, "");
+			end
+			if bShare then
+				table.insert(tRightButtons, "share");
+			end
+			if bLock then
+				if bReadOnly then
+					table.insert(tRightButtons, "static");
+				else
+					table.insert(tRightButtons, "locked");
+				end
+			end
+			if bID then
+				table.insert(tRightButtons, "isidentified");
+			end
 		end
 	end
 	if tCustomRecordType["right"] then
@@ -286,7 +365,7 @@ function checkButtons(t)
 	end
 
 	local tResults = {};
-	for _,v in ipairs(t) do	
+	for _,v in ipairs(t) do
 		if ToolbarManager.checkButton(v) then
 			table.insert(tResults, v);
 		end
@@ -309,9 +388,9 @@ function onMenuLinkDrag(c, draginfo)
 	draginfo.setType("shortcut");
 	draginfo.setIcon("button_link");
 	draginfo.setShortcutData(sClass, wTop.getDatabasePath());
-	
+
 	local nodeWin = c.window.getDatabaseNode();
-	
+
 	local sDesc;
 	local sRecordType = RecordDataManager.getRecordTypeFromDisplayClass(sClass);
 	if (sRecordType or "") ~= "" then
@@ -357,12 +436,23 @@ function onMenuLockGetDefault(c)
 	end
 	return 0;
 end
+function onMenuLockChanged(c)
+	local wTop = UtilityManager.getTopWindow(c.window);
+	local bReadOnly = WindowManager.getWindowReadOnlyState(wTop);
+	WindowManager.callInnerWindowFunction(wTop, "onLockModeChanged", bReadOnly);
+end
+function onMenuIDChanged(c)
+	local wTop = UtilityManager.getTopWindow(c.window);
+	local sRecordType = WindowManager.getRecordType(wTop);
+	local bID = RecordDataManager.getIDState(sRecordType, wTop.getDatabaseNode());
+	WindowManager.callInnerWindowFunction(wTop, "onIDModeChanged", bID);
+end
 function onMenuIdentifiedInit(c)
 	if Session.IsHost then
 		local bReadOnly = false;
-		local nodeWin = UtilityManager.getTopWindow(c.window).getDatabaseNode();
-		if nodeWin then
-			bReadOnly = DB.isReadOnly(nodeWin);
+		local node = WindowManager.getOuterWindowDatabaseNode(c.window);
+		if node then
+			bReadOnly = DB.isReadOnly(node);
 		end
 		c.setVisible(not bReadOnly);
 	else
@@ -381,12 +471,13 @@ function performMenuClose(c)
 end
 function performMenuHelp(c)
 	local w = UtilityManager.getTopWindow(c.window);
-	if w.helplinkres then
+	local sURL;
+	if w.getWindowMenuHelpLink then
+		sURL = w.getWindowMenuHelpLink();
+	elseif w.helplinkres then
 		sURL = Interface.getString(w.helplinkres[1]);
 	elseif w.helplink then
 		sURL = w.helplink[1];
-	elseif w.getWindowMenuHelpLink then
-		sURL = w.getWindowMenuHelpLink();
 	end
 	UtilityManager.sendToHelpLink(sURL);
 end
@@ -426,6 +517,13 @@ function updateMenuRevertDisplay(c)
 	c.setVisible(bShow);
 end
 
+function performMenuDuplicate(c)
+	CampaignDataManager.duplicateRecordWindow(UtilityManager.getTopWindow(c.window));
+end
+function performMenuExport(c)
+	CampaignDataManager.exportRecordWindow(UtilityManager.getTopWindow(c.window));
+end
+
 function onInitMenuShare(c)
 	WindowMenuManager.updateMenuShareDisplay(c);
 end
@@ -433,13 +531,18 @@ function onDatabaseEventMenuShare(c)
 	WindowMenuManager.updateMenuShareDisplay(c);
 end
 function performMenuShare(c)
-	local w = UtilityManager.getTopWindow(c.window);
-	local node = w.getDatabaseNode();
+	local node = WindowManager.getOuterWindowDatabaseNode(c.window);
 	if node then
 		local nAccess = UtilityManager.getNodeAccessLevel(node);
 		if nAccess == 0 then
 			DB.setPublic(node, true);
-			w.share();
+
+			local wTop = UtilityManager.getTopWindow(c.window);
+			if StringManager.contains({ "imagebackpanel", "imagemaxpanel", "imagefullpanel", }, wTop.getClass()) then
+				Interface.openRemoteWindow("imagewindow", node);
+			else
+				wTop.share();
+			end
 		else
 			if DB.isPublic(node) then
 				DB.setPublic(node, false);
@@ -450,8 +553,7 @@ function performMenuShare(c)
 	end
 end
 function updateMenuShareDisplay(c)
-	local w = UtilityManager.getTopWindow(c.window);
-	local node = w.getDatabaseNode();
+	local node = WindowManager.getOuterWindowDatabaseNode(c.window);
 	if node then
 		local nAccess, tHolders = UtilityManager.getNodeAccessLevel(node);
 		if nAccess == 2 then
@@ -479,7 +581,8 @@ function performMenuChatOutput(c)
 end
 
 function performMenuChatSpeak(c)
-	GmIdentityManager.addIdentity(ActorManager.getDisplayName(c.window.getDatabaseNode()));
+	local nodeActor = c.window.getDatabaseNode();
+	ChatIdentityManager.addIdentity(ActorManager.getDisplayName(nodeActor), nodeActor);
 end
 
 function performMenuTokenFind(c)
@@ -503,5 +606,65 @@ end
 function performMenuSizeDown(c)
 	if ImageManager.isImageWindow(c.window) then
 		ImageManager.performSizeDown(c.window);
+	end
+end
+function performMenuBattleAddToQuickMap(c)
+	if WindowManager.getRecordType(c.window) == "battle" then
+		QuickMapManager.openWindowWithBattle(UtilityManager.getTopWindow(c.window).getDatabasePath());
+	end
+end
+function performMenuBattleAddToTracker(c)
+	if WindowManager.getRecordType(c.window) == "battle" then
+		CombatRecordManager.onBattleButtonAdd(UtilityManager.getTopWindow(c.window));
+	end
+end
+function performMenuParcelAddToTracker(c)
+	if WindowManager.getRecordType(c.window) == "treasureparcel" then
+		ItemManager.handleParcel("partysheet", c.window.getDatabasePath());
+	end
+end
+
+--
+--  MINISHEET SPECIFIC
+--
+
+function initCharMinisheetSupport()
+	ToolbarManager.registerButton("charsheet_size",
+		{
+			sType = "action",
+			sIcon = "button_toolbar_size_down",
+			sTooltipRes = "char_tooltip_minisheet",
+			fnOnInit = WindowMenuManager.onCharSizeButtonInit,
+			fnActivate = WindowMenuManager.onCharSizeButtonPressed,
+		});
+end
+function onCharSizeButtonInit(c)
+	local wChar = UtilityManager.getTopWindow(c.window);
+	if wChar.getClass() ~= "charsheetmini" then
+		return;
+	end
+
+	c.setIcons("button_toolbar_size_up");
+	c.setTooltipText(Interface.getString("char_tooltip_fullsheet"));
+end
+function onCharSizeButtonPressed(c)
+	local wChar = UtilityManager.getTopWindow(c.window);
+
+	local wNew;
+	if wChar.getClass() ~= "charsheetmini" then
+		wNew = Interface.openWindow("charsheetmini", wChar.getDatabaseNode());
+	else
+		wNew = Interface.openWindow("charsheet", wChar.getDatabaseNode());
+	end
+	if not wNew then
+		return;
+	end
+
+	local sTab = wChar.tabs.getActiveTabName();
+	local nNewIndex = wNew.tabs.getTabIndexByName(sTab);
+	if nNewIndex > 0 then
+		wNew.tabs.activateTab(nNewIndex);
+	else
+		wNew.tabs.activateTab(1);
 	end
 end

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
-<!-- 
-  Please see the license.html file included with this distribution for 
+<!--
+  Please see the license.html file included with this distribution for
   attribution and copyright information.
 -->
 
@@ -37,8 +37,8 @@
 		<offset>24,24,24,24</offset>
 	</framedef>
 	<framedef name="sidebar_dock_entry_icon_down">
-		<bitmap file="graphics/sidebar/sidebar_dock_entry_down.png" />
-		<offset>12,12,64,12</offset>
+		<bitmap file="graphics/sidebar/sidebar_dock_icon_down.png" />
+		<offset>24,24,24,24</offset>
 	</framedef>
 	<framedef name="sidebar_dock_entry">
 		<bitmap file="graphics/sidebar/sidebar_dock_entry.png" />
@@ -82,6 +82,7 @@
 	<icon name="sidebar_icon_recordtype_charsheet" file="graphics/sidebar/sidebar_icon_charsheet.png" />
 	<icon name="sidebar_icon_recordtype_image" file="graphics/sidebar/sidebar_icon_image.png" />
 	<icon name="sidebar_icon_recordtype_item" file="graphics/sidebar/sidebar_icon_item.png" />
+	<icon name="sidebar_icon_recordtype_location" file="graphics/sidebar/sidebar_icon_location.png" />
 	<icon name="sidebar_icon_recordtype_note" file="graphics/sidebar/sidebar_icon_note.png" />
 	<icon name="sidebar_icon_recordtype_npc" file="graphics/sidebar/sidebar_icon_npc.png" />
 	<icon name="sidebar_icon_recordtype_picture" file="graphics/sidebar/sidebar_icon_picture.png" />
@@ -184,7 +185,7 @@
 
 	<icon name="sidebar_icon_recordtype_hq" file="graphics/sidebar/sidebar_icon_default.png" />
 	<icon name="sidebar_icon_recordtype_hqroom" file="graphics/sidebar/sidebar_icon_default.png" />
-	
+
 	<icon name="sidebar_icon_recordtype_cyberware" file="graphics/sidebar/sidebar_icon_cpu.png" />
 	<icon name="sidebar_icon_recordtype_modification" file="graphics/sidebar/sidebar_icon_default.png" />
 	-->

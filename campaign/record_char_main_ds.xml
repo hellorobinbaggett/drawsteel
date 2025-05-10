@@ -219,7 +219,7 @@
 
 		<!-- SKILLS -->
 			<frame_char name="skillsframe">
-				<bounds>0,190,350,80</bounds>
+				<bounds>0,190,350,138</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="skillsframe" />
@@ -257,7 +257,7 @@
 
 		<!-- WEAKNESSESS AND IMMUNITIES-->
 			<frame_char name="weaknessframe">
-				<bounds>0,260,250,57</bounds>
+				<bounds>340,318,-1,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="weaknessframe" />
@@ -273,7 +273,7 @@
 				<nodrag />
 			</stringu>
 			<frame_char name="immunityframe">
-				<bounds>240,260,-1,57</bounds>
+				<bounds>340,260,-1,68</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="immunityframe" />
@@ -291,7 +291,7 @@
 
 		<!-- unique effects/ conditions - -->
 			<frame_char name="conditionsframe">
-				<bounds>1,307,-1,57</bounds>
+				<bounds>1,318,350,57</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="conditionsframe" />
@@ -320,7 +320,7 @@
 			<basicnumber name="classresource" source="classresource">
 				<anchored to="classresourcetitle" width="100" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-120" />
+					<left anchor="center" offset="-70" />
 				</anchored>
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_classresource" />
@@ -352,21 +352,22 @@
 				<static textres="char_label_surges" />
 			</label_charfieldtop>
 
-			<basicnumber name="herotokens" source="herotokens">
+			<!-- <number_linked_framed name="herotokens" source="herotokens">
 				<anchored to="surges" position="righthigh" offset="15,0" width="90" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_herotokens" />
 				<min value="0" />
 				<script>
 					function onValueChanged()
+						window.onHealthChanged();
 					end
 				</script>
-			</basicnumber>
+			</number_linked_framed>
 
 			<label_charfieldtop name="herotokens_label">
 				<anchored to="herotokens" offset="300,8" />
 				<static textres="char_label_herotokens" />
-			</label_charfieldtop>
+			</label_charfieldtop> -->
 
 		<!-- STAMINA SECTION -->
 			<label_charframetop name="healthtitle">

@@ -202,8 +202,8 @@
 	<string name="char_label_classresource">Heroic Resource</string>
 	<string name="char_label_kitbonuses">Kit Bonuses</string>
 	<string name="char_label_recoveries">Recoveries</string>
-	<string name="char_label_immunities">Damage Immunities</string>
-	<string name="char_label_weaknessess">Damage Weaknessess</string>
+	<string name="char_label_immunities">Immunities</string>
+	<string name="char_label_weaknessess">Weaknessess</string>
 	<string name="char_label_uniqueeffects">Unique Effects</string>
 	<string name="char_label_weak">Weak Potency</string>
 	<string name="char_label_strong">Strong Potency</string>

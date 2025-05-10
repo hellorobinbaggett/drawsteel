@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
-<!-- 
-  Please see the license.html file included with this distribution for 
+<!--
+  Please see the license.html file included with this distribution for
   attribution and copyright information.
 -->
 
@@ -21,18 +21,18 @@
 		<topright rect="203,0,23,18" />
 	</framedef>
 	<icon name="tabtop_h" file="graphics/tabs/tabtop_h.png" />
-	
+
 	<font name="tabfont">
 		<ttf file="graphics/fonts/Noto_Sans/NotoSans-Bold.ttf" name="Noto Sans Bold" size="14" />
 		<color value="#FFFFFF" />
 	</font>
-	
-	<!-- LEGACY - TO BE DEPRECATED (2024-08-13) -->
+
+	<!-- TO BE DEPRECATED (2024-08-13) -->
 	<icon name="tab_inventory" file="graphics/tabs/tab_inventory.png" />
 	<icon name="tab_main" file="graphics/tabs/tab_main.png" />
 	<icon name="tab_notes" file="graphics/tabs/tab_notes.png" />
 	<icon name="tab_order" file="graphics/tabs/tab_order.png" />
-	
+
 	<icon name="tab_actions" file="graphics/tabs/tab_actions.png" />
 	<icon name="tab_abilities" file="graphics/tabs/tab_abilities.png" />
 	<icon name="tab_combat" file="graphics/tabs/tab_combat.png" />

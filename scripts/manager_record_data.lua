@@ -1,5 +1,5 @@
--- 
--- Please see the license.html file included with this distribution for 
+--
+-- Please see the license.html file included with this distribution for
 -- attribution and copyright information.
 --
 
@@ -46,7 +46,7 @@ function initRecordType(sRecordType)
 	if RecordDataManager.getRecordTypeOption(sRecordType, "bID") then
 		RecordDataManager.setDisplayText(sRecordType, "sEmptyUnidentifiedNameText", Interface.getString("library_recordtype_empty_nonid_" .. sRecordType));
 	end
-	
+
 	RecordDataManager.initRecordTypeExport(sRecordType);
 end
 function initRecordTypeExport(sRecordType)
@@ -66,7 +66,6 @@ function initRecordTypeExport(sRecordType)
 		rExport.listclass = "reference_list";
 	end
 
-	local sDisplayClass = RecordDataManager.getRecordTypeFromDisplayClass(sRecordType);
 	if tRecordType.sExportPath then
 		rExport.source = aMappings[1];
 		rExport.export = tRecordType.sExportPath;
@@ -122,7 +121,7 @@ function initRecordTypeExport(sRecordType)
 			end
 		end
 	end
-	
+
 	if rExport.source then
 		ExportManager.registerExportNode(rExport);
 	end
@@ -256,13 +255,13 @@ function removeAltDataPath(sRecordType, sPath)
 end
 
 local _tLegacyTags = {
-	"bExport", 
-	"bExportListSkip", 
-	"bExportNoReadOnly", 
-	"bHidden", 
-	"bID", 
-	"bNoCategories", 
-	"bNoLock", 
+	"bExport",
+	"bExportListSkip",
+	"bExportNoReadOnly",
+	"bHidden",
+	"bID",
+	"bNoCategories",
+	"bNoLock",
 	"bNoShare",
 };
 function getRecordTypeOption(sRecordType, sKey)
@@ -391,6 +390,9 @@ function getRecordTypeDisplayClass(sRecordType, sPath)
 end
 
 function getRecordTypeFromWindow(w)
+	if not w then
+		return "";
+	end
 	return RecordDataManager.getRecordTypeFromClassAndPath(w.getClass(), w.getDatabasePath());
 end
 function getRecordTypeFromClassAndPath(sClass, sRecord)
@@ -418,7 +420,7 @@ function getRecordTypeFromRecordPath(sRecordPath)
 		local sClass,_ = DB.getValue(DB.getPath(sRecordPath, "link"), "", "");
 		sRecordType = RecordDataManager.getRecordTypeFromDisplayClass(sClass);
 	end
-	
+
 	return sRecordType;
 end
 function getRecordTypeFromListPath(sListPath)
@@ -464,6 +466,13 @@ function setHidden(sRecordType, bState)
 	end
 end
 
+function getDuplicateMode(sRecordType)
+	if not RecordDataManager.isRecordType(sRecordType) then
+		return false;
+	end
+	return RecordIndexManager.getEditMode(sRecordType) and not RecordDataManager.getRecordTypeOption(sRecordType, "bNoDuplicate");
+end
+
 function getLockMode(sRecordType)
 	if not RecordDataManager.isRecordType(sRecordType) then
 		return false;
@@ -486,6 +495,17 @@ function getCustomDieMode(sRecordType)
 	return RecordDataManager.getRecordTypeOption(sRecordType, "bCustomDie");
 end
 
+function getExportMode(sRecordType)
+	return (RecordDataManager.getExportTag(sRecordType) ~= "");
+end
+function getExportTag(sRecordType)
+	local tRecordType = RecordDataManager.getRecordTypeData(sRecordType);
+	if not tRecordType then
+		return "";
+	end
+	return tRecordType.sExportTag or (Session.IsHost and tRecordType.sGMExportTag) or "";
+end
+
 function getIDMode(sRecordType)
 	return RecordDataManager.getRecordTypeOption(sRecordType, "bID");
 end
@@ -506,12 +526,12 @@ function isIdentifiable(sRecordType, nodeRecord)
 end
 function getIDState(sRecordType, nodeRecord, bIgnoreHost)
 	local bID = true;
-	
-	if RecordDataManager.isIdentifiable(sRecordType, vRecord) then
+
+	if RecordDataManager.isIdentifiable(sRecordType, nodeRecord) then
 		local tRecordType = RecordDataManager.getRecordTypeData(sRecordType);
 		if tRecordType then
 			if tRecordType.fGetIDState then
-				bID = tRecordType.fGetIDState(vRecord, bIgnoreHost);
+				bID = tRecordType.fGetIDState(nodeRecord, bIgnoreHost);
 			else
 				if (bIgnoreHost or not Session.IsHost) then
 					bID = (DB.getValue(nodeRecord, "isidentified", 1) == 1);
@@ -519,7 +539,7 @@ function getIDState(sRecordType, nodeRecord, bIgnoreHost)
 			end
 		end
 	end
-	
+
 	return bID;
 end
 
@@ -529,7 +549,7 @@ function getRecordDisplayName(nodeRecord, sClass, bPrefix)
 	end
 
 	local sRecordType = RecordDataManager.getRecordTypeFromClassAndPath(sClass, DB.getPath(nodeRecord));
-	
+
 	local sDesc;
 	if (sRecordType or "") ~= "" then
 		if RecordDataManager.getIDState(sRecordType, nodeRecord, true) then
