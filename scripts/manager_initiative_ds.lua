@@ -1,4 +1,4 @@
-function powerRoll(rMessage, rRoll)
+function initiativeRoll(rMessage, rRoll)
 
     -- set crit threshold for power roll
 	local nCritThreshold = 19;
@@ -20,7 +20,7 @@ function powerRoll(rMessage, rRoll)
 	end
 
 	-- if 2d10 are rolled, it is a power roll.
-	if string.match(rRoll.aDice.expr, "2d10") then
+	if string.match(rRoll.aDice.expr, "1d10") then
 		local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
 		local powerRollTotalMod = ActionsManager.total(rRoll);
 

@@ -184,6 +184,59 @@
 		<icon>d6icon</icon>
 		<default />
 	</die> -->
+	<!-- custom djordice for power rolls -->
+	<!-- <die name="dj10">
+		<model>d20</model>
+		<icon>d20ricon</icon>
+		<menuicon>customdice</menuicon>
+		<side result="1" value="1" />
+		<side result="1" value="1" />
+		<side result="2" value="2" />
+		<side result="2" value="2" />
+		<side result="3" value="3" />
+		<side result="3" value="3" />
+		<side result="4" value="4" />
+		<side result="4" value="4" />
+		<side result="5" value="5" />
+		<side result="5" value="5" />
+		<side result="6" value="6" />
+		<side result="6" value="6" />
+		<side result="7" value="7" />
+		<side result="7" value="7" />
+		<side result="8" value="8" />
+		<side result="8" value="8" />
+		<side result="9" value="9" />
+		<side result="9" value="9" />
+		<side result="10" value="10" />
+		<side result="10" value="10" />		
+		<default />
+	</die> -->
+	<die name="i20">
+		<model>d20</model>
+		<icon>d20bicon</icon>
+		<menuicon>customdice</menuicon>
+		<side result="1" value="HEROES" />
+		<side result="1" value="HEROES" />
+		<side result="2" value="HEROES" />
+		<side result="2" value="HEROES" />
+		<side result="3" value="HEROES" />
+		<side result="3" value="HEROES" />
+		<side result="4" value="HEROES" />
+		<side result="4" value="HEROES" />
+		<side result="5" value="HEROES" />
+		<side result="5" value="HEROES" />
+		<side result="6" value="VILLAINS" />
+		<side result="6" value="VILLAINS" />
+		<side result="7" value="VILLAINS" />
+		<side result="7" value="VILLAINS" />
+		<side result="8" value="VILLAINS" />
+		<side result="8" value="VILLAINS" />
+		<side result="9" value="VILLAINS" />
+		<side result="9" value="VILLAINS" />
+		<side result="10" value="VILLAINS" />
+		<side result="10" value="VILLAINS" />		
+		<default />
+	</die>
 	<die name="d4">
 		<icon>d4icon</icon>
 		<default />
@@ -214,34 +267,6 @@
 		<menuicon>percent</menuicon>
 		<default />
 	</die>
-
-	<!-- custom djordice for power rolls -->
-	<!-- <die name="dj10">
-		<model>d20</model>
-		<icon>d20ricon</icon>
-		<menuicon>customdice</menuicon>
-		<side result="1" value="1" />
-		<side result="1" value="1" />
-		<side result="2" value="2" />
-		<side result="2" value="2" />
-		<side result="3" value="3" />
-		<side result="3" value="3" />
-		<side result="4" value="4" />
-		<side result="4" value="4" />
-		<side result="5" value="5" />
-		<side result="5" value="5" />
-		<side result="6" value="6" />
-		<side result="6" value="6" />
-		<side result="7" value="7" />
-		<side result="7" value="7" />
-		<side result="8" value="8" />
-		<side result="8" value="8" />
-		<side result="9" value="9" />
-		<side result="9" value="9" />
-		<side result="10" value="10" />
-		<side result="10" value="10" />		
-		<default />
-	</die> -->
 	<customdie name="d3">
 		<model>d6</model>
 		<menuicon>customdice</menuicon>
@@ -485,4 +510,14 @@
 		<side result="2" value="2" />
 		<side result="2" value="2" />
 	</die>
+
+	<die name="dF" merge="delete" />
+	<die name="rF" merge="delete" />
+	<die name="gF" merge="delete" />
+	<die name="bF" merge="delete" />
+	<die name="pF" merge="delete" />
+	<die name="d20" merge="delete" />
+	<die name="d12" merge="delete" />
+	<die name="d8" merge="delete" />
+	<die name="d4" merge="delete" />
 </root>

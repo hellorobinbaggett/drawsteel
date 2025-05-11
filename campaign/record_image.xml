@@ -61,19 +61,22 @@
 		<frame>imagepanel</frame>
 		<script file="campaign/scripts/imagewindow.lua" />
 		<sheetdata>
-			<anchor_content_imagepanel_top name="contentanchor" />
-			<anchor_content_imagepanel_bottom name="bottomanchor" />
+			<anchor_content_imagepanel_top />
+			<anchor_content_imagepanel_bottom />
 
 			<sub_content_framed_groupbox_narrow_top name="toolbar">
 				<class>imagewindow_toolbar</class>
 			</sub_content_framed_groupbox_narrow_top>
-			
+
 			<anchor_content_image_left />
 			<anchor_content_image_right />
 			<imagedata_content name="imagedata" source="image" />
 			<image_content name="image" />
 
+			<anchor_image_controls_right />
+			<anchor_image_controls_bottom />
 			<sub_image_camera_controls name="sub_camera_controls" />
+			<sub_image_view_tokenmove name="sub_view_tokenmove" />
 			<sub_image_hover_token_detail name="sub_hover_token_detail" />
 			<sub_image_view_token_detail name="sub_view_token_detail" />
 		</sheetdata>

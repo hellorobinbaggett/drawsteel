@@ -6,6 +6,14 @@
 -->
 
 <root>
+	<!-- Draw Steel buttons -->
+	<template name="power_roll">
+		<buttoncontrol>
+			<anchored width="20" height="20" />
+			<icon normal="power_roll" pressed="power_roll_down" />
+		</buttoncontrol>
+	</template>
+
 	<template name="button_text">
 		<buttoncontrol>
 			<anchored height="20" />

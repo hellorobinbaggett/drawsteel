@@ -205,7 +205,7 @@ aRecords = {
 		},
 		aCustomFilters = {
 			["Level"] = { sField = "level_name" },
-			["Organization"] = { sField = "organization_name" },
+			["Organization"] = { sField = "role_name_label" },
 			["Keywords"] = { sField = "keywords_name" },
 		},
 	},

@@ -6,6 +6,16 @@
 -->
 
 <root>
+	<!-- DC stuff -->
+	<template name="string_column_right">
+		<basicstring>
+			<anchored width="40" height="20">
+				<top />
+				<right parent="" offset="-5" />
+			</anchored>
+		</basicstring>
+	</template>
+
 	<template name="anchor_column">
 		<genericcontrol>
 			<anchored position="insidetop" offset="0,-5" height="0"/>
@@ -157,6 +167,14 @@
 		<number_column>
 			<script file="common/scripts/column_number.lua" />
 		</number_column>
+	</template>
+	<template name="number_column_center">
+		<basicnumber>
+			<anchored width="0" height="20">
+				<top />
+				<right parent="" offset="-180" />
+			</anchored>
+		</basicnumber>
 	</template>
 	<template name="number_column_right">
 		<basicnumber>

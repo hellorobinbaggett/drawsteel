@@ -37,9 +37,9 @@
 			<!-- <button_ct_setactive name="button_setactive" />
 			<button_ct_nextactor name="button_nextactor" /> -->
 
-			<button_ct_faction_friend name="button_faction_friend" />
+			<!-- <button_ct_faction_friend name="button_faction_friend" />
 			<button_ct_faction_neutral name="button_faction_neutral" />
-			<button_ct_faction_foe name="button_faction_foe" />
+			<button_ct_faction_foe name="button_faction_foe" /> -->
 		
 			<button_ct_menu name="button_menu" />
 

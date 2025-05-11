@@ -275,7 +275,7 @@ function modRoll(rSource, rTarget, rRoll)
 	if #aAddDesc > 0 then
 		rRoll.sDesc = rRoll.sDesc .. " " .. table.concat(aAddDesc, " ");
 	end
-	ActionsManager2.encodeDesktopMods(rRoll);
+	ActionsManager_DS.encodeDesktopMods(rRoll);
 	for _,vDie in ipairs(aAddDice) do
 		if vDie:sub(1,1) == "-" then
 			table.insert(rRoll.aDice, "-p" .. vDie:sub(3));
@@ -285,11 +285,11 @@ function modRoll(rSource, rTarget, rRoll)
 	end
 	rRoll.nMod = rRoll.nMod + nAddMod;
 	
-	ActionsManager2.encodeAdvantage(rRoll, bADV, bDIS);
+	ActionsManager_DS.encodeAdvantage(rRoll, bADV, bDIS);
 end
 
 function onRoll(rSource, rTarget, rRoll)
-	ActionsManager2.decodeAdvantage(rRoll);
+	ActionsManager_DS.decodeAdvantage(rRoll);
 	
 	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
 

@@ -244,9 +244,621 @@
 	</windowclass>
 
 	<windowclass name="record_content_abilities" copy="record_context_text_base">
+		<script file="campaign/scripts/ability_npc.lua" />
 		<target>abilities</target>
-		<sheetdata>
-			<ft_content_noframe_noscroll_top name="abilities" />
+		<!-- First Ability -->
+		<sheetdata name="sheetdata_ability">
+		<anchor_column name="columnanchor" />
+			<line_column name="divider1" />
+
+			<basicstring name="abilityname">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords" />
+			<label_column name="type_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type" />
+			<label_column name="target_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic" source="ability.characteristic">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="15" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1" source="tier1"/>
+
+			<label_column name="tier2_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="15" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2" source="tier2" />
+
+			<label_column name="tier3_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="15" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3" source="tier3" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect" source="ability.effect">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll">
+				<bounds>10,14,40,40</bounds>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname", "");
+
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic");
+
+						if (characteristic or "") == "" then
+							characteristic = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+			<!-- Second Ability -->
+			<line_column name="divider2" />
+
+			<basicstring name="abilityname_ability_2">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_2_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_2" />
+			<label_column name="type_2_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_2" />
+			<label_column name="target_2_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_2" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_2_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_2" source="ability.characteristic_2">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_2_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_2" source="tier1_2"/>
+
+			<label_column name="tier2_2_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_2" source="tier2_2" />
+
+			<label_column name="tier3_2_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_2" source="tier3_2" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_2_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_2">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_2_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_2" source="ability.effect_2">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_2_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_2">
+				<delaykeyupdate />
+			</string_columnh>
+
+<!-- Third Ability -->
+			<line_column name="divider3" />
+
+			<basicstring name="abilityname_ability_3">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_3_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_3" />
+			<label_column name="type_3_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_3" />
+			<label_column name="target_3_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_3" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_3_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_3" source="ability.characteristic_3">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_3_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_3" source="tier1_3"/>
+
+			<label_column name="tier2_3_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_3" source="tier2_3" />
+
+			<label_column name="tier3_3_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_3" source="tier3_3" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_3_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_3">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_3_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_3" source="ability.effect_3">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_3_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_3">
+				<delaykeyupdate />
+			</string_columnh>
+
+<!-- Fourth Ability -->
+			<line_column name="divider4" />
+
+			<basicstring name="abilityname_ability_4">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_4_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_4" />
+			<label_column name="type_4_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_4" />
+			<label_column name="target_4_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_4" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_4_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_4" source="ability.characteristic_4">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_4_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_4" source="tier1_4"/>
+
+			<label_column name="tier2_4_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_4" source="tier2_4" />
+
+			<label_column name="tier3_4_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_4" source="tier3_4" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_4_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_4">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_4_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_4" source="ability.effect_4">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_4_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_4">
+				<delaykeyupdate />
+			</string_columnh>
+
+<!-- Fifth Ability -->
+			<line_column name="divider5" />
+
+			<basicstring name="abilityname_ability_5">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_5_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_5" />
+			<label_column name="type_5_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_5" />
+			<label_column name="target_5_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_5" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_5_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_5" source="ability.characteristic_5">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_5_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_5" source="tier1_5"/>
+
+			<label_column name="tier2_5_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_5" source="tier2_5" />
+
+			<label_column name="tier3_5_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_5" source="tier3_5" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_5_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_5">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_5_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_5" source="ability.effect_5">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_5_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_5">
+				<delaykeyupdate />
+			</string_columnh>
+
+<!-- Sixth Ability -->
+			<line_column name="divider6" />
+
+			<basicstring name="abilityname_ability_6">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_6_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_6" />
+			<label_column name="type_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_6" />
+			<label_column name="target_6_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_6" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_6_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_6" source="ability.characteristic_6">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_6_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_6" source="tier1_6"/>
+
+			<label_column name="tier2_6_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_6" source="tier2_6" />
+
+			<label_column name="tier3_6_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_6" source="tier3_6" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_6_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_6">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_6_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_6" source="ability.effect_6">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_6_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_6">
+				<delaykeyupdate />
+			</string_columnh>
+
+<!-- Seventh Ability -->
+			<line_column name="divider7" />
+
+			<basicstring name="abilityname_ability_7">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_7_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_7" />
+			<label_column name="type_7_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_7" />
+			<label_column name="target_7_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_7" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_7_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_7" source="ability.characteristic_7">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_7_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_7" source="tier1_7"/>
+
+			<label_column name="tier2_7_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_7" source="tier2_7" />
+
+			<label_column name="tier3_7_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_7" source="tier3_7" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_7_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_7">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_7_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_7" source="ability.effect_7">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_7_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_7">
+				<delaykeyupdate />
+			</string_columnh>
+
+<!-- Eighth Ability -->
+			<line_column name="divider8" />
+
+			<basicstring name="abilityname_ability_8">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="10" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<label_column name="keywords_8_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_8" />
+			<label_column name="type_8_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_8" />
+			<label_column name="target_8_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_8" />
+
+			<!-- POWER ROLL -->
+			<label_column name="characteristic_8_label">
+				<static textres="ability_label_powerrollplus" />
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</label_column>
+			<string_columnh name="characteristic_8" source="ability.characteristic_8">
+				<tooltip textres="char_tooltip_modifierdescription" />
+			</string_columnh>
+
+			<label_column name="tier1_8_label">
+				<static textres="ability_label_tier1" />
+			</label_column>
+			<string_columnh name="tier1_8" source="tier1_8"/>
+
+			<label_column name="tier2_8_label">
+				<static textres="ability_label_tier2" />
+			</label_column>
+			<string_columnh name="tier2_8" source="tier2_8" />
+
+			<label_column name="tier3_8_label">
+				<static textres="ability_label_tier3" />
+			</label_column>
+			<string_columnh name="tier3_8" source="tier3_8" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_8_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_8">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_8_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_8" source="ability.effect_8">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_8_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_8">
+				<delaykeyupdate />
+			</string_columnh>
 		</sheetdata>
 	</windowclass>
 

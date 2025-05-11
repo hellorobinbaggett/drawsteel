@@ -6,6 +6,12 @@
 -->
 
 <root>
+	<!-- Draw Steel Graphics -->
+	<icon name="power_roll" file="graphics/buttons/DS_power_roll_2d10.png" />
+	<icon name="power_roll_down" file="graphics/buttons/DS_power_roll_down_2d10.png" />
+
+
+
 	<!-- TO BE DEPRECATED (2024-08-13) -->
 	<icon name="button_menu" file="graphics/buttons/button_menu.png" />
 	<icon name="button_menu_down" file="graphics/buttons/button_menu_down.png" />

@@ -41,7 +41,7 @@
 		</windowlist>
 	</template>
 	<template name="button_poweraction">
-		<button_roll>
+		<power_roll>
 			<script>
 				function onButtonPress(x, y)
 					self.action();
@@ -54,7 +54,7 @@
 					window.performAction(draginfo, subroll and subroll[1]);
 				end
 			</script>
-		</button_roll>
+		</power_roll>
 	</template>
 	<template name="string_poweractionview">
 		<stringc_static>

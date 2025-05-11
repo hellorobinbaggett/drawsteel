@@ -4,7 +4,7 @@ function testRoll(rMessage, rRoll)
 	local nCritThreshold = 19;
 
 	-- check to see if any edge/bane desktop buttons are pressed
-	ActionsManager2.encodeDesktopMods(rRoll);
+	ActionsManager_DS.encodeDesktopMods(rRoll);
 
 	-- check if the roll has the [TEST] 
 

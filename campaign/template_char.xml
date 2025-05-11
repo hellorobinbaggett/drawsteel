@@ -552,7 +552,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, "skills." .. sPath, 0);
 					};
-					ActionsManager2.encodeDesktopMods(rRoll);
+					ActionsManager_DS.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end
@@ -582,7 +582,7 @@
 						aDice = { "d10", "d10" },
 						nMod = DB.getValue(nodePC, tostring(target[1]), 0);
 					};
-					ActionsManager2.encodeDesktopMods(rRoll);
+					ActionsManager_DS.encodeDesktopMods(rRoll);
 					ActionsManager.performAction(draginfo, rActor, rRoll);
 					return true;
 				end

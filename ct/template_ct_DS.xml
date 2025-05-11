@@ -290,7 +290,7 @@
 		</button_ct_nextround_base>
 	</template>
 
-	<template name="number_ct_client_herotokens">
+	<template name="button_ct_client_herotokens">
 		<simplenumber name="herotokens">
 			<anchored width="40" height="25">
 				<bottom offset="-20" />
@@ -329,7 +329,53 @@
 			<center />
 		</label_ct>
 	</template>
+					<!-- // initiative roll button -->
+	<template name="button_ct_client_initiative">
+		<power_roll name="power_roll">
+			<anchored width="50" height="50">
+				<top offset="10" />
+				<left anchor="left" offset="20" />
+			</anchored>
+			<tooltip textres="tooltip_drawsteel" />
+			<script>	
+				function action(draginfo)
+					local nodeWin = window.getDatabaseNode();
+					local abilityName = DB.getValue(nodeWin, "name", "");
 
+					local characteristic = DB.getValue(nodeWin, "ability.characteristic");
+
+					if (characteristic or "") == "" then
+						characteristic = "0";
+					end
+
+					local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+					local nodePC = ActorManager.getCreatureNode(rActor);
+
+					local rRoll = { 
+						sType = "dice", 
+						sDesc = "" .. abilityName .. "", 
+						aDice = { "d10" },
+						nMod = characteristic,
+						t1 = DB.getValue(nodeWin, "tier1"),
+						t2 = DB.getValue(nodeWin, "tier2"),
+						t3 = DB.getValue(nodeWin, "tier3");
+						effect = DB.getValue(nodeWin, "ability.effect");
+					};
+					ActionsManager_DS.encodeDesktopMods(rRoll);
+					ActionsManager.performAction(draginfo, rActor, rRoll);
+					return true;
+				end
+				
+				function onDragStart(button, x, y, draginfo)
+					return action(draginfo);
+				end
+
+				function onButtonPress()
+					return action();
+				end
+			</script>
+		</power_roll>	
+	</template>
 	<template name="button_ct_friendfoe">
 		<genericcontrol>
 			<anchored width="20" height="20" />

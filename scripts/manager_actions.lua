@@ -481,7 +481,7 @@ end
 
 function applyModifiers(rSource, rTarget, rRoll, bSkipModStack)
 	if rRoll.aDice.expr == "2d10" then
-		ActionsManager2.encodeDesktopMods(rRoll);
+		ActionsManager_DS.encodeDesktopMods(rRoll);
 	end
 	
 	local bAddModStack = ActionsManager.doesRollHaveDice(rRoll);
@@ -655,6 +655,7 @@ function createActionMessage(rSource, rRoll)
 
 	-- For power rolls
 	rMessage = PowerRollManager.powerRoll(rMessage, rRoll);
+	-- rMessage = InitiativeManager.initiativeRoll(rMessage, rRoll);
 	
 	-- Check to see if this roll should be secret (GM or dice tower tag)
 	if rRoll.bSecret then
