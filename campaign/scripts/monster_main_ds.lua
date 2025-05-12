@@ -58,7 +58,6 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "traits_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "creaturerole_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "organization_name", bReadOnly) then bSection1 = true; end;
-		if WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "maxstamina", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "nonid_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "speed", bReadOnly) then bSection1 = true; end;
@@ -73,7 +72,6 @@ function update()
 		WindowManager.callSafeControlUpdate(self, "traits_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "creaturerole_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "organization_name", bReadOnly, true);
-		WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "maxstamina", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "nonid_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "speed", bReadOnly, true);

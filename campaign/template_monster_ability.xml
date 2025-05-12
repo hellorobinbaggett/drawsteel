@@ -6,8 +6,7 @@
 -->
 
 <root>
-
-    <template name="sheetdata_ability">
+    <template name="template_monster_ability">
             <sheetdata>
                 <anchor_column name="columnanchor" />
                     <line_column name="divider1" />

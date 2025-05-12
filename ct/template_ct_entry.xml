@@ -191,13 +191,29 @@
 			</script>
 		</button_faction>
 	</template>
-	<template name="button_ctentry_gone">
-		<button_status name="gone">
+	<template name="button_ctentry_action">
+		<button_action name="action">
 			<anchored to="rightanchor">
 				<top />
 				<right anchor="left" relation="relative" offset="-5" />
 			</anchored>
-		</button_status>
+		</button_action>
+	</template>
+	<template name="button_ctentry_maneuver">
+		<button_maneuver name="maneuver">
+			<anchored to="rightanchor">
+				<top />
+				<right anchor="left" relation="relative" offset="-5" />
+			</anchored>
+		</button_maneuver>
+	</template>
+	<template name="button_ctentry_move">
+		<button_move name="move">
+			<anchored to="rightanchor">
+				<top />
+				<right anchor="left" relation="relative" offset="-5" />
+			</anchored>
+		</button_move>
 	</template>
 	<template name="button_ctentry_ta">
 		<button_triggeredaction name="triggeredaction">

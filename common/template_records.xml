@@ -244,7 +244,7 @@
 	</windowclass>
 
 	<windowclass name="record_content_abilities" copy="record_context_text_base">
-		<script file="campaign/scripts/ability_npc.lua" />
+		<script file="campaign/scripts/ability_monster.lua" />
 		<target>abilities</target>
 		<!-- First Ability -->
 		<sheetdata name="sheetdata_ability">
@@ -329,12 +329,15 @@
 
 			<!-- // power roll button -->
 			<power_roll name="power_roll">
-				<bounds>10,14,40,40</bounds>
+				<anchored to="abilityname" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
 				<tooltip textres="tooltip_pr" />
 				<script>	
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
-						local abilityName = DB.getValue(nodeWin, "abilityname", "");
+						local abilityName1 = DB.getValue(nodeWin, "abilityname", "");
 
 						local characteristic = DB.getValue(nodeWin, "ability.characteristic");
 
@@ -347,7 +350,7 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName1 .. "", 
 							aDice = { "d10", "d10" },
 							nMod = characteristic,
 							t1 = DB.getValue(nodeWin, "tier1"),
@@ -377,7 +380,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -440,6 +443,52 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<!-- // power roll button -->
+			<power_roll name="power_roll_2">
+				<anchored to="abilityname_ability_2" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_2", "");
+
+						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_2");
+
+						if (characteristic2 or "") == "" then
+							characteristic2 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic2,
+							t1 = DB.getValue(nodeWin, "tier1_2"),
+							t2 = DB.getValue(nodeWin, "tier2_2"),
+							t3 = DB.getValue(nodeWin, "tier3_2");
+							effect = DB.getValue(nodeWin, "ability.effect_2");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
 <!-- Third Ability -->
 			<line_column name="divider3" />
 
@@ -447,7 +496,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -510,6 +559,51 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<!-- // power roll button -->
+<power_roll name="power_roll_3">
+				<anchored to="abilityname_ability_3" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_3", "");
+
+						local characteristic4 = DB.getValue(nodeWin, "ability.characteristic_3");
+
+						if (characteristic4 or "") == "" then
+							characteristic4 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic4,
+							t1 = DB.getValue(nodeWin, "tier1_3"),
+							t2 = DB.getValue(nodeWin, "tier2_3"),
+							t3 = DB.getValue(nodeWin, "tier3_3");
+							effect = DB.getValue(nodeWin, "ability.effect_3");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
 <!-- Fourth Ability -->
 			<line_column name="divider4" />
 
@@ -517,7 +611,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -580,6 +674,52 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<!-- // power roll button -->
+<power_roll name="power_roll_4">
+				<anchored to="abilityname_ability_4" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_4", "");
+
+						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_4");
+
+						if (characteristic2 or "") == "" then
+							characteristic2 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic2,
+							t1 = DB.getValue(nodeWin, "tier1_4"),
+							t2 = DB.getValue(nodeWin, "tier2_4"),
+							t3 = DB.getValue(nodeWin, "tier3_4");
+							effect = DB.getValue(nodeWin, "ability.effect_4");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
 <!-- Fifth Ability -->
 			<line_column name="divider5" />
 
@@ -587,7 +727,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -650,6 +790,52 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<!-- // power roll button -->
+<power_roll name="power_roll_5">
+				<anchored to="abilityname_ability_5" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_5", "");
+
+						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_5");
+
+						if (characteristic2 or "") == "" then
+							characteristic2 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic2,
+							t1 = DB.getValue(nodeWin, "tier1_5"),
+							t2 = DB.getValue(nodeWin, "tier2_5"),
+							t3 = DB.getValue(nodeWin, "tier3_5");
+							effect = DB.getValue(nodeWin, "ability.effect_5");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
 <!-- Sixth Ability -->
 			<line_column name="divider6" />
 
@@ -657,7 +843,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -720,6 +906,52 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<!-- // power roll button -->
+<power_roll name="power_roll_6">
+				<anchored to="abilityname_ability_6" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_6", "");
+
+						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_6");
+
+						if (characteristic2 or "") == "" then
+							characteristic2 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic2,
+							t1 = DB.getValue(nodeWin, "tier1_6"),
+							t2 = DB.getValue(nodeWin, "tier2_6"),
+							t3 = DB.getValue(nodeWin, "tier3_6");
+							effect = DB.getValue(nodeWin, "ability.effect_6");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
 <!-- Seventh Ability -->
 			<line_column name="divider7" />
 
@@ -727,7 +959,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -790,6 +1022,52 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<!-- // power roll button -->
+<power_roll name="power_roll_7">
+				<anchored to="abilityname_ability_7" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_7", "");
+
+						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_7");
+
+						if (characteristic2 or "") == "" then
+							characteristic2 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic2,
+							t1 = DB.getValue(nodeWin, "tier1_7"),
+							t2 = DB.getValue(nodeWin, "tier2_7"),
+							t3 = DB.getValue(nodeWin, "tier3_7");
+							effect = DB.getValue(nodeWin, "ability.effect_7");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
 <!-- Eighth Ability -->
 			<line_column name="divider8" />
 
@@ -797,7 +1075,7 @@
 				<font>recordsheet_header</font>
 				<anchored>
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="10" />
+					<left offset="60" />
 					<right offset="-5" />
 				</anchored>
 				<multilinespacing>45</multilinespacing>
@@ -859,6 +1137,52 @@
 			<string_columnh name="special_8">
 				<delaykeyupdate />
 			</string_columnh>
+
+			<!-- // power roll button -->
+<power_roll name="power_roll_8">
+				<anchored to="abilityname_ability_8" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_8", "");
+
+						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_8");
+
+						if (characteristic2 or "") == "" then
+							characteristic2 = "0";
+						end
+
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. "", 
+							aDice = { "d10", "d10" },
+							nMod = characteristic2,
+							t1 = DB.getValue(nodeWin, "tier1_8"),
+							t2 = DB.getValue(nodeWin, "tier2_8"),
+							t3 = DB.getValue(nodeWin, "tier3_8");
+							effect = DB.getValue(nodeWin, "ability.effect_8");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
 		</sheetdata>
 	</windowclass>
 

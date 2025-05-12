@@ -33,8 +33,8 @@
 	<includefile source="campaign/record_char_main_ds.xml" />
 	<includefile source="campaign/record_char_skills_ds.xml" />
 	<includefile source="campaign/record_char_skills_ds.xml" />
-	<includefile source="campaign/record_npc_DS.xml" />
-	<includefile source="campaign/template_monster.xml" />
+	<includefile source="campaign/record_monster_DS.xml" />
+	<includefile source="campaign/template_monster_ability.xml" />
 
 	<!-- COMBAT TRACKER -->
 	<includefile source="ct/template_ct_DS.xml" />
@@ -117,11 +117,9 @@
 	<script name="ImportUtilityManager" file="scripts/manager_import_utility.lua" />
 	<script name="LibraryData" file="scripts/data_library.lua" />
 	<script name="ListManager" file="scripts/manager_list.lua" />
-	<script name="ModuleManager" file="scripts/manager_module.lua" />
 	<script name="OOBManager" file="scripts/manager_oob.lua" />
 	<script name="OptionsManager" file="scripts/manager_options.lua" />
 	<script name="OptionsCore" file="scripts/data_options_core.lua" />
-	<script name="RecordManager" file="scripts/manager_record.lua" />
 	<script name="RecordAssetManager" file="scripts/manager_record_asset.lua" />
 	<script name="RecordDataManager" file="scripts/manager_record_data.lua" />
 	<script name="RecordIndexManager" file="scripts/manager_record_index.lua" />

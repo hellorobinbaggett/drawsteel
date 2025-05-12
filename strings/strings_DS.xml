@@ -111,6 +111,9 @@
 	<string name="ct_label_herotokens">HERO TOKENS</string>
 	<string name="ct_tooltip_gone">Gone</string>
 	<string name="ct_tooltip_ta">Triggered Action</string>
+	<string name="ct_tooltip_action">Action</string>
+	<string name="ct_tooltip_move">Move</string>
+	<string name="ct_tooltip_maneuver">Maneuver</string>
 	<string name="ct_tooltip_menu">Click for CT menu</string>
 
 	<!-- Languages -->

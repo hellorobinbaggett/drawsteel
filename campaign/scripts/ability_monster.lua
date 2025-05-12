@@ -40,6 +40,9 @@ function update()
 	divider3.setVisible(bSection3);
 	divider4.setVisible(bSection4);
 	divider5.setVisible(bSection5);
+	divider5.setVisible(bSection6);
+	divider5.setVisible(bSection7);
+	divider5.setVisible(bSection8);
 
     WindowManager.callSafeControlUpdate(self, "abilityname", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic", bReadOnly);
@@ -58,10 +61,10 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "subclass", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "abilitytype", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "abilitylevel", bReadOnly);
-    WindowManager.callSafeControlUpdate(self, "power_roll", bReadOnly);
 
     WindowManager.callSafeControlUpdate(self, "abilityname_ability_2", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_2", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_2", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_2", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_2", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_2", bReadOnly);
@@ -75,6 +78,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "abilityname_ability_3", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_3", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_3", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_3", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_3", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_3", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1_3", bReadOnly);
@@ -87,6 +91,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "abilityname_ability_4", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_4", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_4", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_4", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_4", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_4", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1_4", bReadOnly);
@@ -99,6 +104,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "abilityname_ability_5", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_5", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_5", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_5", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_5", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_5", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1_5", bReadOnly);
@@ -111,6 +117,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "abilityname_ability_6", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_6", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_6", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_6", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_6", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_6", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1_6", bReadOnly);
@@ -123,6 +130,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "abilityname_ability_7", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_7", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_7", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_7", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_7", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_7", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1_7", bReadOnly);
@@ -135,6 +143,7 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "abilityname_ability_8", bReadOnly);
     WindowManager.callSafeControlUpdate(self, "keywords_8", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "type_8", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_8", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "target_8", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_8", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1_8", bReadOnly);
