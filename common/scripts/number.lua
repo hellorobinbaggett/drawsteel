@@ -5,7 +5,7 @@
 
 function onInit()
 	if rollable or (gmrollable and Session.IsHost) then
-		addBitmapWidget({ icon = "field_rollable2", position="bottomleft", x = -1, y = -4 });
+		addBitmapWidget({ icon = "field_rollable_transparent2", position="bottomleft", x = -1, y = -4 });
 		setHoverCursor("hand");
 	elseif rollable2 or (gmrollable2 and Session.IsHost) then
 		local w = addBitmapWidget({ icon = "field_rollable_transparent2", position="topright", x = 0, y = 2 });

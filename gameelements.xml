@@ -211,30 +211,30 @@
 		<side result="10" value="10" />		
 		<default />
 	</die> -->
-	<die name="i20">
+	<die name="dj10">
 		<model>d20</model>
-		<icon>d20bicon</icon>
+		<icon>d20ricon</icon>
 		<menuicon>customdice</menuicon>
-		<side result="1" value="HEROES" />
-		<side result="1" value="HEROES" />
-		<side result="2" value="HEROES" />
-		<side result="2" value="HEROES" />
-		<side result="3" value="HEROES" />
-		<side result="3" value="HEROES" />
-		<side result="4" value="HEROES" />
-		<side result="4" value="HEROES" />
-		<side result="5" value="HEROES" />
-		<side result="5" value="HEROES" />
-		<side result="6" value="VILLAINS" />
-		<side result="6" value="VILLAINS" />
-		<side result="7" value="VILLAINS" />
-		<side result="7" value="VILLAINS" />
-		<side result="8" value="VILLAINS" />
-		<side result="8" value="VILLAINS" />
-		<side result="9" value="VILLAINS" />
-		<side result="9" value="VILLAINS" />
-		<side result="10" value="VILLAINS" />
-		<side result="10" value="VILLAINS" />		
+		<side result="1" value="1" />
+		<side result="2" value="2" />
+		<side result="3" value="3" />
+		<side result="4" value="4" />
+		<side result="5" value="5" />
+		<side result="6" value="6" />
+		<side result="7" value="7" />
+		<side result="8" value="8" />
+		<side result="9" value="9" />
+		<side result="10" value="10" />
+		<side result="1" value="1" />
+		<side result="2" value="2" />
+		<side result="3" value="3" />
+		<side result="4" value="4" />
+		<side result="5" value="5" />
+		<side result="6" value="6" />
+		<side result="7" value="7" />
+		<side result="8" value="8" />
+		<side result="9" value="9" />
+		<side result="10" value="10" />		
 		<default />
 	</die>
 	<die name="d4">

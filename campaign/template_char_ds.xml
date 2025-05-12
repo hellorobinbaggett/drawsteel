@@ -568,4 +568,33 @@
 		</number_characteristicscore>
 	</template>
 
+	<template name="number_powerroll_characteristic">
+		<number_statnumber>
+			<rollable />
+			<script>		
+				function action(draginfo)
+				local characteristic = tostring(target[1]);
+				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+				local nodePC = ActorManager.getCreatureNode(rActor);
+					local rRoll = { 
+						sType = "dice", 
+						sDesc = "(Power Roll + " .. characteristic .. ")", 
+						aDice = { "d10", "d10" },
+						nMod = DB.getValue(nodePC, tostring(target[1]), 0);
+					};
+					ActionsManager_DS.encodeDesktopMods(rRoll);
+					ActionsManager.performAction(draginfo, rActor, rRoll);
+					return true;
+				end
+				
+				function onDragStart(button, x, y, draginfo)
+					return action(draginfo);
+				end
+
+				function onDoubleClick(x,y)
+					return action();
+				end
+			</script>
+		</number_statnumber>
+	</template>
 </root>

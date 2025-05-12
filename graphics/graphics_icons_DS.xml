@@ -11,5 +11,6 @@
 	<!-- Combat tracker -->
 	<icon name="ct_faction_check" file="graphics/icons/ct_faction_check.png" />
     <icon name="rulesetlogo_DrawSteel" file="graphics/logos/logo.png" />
+    <icon name="field_rollable_transparent2" file="graphics/icons/field_rollable_transparent2.png" />
 
 </root>

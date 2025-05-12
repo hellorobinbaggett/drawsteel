@@ -4,8 +4,8 @@
 	<string name="monsters">Monsters</string>
 
 	<!-- Utility -->
-	<string name="library_recordtype_label_npc">Monster</string>
-	<string name="library_recordtype_single_npc">Monsters</string>
+	<string name="library_recordtype_label_npc">Monsters</string>
+	<string name="library_recordtype_single_npc">Monster</string>
 	
 	<string name="tab_titles">Titles</string>
 	<string name="tab_main">Main</string>

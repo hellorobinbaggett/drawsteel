@@ -44,7 +44,7 @@
 	
 	<windowclass name="npc_main">
 		<margins control="0,0,0,2" />
-		<script file="campaign/scripts/npc_main.lua" />
+		<script file="campaign/scripts/monster_main_ds.lua" />
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
@@ -83,7 +83,7 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="ev_name_label">
+			<label_column name="ev_label">
 				<static textres="npc_label_ev" />
 			</label_column>
 			<number_column name="ev">
@@ -126,21 +126,26 @@
 			</label_column>
 
 			
-			<basicnumber name="mgt">
+			<number_powerroll_characteristic name="mgt">
 				<bounds>20,105,40,30</bounds>
-			</basicnumber>	
-			<basicnumber name="agl">
+				<target>mgt</target>
+			</number_powerroll_characteristic>	
+			<number_powerroll_characteristic name="agl">
 				<bounds>70,105,40,30</bounds>
-			</basicnumber>
-			<basicnumber name="rea">
+				<target>agl</target>
+			</number_powerroll_characteristic>
+			<number_powerroll_characteristic name="rea">
 				<bounds>120,105,40,30</bounds>
-			</basicnumber>
-			<basicnumber name="inu">
+				<target>rea</target>
+			</number_powerroll_characteristic>
+			<number_powerroll_characteristic name="inu">
 				<bounds>170,105,40,30</bounds>
-			</basicnumber>	
-			<basicnumber name="prs">
+				<target>inu</target>
+			</number_powerroll_characteristic>	
+			<number_powerroll_characteristic name="prs">
 				<bounds>220,105,40,30</bounds>
-			</basicnumber>	 
+				<target>prs</target>
+			</number_powerroll_characteristic>	 
 
 			<genericcontrol name="divider">
 					<anchored height="55">
@@ -152,7 +157,7 @@
 			</genericcontrol>
 
 			<!-- Current Stamina || Max Stamina -->
-			<label_column name="stamina_name_label">
+			<label_column name="maxstamina_label">
 				<static textres="npc_label_maxstamina" />
 				<anchored offset="40" />
 			</label_column>
@@ -164,7 +169,7 @@
 				<anchored to="maxstamina" />
 				<static textres="npc_label_currentstamina" />
 			</label_column_right>
-			<number_column_right name="maxstamina">
+			<number_column_right name="currentstamina">
 				<anchored to="maxstamina" />
 				<default>0</default>
 			</number_column_right>
@@ -184,13 +189,16 @@
 
 
 			<!-- Size --> 
-			<label_column name="size_name_label">
+			<label_column name="size_label">
 				<static textres="npc_label_size" />
 			</label_column>
-			<string_columnh name="size">
+			<basicstring name="size">
 				<default>1M</default>
-				<bounds>0,0,30,0</bounds>
-			</string_columnh>
+				<anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="97" />
+				</anchored>
+			</basicstring>
 
 			<label_column name="stability_label">
 				<static textres="npc_label_stability" />
@@ -199,21 +207,6 @@
 			<number_column name="stability">
 				<bounds>240,205,-5,20</bounds>
 			</number_column>
-			
-			<label_column name="space2">
-				<static textres="" />
-			</label_column>
-			<number_column name="spacing">
-			</number_column>
-
-			<!--Reach | Stability -->
-			<!-- <label_column name="reach_label">
-				<anchored offset="40" />
-				<static textres="npc_label_reach" />
-			</label_column>
-			<number_column name="reach_label">
-				<default>0</default>
-			</number_column> -->
 
 			<!-- Free Strike -->
 			<label_column name="freestrike_label">
