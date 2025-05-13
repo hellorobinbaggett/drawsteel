@@ -269,6 +269,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type" />
+			<label_column name="distance_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance" />
 			<label_column name="target_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -394,6 +398,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_2" />
+			<label_column name="distance_2_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_2" />
 			<label_column name="target_2_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -509,7 +517,11 @@
 			<label_column name="type_3_label">
 				<static textres="ability_label_type" />
 			</label_column>
-			<string_columnh name="type_3" />
+			<string_columnh name="type_4" />
+			<label_column name="distance_2_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_3" />
 			<label_column name="target_3_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -625,6 +637,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_4" />
+			<label_column name="distance_4_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_4" />
 			<label_column name="target_4_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -741,6 +757,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_5" />
+			<label_column name="distance_5_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_5" />
 			<label_column name="target_5_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -857,6 +877,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_6" />
+			<label_column name="distance_6_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_6" />
 			<label_column name="target_6_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -973,6 +997,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_7" />
+			<label_column name="distance_7_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_7" />
 			<label_column name="target_7_label">
 				<static textres="ability_label_target" />
 			</label_column>
@@ -1089,6 +1117,10 @@
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_8" />
+			<label_column name="distance_8_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_8" />
 			<label_column name="target_8_label">
 				<static textres="ability_label_target" />
 			</label_column>
