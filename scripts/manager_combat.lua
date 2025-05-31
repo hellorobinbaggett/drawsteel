@@ -1,9 +1,10 @@
--- 
--- Please see the license.html file included with this distribution for 
+--
+-- Please see the license.html file included with this distribution for
 -- attribution and copyright information.
 --
 
 OOB_MSGTYPE_ENDTURN = "endturn";
+OOB_MSGTYPE_INITSWAP = "initiative_swap";
 
 CT_MAIN_PATH = "combattracker";
 CT_COMBATANT_PATH = "combattracker.list.*";
@@ -12,17 +13,19 @@ CT_LIST = "combattracker.list";
 CT_ROUND = "combattracker.round";
 
 local _bTrackersInit = false;
-local _sActiveCT = nil;
 
 function onTabletopInit()
 	CombatManager.registerStandardCombatHotKeys();
 
 	OOBManager.registerOOBMsgHandler(CombatManager.OOB_MSGTYPE_ENDTURN, CombatManager.handleEndTurn);
+	OOBManager.registerOOBMsgHandler(CombatManager.OOB_MSGTYPE_INITSWAP, CombatManager.handleInitSwap);
+
 	CombatManager.initTrackers();
+
 	if Session.IsHost then
 		CombatManager.initPlayerRecordTypes();
-		OptionsManager.registerCallback("TPTY", onOptionTokenPartyVisionMoveChanged);
-		OptionsManager.registerCallback("TFOW", onOptionTokenFOWChanged);
+		OptionsManager.registerCallback("TPTY", CombatManager.onOptionTokenPartyVisionMoveChanged);
+		OptionsManager.registerCallback("TFOW", CombatManager.onOptionTokenFOWChanged);
 	end
 end
 
@@ -110,7 +113,7 @@ function getTrackerKeyFromCT(v)
 		return "";
 	end
 	for k,tTrackerData in pairs(_tTrackers) do
-		if StringManager.startsWith(sPath, tTrackerData.sTrackerPath .. ".") then
+		if UtilityManager.doesPathStartWith(sPath, tTrackerData.sTrackerPath) then
 			return k;
 		end
 	end
@@ -124,8 +127,8 @@ function isTrackerCT(v)
 	if not sPath then
 		return false;
 	end
-	for k,tTrackerData in pairs(_tTrackers) do
-		if StringManager.startsWith(sPath, tTrackerData.sTrackerPath .. ".") then
+	for _,tTrackerData in pairs(_tTrackers) do
+		if UtilityManager.doesPathStartWith(sPath, tTrackerData.sTrackerPath) then
 			return true;
 		end
 	end
@@ -145,6 +148,7 @@ function initTrackers()
 	for _,tTrackerData in pairs(_tTrackers) do
 		DB.addHandler(tTrackerData.sCombatantPath, "onDelete", CombatManager.onDeleteCombatantEvent);
 		DB.addHandler(tTrackerData.sCombatantParentPath, "onChildDeleted", CombatManager.onPostDeleteCombatantEvent);
+		DB.addHandler(DB.getPath(tTrackerData.sCombatantPath, "effects"), "onDelete", CombatManager.onPreDeleteCombatantEffectEvent);
 		DB.addHandler(DB.getPath(tTrackerData.sCombatantPath, "effects"), "onChildAdded", CombatManager.onAddCombatantEffectEvent);
 		DB.addHandler(DB.getPath(tTrackerData.sCombatantPath, "effects"), "onChildDeleted", CombatManager.onDeleteCombatantEffectEvent);
 	end
@@ -251,6 +255,28 @@ function onAddCombatantEffectEvent(nodeEffectList, nodeEffect)
 	return false;
 end
 
+local _tPreDeleteCombatEffectHandlers = {};
+function setCustomPreDeleteCombatantEffectHandler(fn)
+	table.insert(_tPreDeleteCombatEffectHandlers, fn);
+end
+function removeCustomPreDeleteCombatantEffectHandler(fn)
+	for kCustomDelete,fCustomDelete in ipairs(_tPreDeleteCombatEffectHandlers) do
+		if fCustomDelete == fn then
+			table.remove(_tPreDeleteCombatEffectHandlers, kCustomDelete);
+			return true;
+		end
+	end
+	return false;
+end
+function onPreDeleteCombatantEffectEvent(nodeEffect)
+	for _,fCustomDelete in ipairs(_tPreDeleteCombatEffectHandlers) do
+		if fCustomDelete(nodeEffect) then
+			return true;
+		end
+	end
+	return false;
+end
+
 local aCustomDeleteCombatantEffectHandlers = {};
 function setCustomDeleteCombatantEffectHandler(fn)
 	table.insert(aCustomDeleteCombatantEffectHandlers, fn);
@@ -265,6 +291,9 @@ function removeCustomDeleteCombatantEffectHandler(fn)
 	return false;
 end
 function onDeleteCombatantEffectEvent(nodeEffectList)
+	if type(nodeEffectList) ~= "databasenode" then
+		return false;
+	end
 	local nodeCT = DB.getChild(nodeEffectList, "..");
 	for _,fCustomDelete in ipairs(aCustomDeleteCombatantEffectHandlers) do
 		if fCustomDelete(nodeCT) then
@@ -430,9 +459,6 @@ function setCustomRoundStart(fRoundStart)
 	table.insert(aCustomRoundStart, fRoundStart);
 end
 function onRoundStartEvent(nCurrent)
-	if OptionsManager.isOption("HRIR", "on") then
-		CombatManager.resetIndivualInit();
-	end
 	if #aCustomRoundStart > 0 then
 		for _,fCustomRoundStart in ipairs(aCustomRoundStart) do
 			fCustomRoundStart(nCurrent);
@@ -493,12 +519,12 @@ end
 -- NOTE: Setting these handlers will override previous handlers
 --
 
-local fCustomSort = nil;
-function setCustomSort(fSort)
-	fCustomSort = fSort;
+local _fnCustomSort = nil;
+function setCustomSort(fn)
+	_fnCustomSort = fn;
 end
 function getCustomSort()
-	return fCustomSort;
+	return _fnCustomSort;
 end
 -- NOTE: Lua sort function expects the opposite boolean value compared to built-in FG sorting
 function onSortCompare(node1, node2)
@@ -506,6 +532,14 @@ function onSortCompare(node1, node2)
 end
 function onTrackerSortCompare(sKey, node1, node2)
 	return not CombatManager.getTrackerSort(sKey)(node1, node2);
+end
+
+local _fnInitSwapPlayerAllow = nil;
+function getCustomInitSwapPlayerAllow()
+	return _fnInitSwapPlayerAllow;
+end
+function setCustomInitSwapPlayerAllow(fn)
+	_fnInitSwapPlayerAllow = fn;
 end
 
 --
@@ -517,7 +551,6 @@ function createCombatantNode(sKey)
 	DB.createNode(sListPath);
 	return DB.createChild(sListPath);
 end
-
 function getCombatantNodes(sKey, sRecordType)
 	if fCustomGetCombatantNodes then
 		return fCustomGetCombatantNodes(sKey, sRecordType);
@@ -541,7 +574,7 @@ function getAllCombatantNodes(sRecordType)
 		local tCombatants = CombatManager.getCombatantNodes(sKey, sRecordType);
 		for _,v in pairs(tCombatants) do
 			table.insert(tResults, v);
-		end		
+		end
 	end
 	return tResults;
 end
@@ -561,7 +594,7 @@ function getCTFromNode(vNode)
 	if not sNode then
 		return nil;
 	end
-	
+
 	for _,sKey in ipairs(CombatManager.getTrackerKeys()) do
 		local tCombatants = CombatManager.getCombatantNodes(sKey);
 
@@ -583,13 +616,12 @@ function getCTFromNode(vNode)
 
 	return nil;
 end
-
 function getCTFromTokenRef(vContainer, nId)
 	local sContainerNode = CombatManager.resolvePath(vContainer);
 	if not sContainerNode then
 		return nil;
 	end
-	
+
 	for _,sKey in ipairs(CombatManager.getTrackerKeys()) do
 		for _,v in pairs(CombatManager.getCombatantNodes(sKey)) do
 			local sCTContainerName = DB.getValue(v, "tokenrefnode", "");
@@ -599,15 +631,14 @@ function getCTFromTokenRef(vContainer, nId)
 			end
 		end
 	end
-	
+
 	return nil;
 end
-
 function getCTFromToken(token)
 	if not token then
 		return nil;
 	end
-	
+
 	local nodeContainer = token.getContainerNode();
 	local nID = token.getId();
 
@@ -621,7 +652,6 @@ function getTokenFromCT(vEntry)
 	end
 	return Token.getToken(DB.getValue(nodeCT, "tokenrefnode", ""), DB.getValue(nodeCT, "tokenrefid", ""));
 end
-
 function getFactionFromCT(vEntry)
 	local nodeCT = CombatManager.resolveNode(vEntry);
 	if not nodeCT then
@@ -629,7 +659,6 @@ function getFactionFromCT(vEntry)
 	end
 	return DB.getValue(nodeCT, "friendfoe", "");
 end
-
 function getTokenVisibilityFromCT(vEntry)
 	local nodeCT = CombatManager.resolveNode(vEntry);
 	if not nodeCT then
@@ -643,14 +672,14 @@ function getCurrentUserCT(sKey)
 	if Session.IsHost then
 		return nodeActive;
 	end
-	
+
 	-- If active identity is owned, then use that one
 	if nodeActive then
 		if CombatManager.isOwnedPlayerCT(nodeActive) then
 			return nodeActive;
 		end
 	end
-	
+
 	-- Otherwise, use active identity (if any)
 	local sID = User.getCurrentIdentity();
 	if sID then
@@ -662,16 +691,22 @@ end
 
 function openMap(vNode)
 	local nodeCT = CombatManager.getCTFromNode(vNode);
-	if not nodeCT then 
-		return false; 
+	if not nodeCT then
+		return false;
 	end
 	return CombatManager.centerOnToken(nodeCT, true);
 end
-function centerOnToken(nodeEntry, bOpen)
-	if not Session.IsHost and not CombatManager.isOwnedPlayerCT(nodeEntry) then
+function centerOnToken(nodeCT, bOpen)
+	if not Session.IsHost and not CombatManager.isOwnedPlayerCT(nodeCT) then
 		return false;
 	end
-	return ImageManager.centerOnToken(getTokenFromCT(nodeEntry), bOpen);
+	return ImageManager.centerOnToken(CombatManager.getTokenFromCT(nodeCT), bOpen);
+end
+function selectToken(nodeCT)
+	if not Session.IsHost and not CombatManager.isOwnedPlayerCT(nodeCT) then
+		return false;
+	end
+	return ImageManager.selectToken(CombatManager.getTokenFromCT(nodeCT));
 end
 
 function isCTHidden(vEntry)
@@ -679,7 +714,7 @@ function isCTHidden(vEntry)
 	if not nodeCT then
 		return false;
 	end
-	
+
 	if CombatManager.getFactionFromCT(nodeCT) == "friend" then
 		return false;
 	end
@@ -687,6 +722,62 @@ function isCTHidden(vEntry)
 		return false;
 	end
 	return true;
+end
+
+function onInitSwap(nodeSourceCT, nodeTargetCT)
+	if not nodeSourceCT or not nodeTargetCT then
+		return;
+	end
+	if not Session.IsHost then
+		if not CombatManager.isOwnedPlayerCT(nodeSourceCT) then
+			return;
+		end
+		if CombatManager.getFactionFromCT(nodeSourceCT) ~= CombatManager.getFactionFromCT(nodeTargetCT) then
+			return;
+		end
+	end
+	CombatManager.notifyInitSwap(nodeSourceCT, nodeTargetCT);
+end
+function notifyInitSwap(nodeSourceCT, nodeTargetCT)
+	local msgOOB = {};
+	msgOOB.type = CombatManager.OOB_MSGTYPE_INITSWAP;
+	msgOOB.nIsHost = Session.IsHost and 1 or 0;
+	msgOOB.sSourceNode = DB.getPath(nodeSourceCT);
+	msgOOB.sTargetNode = DB.getPath(nodeTargetCT);
+	Comm.deliverOOBMessage(msgOOB, "");
+end
+function handleInitSwap(msgOOB)
+	CombatManager.performInitSwap(DB.findNode(msgOOB.sSourceNode), DB.findNode(msgOOB.sTargetNode), (tonumber(msgOOB.nIsHost) == 1));
+end
+function performInitSwap(nodeSourceCT, nodeTargetCT, bHost)
+	if not nodeSourceCT or not nodeTargetCT then
+		return;
+	end
+
+	local nSourceInit = DB.getValue(nodeSourceCT, "initresult", 0);
+	local nTargetInit = DB.getValue(nodeTargetCT, "initresult", 0);
+	if nSourceInit == nTargetInit then
+		return;
+	end
+
+	DB.setValue(nodeSourceCT, "initresult", "number", nTargetInit);
+	DB.setValue(nodeTargetCT, "initresult", "number", nSourceInit);
+
+	local nodeActive = CombatManager.getActiveCT();
+	if nodeActive == nodeSourceCT then
+		CombatManager.requestActivation(nodeTargetCT);
+		CombatManager.onTurnStartEvent(nodeTargetCT);
+	elseif nodeActive == nodeTargetCT then
+		CombatManager.requestActivation(nodeSourceCT);
+		CombatManager.onTurnStartEvent(nodeSourceCT);
+	end
+
+	local msg = {
+		font = "narratorfont",
+		text = string.format(Interface.getString("message_initswap"), ActorManager.getDisplayName(nodeSourceCT), ActorManager.getDisplayName(nodeTargetCT)),
+		secret = bHost;
+	};
+	Comm.deliverChatMessage(msg);
 end
 
 --
@@ -698,60 +789,16 @@ end
 function sortfuncSimple(node1, node2)
 	return DB.getPath(node1) < DB.getPath(node2);
 end
--- (node2, node1) reverses direction of turns (goes from lowest initiative to highest)
 function sortfuncStandard(node1, node2)
 	local bHost = Session.IsHost;
 	local sOptCTSI = OptionsManager.getOption("CTSI");
-	
-	local sFaction1 = DB.getValue(node1, "friendfoe", "");
-	local sFaction2 = DB.getValue(node2, "friendfoe", "");
-	
-	local bShowInit1 = bHost or ((sOptCTSI == "friend") and (sFaction1 == "friend")) or (sOptCTSI == "on");
-	local bShowInit2 = bHost or ((sOptCTSI == "friend") and (sFaction2 == "friend")) or (sOptCTSI == "on");
-	
-	if bShowInit1 ~= bShowInit2 then
-		if bShowInit1 then
-			return true;
-		elseif bShowInit2 then
-			return false;
-		end
-	else
-		if bShowInit1 then
-			-- changed from "initresult" to "friendfoe" to order by faction
-			local nValue1 = DB.getValue(node1, "friendfoe", 0);
-			local nValue2 = DB.getValue(node2, "friendfoe", 0);
-			if nValue1 ~= nValue2 then
-				return nValue1 > nValue2;
-			end
-		else
-			if sFaction1 ~= sFaction2 then
-				if sFaction1 == "friend" then
-					return true;
-				elseif sFaction2 == "friend" then
-					return false;
-				end
-			end
-		end
-	end
-	
-	local sValue1 = DB.getValue(node1, "name", "");
-	local sValue2 = DB.getValue(node2, "name", "");
-	if sValue1 ~= sValue2 then
-		return sValue1 < sValue2;
-	end
 
-	return DB.getPath(node1) < DB.getPath(node2);
-end
-function sortfuncDnD(node1, node2)
-	local bHost = Session.IsHost;
-	local sOptCTSI = OptionsManager.getOption("CTSI");
-	
 	local sFaction1 = DB.getValue(node1, "friendfoe", "");
 	local sFaction2 = DB.getValue(node2, "friendfoe", "");
-	
+
 	local bShowInit1 = bHost or ((sOptCTSI == "friend") and (sFaction1 == "friend")) or (sOptCTSI == "on");
 	local bShowInit2 = bHost or ((sOptCTSI == "friend") and (sFaction2 == "friend")) or (sOptCTSI == "on");
-	
+
 	if bShowInit1 ~= bShowInit2 then
 		if bShowInit1 then
 			return true;
@@ -765,7 +812,49 @@ function sortfuncDnD(node1, node2)
 			if nValue1 ~= nValue2 then
 				return nValue1 > nValue2;
 			end
-			
+		else
+			if sFaction1 ~= sFaction2 then
+				if sFaction1 == "friend" then
+					return true;
+				elseif sFaction2 == "friend" then
+					return false;
+				end
+			end
+		end
+	end
+
+	local sValue1 = DB.getValue(node1, "name", "");
+	local sValue2 = DB.getValue(node2, "name", "");
+	if sValue1 ~= sValue2 then
+		return sValue1 < sValue2;
+	end
+
+	return DB.getPath(node1) < DB.getPath(node2);
+end
+function sortfuncDnD(node1, node2)
+	local bHost = Session.IsHost;
+	local sOptCTSI = OptionsManager.getOption("CTSI");
+
+	local sFaction1 = DB.getValue(node1, "friendfoe", "");
+	local sFaction2 = DB.getValue(node2, "friendfoe", "");
+
+	local bShowInit1 = bHost or ((sOptCTSI == "friend") and (sFaction1 == "friend")) or (sOptCTSI == "on");
+	local bShowInit2 = bHost or ((sOptCTSI == "friend") and (sFaction2 == "friend")) or (sOptCTSI == "on");
+
+	if bShowInit1 ~= bShowInit2 then
+		if bShowInit1 then
+			return true;
+		elseif bShowInit2 then
+			return false;
+		end
+	else
+		if bShowInit1 then
+			local nValue1 = DB.getValue(node1, "initresult", 0);
+			local nValue2 = DB.getValue(node2, "initresult", 0);
+			if nValue1 ~= nValue2 then
+				return nValue1 > nValue2;
+			end
+
 			nValue1 = DB.getValue(node1, "init", 0);
 			nValue2 = DB.getValue(node2, "init", 0);
 			if nValue1 ~= nValue2 then
@@ -781,10 +870,9 @@ function sortfuncDnD(node1, node2)
 			end
 		end
 	end
-	
+
 	local sValue1 = DB.getValue(node1, "name", "");
 	local sValue2 = DB.getValue(node2, "name", "");
-	-- if value1 does not equal value2, then return value1 first
 	if sValue1 ~= sValue2 then
 		return sValue1 < sValue2;
 	end
@@ -825,31 +913,6 @@ function notifyEndTurn()
 	Comm.deliverOOBMessage(msgOOB, "");
 end
 
-function addGMIdentity(nodeEntry)
-	if OptionsManager.isOption("CTAV", "on") then
-		local sName = ActorManager.getDisplayName(nodeEntry);
-		
-		if sName == "" or CombatManager.isPlayerCT(nodeEntry) then
-			_sActiveCT = nil;
-			GmIdentityManager.activateGMIdentity();
-		else
-			if GmIdentityManager.existsIdentity(sName) then
-				_sActiveCT = nil;
-				GmIdentityManager.setCurrent(sName);
-			else
-				_sActiveCT = sName;
-				GmIdentityManager.addIdentity(sName);
-			end
-		end
-	end
-end
-function clearGMIdentity()
-	if _sActiveCT then
-		GmIdentityManager.removeIdentity(_sActiveCT);
-		_sActiveCT = nil;
-	end
-end
-
 -- Handle turn notification (including bell ring based on option)
 function showTurnMessage(nodeEntry, bActivate, bSkipBell)
 	if not Session.IsHost then
@@ -879,22 +942,23 @@ function showTurnMessage(nodeEntry, bActivate, bSkipBell)
 		end
 	end
 
-	local sOptRSHT = OptionsManager.getOption("RSHT");
-	local bShowPlayerMessage = bActivate and ((sOptRSHT == "all") or ((sOptRSHT == "on") and (sFaction == "friend")));
+	-- local sOptRSHT = OptionsManager.getOption("RSHT");
+	-- local bShowPlayerMessage = bActivate and not CombatManager.isCTHidden(nodeEntry) and ((sOptRSHT == "all") or ((sOptRSHT == "on") and (sFaction == "friend")));
+	local bShowPlayerMessage = bActivate and not CombatManager.isCTHidden(nodeEntry);
 
 	msgGM.secret = not bShowPlayerMessage;
 	Comm.addChatMessage(msgGM);
 
-	if bShowPlayerMessage and not CombatManager.isCTHidden(nodeEntry) then
+	if bShowPlayerMessage then
 		local aUsers = User.getActiveUsers();
 		if #aUsers > 0 then
 			Comm.deliverChatMessage(msgPlayer, aUsers);
 		end
 	end
-	if not bSkipBell and OptionsManager.isOption("RING", "on") and ActorManager.isPC(rActor) then
-		local nodePC = ActorManager.getCreatureNode(rActor);
-		if nodePC then
-			local sOwner = DB.getOwner(nodePC);
+	if not bSkipBell and OptionsManager.isOption("RING", "on") then
+		local nodeActor = ActorManager.getCreatureNode(rActor);
+		if nodeActor then
+			local sOwner = DB.getOwner(nodeActor);
 			if (sOwner or "") ~= "" then
 				User.ringBell(sOwner);
 			end
@@ -905,12 +969,12 @@ function requestActivation(nodeEntry, bSkipBell)
 	for _,v in pairs(CombatManager.getCombatantNodes()) do
 		DB.setValue(v, "active", "number", 0);
 	end
-	CombatManager.clearGMIdentity();
-	
+	ChatIdentityManager.clearCombatantIdentity();
+
 	if nodeEntry then
 		DB.setValue(nodeEntry, "active", "number", 1);
 		CombatManager.showTurnMessage(nodeEntry, true, bSkipBell);
-		CombatManager.addGMIdentity(nodeEntry);
+		ChatIdentityManager.addCombatantIdentity(nodeEntry);
 	end
 end
 function isActorToSkipTurn(nodeEntry)
@@ -947,7 +1011,7 @@ function nextActor(bSkipBell, bNoRoundAdvance)
 
 	local nodeActive = CombatManager.getActiveCT();
 	local nIndexActive = 0;
-	
+
 	local nodeNext = nil;
 	local nIndexNext = 0;
 
@@ -981,14 +1045,14 @@ function nextActor(bSkipBell, bNoRoundAdvance)
 		if nodeActive then
 			CombatManager.onTurnEndEvent(nodeActive);
 		end
-	
+
 		-- Process effects in between current and next actors
 		if nodeActive then
 			CombatManager.onInitChangeEvent(nodeActive, nodeNext);
 		else
 			CombatManager.onInitChangeEvent(nil, nodeNext);
 		end
-		
+
 		-- Start turn for next actor
 		CombatManager.requestActivation(nodeNext, bSkipBell);
 		CombatManager.onTurnStartEvent(nodeNext);
@@ -1004,13 +1068,6 @@ function nextRound(nRounds)
 		return;
 	end
 
-	for _,v in pairs(CombatManager.getCombatantNodes()) do
-		-- resets checkbox for gone
-		DB.setValue(v, "gone", "string", "ct_faction_empty");
-		-- resets checkbox for T.A.s
-		DB.setValue(v, "triggeredaction", "string", "ct_faction_empty");
-	end
-
 	local nodeActive = CombatManager.getActiveCT();
 	local nCurrent = DB.getValue(CombatManager.CT_ROUND, 0);
 
@@ -1018,8 +1075,8 @@ function nextRound(nRounds)
 	local nStartCounter = 1;
 	local aEntries = CombatManager.getSortedCombatantList();
 	if nodeActive then
-		-- DB.setValue(nodeActive, "active", "number", 0);
-		CombatManager.clearGMIdentity();
+		DB.setValue(nodeActive, "active", "number", 0);
+		ChatIdentityManager.clearCombatantIdentity();
 
 		local bFastTurn = false;
 		for i = 1,#aEntries do
@@ -1031,8 +1088,8 @@ function nextRound(nRounds)
 				CombatManager.onTurnEndEvent(aEntries[i]);
 			end
 		end
-		
-		-- CombatManager.onInitChangeEvent(nodeActive);
+
+		CombatManager.onInitChangeEvent(nodeActive);
 
 		nStartCounter = nStartCounter + 1;
 
@@ -1042,14 +1099,14 @@ function nextRound(nRounds)
 		msg.text = string.format("[%s %d]", Interface.getString("combat_tag_round"), nCurrent);
 		Comm.deliverChatMessage(msg);
 	end
-	for i = nStartCounter, nRounds do
+	for _ = nStartCounter, nRounds do
 		for i = 1,#aEntries do
 			CombatManager.onTurnStartEvent(aEntries[i]);
 			CombatManager.onTurnEndEvent(aEntries[i]);
 		end
-		
+
 		CombatManager.onInitChangeEvent();
-		
+
 		-- Announce round
 		nCurrent = nCurrent + 1;
 		local msg = {font = "narratorfont", icon = "turn_flag"};
@@ -1059,17 +1116,17 @@ function nextRound(nRounds)
 
 	-- Update round counter
 	DB.setValue(CombatManager.CT_ROUND, "number", nCurrent);
-	
+
 	-- Custom round start callback (such as per round initiative rolling)
 	CombatManager.onRoundStartEvent(nCurrent);
-	
+
 	-- Check option to see if we should advance to first actor or stop on round start
-	-- if OptionsManager.isOption("RNDS", "off") then
-	-- 	local bSkipBell = (nRounds > 1);
-	-- 	if #aEntries > 0 then
-	-- 		CombatManager.nextActor(bSkipBell, true);
-	-- 	end
-	-- end
+	if OptionsManager.isOption("RNDS", "off") then
+		local bSkipBell = (nRounds > 1);
+		if #aEntries > 0 then
+			CombatManager.nextActor(bSkipBell, true);
+		end
+	end
 end
 function nextTurn()
 	if Session.IsHost then
@@ -1079,11 +1136,29 @@ function nextTurn()
 	end
 end
 
+function onEntryActivationChanged(nodeEntry)
+	if not nodeEntry then
+		return;
+	end
+	local bActive = (DB.getValue(nodeEntry, "active", 0) == 1);
+	if bActive then
+		local sOptCMAT = OptionsManager.getOption("CMAT");
+		if sOptCMAT == "on" then
+			CombatManager.centerOnToken(nodeEntry, false);
+		elseif sOptCMAT == "select" then
+			CombatManager.selectToken(nodeEntry);
+		end
+	end
+end
+
 --
 -- ADD FUNCTIONS
 --
 
 function stripCreatureNumber(s)
+	if not s then
+		return s;
+	end
 	local nStarts, _, sNumber = string.find(s, " ?(%d+)$");
 	if nStarts then
 		return string.sub(s, 1, nStarts - 1), sNumber;
@@ -1103,7 +1178,7 @@ function getRandomName(sKey, sBaseName)
 		end
 		nCombatantCount = nCombatantCount + 1;
 	end
-	
+
 	local nRandomRange = nCombatantCount * 2;
 	local sNewName = sBaseName;
 	local nSuffix;
@@ -1124,30 +1199,18 @@ end
 -- RESET FUNCTIONS
 --
 
-function resetIndivualInit()
-	-- De-activate all entries
-	for _,v in pairs(CombatManager.getCombatantNodes()) do
-		DB.setValue(v, "active", "number", 0);
-	end
-	
-	CombatManager.onCombatResetEvent();
-end
 function resetInit()
 	-- De-activate all entries
 	for _,v in pairs(CombatManager.getCombatantNodes()) do
-		-- resets checkbox for gone
-		DB.setValue(v, "gone", "string", "ct_faction_empty");
-		-- resets checkbox for T.A.s
-		DB.setValue(v, "triggeredaction", "string", "ct_faction_empty");
 		DB.setValue(v, "active", "number", 0);
 	end
-	
+
 	-- Clear GM identity additions (based on option)
-	CombatManager.clearGMIdentity();
+	ChatIdentityManager.clearCombatantIdentity();
 
 	-- Reset the round counter
 	DB.setValue(CombatManager.CT_ROUND, "number", 1);
-	
+
 	CombatManager.onCombatResetEvent();
 end
 function resetCombatantEffects(sKey)
@@ -1217,28 +1280,28 @@ function rollStandardEntryInit(tInit)
 
 	-- For PCs, we always roll unique initiative
 	if CombatManager.isPlayerCT(tInit.nodeEntry) then
-		DB.setValue(tInit.nodeEntry, "initresult", "number", CombatManager.helperRollRandomInit(tInit));
+		CombatManager.helperRollEntryInit(tInit);
 		return;
 	end
-	
+
 	-- For NPCs, if NPC init option is not group, then roll unique initiative
 	local sOptINIT = OptionsManager.getOption("INIT");
 	if sOptINIT ~= "group" then
-		DB.setValue(tInit.nodeEntry, "initresult", "number", CombatManager.helperRollRandomInit(tInit));
+		CombatManager.helperRollEntryInit(tInit);
 		return;
 	end
 
 	-- For NPCs with group option enabled
-	
+
 	-- Get the entry's database node name and creature name
 	local sStripName = CombatManager.stripCreatureNumber(DB.getValue(tInit.nodeEntry, "name", ""));
 	if sStripName == "" then
-		DB.setValue(tInit.nodeEntry, "initresult", "number", CombatManager.helperRollRandomInit(tInit));
+		CombatManager.helperRollEntryInit(tInit);
 		return;
 	end
-		
+
 	-- Iterate through list looking for other creatures with same name
-	local nLastInit = nil;
+	tInit.nInitMatch = nil;
 	local sEntryFaction = DB.getValue(tInit.nodeEntry, "friendfoe", "");
 	for _,nodeCT in pairs(CombatManager.getCombatantNodes()) do
 		if DB.getName(nodeCT) ~= DB.getName(tInit.nodeEntry) then
@@ -1247,15 +1310,41 @@ function rollStandardEntryInit(tInit)
 				if sTemp == sStripName then
 					local nChildInit = DB.getValue(nodeCT, "initresult", 0);
 					if nChildInit ~= -10000 then
-						nLastInit = nChildInit;
+						tInit.nInitMatch = nChildInit;
 					end
 				end
 			end
 		end
 	end
-	
+
 	-- If we found similar creatures, then match the initiative of the last one found; otherwise, roll
-	DB.setValue(tInit.nodeEntry, "initresult", "number", nLastInit or CombatManager.helperRollRandomInit(tInit));
+	CombatManager.helperRollEntryInit(tInit);
+end
+function helperRollEntryInit(tInit)
+	if not tInit or not tInit.nodeEntry then
+		return;
+	end
+	if tInit.nInitMatch then
+		DB.setValue(tInit.nodeEntry, "initresult", "number", tInit.nInitMatch);
+		return;
+	end
+
+	tInit.nTotal = CombatManager.helperRollRandomInit(tInit);
+	DB.setValue(tInit.nodeEntry, "initresult", "number", tInit.nTotal);
+
+	local rMessage = {
+		font = "systemfont",
+		icon = "portrait_gm_token",
+		type = "init",
+		text = string.format("[%s] %s", Interface.getString("action_init_tag"), DB.getValue(tInit.nodeEntry, "name", "")),
+		diemodifier = tInit.nTotal,
+		diceskipexpr = true,
+		secret = true,
+	};
+	if (tInit.sSuffix or "") ~= "" then
+		rMessage.text = string.format("%s %s", rMessage.text, tInit.sSuffix);
+	end
+	Comm.addChatMessage(rMessage);
 end
 function helperRollRandomInit(tInit)
 	if not tInit then
@@ -1265,6 +1354,13 @@ function helperRollRandomInit(tInit)
 		return tInit.fnRollRandom(tInit);
 	end
 	return math.random(tInit.nDie or 20) + (tInit.nMod or 0);
+end
+
+function resetStandardInit()
+	CombatManager.callForEachCombatant(CombatManager.resetCombatantInit);
+end
+function resetCombatantInit(nodeCT)
+	DB.setValue(nodeCT, "initresult", "number", 0);
 end
 
 --
@@ -1310,7 +1406,7 @@ function initPlayerRecordTypes()
 		return;
 	end
 	for _,s in ipairs(_tPlayerRecordTypes) do
-		local sRootMapping = LibraryData.getRootMapping(s);
+		local sRootMapping = RecordDataManager.getDataPathRoot(s);
 		if sRootMapping then
 			DB.addHandler(DB.getPath(sRootMapping, "*"), "onDelete", CombatManager.onPlayerRecordDelete);
 		end
@@ -1342,7 +1438,7 @@ function getRecordType(nodeCT)
 	if not nodeCT then
 		return "";
 	end
-	return LibraryData.getRecordTypeFromDisplayClass(DB.getValue(nodeCT, "link", ""));
+	return RecordDataManager.getRecordTypeFromDisplayClass(DB.getValue(nodeCT, "link", ""));
 end
 function isRecordType(nodeCT, s)
 	return (CombatManager.getRecordType(nodeCT) == s);
@@ -1359,7 +1455,7 @@ function handleCTTokenPressed(nodeCT)
 		return false;
 	end
 
-	if Session.IsHost then	
+	if Session.IsHost then
 		-- CTRL + left click to target CT entry with active CT entry
 		if Input.isControlPressed() then
 			local nodeActive = CombatManager.getActiveCT(CombatManager.getTrackerKeyFromCT(nodeCT));
@@ -1375,7 +1471,7 @@ function handleCTTokenPressed(nodeCT)
 		-- CTRL + left click to target CT entry with active CT (if owned) or active identity
 		if Input.isControlPressed() then
 			TargetingManager.toggleClientCTTarget(nodeCT);
-		end		
+		end
 	end
 
 	return true;
@@ -1392,7 +1488,7 @@ function handleCTTokenWheel(nodeCT, notches)
 	if not nodeCT then
 		return false;
 	end
-	
+
 	TokenManager.onWheelCT(nodeCT, notches);
 	return true;
 end
@@ -1424,7 +1520,7 @@ function handleCTTokenDragEnd(nodeCT, draginfo)
 	if not nodeCT or not draginfo then
 		return false;
 	end
-	
+
 	TokenManager.endDragTokenWithUnits();
 
 	local _,tokenMap = draginfo.getTokenData();
@@ -1437,14 +1533,38 @@ function handleCTTokenDrop(nodeCT, draginfo)
 	if not nodeCT then
 		return false;
 	end
-	
+
 	local sToken, tokenMap = draginfo.getTokenData();
 	if (sToken or "") == "" then
 		return;
 	end
-	
+
 	DB.setValue(nodeCT, "token", "token", sToken);
 	CombatManager.replaceCombatantToken(nodeCT, tokenMap);
+	return true;
+end
+
+function handleCTInitDragStart(nodeCT, draginfo)
+	if not nodeCT or not draginfo then
+		return false;
+	end
+
+	if not Session.IsHost then
+		if not CombatManager.isOwnedPlayerCT(nodeCT) then
+			return false;
+		end
+		local fn = CombatManager.getCustomInitSwapPlayerAllow();
+		if not fn then
+			return false;
+		end
+		if not fn(nodeCT) then
+			return false;
+		end
+	end
+
+	draginfo.setType("initiative_swap");
+	draginfo.setIcon("drag_targeting");
+	draginfo.setShortcutData("ct_entry", DB.getPath(nodeCT));
 	return true;
 end
 
@@ -1486,8 +1606,8 @@ function handleFactionDropOnImage(draginfo, imagecontrol, x, y)
 		if tokenMap then
 			CombatManager.replaceCombatantToken(v.nodeCT, tokenMap);
 		end
-	end	
-	
+	end
+
 	return true;
 end
 function replaceCombatantToken(nodeCT, newTokenInstance)
@@ -1573,22 +1693,11 @@ function deleteCleanup(v)
 	end
 end
 
--- DEPRECATED - 2022-08-29 (Long Release)
+-- DEPRECATED - 2025-03 (Short Release)
 
-function isPC(v)
-	Debug.console("CombatManager.isPC - DEPRECATED - 2023-08-29 - Use CombatManager.isPlayerCT instead");
-	return CombatManager.isPlayerCT(v);
+function addGMIdentity(nodeCT)
+	ChatIdentityManager.addCombatantIdentity(nodeCT);
 end
-
--- DEPRECATED - 2022-08-16 (Long Release) - 2023-06-27 (Chat Notice)
-
-function setCustomDrop(fn)
-	Debug.console("CombatManager.setCustomDrop - DEPRECATED - 2022-08-16 - Use CombatDropManager.setLinkDropCallback/setDragTypeDropCallback");
-	ChatManager.SystemMessage("CombatManager.setCustomDrop - DEPRECATED - 2022-08-16 - Contact ruleset/extension/forge author");
-	CombatDropManager.registerLegacyDropCallback(fn);
-end
-function onDrop(sNodeType, sNodePath, draginfo)
-	Debug.console("CombatManager.onDrop - DEPRECATED - 2022-08-16 - Use CombatDropManager.handleAnyDrop");
-	ChatManager.SystemMessage("CombatManager.onDrop - DEPRECATED - 2022-08-16 - Contact ruleset/extension/forge author");
-	return CombatDropManager.handleAnyDrop(draginfo, sNodePath);
+function clearGMIdentity()
+	ChatIdentityManager.clearCombatantIdentity();
 end

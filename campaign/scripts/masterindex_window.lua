@@ -276,7 +276,7 @@ end
 function addListRecord(node)
 	local rRecord = {};
 	rRecord.node = node;
-	rRecord.sCategory = UtilityManager.getNodeCategory(node);
+	rRecord.sCategory = DB.getCategory(node);
 	rRecord.nAccess = UtilityManager.getNodeAccessLevel(node);
 	
 	rRecord.bIdentifiable = LibraryData.isIdentifiable(self.getRecordType(), node);
@@ -308,7 +308,7 @@ end
 function onChildCategoryChange(node)
 	local tRecords = self.getAllRecords();
 	if tRecords[node] then
-		tRecords[node].sCategory = UtilityManager.getNodeCategory(node);
+		tRecords[node].sCategory = DB.getCategory(node);
 		if self.getCategoryFilter() ~= "*" then
 			self.refreshDisplayList();
 		else

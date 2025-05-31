@@ -66,12 +66,13 @@
 	<string name="char_label_implement">IMPLEMENT</string><string name="char_label_senses">Senses</string>
 	<string name="char_label_magical">MAGICAL</string>
 	<string name="char_label_distance">DISTANCE</string>
-	<string name="char_label_benefits">BENEFITS</string>
+	<string name="char_label_benefits">NOTES</string>
 	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_itemweight">En</string>
 	<string name="char_tooltip_itemweight">Encumbrance</string>
 	<string name="char_tooltip_inv_carried">Stowed</string>
 	<string name="char_tooltip_inv_equipped">Readied</string>
+	<string name="skill_tooltip">Click to change characteristic</string>
 	<string name="char_label_attributes">Attributes</string>
 	<string name="char_label_skills">Skills</string>
 	<string name="char_label_features">Features</string>
@@ -103,6 +104,9 @@
 
 	<!-- Combat Tracker -->
 	<string name="ct_label_gone">Gone</string>
+	<string name="ct_label_name">Initiative Order</string>
+	<string name="ct_label_name_heroes">Heroes</string>
+	<string name="ct_label_name_monsters">Monsters</string>
 	<string name="ct_label_triggeredaction">T.A.</string>
 	<string name="ct_label_experience">Experience</string>
 	<string name="ct_label_hp">Stamina</string>
@@ -177,6 +181,8 @@
 	<string name="alchemy">Alchemy</string>
 	<string name="architecture">Architecture</string>
 	<string name="blacksmithing">Blacksmithing</string>
+	<string name="carpentry">Carpentry</string>
+	<string name="cooking">Cooking</string>
 	<string name="fletching">Fletching</string>
 	<string name="forgery">Forgery</string>
 	<string name="jewelry">Jewelry</string>
@@ -231,24 +237,20 @@
 	<string name="religion">Religion</string>
 	<string name="rumors">Rumors</string>
 	<string name="society">Society</string>
+	<string name="strategy">Strategy</string>
 	<string name="timescape">Timescape</string>
 	<string name="tooltip_pr">Power Roll</string>
 	<string name="tooltip_drawsteel">Draw Steel!</string>
 
 	<!-- Characters -->
 	<string name="char_label_skills">Skills</string>
-	<string name="char_label_crafting">Crafting</string>
-	<string name="char_label_exploration">Exploration</string>
-	<string name="char_label_interpersonal">Interpersonal</string>
-	<string name="char_label_intrigue">Intrigue</string>
-	<string name="char_label_lore">Lore</string>
-	<string name="char_label_skills">Skills</string>
-	<string name="char_label_crafting">Crafting</string>
-	<string name="char_label_exploration">Exploration</string>
-	<string name="char_label_interpersonal">Interpersonal</string>
-	<string name="char_label_intrigue">Intrigue</string>
-	<string name="char_label_lore">Lore</string>
+	<string name="char_label_crafting">Crafting Skills</string>
+	<string name="char_label_exploration">Exploration Skills</string>
+	<string name="char_label_interpersonal">Interpersonal Skills</string>
+	<string name="char_label_intrigue">Intrigue Skills</string>
+	<string name="char_label_lore">Lore Skills</string>
 	<string name="char_label_characteristics">Characteristics</string>
+	<string name="char_label_characteristic">Characteristic:</string>
 	<string name="char_label_stats">Stats</string>
 	<string name="char_label_surges">Surges</string>
 	<string name="char_label_herotokens">Hero Tokens</string>
@@ -306,7 +308,7 @@
 	<string name="char_label_points">POINTS</string>
 	<string name="char_label_complication">COMPLICATION</string>
 	<string name="char_label_kit">KIT</string>
-	<string name="char_label_modifier">MODIFIER</string>
+	<string name="char_label_modifier">KIT | WARD</string>
 	<string name="char_label_type">TYPE</string>
 	<string name="char_label_name">NAME</string>
 	<string name="char_label_equipment">EQUIPMENT</string>
@@ -356,6 +358,7 @@
 	<string name="char_label_immunities">Immunities</string>
 	<string name="char_label_weaknessess">Weaknessess</string>
 	<string name="char_label_uniqueeffects">Unique Effects</string>
+	<string name="char_label_conditions">Conditions</string>
 	<string name="char_label_weak">Weak Potency</string>
 	<string name="char_label_strong">Strong Potency</string>
 	<string name="char_label_average">Average Potency</string>

@@ -101,7 +101,6 @@
 	<string name="char_label_implement">IMPLEMENT</string><string name="char_label_senses">Senses</string>
 	<string name="char_label_magical">MAGICAL</string>
 	<string name="char_label_distance">DISTANCE</string>
-	<string name="char_label_benefits">BENEFITS</string>
 	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_tooltip_token">Token</string>
 	<string name="char_tooltip_speak">Speak as PC</string>

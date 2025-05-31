@@ -9,17 +9,17 @@
 	<windowclass name="charsheet_skills_ds">
 		<margins control="0,0,0,2" />
 		<sheetdata>
-			<!-- <frame_char name="skillsframe">
+			<!-- <frame_char name="skillsframe_char">
 				<bounds>0,0,-1,-20</bounds>
 			</frame_char> -->
 
             <!-- <label_frametop>
-				<anchored to="skillsframe" />
+				<anchored to="skillsframe_char" />
 				<static textres="char_label_skills" />
 			</label_frametop> -->
 
 			<!-- <list_charskillcategory name="skills">
-				<anchored to="skillsframe">
+				<anchored to="skillsframe_char">
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
@@ -28,7 +28,7 @@
 			</list_charskillcategory> -->
 
 			<!-- <list_charskillcategory_ds name="skills_ds">
-				<anchored to="skillsframe">
+				<anchored to="skillsframe_char">
 					<left offset="15" />
 					<top offset="35" />
 					<right offset="-20" />
@@ -36,564 +36,118 @@
 				</anchored>
 			</list_charskillcategory_ds> -->
 
+            <!-- CRAFTING SECTION (collapsable?) -->
+            <!-- EXPLORATION SECTION (collapsable?) -->
+            <!-- INTERPERSONAL SECTION (collapsable?) -->
+            <!-- INTRIGUE SECTION (collapsable?) -->
+            <!-- LORE SECTION (collapsable?) -->
+
             <!-- Crafting Skills -->
-            <frame_char name="craftingskillsframe">
-				<bounds>0,0,170,280</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="craftingskillsframe">
-                    <top offset="15" />
-                </anchored>
-				<static textres="char_label_crafting" />
-			</label_frametop>
-                <!-- alchemy -->
-                <number_powerroll_skill name="alchemy" source="skills.crafting.alchemy">
-                    <anchored to="craftingskillsframe" position="insidetopleft" offset="115,40">
-                    </anchored>
-                    <target>crafting.alchemy</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="alchemy_label">
-                    <anchored to="alchemy" />
-                    <static textres="alchemy" />
-                </string_skilllabel>
-                <!-- architecture -->
-                <number_powerroll_skill name="architecture" source="skills.crafting.architecture">
-                    <anchored to="alchemy" />
-                    <target>crafting.architecture</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="architecture_label">
-                    <anchored to="architecture" />
-                    <static textres="architecture" />
-                </string_skilllabel>
-                <!-- blacksmithing -->
-                <number_powerroll_skill name="blacksmithing" source="skills.crafting.blacksmithing">
-                    <anchored to="architecture" />
-                    <target>crafting.blacksmithing</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="blacksmithing_label">
-                    <anchored to="blacksmithing" />
-                    <static textres="blacksmithing" />
-                </string_skilllabel>
-                <!-- fletching -->
-                <number_powerroll_skill name="fletching" source="skills.crafting.fletching">
-                    <anchored to="blacksmithing" />
-                    <target>crafting.fletching</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="fletching_label">
-                    <anchored to="fletching" />
-                    <static textres="fletching" />
-                </string_skilllabel>
-                <!-- forgery -->
-                <number_powerroll_skill name="forgery" source="skills.crafting.forgery">
-                    <anchored to="fletching" />
-                    <target>crafting.forgery</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="forgery_label">
-                    <anchored to="forgery" />
-                    <static textres="forgery" />
-                </string_skilllabel>
-                <!-- jewelry -->
-                <number_powerroll_skill name="jewelry" source="skills.crafting.jewelry">
-                    <anchored to="forgery" />
-                    <target>crafting.jewelry</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="jewelry_label">
-                    <anchored to="jewelry" />
-                    <static textres="jewelry" />
-                </string_skilllabel>
-                <!-- mechanics -->
-                <number_powerroll_skill name="mechanics" source="skills.crafting.mechanics">
-                    <anchored to="jewelry" />
-                    <target>crafting.mechanics</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="mechanics_label">
-                    <anchored to="mechanics" />
-                    <static textres="mechanics" />
-                </string_skilllabel>
-                <!-- tailoring -->
-                <number_powerroll_skill name="tailoring" source="skills.crafting.tailoring">
-                    <anchored to="mechanics" />
-                    <target>crafting.tailoring</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="tailoring_label">
-                    <anchored to="tailoring" />
-                    <static textres="tailoring" />
-                </string_skilllabel>
-                <!-- scrollbar -->
-                <scrollbar>
-                    <anchored to="craftingskillsframe" />
-                    <target>craftingskillsframe</target>
-			    </scrollbar>
 
-            <!-- Exploration Skills -->
-            <frame_char name="explorationskillsframe">
-				<bounds>162,0,170,340</bounds>
+	<frame_char name="craftingskillsframe_char">
+				<bounds>0,0,-20,-20</bounds>
 			</frame_char>
 			<label_frametop>
-				<anchored to="explorationskillsframe">
+				<anchored to="craftingskillsframe_char">
                     <top offset="15" />
                 </anchored>
-                <static textres="char_label_exploration" />
+				<static textres="char_label_skills" />
 			</label_frametop>
-                <!-- climb -->
-                <number_powerroll_skill name="climb" source="skills.exploration.climb">
-                    <anchored to="explorationskillsframe" position="insidetopleft" offset="115,40" />
-                    <target>exploration.climb</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="climb_label">
-                    <anchored to="climb" />
-                    <static textres="climb" />
-                </string_skilllabel>
-                <!-- drive -->
-                <number_powerroll_skill name="drive" source="skills.exploration.drive">
-                    <anchored to="climb" />
-                    <target>exploration.drive</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="drive_label">
-                    <anchored to="drive" />
-                    <static textres="drive" />
-                </string_skilllabel>
-                <!-- endurance -->
-                <number_powerroll_skill name="endurance" source="skills.exploration.endurance">
-                    <anchored to="drive" />
-                    <target>exploration.endurance</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="endurance_label">
-                    <anchored to="endurance" />
-                    <static textres="endurance" />
-                </string_skilllabel>
-                <!-- gymnastics -->
-                <number_powerroll_skill name="gymnastics" source="skills.exploration.gymnastics">
-                    <anchored to="endurance" />
-                    <target>exploration.gymnastics</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="gymnastics_label">
-                    <anchored to="gymnastics" />
-                    <static textres="gymnastics" />
-                </string_skilllabel>
-                <!-- heal -->
-                <number_powerroll_skill name="heal" source="skills.exploration.heal">
-                    <anchored to="gymnastics" />
-                    <target>exploration.heal</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="heal_label">
-                    <anchored to="heal" />
-                    <static textres="heal" />
-                </string_skilllabel>
-                <!-- jump -->
-                <number_powerroll_skill name="jump" source="skills.exploration.jump">
-                    <anchored to="heal" />
-                    <target>exploration.jump</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="jump_label">
-                    <anchored to="jump" />
-                    <static textres="jump" />
-                </string_skilllabel>
-                <!-- lift -->
-                <number_powerroll_skill name="lift" source="skills.exploration.lift">
-                    <anchored to="jump" />
-                    <target>exploration.lift</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="lift_label">
-                    <anchored to="lift" />
-                    <static textres="lift" />
-                </string_skilllabel>
-                <!-- navigate -->
-                <number_powerroll_skill name="navigate" source="skills.exploration.navigate">
-                    <anchored to="lift" />
-                    <target>exploration.navigate</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="navigate_label">
-                    <anchored to="navigate" />
-                    <static textres="navigate" />
-                </string_skilllabel>
-                <!-- ride -->
-                <number_powerroll_skill name="ride" source="skills.exploration.ride">
-                    <anchored to="navigate" />
-                    <target>exploration.ride</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="ride_label">
-                    <anchored to="ride" />
-                    <static textres="ride" />
-                </string_skilllabel>
-                <!-- swim -->
-                <number_powerroll_skill name="swim" source="skills.exploration.swim">
-                    <anchored to="ride" />
-                    <target>exploration.swim</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="swim_label">
-                    <anchored to="swim" />
-                    <static textres="swim" />
-                </string_skilllabel>
 
-            <!-- interpersonal Skills -->
-            <frame_char name="interpersonalskillsframe">
-				<bounds>324,0,170,440</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="interpersonalskillsframe">
-                    <top offset="15" />
-                </anchored>
-                <static textres="char_label_interpersonal" />
-			</label_frametop>
-                <!-- brag -->
-                <number_powerroll_skill name="brag" source="skills.interpersonal.brag">
-                    <anchored to="interpersonalskillsframe" position="insidetopleft" offset="115,40" />
-                    <target>interpersonal.brag</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="brag_label">
-                    <anchored to="brag" />
-                    <static textres="brag" />
-                </string_skilllabel>
-                <!-- empathize -->
-                <number_powerroll_skill name="empathize" source="skills.interpersonal.empathize">
-                    <anchored to="brag" />
-                    <target>interpersonal.empathize</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="empathize_label">
-                    <anchored to="empathize" />
-                    <static textres="empathize" />
-                </string_skilllabel>
-                <!-- flirt -->
-                <number_powerroll_skill name="flirt" source="skills.interpersonal.flirt">
-                    <anchored to="empathize" />
-                    <target>interpersonal.flirt</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="flirt_label">
-                    <anchored to="flirt" />
-                    <static textres="flirt" />
-                </string_skilllabel>
-                <!-- gamble -->
-                <number_powerroll_skill name="gamble" source="skills.interpersonal.gamble">
-                    <anchored to="flirt" />
-                    <target>interpersonal.gamble</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="gamble_label">
-                    <anchored to="gamble" />
-                    <static textres="gamble" />
-                </string_skilllabel>
-                <!-- handleanimals -->
-                <number_powerroll_skill name="handleanimals" source="skills.interpersonal.handleanimals">
-                    <anchored to="gamble" />
-                    <target>interpersonal.handleanimals</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="handleanimals_label">
-                    <anchored to="handleanimals" />
-                    <static textres="handleanimals" />
-                </string_skilllabel>
-                <!-- interrogate -->
-                <number_powerroll_skill name="interrogate" source="skills.interpersonal.interrogate">
-                    <anchored to="handleanimals" />
-                    <target>interpersonal.interrogate</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="interrogate_label">
-                    <anchored to="interrogate" />
-                    <static textres="interrogate" />
-                </string_skilllabel>
-                <!-- intimidate -->
-                <number_powerroll_skill name="intimidate" source="skills.interpersonal.intimidate">
-                    <anchored to="interrogate" />
-                    <target>interpersonal.intimidate</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="intimidate_label">
-                    <anchored to="intimidate" />
-                    <static textres="intimidate" />
-                </string_skilllabel>
-                <!-- lead -->
-                <number_powerroll_skill name="lead" source="skills.interpersonal.lead">
-                    <anchored to="intimidate" />
-                    <target>interpersonal.lead</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="lead_label">
-                    <anchored to="lead" />
-                    <static textres="lead" />
-                </string_skilllabel>
-                <!-- lie -->
-                <number_powerroll_skill name="lie" source="skills.interpersonal.lie">
-                    <anchored to="lead" />
-                    <target>interpersonal.lie</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="lie_label">
-                    <anchored to="lie" />
-                    <static textres="lie" />
-                </string_skilllabel>
-                <!-- music -->
-                <number_powerroll_skill name="music" source="skills.interpersonal.music">
-                    <anchored to="lie" />
-                    <target>interpersonal.music</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="music_label">
-                    <anchored to="music" />
-                    <static textres="music" />
-                </string_skilllabel>
-                <!-- perform -->
-                <number_powerroll_skill name="perform" source="skills.interpersonal.perform">
-                    <anchored to="music" />
-                    <target>interpersonal.perform</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="perform_label">
-                    <anchored to="perform" />
-                    <static textres="perform" />
-                </string_skilllabel>
-                <!-- persuade -->
-                <number_powerroll_skill name="persuade" source="skills.interpersonal.persuade">
-                    <anchored to="perform" />
-                    <target>interpersonal.persuade</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="persuade_label">
-                    <anchored to="persuade" />
-                    <static textres="persuade" />
-                </string_skilllabel>
-                <!-- readperson -->
-                <number_powerroll_skill name="readperson" source="skills.interpersonal.readperson">
-                    <anchored to="persuade" />
-                    <target>interpersonal.readperson</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="readperson_label">
-                    <anchored to="readperson" />
-                    <static textres="readperson" />
-                </string_skilllabel>
 
-            <!-- Intrigue Skills -->
-            <frame_char name="intrigueskillsframe">
-				<bounds>0,273,170,400</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="intrigueskillsframe">
-                    <top offset="15" />
+            <string_skilllabel name="alchemy_label" source="skill.alchemy">
+                <anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,40">
                 </anchored>
-				<static textres="char_label_intrigue" />
-			</label_frametop>
-                <!-- alertness -->
-                <number_powerroll_skill name="alertness" source="skills.intrigue.alertness">
-                    <anchored to="intrigueskillsframe" position="insidetopleft" offset="115,40">
-                    </anchored>
-                    <target>intrigue.alertness</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="alertness_label">
-                    <anchored to="alertness" />
-                    <static textres="alertness" />
-                </string_skilllabel>
-                <!-- concealobject -->
-                <number_powerroll_skill name="concealobject" source="skills.intrigue.concealobject">
-                    <anchored to="alertness" />
-                    <target>intrigue.concealobject</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="concealobjects_label">
-                    <anchored to="concealobject" />
-                    <static textres="concealobject" />
-                </string_skilllabel>
-                <!-- disguise -->
-                <number_powerroll_skill name="disguise" source="skills.intrigue.disguise">
-                    <anchored to="concealobject" />
-                    <target>intrigue.disguise</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="disguise_label">
-                    <anchored to="disguise" />
-                    <static textres="disguise" />
-                </string_skilllabel>
-                <!-- eavesdrop -->
-                <number_powerroll_skill name="eavesdrop" source="skills.intrigue.eavesdrop">
-                    <anchored to="disguise" />
-                    <target>intrigue.eavesdrop</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="eavesdrop_label">
-                    <anchored to="eavesdrop" />
-                    <static textres="eavesdrop" />
-                </string_skilllabel>
-                <!-- escapeartist -->
-                <number_powerroll_skill name="escapeartist" source="skills.intrigue.escapeartist">
-                    <anchored to="eavesdrop" />
-                    <target>intrigue.escapeartist</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="escapeartist_label">
-                    <anchored to="escapeartist" />
-                    <static textres="escapeartist" />
-                </string_skilllabel>
-                <!-- hide -->
-                <number_powerroll_skill name="hide" source="skills.intrigue.hide">
-                    <anchored to="escapeartist" />
-                    <target>intrigue.hide</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="hide_label">
-                    <anchored to="hide" />
-                    <static textres="hide" />
-                </string_skilllabel>
-                <!-- picklock -->
-                <number_powerroll_skill name="picklock" source="skills.intrigue.picklock">
-                    <anchored to="hide" />
-                    <target>intrigue.picklock</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="picklock_label">
-                    <anchored to="picklock" />
-                    <static textres="picklock" />
-                </string_skilllabel>
-                <!-- pickpocket -->
-                <number_powerroll_skill name="pickpocket" source="skills.intrigue.pickpocket">
-                    <anchored to="picklock" />
-                    <target>intrigue.pickpocket</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="pickpocket_label">
-                    <anchored to="pickpocket" />
-                    <static textres="pickpocket" />
-                </string_skilllabel>
-                <!-- sabotage -->
-                <number_powerroll_skill name="sabotage" source="skills.intrigue.sabotage">
-                    <anchored to="pickpocket" />
-                    <target>intrigue.sabotage</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="sabotage_label">
-                    <anchored to="sabotage" />
-                    <static textres="sabotage" />
-                </string_skilllabel>
-                <!-- search -->
-                <number_powerroll_skill name="search" source="skills.intrigue.search">
-                    <anchored to="sabotage" />
-                    <target>intrigue.search</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="search_label">
-                    <anchored to="search" />
-                    <static textres="search" />
-                </string_skilllabel>
-                <!-- sneak -->
-                <number_powerroll_skill name="sneak" source="skills.intrigue.sneak">
-                    <anchored to="search" />
-                    <target>intrigue.sneak</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="sneak_label">
-                    <anchored to="sneak" />
-                    <static textres="sneak" />
-                </string_skilllabel>
-                <!-- track -->
-                <number_powerroll_skill name="track" source="skills.intrigue.track">
-                    <anchored to="sneak" />
-                    <target>intrigue.track</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="track_label">
-                    <anchored to="track" />
-                    <static textres="track" />
-                </string_skilllabel>
-                <!-- scrollbar -->
-                <scrollbar>
-                    <anchored to="craftingskillsframe" />
-                    <target>craftingskillsframe</target>
-			    </scrollbar>
+                <static textres="alchemy" />
+            </string_skilllabel>
+            <button_prof name="skilled_alchemy" source="skill.prof">
+                <anchored to="alchemy_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="characteristic_label">
+                <anchored to="alchemy_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill_characteristic" source="skill.characteristic.button">
+                <anchored to="characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
 
-            <!-- Lore Skills -->
-            <frame_char name="loreskillsframe">
-				<bounds>162,333,170,370</bounds>
-			</frame_char>
-			<label_frametop>
-				<anchored to="loreskillsframe">
-                    <top offset="15" />
+            <power_roll name="alchemy">
+                <anchored to="craftingskillsframe_char" position="insidetopright" offset="20,40">
                 </anchored>
-				<static textres="char_label_lore" />
-			</label_frametop>
-                <!-- culture -->
-                <number_powerroll_skill name="culture" source="skills.lore.culture">
-                    <anchored to="loreskillsframe" position="insidetopleft" offset="115,40">
-                    </anchored>
-                    <target>lore.culture</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="culture_label">
-                    <anchored to="culture" />
-                    <static textres="culture" />
-                </string_skilllabel>
-                <!-- criminalunderworld -->
-                <number_powerroll_skill name="criminalunderworld" source="skills.lore.criminalunderworld">
-                    <anchored to="culture" />
-                    <target>lore.criminalunderworld</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="criminalunderworlds_label">
-                    <anchored to="criminalunderworld" />
-                    <static textres="criminalunderworld" />
-                </string_skilllabel>
-                <!-- history -->
-                <number_powerroll_skill name="history" source="skills.lore.history">
-                    <anchored to="criminalunderworld" />
-                    <target>lore.history</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="history_label">
-                    <anchored to="history" />
-                    <static textres="history" />
-                </string_skilllabel>
-                <!-- magic -->
-                <number_powerroll_skill name="magic" source="skills.lore.magic">
-                    <anchored to="history" />
-                    <target>lore.magic</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="magic_label">
-                    <anchored to="magic" />
-                    <static textres="magic" />
-                </string_skilllabel>
-                <!-- monsters -->
-                <number_powerroll_skill name="monsters" source="skills.lore.monsters">
-                    <anchored to="magic" />
-                    <target>lore.monsters</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="monsters_label">
-                    <anchored to="monsters" />
-                    <static textres="monsters" />
-                </string_skilllabel>
-                <!-- nature -->
-                <number_powerroll_skill name="nature" source="skills.lore.nature">
-                    <anchored to="monsters" />
-                    <target>lore.nature</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="nature_label">
-                    <anchored to="nature" />
-                    <static textres="nature" />
-                </string_skilllabel>
-                <!-- psionics -->
-                <number_powerroll_skill name="psionics" source="skills.lore.psionics">
-                    <anchored to="nature" />
-                    <target>lore.psionics</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="psionics_label">
-                    <anchored to="psionics" />
-                    <static textres="psionics" />
-                </string_skilllabel>
-                <!-- religion -->
-                <number_powerroll_skill name="religion" source="skills.lore.religion">
-                    <anchored to="psionics" />
-                    <target>lore.religion</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="religion_label">
-                    <anchored to="religion" />
-                    <static textres="religion" />
-                </string_skilllabel>
-                <!-- rumors -->
-                <number_powerroll_skill name="rumors" source="skills.lore.rumors">
-                    <anchored to="religion" />
-                    <target>lore.rumors</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="rumors_label">
-                    <anchored to="rumors" />
-                    <static textres="rumors" />
-                </string_skilllabel>
-                <!-- society -->
-                <number_powerroll_skill name="society" source="skills.lore.society">
-                    <anchored to="rumors" />
-                    <target>lore.society</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="society_label">
-                    <anchored to="society" />
-                    <static textres="society" />
-                </string_skilllabel>
-                <!-- timescape -->
-                <number_powerroll_skill name="timescape" source="skills.lore.timescape">
-                    <anchored to="society" />
-                    <target>lore.timescape</target>
-                </number_powerroll_skill>
-                <string_skilllabel name="timescape_label">
-                    <anchored to="timescape" />
-                    <static textres="timescape" />
-                </string_skilllabel>
-                <!-- scrollbar -->
-                <scrollbar>
-                    <anchored to="craftingskillsframe" />
-                    <target>craftingskillsframe</target>
-			    </scrollbar>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.alchemy", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. "", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll>
+
+
+
 		</sheetdata>
 	</windowclass>
 

@@ -9,7 +9,7 @@
 	<windowclass name="charsheet_modifiers">
 		<sheetdata>
 			<frame_char name="appearanceframe">
-				<bounds>0,20,320,-6</bounds>
+				<bounds>0,20,-1,200</bounds>
 			</frame_char>
 			<!-- <label_frametop>
 				<anchored to="appearanceframe" offset="125,50"/>
@@ -36,17 +36,17 @@
 			</label_frametop>
 
 			<string_labeled name="kit">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="160" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="90,10" width="160" />
 				<labelres>char_label_name</labelres>
 			</string_labeled>
 
 			<string_labeled name="type">
-				<anchored to="appearanceframe" position="insidetopleft" offset="180,10" width="110" />
+				<anchored to="kit" position="righthigh" offset="5,0" width="135" />
 				<labelres>char_label_type</labelres>
 			</string_labeled>
 
 			<string_labeled name="kitweapon">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="140" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="94,35" width="140" />
 				<labelres>char_label_weapon</labelres>
 			</string_labeled>
 			<string_labeled name="kitarmor">
@@ -64,7 +64,7 @@
 			</label_frametop>
 
 			<string_labeled name="kitspeed">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,77" width="90" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="100,77" width="90" />
 				<labelres>char_label_speed</labelres>
 			</string_labeled>
 			<string_labeled name="kitmeleedistance">
@@ -77,7 +77,7 @@
 			</string_labeled>
 
 			<string_labeled name="kitarea">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,107" width="90" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="100,107" width="90" />
 				<labelres>char_label_area</labelres>
 			</string_labeled>
 			<string_labeled name="kitstability">
@@ -95,7 +95,7 @@
 			</label_frametop>
 
 			<string_labeled name="Kit.Melee.Damage.Tier1" source="Kit.Melee.Damage.Tier1">
-				<anchored to="appearanceframe" position="insidetopleft" offset="75,155" width="20" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="160,155" width="20" />
 				<labelres>char_label_melee</labelres>
 				<default>+0</default>
 			</string_labeled>
@@ -137,7 +137,7 @@
 			</string_labeled>	 -->
 
 			<frame_char name="notesframe">
-				<bounds>310,20,-1,-6</bounds>
+				<bounds>0,215,-1,-6</bounds>
 				<!-- <bounds>0,0,-1,-5</bounds> -->
 			</frame_char>
 			<label_frametop>

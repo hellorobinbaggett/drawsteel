@@ -44,7 +44,7 @@
 				<static textres="ability_label_powerrollplus" />
 				<tooltip textres="char_tooltip_modifierdescription" />
 			</label_column>
-			<string_columnh name="characteristic" source="ability.characteristic">
+			<string_columnh name="characteristic" source="ability.characteristic.number">
 				<tooltip textres="char_tooltip_modifierdescription" />
 			</string_columnh>
 
@@ -138,7 +138,7 @@
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "name", "");
 
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
 						if (characteristic or "") == "" then
 							characteristic = "0";

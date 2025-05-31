@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+  Please see the license.html file included with this distribution for
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- Draw Steel Graphics -->
+	<icon name="power_roll" file="graphics/buttons/DS_power_roll_2d10.png" />
+	<icon name="power_roll_down" file="graphics/buttons/DS_power_roll_down_2d10.png" />
+
+    <!-- Skills -->
+	<icon name="button_prof" file="graphics/buttons/button_prof.png" />
+	<icon name="button_prof_down" file="graphics/buttons/button_prof_down.png" />
+
+</root>

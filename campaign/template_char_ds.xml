@@ -345,6 +345,17 @@
 		</windowlist>
 	</template>
 
+	<template name="list_charskills">
+		<windowlist>
+			<child></child>
+			<child><backcolor>1A40301E</backcolor></child>
+			<datasource>.skilllist</datasource>
+			<class>char_skillitem</class>
+			<allowdelete />
+			<script file="campaign/scripts/char_skilllist.lua" />
+		</windowlist>
+	</template>
+
 	<template name="button_iadd_charcurrency">
 		<button_iadd name="currency_iadd">
 			<script>
@@ -597,4 +608,115 @@
 			</script>
 		</number_statnumber>
 	</template>
+
+	<template name="button_prof">
+		<buttonfield>
+			<state icon="button_prof" tooltipres="char_tooltip_prof_off" />
+			<state icon="button_prof_down" tooltipres="char_tooltip_prof_on" />
+		</buttonfield>
+	</template>
+
+	<template name="button_characteristic">
+		<buttonfield>
+			<state textres="mgt" tooltipres="char_tooltip_characteristic_might" />
+			<state textres="agl" tooltipres="char_tooltip_characteristic_agility" />
+			<state textres="rea" tooltipres="char_tooltip_characteristic_reason" />
+			<state textres="inu" tooltipres="char_tooltip_characteristic_intuition" />
+			<state textres="prs" tooltipres="char_tooltip_characteristic_presence" />
+		</buttonfield>
+	</template>
+
+
+	<!-- Individual skill rows -->
+	<template name="skills_row_test">
+            <string_skilllabel name="alchemy_label" source="skill.alchemy">
+                    <bounds></bounds>
+                    <static textres="alchemy" />
+                </string_skilllabel>
+                <button_prof name="skilled_alchemy" source="skill.prof">
+                    <anchored to="alchemy_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                    <default>2</default>
+			    </button_prof>
+                <string_skilllabel name="characteristic_label">
+                    <anchored to="alchemy_label" position="right" offset="0,0">
+                    </anchored>
+                    <static textres="char_label_characteristic" />
+                </string_skilllabel>
+                <button_characteristic name="skill_characteristic" source="skill.characteristic.button">
+                    <anchored to="characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                    <default>1</default>
+                    <tooltip textres="skill_tooltip" />
+			    </button_characteristic>
+
+                <power_roll name="alchemy">
+                    <anchored to="craftingskillsframe_char" position="insidetopright" offset="20,40">
+                    </anchored>
+                    <tooltip textres="tooltip_pr" />
+                    <script>	
+                        function action(draginfo)
+                            local nodeWin = window.getDatabaseNode();
+                            
+                            local skilled = DB.getValue(nodeWin, "skill.prof");
+                            local characteristic = DB.getValue(nodeWin, "skill.characteristic.button");
+
+                            -- If you have this skill, add a +2 to the roll
+                            if (skilled == 0) then
+                                skilledMod = "0";
+                            end
+                            if (skilled == 1) then
+                                skilledMod = "2";
+                            end
+
+                            -- add the characteristic that is chosed for the skill
+                            characteristicMod = 0;
+                            -- AGL
+                            if (characteristic == 1) then
+                                characteristicMod = DB.getValue(nodeWin, "AGL");
+                            end
+                            -- REA
+                            if (characteristic == 2) then
+                                characteristicMod = DB.getValue(nodeWin, "REA");
+                            end
+                            -- INU
+                            if (characteristic == 3) then
+                                characteristicMod = DB.getValue(nodeWin, "INU");
+                            end
+                            -- PRS
+                            if (characteristic == 4) then
+                                characteristicMod = DB.getValue(nodeWin, "PRS");
+                            end
+                            -- MGT
+                            if (characteristic == 0) then
+                                characteristicMod = DB.getValue(nodeWin, "MGT");
+                            end
+
+                            local abilityName = DB.getValue(nodeWin, "skill.alchemy", "");
+
+                            local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                            local nodePC = ActorManager.getCreatureNode(rActor);
+
+                            local rRoll = { 
+                                sType = "dice", 
+                                sDesc = "" .. abilityName .. "", 
+                                aDice = { "d10", "d10" },
+                                nMod = skilledMod + characteristicMod,
+                                t1 = DB.getValue(nodeWin, "tier1"),
+                                t2 = DB.getValue(nodeWin, "tier2"),
+                                t3 = DB.getValue(nodeWin, "tier3");
+                            };
+                            ActionsManager_DS.encodeDesktopMods(rRoll);
+                            ActionsManager.performAction(draginfo, rActor, rRoll);
+                            return true;
+                        end
+                        
+                        function onDragStart(button, x, y, draginfo)
+                            return action(draginfo);
+                        end
+
+                        function onButtonPress()
+                            return action();
+                        end
+                    </script>
+			    </power_roll>
+				</template>
 </root>

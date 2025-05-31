@@ -19,16 +19,6 @@
 		<sheetdata>
 			<sub_charsheet_overview name="overview" />
 
-			<!-- default core RPG main window -->
-			<!-- <sub_charsheet name="main">
-				<class>charsheet_main</class>
-			</sub_charsheet> -->
-
-			<!-- default core RPG skills window -->
-			<!-- <sub_charsheet name="skills">
-				<class>charsheet_skills</class>
-			</sub_charsheet> -->
-
 			<sub_charsheet name="main_ds">
 				<class>charsheet_main_ds</class>
 			</sub_charsheet>
@@ -39,6 +29,7 @@
 				<class>charsheet_abilities</class>
 			</sub_charsheet>
 
+			<!-- TODO: Skills Tab -->
 			<!-- <sub_charsheet name="skills_ds">
 				<class>charsheet_skills_ds</class>
 			</sub_charsheet> -->
@@ -63,10 +54,6 @@
 					<subwindow>main</subwindow>
 				</tab> -->
 				<!-- default core RPG skills tab -->
-				<!-- <tab>
-					<tabres>tab_skills</tabres>
-					<subwindow>skills</subwindow>
-				</tab> -->
 				<tab>
 					<tabres>tab_main</tabres>
 					<subwindow>main_ds</subwindow>
@@ -79,7 +66,10 @@
 					<tabres>tab_abilities</tabres>
 					<subwindow>abilities</subwindow>
 				</tab>
-
+				<!-- <tab>
+					<tabres>tab_skills</tabres>
+					<subwindow>skills_ds</subwindow>
+				</tab> -->
 				<tab>
 					<tabres>tab_modifiers</tabres>
 					<subwindow>modifiers</subwindow>

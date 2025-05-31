@@ -17,7 +17,7 @@
 	<announcement text="=======DEV BUILD=======" /> 
 	<announcement text=" 
 	" font="emotefont" icon="rulesetlogo_DrawSteel" />
-	<announcement text="Draw Steel Ruleset v.0821 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Ruleset v.083 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	<announcement text="To report bugs/request features: EXXODIS on Discord
 	" font="emotefont" icon="" />
@@ -35,11 +35,12 @@
 	<includefile source="campaign/record_char_skills_ds.xml" />
 	<includefile source="campaign/record_monster_DS.xml" />
 	<includefile source="campaign/template_monster_ability.xml" />
+	<includefile source="graphics/graphics_buttons_DS.xml" />
 
 	<!-- COMBAT TRACKER -->
-	<includefile source="ct/template_ct_DS.xml" />
-	<includefile source="ct/ct_host_DS.xml" />
-	<includefile source="ct/ct_client_DS.xml" />
+	<includefile source="ct_DS/template_ct_DS.xml" />
+	<includefile source="ct_DS/ct_host_DS.xml" />
+	<includefile source="ct_DS/ct_client_DS.xml" />
 
 	<!-- Graphics -->
 	<includefile source="graphics/graphics_icons_DS.xml" />
@@ -121,7 +122,7 @@
 	<script name="OptionsManager" file="scripts/manager_options.lua" />
 	<script name="OptionsCore" file="scripts/data_options_core.lua" />
 	<script name="RecordAssetManager" file="scripts/manager_record_asset.lua" />
-	<script name="RecordDataManager" file="scripts/manager_record_data.lua" />
+	<!-- <script name="RecordDataManager" file="scripts/manager_record_data.lua" /> -->
 	<script name="RecordIndexManager" file="scripts/manager_record_index.lua" />
 	<script name="RecordIndexViewManager" file="scripts/manager_record_index_view.lua" />
 	<script name="RecordShareManager" file="scripts/manager_record_share.lua" />
@@ -132,7 +133,7 @@
 	<script name="StringManager" file="scripts/manager_string.lua" />
 	<script name="StringUTF8Manager" file="scripts/manager_string_utf8.lua" />
 	<script name="UserManager" file="scripts/manager_user.lua" />
-	<script name="UtilityManager" file="scripts/manager_utility.lua" />
+	<!-- <script name="UtilityManager" file="scripts/manager_utility.lua" /> -->
 	<script name="VersionManager" file="scripts/manager_version.lua" />
 	<script name="VersionManager2" file="scripts/manager_version2.lua" />
 	<script name="WindowManager" file="scripts/manager_window.lua" />
@@ -144,7 +145,7 @@
 	<script name="ActorHealthManager" file="scripts/manager_actor_health.lua" />
 	<script name="ActionsManager" file="scripts/manager_actions.lua" />
 	<script name="CalendarManager" file="scripts/manager_calendar.lua" />
-	<script name="CombatManager" file="scripts/manager_combat.lua" />
+	<!-- <script name="CombatManager" file="scripts/manager_combat.lua" /> -->
 	<script name="CombatDropManager" file="scripts/manager_combat_drop.lua" />
 	<script name="CombatFormationManager" file="scripts/manager_combat_formation.lua" />
 	<script name="CombatRecordManager" file="scripts/manager_combat_record.lua" />
@@ -181,9 +182,9 @@
 	<script name="PowerManagerCore" file="scripts/manager_power_core.lua" />
 	<script name="QuickMapManager" file="scripts/manager_quickmap.lua" />
 	<script name="SoundsetManager" file="scripts/manager_soundset.lua" />
-	<script name="StoryManager" file="scripts/manager_story.lua" />
+	<!-- <script name="StoryManager" file="scripts/manager_story.lua" /> -->
 	<script name="ClassManager" file="scripts/manager_class.lua" />
-	<script name="AncestryManager" file="scripts/manager_ancestry.lua" />
+	<!-- <script name="AncestryManager" file="scripts/manager_ancestry.lua" /> -->
 	<script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" />
 	<script name="TableManager" file="scripts/manager_table.lua" />
 	<script name="TokenMoveManager" file="scripts/manager_token_move.lua" />
@@ -220,10 +221,10 @@
 	<includefile source="campaign/record_parcel.xml" />
 	<includefile source="campaign/record_quest.xml" />
 	<includefile source="campaign/record_soundset.xml" />
-	<includefile source="campaign/record_story.xml" />
-	<includefile source="campaign/record_story_advanced.xml" />
-	<includefile source="campaign/record_story_book.xml" />
-	<includefile source="campaign/record_storytemplate.xml" />
+	<!-- <includefile source="campaign/record_story.xml" /> -->
+	<!-- <includefile source="campaign/record_story_advanced.xml" /> -->
+	<!-- <includefile source="campaign/record_story_book.xml" /> -->
+	<!-- <includefile source="campaign/record_storytemplate.xml" /> -->
 	<includefile source="campaign/record_table.xml" />
 	<includefile source="campaign/record_vehicle.xml" />
 
@@ -244,12 +245,12 @@
 	<includefile source="campaign/record_power_item.xml" />
 	
 	<!-- Combat tracker -->
-	<includefile source="ct/template_ct_entry.xml" />
-	<includefile source="ct/template_ct_entry_section.xml" />
-	<includefile source="ct/ct_host_entry.xml" />
-	<includefile source="ct/ct_host_entry_section.xml" />
-	<includefile source="ct/ct_client_entry.xml" />
-	<includefile source="ct/ct_client_entry_section.xml" />
+	<includefile source="ct_DS/template_ct_entry.xml" />
+	<includefile source="ct_DS/template_ct_entry_section.xml" />
+	<includefile source="ct_DS/ct_host_entry.xml" />
+	<includefile source="ct_DS/ct_host_entry_section.xml" />
+	<includefile source="ct_DS/ct_client_entry.xml" />
+	<includefile source="ct_DS/ct_client_entry_section.xml" />
 
 	<includefile source="campaign/template_char.xml" />
 	<includefile source="campaign/template_char_ds.xml" />

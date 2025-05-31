@@ -243,9 +243,9 @@
 	<string name="library_recordtype_single_quest">Quest</string>
 	<string name="library_recordtype_empty_quest">&#171; New Quest &#187;</string>
 
-	<string name="library_recordtype_label_story">Story</string>
-	<string name="library_recordtype_single_story">Story</string>
-	<string name="library_recordtype_empty_story">&#171; New Story &#187;</string>
+	<string name="library_recordtype_label_story">Data</string>
+	<string name="library_recordtype_single_story">Data</string>
+	<string name="library_recordtype_empty_story">&#171; New Data &#187;</string>
 	<string name="library_recordtype_label_story_book">Books</string>
 	<string name="library_recordtype_single_story_book">Book</string>
 

@@ -1,5 +1,5 @@
--- 
--- Please see the license.html file included with this distribution for 
+--
+-- Please see the license.html file included with this distribution for
 -- attribution and copyright information.
 --
 
@@ -26,7 +26,7 @@ end
 --
 
 function initStoryIndex()
-	local tMappings = LibraryData.getMappings("story");
+	local tMappings = RecordDataManager.getDataPaths("story");
 	for _,sMapping in ipairs(tMappings) do
 		DB.addHandler(DB.getPath(sMapping, "*@*"), "onAdd", StoryManager.onStoryRecordAdd);
 		DB.addHandler(DB.getPath(sMapping, "*@*"), "onDelete", StoryManager.onStoryRecordDelete);
@@ -80,10 +80,10 @@ function addStoryIndexRecord(node, bInit)
 	if not tRecords then
 		return;
 	end
-	
+
 	local tRecord = {};
 	tRecord.vNode = node;
-	tRecord.sCategory = UtilityManager.getNodeCategory(node);
+	tRecord.sCategory = DB.getCategory(node);
 	tRecord.sDisplayName = DB.getValue(node, "name", "");
 	tRecord.sDisplayNameLower = Utility.convertStringToLower(tRecord.sDisplayName);
 	tRecords[node] = tRecord;
@@ -107,7 +107,7 @@ function updateStoryIndexRecordCategory(node)
 	if not tRecord then
 		return;
 	end
-	tRecord.sCategory = UtilityManager.getNodeCategory(node);
+	tRecord.sCategory = DB.getCategory(node);
 end
 function updateStoryIndexRecordName(node)
 	local sModule = DB.getModule(node);
@@ -139,7 +139,7 @@ function rebuildBookIndex(sModule)
 	for _,nodeChapter in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(sIndexPath), { "order" })) do
 		for _,nodeSection in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(nodeChapter, StoryManager.DEFAULT_BOOK_INDEX_SECTION_LIST), { "order" })) do
 			for _,nodePage in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(nodeSection, StoryManager.DEFAULT_BOOK_INDEX_PAGE_LIST), { "order" })) do
-				local sClass, sRecord = DB.getValue(nodePage, "listlink", "", "");
+				local _,sRecord = DB.getValue(nodePage, "listlink", "", "");
 				if sRecord ~= "" then
 					table.insert(tBookPages, { sPageRecord = DB.getPath(nodePage), sTargetRecord = sRecord, });
 				end
@@ -198,7 +198,7 @@ function rebuildNonBookIndex(sModule)
 	local tModulePages = StoryManager.clearNonBookPages(sModule);
 	for k,v in pairs(tRecords) do
 		if not StoryManager.isBookRecord(sModule, DB.getPath(k)) then
-			local sCategory = UtilityManager.getNodeCategory(v.vNode);
+			local sCategory = DB.getCategory(v.vNode);
 			tModulePages[sCategory] = tModulePages[sCategory] or {};
 			table.insert(tModulePages[sCategory], v);
 		end
@@ -230,8 +230,11 @@ function getStoryPrevRecord(sModule, sRecord, bRebuild)
 	if bRebuild then
 		StoryManager.rebuildStoryPageIndexes(sModule);
 	end
-	
+
 	local tBookPages = StoryManager.getBookPages(sModule);
+	if (sRecord or "") == "" then
+		return (tBookPages[#tBookPages] and tBookPages[#tBookPages].sTargetRecord) or nil;
+	end
 	for kPage,v in ipairs(tBookPages) do
 		if v.sTargetRecord == sRecord then
 			if tBookPages[kPage - 1] then
@@ -241,8 +244,8 @@ function getStoryPrevRecord(sModule, sRecord, bRebuild)
 			end
 		end
 	end
-	
-	local sCategory = UtilityManager.getNodeCategory(sRecord);
+
+	local sCategory = DB.getCategory(sRecord);
 	local tNonBookPages = StoryManager.getNonBookPages(sModule, sCategory);
 	for kPage,v in ipairs(tNonBookPages) do
 		if DB.getPath(v.vNode) == sRecord then
@@ -261,6 +264,9 @@ function getStoryNextRecord(sModule, sRecord, bRebuild)
 	end
 
 	local tBookPages = StoryManager.getBookPages(sModule);
+	if (sRecord or "") == "" then
+		return (tBookPages[1] and tBookPages[1].sTargetRecord) or nil;
+	end
 	for kPage,v in ipairs(tBookPages) do
 		if v.sTargetRecord == sRecord then
 			if tBookPages[kPage + 1] then
@@ -270,8 +276,8 @@ function getStoryNextRecord(sModule, sRecord, bRebuild)
 			end
 		end
 	end
-	
-	local sCategory = UtilityManager.getNodeCategory(sRecord);
+
+	local sCategory = DB.getCategory(sRecord);
 	local tNonBookPages = StoryManager.getNonBookPages(sModule, sCategory);
 	for kPage,v in ipairs(tNonBookPages) do
 		if DB.getPath(v.vNode) == sRecord then
@@ -402,14 +408,23 @@ function handlePageTop(w, sRecord)
 		StoryManager.activateLink(wBook, w.getClass(), sRecord);
 	end
 end
+function handlePageFirst(w, sModule)
+	if (sModule or "") == "" then
+		return;
+	end
+	local sPath = StoryManager.getStoryNextRecord(sModule, nil, true) or "";
+	if sPath ~= "" then
+		StoryManager.activateLink(w, nil, sPath);
+	end
+end
 function handlePagePrev(w, sRecord)
 	if (sRecord or "") == "" then
 		return;
 	end
 	local sModule = DB.getModule(sRecord);
-	local sPrevPath = StoryManager.getStoryPrevRecord(sModule, sRecord, true) or "";
-	if sPrevPath ~= "" then
-		StoryManager.activateLink(w, nil, sPrevPath);
+	local sPath = StoryManager.getStoryPrevRecord(sModule, sRecord, true) or "";
+	if sPath ~= "" then
+		StoryManager.activateLink(w, nil, sPath);
 	end
 end
 function handlePageNext(w, sRecord)
@@ -417,9 +432,18 @@ function handlePageNext(w, sRecord)
 		return;
 	end
 	local sModule = DB.getModule(sRecord);
-	local sNextPath = StoryManager.getStoryNextRecord(sModule, sRecord, true) or "";
-	if sNextPath ~= "" then
-		StoryManager.activateLink(w, nil, sNextPath);
+	local sPath = StoryManager.getStoryNextRecord(sModule, sRecord, true) or "";
+	if sPath ~= "" then
+		StoryManager.activateLink(w, nil, sPath);
+	end
+end
+function handlePageLast(w, sModule)
+	if (sModule or "") == "" then
+		return;
+	end
+	local sPath = StoryManager.getStoryPrevRecord(sModule, nil, true) or "";
+	if sPath ~= "" then
+		StoryManager.activateLink(w, nil, sPath);
 	end
 end
 
@@ -440,7 +464,7 @@ function activateLink(w, sClass, sRecord, bPopOut)
 	local wTop = UtilityManager.getTopWindow(w);
 	local sTopClass = wTop.getClass();
 	if (sTopClass ~= "reference_manual") then
-		local tRecordTypes = LibraryData.getAllRecordTypesFromDisplayClass(sTopClass);
+		local tRecordTypes = RecordDataManager.getAllRecordTypesFromDisplayClass(sTopClass);
 		if not StringManager.contains(tRecordTypes, "story") then
 			if sClass then
 				Interface.openWindow(sClass, sRecord);
@@ -450,7 +474,7 @@ function activateLink(w, sClass, sRecord, bPopOut)
 	end
 
 	if not sClass then
-		sClass = LibraryData.getRecordDisplayClass(LibraryData.getRecordTypeFromRecordPath(sRecord), sRecord);
+		sClass = RecordDataManager.getRecordTypeDisplayClass(RecordDataManager.getRecordTypeFromRecordPath(sRecord), sRecord);
 	end
 	if (sClass or "") == "" then
 		-- Handle special legacy case of embedded reference manual page data
@@ -466,27 +490,28 @@ function activateLink(w, sClass, sRecord, bPopOut)
 
 	if sTopClass == "reference_manual" then
 		local sModule = DB.getModule(sRecord);
-		if sModule ~= DB.getModule(w.getDatabaseNode()) then
+		if (sModule ~= "") and (sModule ~= DB.getModule(w.getDatabaseNode())) then
 			if StoryManager.isBookRecord(sModule, sRecord, true) then
 				local wNew = Interface.openWindow("reference_manual", string.format("%s@%s", StoryManager.DEFAULT_BOOK_INDEX, sModule));
 				StoryManager.activateLink(wNew, sClass, sRecord);
 				return;
 			end
+			StoryManager.openLinkInNewWindow(sClass, sRecord);
+			return;
 		end
 	end
 
-	if not bPopOut then
+	if bPopOut then
+		StoryManager.openLinkInNewWindow(sClass, sRecord);
+	else
 		StoryManager.activateEmbeddedLink(wTop, sClass, sRecord);
-		return;
 	end
-
-	Interface.openWindow(sClass, sRecord);
 end
 function activateEmbeddedLink(w, sClass, sRecord)
 	local bManual = (w.getClass() == "reference_manual");
 
 	if not bManual or (sClass ~= "story_book_page_simple" and sClass ~= "story_book_page_advanced") then
-		local sRecordType = LibraryData.getRecordTypeFromDisplayClass(sClass);
+		local sRecordType = RecordDataManager.getRecordTypeFromDisplayClass(sClass);
 		if sRecordType ~= "story" then
 			if (sClass or "") ~= "" then
 				Interface.openWindow(sClass, sRecord);
@@ -520,6 +545,14 @@ function activateEmbeddedLink(w, sClass, sRecord)
 		end
 	end
 end
+function openLinkInNewWindow(sClass, sRecord)
+	if StringManager.contains({ "story_book_page_advanced", "reference_manualtextwide", }, sClass) then
+		sClass = "referencemanualpage";
+	elseif sClass == "story_book_page_simple" then
+		sClass = "encounter";
+	end
+	Interface.openWindow(sClass, sRecord);
+end
 
 --
 --	GENERAL - UTILITY
@@ -538,16 +571,16 @@ function updateOrderValues(cList)
 		local nodeChild = wChild.getDatabaseNode();
 		table.insert(tChildRecords, { win = wChild, sName = DB.getName(nodeChild), nOrder = DB.getValue(nodeChild, "order", 0) });
 	end
- 	table.sort(tChildRecords, function (a, b) if a.nOrder ~= b.nOrder then return a.nOrder < b.nOrder; end return a.sName < b.sName end);
+	table.sort(tChildRecords, function (a, b) if a.nOrder ~= b.nOrder then return a.nOrder < b.nOrder; end return a.sName < b.sName end);
 
- 	local tResults = {};
- 	for kChildWinRecord,tChildWinRecord in ipairs(tChildRecords) do
- 		if tChildWinRecord.nOrder ~= kChildWinRecord then
+	local tResults = {};
+	for kChildWinRecord,tChildWinRecord in ipairs(tChildRecords) do
+		if tChildWinRecord.nOrder ~= kChildWinRecord then
 			StoryManager.setWindowOrderValue(tChildWinRecord.win, kChildWinRecord);
- 		end
- 		tResults[kChildWinRecord] = tChildWinRecord.win;
- 	end
- 	return tResults;
+		end
+		tResults[kChildWinRecord] = tChildWinRecord.win;
+	end
+	return tResults;
 end
 
 --
@@ -671,20 +704,46 @@ function onBookIndexMoveUp(w)
 	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
 	local sClass = w.getClass();
+	local nOrder = StoryManager.getWindowOrderValue(w);
+
+	-- Determine move distance: 1, 5 (Shift), Top (Control)
+	local nMoveStep = 1;
+	if Input.isShiftPressed() then
+		nMoveStep = 5;
+	elseif Input.isControlPressed() then
+		nMoveStep = nOrder - 1;
+	end
+
 	if sClass == "story_book_index_chapter" then
-		local nOrder = StoryManager.getWindowOrderValue(w);
 		if nOrder > 1 then
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder - 1], nOrder);
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder - 1);
+			local nNewOrder = math.max(1, nOrder - nMoveStep); -- Ensure we don't move above the first position
+
+			-- Remove the current chapter and shift all chapters in between
+			for i = nOrder - 1, nNewOrder, -1 do
+				local wOther = tOrderedChildren[i];
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
+			end
+			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nNewOrder);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
 		end
 	end
+
 	if sClass == "story_book_index_section" then
-		local nOrder = StoryManager.getWindowOrderValue(w);
 		if nOrder > 1 then
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder - 1], nOrder);
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder - 1);
+			local nNewOrder = math.max(1, nOrder - nMoveStep); -- Ensure we don't move above the first position
+
+			-- Remove the current subchapter and shift all subchapters in between
+			for i = nOrder - 1, nNewOrder, -1 do
+				local wOther = tOrderedChildren[i];
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
+			end
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
+
 		elseif nOrder == 1 then
 			local wChapter = w.windowlist.window;
 			local cChapterParentList = wChapter.windowlist;
@@ -699,12 +758,22 @@ function onBookIndexMoveUp(w)
 			end
 		end
 	end
+
 	if sClass == "story_book_index_page" then
-		local nOrder = StoryManager.getWindowOrderValue(w);
 		if nOrder > 1 then
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder - 1], nOrder);
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder - 1);
+			local nNewOrder = math.max(1, nOrder - nMoveStep); -- Ensure we don't move above the first position
+
+			-- Remove the current page and shift all pages in between
+			for i = nOrder - 1, nNewOrder, -1 do
+				local wOther = tOrderedChildren[i];
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
+			end
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
+			StoryManager.updateOrderValues(cParentList);
+
 		elseif nOrder == 1 then
 			local wSection = w.windowlist.window;
 			local cSectionParentList = wSection.windowlist;
@@ -734,6 +803,7 @@ function onBookIndexMoveUp(w)
 		end
 	end
 end
+
 function onBookIndexMoveDown(w)
 	local cParentList = w.windowlist;
 	local nodeList = cParentList.getDatabaseNode();
@@ -743,21 +813,52 @@ function onBookIndexMoveDown(w)
 	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
 	local sClass = w.getClass();
+	local nOrder = StoryManager.getWindowOrderValue(w);
+
+	-- Determine move distance: 1, 5 (Shift), Bottom (Control)
+	local nMoveStep = 1;
+	if Input.isShiftPressed() then
+		nMoveStep = 5;
+	elseif Input.isControlPressed() then
+		nMoveStep = (#tOrderedChildren - nOrder) +1;
+	end
+
 	if sClass == "story_book_index_chapter" then
-		local nOrder = StoryManager.getWindowOrderValue(w);
 		if nOrder < #tOrderedChildren then
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder + 1], nOrder);
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder + 1);
+			-- Ensure it doesn't go beyond the last position
+			local nNewOrder = math.min(#tOrderedChildren, nOrder + nMoveStep);
+
+			-- Remove the current chapter and shift all chapters in between
+			for i = nOrder + 1, nNewOrder do
+				local wOther = tOrderedChildren[i];
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
+			end
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
+			tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 		end
 	end
 	if sClass == "story_book_index_section" then
-		local nOrder = StoryManager.getWindowOrderValue(w);
 		if nOrder < #tOrderedChildren then
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder + 1], nOrder);
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder + 1);
+			-- Ensure it doesn't go beyond the last position
+			local nNewOrder = math.min(#tOrderedChildren, nOrder + nMoveStep);
+
+			-- Remove the current subchapter and shift all subchapters in between
+			for i = nOrder + 1, nNewOrder do
+				local wOther = tOrderedChildren[i];
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
+			end
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+
+			tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
+
 		elseif nOrder == #tOrderedChildren then
+			-- Move to the top of the next chapter
 			local wChapter = w.windowlist.window;
 			local cChapterParentList = wChapter.windowlist;
 			local tChapterOrderedChildren = StoryManager.updateOrderValues(cChapterParentList);
@@ -772,12 +873,23 @@ function onBookIndexMoveDown(w)
 		end
 	end
 	if sClass == "story_book_index_page" then
-		local nOrder = StoryManager.getWindowOrderValue(w);
 		if nOrder < #tOrderedChildren then
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder + 1], nOrder);
-			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder + 1);
+			-- Ensure it doesn't go beyond the last position
+			local nNewOrder = math.min(#tOrderedChildren, nOrder + nMoveStep);
+
+			-- Remove teh current page and shift all pages in between
+			for i = nOrder + 1, nNewOrder do
+				local wOther = tOrderedChildren[i];
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
+			end
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
+
 		elseif nOrder == #tOrderedChildren then
+			-- Move to the bottom of the list
 			local wSection = w.windowlist.window;
 			local cSectionParentList = wSection.windowlist;
 			local tSectionOrderedChildren = StoryManager.updateOrderValues(cSectionParentList);
@@ -806,6 +918,7 @@ function onBookIndexMoveDown(w)
 		end
 	end
 end
+
 function onBookIndexMoveHelper(w, cList, bDown)
 	local tOrderedChildren = StoryManager.updateOrderValues(cList);
 	if bDown then
@@ -829,7 +942,7 @@ end
 function onBookIndexDrop(w, draginfo)
 	if draginfo.isType("shortcut") then
 		local sClass, sRecord = draginfo.getShortcutData();
-		local sRecordType = LibraryData.getRecordTypeFromRecordPath(sRecord);
+		local sRecordType = RecordDataManager.getRecordTypeFromRecordPath(sRecord);
 		if sRecordType == "story" then
 			return StoryManager.onBookIndexStoryDrop(w, sClass, sRecord);
 		end
@@ -878,7 +991,7 @@ function onBookIndexStoryDrop(w, sClass, sRecord)
 	end
 end
 
--- 
+--
 --	BOOK - EXPORT - KEYWORD GEN
 --
 
@@ -1161,12 +1274,55 @@ function onBlockMoveUp(wBlock)
 	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
 	local nOrder = StoryManager.getWindowOrderValue(wBlock);
+
+	-- If Alt key is pressed, duplicate the block and place it before the current block
+	if Input.isAltPressed() then
+		-- Create a duplicate block
+		local newBlock = cParentList.createWindow();
+		DB.copyNode(wBlock.getDatabaseNode(), newBlock.getDatabaseNode());
+		StoryManager.onBlockNodeRebuild(newBlock.getDatabaseNode());
+
+		-- Shift all blocks after the current one down by 1
+		for i = #tOrderedChildren, nOrder, -1 do
+			StoryManager.setWindowOrderValue(tOrderedChildren[i], i + 1);
+		end
+
+		-- Set the order for the new duplicate block
+		StoryManager.setWindowOrderValue(newBlock, nOrder);
+
+		-- Apply sorting to reflect the new order
+		cParentList.applySort();
+		StoryManager.updateOrderValues(cParentList);
+		return; -- Exit after duplication and reordering
+	end
+
+	-- Determine the move step based on Shift or Control keys
+	local nMoveStep = 1; -- Default move by 1
+	if Input.isShiftPressed() then
+		-- move the block up 5 spots
+		nMoveStep = 5; -- Move by 5 if Shift is pressed
+	elseif Input.isControlPressed() then
+		-- Move the block to the top of the list
+		nMoveStep = nOrder - 1; -- Move to the top if Control is pressed
+	end
+
+	-- Move the block up by the determined step
 	if nOrder > 1 then
-		StoryManager.setWindowOrderValue(tOrderedChildren[nOrder - 1], nOrder);
-		StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder - 1);
+		local nNewOrder = math.max(1, nOrder - nMoveStep); -- Ensure it doesn't move above the first position
+
+		-- Remove the current block and shift all blocks in between
+		for i = nOrder, nNewOrder + 1, -1 do
+			StoryManager.setWindowOrderValue(tOrderedChildren[i - 1], i);
+		end
+
+		-- Set the new order for the current block
+		StoryManager.setWindowOrderValue(wBlock, nNewOrder);
+
+		-- Apply sorting to reflect the changes
 		cParentList.applySort();
 	end
 end
+
 function onBlockMoveDown(wBlock)
 	local cParentList = wBlock.windowlist;
 	local nodeList = cParentList.getDatabaseNode();
@@ -1176,9 +1332,51 @@ function onBlockMoveDown(wBlock)
 	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
 	local nOrder = StoryManager.getWindowOrderValue(wBlock);
+
+	-- If Alt key is pressed, duplicate the block and place it below the current block
+	if Input.isAltPressed() then
+
+		-- Create a duplicate block
+		local newBlock = cParentList.createWindow();
+		DB.copyNode(wBlock.getDatabaseNode(), newBlock.getDatabaseNode());
+		StoryManager.onBlockNodeRebuild(newBlock.getDatabaseNode());
+
+		-- Shift all blocks after the current one down by 1
+		for i = #tOrderedChildren, nOrder + 1, -1 do
+			StoryManager.setWindowOrderValue(tOrderedChildren[i], i + 1);
+		end
+
+		-- Set the order for the new duplicate block
+		StoryManager.setWindowOrderValue(newBlock, nOrder + 1);
+
+		-- Apply sorting to reflect the new order
+		cParentList.applySort();
+		return; -- Exit after duplication and reordering
+	end
+
+	-- Determine the move step based on Shift or Control keys
+	local nMoveStep = 1; -- Default move by 1
+	if Input.isShiftPressed() then
+		-- Move the block down by 5 spots
+		nMoveStep = 5; -- Move by 5 if Shift is pressed
+	elseif Input.isControlPressed() then
+		-- move the block to the bottom of the list
+		nMoveStep = #tOrderedChildren - nOrder; -- Move to the end if Control is pressed
+	end
+
+	-- Move the block down by the determined step
 	if nOrder < #tOrderedChildren then
-		StoryManager.setWindowOrderValue(tOrderedChildren[nOrder + 1], nOrder);
-		StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nOrder + 1);
+		local nNewOrder = math.min(#tOrderedChildren, nOrder + nMoveStep); -- Ensure it doesn't go beyond the last position
+
+		-- Remove the current block and shift all blocks in between
+		for i = nOrder, nNewOrder - 1 do
+			StoryManager.setWindowOrderValue(tOrderedChildren[i + 1], i);
+		end
+
+		-- Set the new order for the current block
+		StoryManager.setWindowOrderValue(wBlock, nNewOrder);
+
+		-- Apply sorting to reflect the changes
 		cParentList.applySort();
 	end
 end
@@ -1196,7 +1394,7 @@ function onBlockDrop(wBlock, draginfo)
 	local sDragType = draginfo.getType();
 	if sDragType == "shortcut" then
 		local sClass,sRecord = draginfo.getShortcutData();
-		if LibraryData.getRecordTypeFromDisplayClass(sClass) == "image" then
+		if RecordDataManager.getRecordTypeFromDisplayClass(sClass) == "image" then
 			local nodeDrag = draginfo.getDatabaseNode();
 			local sAsset = DB.getText(nodeDrag, "image", "");
 			local sName = DB.getValue(nodeDrag, "name", "");
@@ -1272,10 +1470,10 @@ function updateBlockControls(wBlock, bReadOnly)
 	StoryManager.updateBlockEditControls(wBlock, bReadOnly);
 end
 function updateBlockTextControls(wBlock, bReadOnly)
-	updateBlockTextControlHelper(wBlock.header, bReadOnly);
-	updateBlockTextControlHelper(wBlock.text, bReadOnly);
-	updateBlockTextControlHelper(wBlock.text_left, bReadOnly);
-	updateBlockTextControlHelper(wBlock.text_right, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.header, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.text, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.text_left, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.text_right, bReadOnly);
 
 	if bReadOnly then
 		if wBlock.button_frameselect then
@@ -1321,53 +1519,20 @@ function updateBlockTextControlHelper(c, bReadOnly)
 	end
 end
 function updateBlockImageControls(wBlock, bReadOnly)
+	if wBlock.caption then
+		local bCaptionEmpty = (wBlock.caption.getValue() == "");
+
+		wBlock.caption.setVisible(not bReadOnly or not bCaptionEmpty);
+		wBlock.caption.setReadOnly(bReadOnly);
+		if bReadOnly then
+			wBlock.caption.setBackColor();
+		else
+			wBlock.caption.setBackColor(_sBlockTextEditBackColor);
+		end
+	end
+
 	if wBlock.image then
-		local bHasImageLink = StoryManager.getBlockImageLinkBool(wBlock);
-
-		if bHasImageLink then
-			if not wBlock.imagelink then
-				wBlock.createControl("linkc_story_block_image_clickcapture", "imagelink");
-			end
-		else
-			if wBlock.imagelink then
-				wBlock.imagelink.destroy();
-			end
-		end
-
-		if wBlock.caption then
-			local bCaptionEmpty = (wBlock.caption.getValue() == "");
-			local bUseCaptionLink = (bReadOnly and not bCaptionEmpty and bHasImageLink);
-
-			wBlock.caption.setVisible(not bReadOnly or not bCaptionEmpty);
-			wBlock.caption.setReadOnly(bReadOnly);
-			wBlock.caption.setUnderline(bHasImageLink);
-			if bReadOnly then
-				wBlock.caption.setBackColor();
-			else
-				wBlock.caption.setBackColor(_sBlockTextEditBackColor);
-			end
-
-			if bUseCaptionLink then
-				if not wBlock.captionlink then
-					wBlock.createControl("linkc_story_block_image_caption_clickcapture", "captionlink", "imagelink");
-				end
-			else
-				if wBlock.captionlink then
-					wBlock.captionlink.destroy();
-				end
-			end
-		end
-
-		if bReadOnly or not bHasImageLink then
-			if wBlock.button_image_linkclear then
-				wBlock.button_image_linkclear.destroy();
-			end
-		else
-			if not wBlock.button_image_linkclear then
-				wBlock.createControl("button_story_block_image_linkclear", "button_image_linkclear");
-			end
-		end
-
+		wBlock.image.setReadOnly(bReadOnly);
 		if bReadOnly then
 			if wBlock.button_image_sizeclear then
 				wBlock.button_image_sizeclear.destroy();
@@ -1416,15 +1581,6 @@ function updateBlockImageControls(wBlock, bReadOnly)
 			end
 		end
 	else
-		if wBlock.imagelink then
-			wBlock.imagelink.destroy();
-		end
-		if wBlock.captionlink then
-			wBlock.captionlink.destroy();
-		end
-		if wBlock.button_image_linkclear then
-			wBlock.button_image_linkclear.destroy();
-		end
 		if wBlock.button_image_scaleup then
 			wBlock.button_image_scaleup.destroy();
 		end
@@ -1533,7 +1689,7 @@ function onBlockRebuild(wBlock)
 		-- Dual columns
 		elseif #tAlign >= 2 then
 			StoryManager.addBlockText(wBlock, tAlign[1]);
-			
+
 			if sBlockType:match("image") or sBlockType:match("picture") then
 				StoryManager.addBlockImage(wBlock, tAlign[2]);
 			elseif sBlockType:match("icon") then
@@ -1591,17 +1747,8 @@ function clearBlockImageControls(wBlock)
 	if wBlock.button_image_sizeclear then
 		wBlock.button_image_sizeclear.destroy();
 	end
-	if wBlock.button_image_linkclear then
-		wBlock.button_image_linkclear.destroy();
-	end
-	if wBlock.captionlink then
-		wBlock.captionlink.destroy();
-	end
 	if wBlock.caption then
 		wBlock.caption.destroy();
-	end
-	if wBlock.imagelink then
-		wBlock.imagelink.destroy();
 	end
 	if wBlock.image then
 		wBlock.image.destroy();
@@ -1622,9 +1769,9 @@ end
 function getBlockFrame(wBlock, sAlign)
 	local sFrame;
 	if sAlign == "left" then
-	 	sFrame = DB.getValue(wBlock.getDatabaseNode(), "frameleft", "");
+		sFrame = DB.getValue(wBlock.getDatabaseNode(), "frameleft", "");
 	else
-	 	sFrame = DB.getValue(wBlock.getDatabaseNode(), "frame", "");
+		sFrame = DB.getValue(wBlock.getDatabaseNode(), "frame", "");
 	end
 	if sFrame == "noframe" then
 		sFrame = "";
@@ -1633,23 +1780,23 @@ function getBlockFrame(wBlock, sAlign)
 end
 function getBlockImageData(wBlock, sAlign)
 	local node = wBlock.getDatabaseNode();
-	local sAsset = DB.getText(node, "image", "");
+	local sAsset = DB.getText(node, "picture", "");
 	if sAsset == "" then
-		sAsset = DB.getText(node, "picture", "")
+		sAsset = DB.getText(node, "image", "");
 	end
 
 	local tImageSize = {};
 	tImageSize.w, tImageSize.h = Interface.getAssetSize(sAsset);
 
- 	local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
- 	if tLegacySize then
- 		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, tLegacySize.w, tLegacySize.h);
- 	end
+	local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
+	if tLegacySize then
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, tLegacySize.w, tLegacySize.h);
+	end
 
 	if (sAlign == "left") or (sAlign == "right") then
-		applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
 	else
-		applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
 	end
 
 	local nScale = tonumber(DB.getValue(node, "scale")) or 100;
@@ -1660,7 +1807,7 @@ function getBlockImageData(wBlock, sAlign)
 		tImageSize.w = math.ceil((tImageSize.w * nScale) / 100);
 		tImageSize.h = math.ceil((tImageSize.h * nScale) / 100);
 	end
-	
+
 	if tImageSize.w == 0 then
 		tImageSize.w = _nMinImageWidth;
 		tImageSize.h = tImageSize.w;
@@ -1671,10 +1818,6 @@ function getBlockImageData(wBlock, sAlign)
 	end
 
 	return sAsset, tImageSize.w, tImageSize.h;
-end
-function getBlockImageLinkBool(wBlock)
-	local sLinkClass, sLinkRecord = DB.getValue(wBlock.getDatabaseNode(), "imagelink", "", "");
-	return (sLinkClass ~= "") and (sLinkRecord ~= "");
 end
 function getBlockImageScale(wBlock)
 	local nScale = tonumber(DB.getValue(wBlock.getDatabaseNode(), "scale")) or 100;
@@ -1702,18 +1845,18 @@ function getBlockIconData(wBlock, sAlign)
 
 	local tImageSize = { w = 100, h = 100 };
 
- 	local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
- 	if tLegacySize then
- 		tImageSize.w = tLegacySize.w;
- 		tImageSize.h = tLegacySize.h;
- 	end
+	local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
+	if tLegacySize then
+		tImageSize.w = tLegacySize.w;
+		tImageSize.h = tLegacySize.h;
+	end
 
 	if (sAlign == "left") or (sAlign == "right") then
-		applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
 	else
-		applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
 	end
-	
+
 	return sAsset, tImageSize.w, tImageSize.h;
 end
 function applyBlockGraphicSizeMaxHelper(tImageSize, nMaxW, nMaxH)
@@ -1832,8 +1975,7 @@ function addBlockText(wBlock, sAlign, bUseSecondField)
 	end
 end
 function addBlockImage(wBlock, sAlign)
-	local node = wBlock.getDatabaseNode();
-	local sAsset, wImage, hImage = StoryManager.getBlockImageData(wBlock, sAlign);
+	local sAsset = StoryManager.getBlockImageData(wBlock, sAlign);
 
 	local cImage = wBlock.image;
 	if not cImage then
@@ -1855,8 +1997,7 @@ function addBlockImage(wBlock, sAlign)
 	end
 end
 function addBlockIcon(wBlock, sAlign)
-	local node = wBlock.getDatabaseNode();
-	local sIcon, wImage, hImage = StoryManager.getBlockIconData(wBlock, sAlign);
+	local sIcon = StoryManager.getBlockIconData(wBlock, sAlign);
 
 	local cIcon = wBlock.icon;
 	if not cIcon then
@@ -1912,6 +2053,50 @@ function adjustBlockToImageSize(wBlock)
 end
 
 --
+--	STORY (ADVANCED) - UI - IMAGE
+--
+
+function onImageDrag(wBlock, draginfo)
+	if not draginfo or not wBlock or not wBlock.image then
+		return;
+	end
+
+	local sClass, sRecord = DB.getValue(wBlock.getDatabaseNode(), "imagelink", "", "");
+	if (sClass ~= "") and (sRecord ~= "") then
+		draginfo.setType("shortcut");
+		draginfo.setIcon("button_link");
+		draginfo.setShortcutData(sClass, sRecord);
+		draginfo.setDescription(DB.getValue(DB.findNode(sRecord), "name", ""));
+		return true;
+	end
+
+	local sAsset = wBlock.image.getAsset();
+	if (sAsset or "") ~= "" then
+		draginfo.setType("image");
+		draginfo.setTokenData(sAsset);
+		return true;
+	end
+end
+function onImagePressed(wBlock)
+	if not wBlock or not wBlock.image then
+		return;
+	end
+
+	local sClass, sRecord = DB.getValue(wBlock.getDatabaseNode(), "imagelink", "", "");
+	if (sClass ~= "") and (sRecord ~= "") then
+		Interface.openWindow(sClass, sRecord);
+	else
+		local sAsset = wBlock.image.getAsset();
+		if (sAsset or "") ~= "" then
+			local wPreview = Interface.openWindow("asset_preview", "");
+			if wPreview then
+				wPreview.setData(sAsset, "image");
+			end
+		end
+	end
+end
+
+--
 --	STORY (ADVANCED) - UI - COPY/PASTE
 --
 
@@ -1938,7 +2123,7 @@ function onCopyButtonPressed(c)
 	StoryManager.performRecordCopy(c.window);
 end
 function onPasteButtonInit(c)
-	c.update();
+	c.onStateChanged();
 end
 function onPasteButtonPressed(c)
 	StoryManager.performRecordPaste(c.window);
@@ -1983,7 +2168,7 @@ function performRecordPaste(wRecord)
 	local sPasteRecord = StoryManager.getPasteRecord();
 	if sPasteRecord == "" then
 		return;
-	end 
+	end
 
 	local nodeRecord = wRecord.getDatabaseNode();
 	local tSrcBlockList = DB.getChildList(DB.getPath(sPasteRecord, "blocks"));
@@ -2005,19 +2190,18 @@ end
 --
 
 function initRecordLegacyText(wRecord)
-	local node = wRecord.getDatabaseNode(); 
+	local node = wRecord.getDatabaseNode();
 	local sOldText = DB.getValue(node, "text");
 	if (sOldText or "") == "" then
 		return;
 	end
 
-	local cText = wRecord.text_legacy;
-	if not cText then
-		cText = wRecord.createControl("ft_story_advanced_text_legacy", "text_legacy");
+	if not wRecord.text_legacy then
+		wRecord.createControl("ft_story_advanced_text_legacy", "text_legacy");
 	end
 end
 function migrateRecordLegacyTextToBlock(wRecord)
-	local node = wRecord.getDatabaseNode(); 
+	local node = wRecord.getDatabaseNode();
 	local sOldText = DB.getValue(node, "text");
 	if (sOldText or "") == "" then
 		return;

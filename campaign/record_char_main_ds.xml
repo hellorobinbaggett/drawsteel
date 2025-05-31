@@ -295,7 +295,7 @@
 			</frame_char>
 			<label_frametop>
 				<anchored to="conditionsframe" />
-				<static textres="char_label_uniqueeffects" />
+				<static textres="char_label_conditions" />
 			</label_frametop>
 			<stringu name="conditions">
 				<anchored to="conditionsframe">

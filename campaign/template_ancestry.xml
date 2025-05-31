@@ -389,7 +389,7 @@
 			<invisible />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 					setIcons("button_ref_block_" .. blocktype[1]);
 					setTooltipText(Interface.getString("story_tooltip_block_" .. blocktype[1]));
 				end
@@ -435,7 +435,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_linkclear" tooltipres="story_tooltip_block_image_linkclear" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					DB.setValue(window.getDatabaseNode(), "imagelink", "windowreference", "", "");
@@ -450,7 +450,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_scaleup" tooltipres="story_tooltip_block_image_scaleup" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					AncestryManager.onBlockScaleUp(window);
@@ -464,7 +464,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_scaledown" tooltipres="story_tooltip_block_image_scaledown" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					AncestryManager.onBlockScaleDown(window);
@@ -478,7 +478,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_sizeclear" tooltipres="story_tooltip_block_image_sizeclear" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					AncestryManager.onBlockSizeClear(window);
@@ -492,7 +492,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_frame" tooltipres="story_tooltip_block_frame" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					local bLeft = (frameleft ~= nil);
