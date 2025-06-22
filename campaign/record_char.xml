@@ -29,10 +29,10 @@
 				<class>charsheet_abilities</class>
 			</sub_charsheet>
 
-			<!-- TODO: Skills Tab -->
-			<!-- <sub_charsheet name="skills_ds">
+			<!-- Skills Tab -->
+			<sub_charsheet name="skills_ds">
 				<class>charsheet_skills_ds</class>
-			</sub_charsheet> -->
+			</sub_charsheet>
 
 			<sub_charsheet name="modifiers">
 				<class>charsheet_modifiers</class>

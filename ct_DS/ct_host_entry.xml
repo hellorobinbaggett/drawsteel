@@ -59,7 +59,7 @@
 		</sheetdata>
 	</windowclass>
 
-<!-- General combat tracker window -->
+<!-- heroes combat tracker window -->
 	<windowclass name="ct_entry_heroes">
 		<margins control="0,0,0,2" />
 		<frame>ctentrybox</frame>
@@ -93,7 +93,7 @@
 		</sheetdata>
 	</windowclass>
 
-<!-- General combat tracker window -->
+<!-- monsters combat tracker window -->
 	<windowclass name="ct_entry_monsters">
 		<margins control="0,0,0,2" />
 		<frame>ctentrybox</frame>

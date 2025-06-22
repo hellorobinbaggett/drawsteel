@@ -14,10 +14,10 @@
 	</description>
 
 	<!-- Announcements -->
-	<announcement text="=======DEV BUILD=======" /> 
+	<!-- <announcement text="=======DEV BUILD=======" />  -->
 	<announcement text=" 
 	" font="emotefont" icon="rulesetlogo_DrawSteel" />
-	<announcement text="Draw Steel Ruleset v.083 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Ruleset v.0851 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	<announcement text="To report bugs/request features: EXXODIS on Discord
 	" font="emotefont" icon="" />

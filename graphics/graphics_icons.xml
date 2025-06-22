@@ -218,6 +218,7 @@
 
 	<!-- Tokens - Effects - Conditions -->
 	<icon name="cond_blinded" file="graphics/token/token_cond_blinded.png" />
+	<icon name="cond_bleeding" file="graphics/token/token_cond_bleeding.png" />
 	<icon name="cond_charmed" file="graphics/token/token_cond_charmed.png" />
 	<icon name="cond_confused" file="graphics/token/token_cond_confused.png" />
 	<icon name="cond_dazed" file="graphics/token/token_cond_dazed.png" />
