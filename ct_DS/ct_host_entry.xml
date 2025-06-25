@@ -62,11 +62,11 @@
 <!-- heroes combat tracker window -->
 	<windowclass name="ct_entry_heroes">
 		<margins control="0,0,0,2" />
-		<frame>ctentrybox</frame>
+		<frame>ctentrybox_friend</frame>
 		<sizelimits>
 			<minimum height="40" />
 		</sizelimits>
-		<script file="ct/scripts/ct_entry_heroes.lua" />
+		<script file="ct_DS/scripts/ct_entry_heroes.lua" />
 		<sheetdata>
 			<htx name="token3Dflat" />
 			<hs name="tokenrefid" />
@@ -84,7 +84,7 @@
 			<button_ct_entry_idelete name="idelete" />
 			<link_ct_entry name="link" />
 
-			<button_ctentry_friendfoe name="friendfoe" />
+			<button_ctentry_friend name="friendfoe" />
 
 			<string_ct_entry_name name="name" />
 
@@ -96,11 +96,11 @@
 <!-- monsters combat tracker window -->
 	<windowclass name="ct_entry_monsters">
 		<margins control="0,0,0,2" />
-		<frame>ctentrybox</frame>
+		<frame>ctentrybox_foe</frame>
 		<sizelimits>
 			<minimum height="40" />
 		</sizelimits>
-		<script file="ct/scripts/ct_entry_monsters.lua" />
+		<script file="ct_DS/scripts/ct_entry_monsters.lua" />
 		<sheetdata>
 			<htx name="token3Dflat" />
 			<hs name="tokenrefid" />
@@ -118,7 +118,7 @@
 			<button_ct_entry_idelete name="idelete" />
 			<link_ct_entry name="link" />
 
-			<button_ctentry_friendfoe name="friendfoe" />
+			<button_ctentry_foe name="friendfoe" />
 
 			<string_ct_entry_name name="name" />
 

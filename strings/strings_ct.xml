@@ -8,7 +8,7 @@
 <root>
 	<string name="ct_window_title">Combat Tracker</string>
 	
-	<string name="ct_emptylist">Drop PC, NPC or encounter links to add entries.</string>
+	<string name="ct_emptylist">Drag PC and NPC links from below.</string>
 
 	<string name="menu_init">Initiative</string>
 	<string name="menu_initall">Roll All Initiatives</string>

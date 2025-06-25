@@ -21,7 +21,7 @@
 			<anchored>
 			</anchored>
 			<bounds>18,418,280,-70</bounds>
-			<datasource>.list</datasource>
+			<datasource>.list_heroes</datasource>
 		</list_content>
 	</template>
 
@@ -30,7 +30,7 @@
 			<anchored>
 			</anchored>
 			<bounds>298,418,-30,-70</bounds>
-			<datasource>.list</datasource>
+			<datasource>.list_monsters</datasource>
 		</list_content>
 	</template>
 
@@ -168,18 +168,18 @@
 	<template name="list_ct_host_heroes">
 		<list_ctbox_base_heroes>
 			<class>ct_entry_heroes</class>
-			<empty font="list-empty-ct" textres="ct_emptylist" />
+			<empty font="list-empty-ct" textres="ct_emptylist_heroes" />
 			<allowcreate />
-			<script file="ct/scripts/ct.lua" />
+			<script file="ct_DS/scripts/ct_DS_heroes.lua" />
 		</list_ctbox_base_heroes>
 	</template>
 
 	<template name="list_ct_host_monsters">
 		<list_ctbox_base_monsters>
 			<class>ct_entry_monsters</class>
-			<empty font="list-empty-ct" textres="ct_emptylist" />
+			<empty font="list-empty-ct" textres="ct_emptylist_monsters" />
 			<allowcreate />
-			<script file="ct/scripts/ct.lua" />
+			<script file="ct_DS/scripts/ct_DS_monsters.lua" />
 		</list_ctbox_base_monsters>
 	</template>
 

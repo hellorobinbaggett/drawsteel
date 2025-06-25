@@ -432,6 +432,32 @@
 			</parameters>
 		</button_iconcycler>
 	</template>
+	<template name="button_faction_friend">
+		<button_iconcycler>
+			<anchored width="20" height="20" />
+			<gmeditonly />
+			<parameters>
+				<icons>ct_faction_friend|ct_faction_neutral|ct_faction_foe</icons>
+				<values>friend|neutral|foe</values>
+				<tooltipsres>ct_tooltip_factionfriend|ct_tooltip_factionneutral|ct_tooltip_factionfoe</tooltipsres>
+				<defaulttooltipres>ct_tooltip_factionfriend</defaulttooltipres>
+				<defaulticon>ct_faction_friend</defaulticon>
+			</parameters>
+		</button_iconcycler>
+	</template>
+	<template name="button_faction_foe">
+		<button_iconcycler>
+			<anchored width="20" height="20" />
+			<gmeditonly />
+			<parameters>
+				<icons>ct_faction_friend|ct_faction_neutral|ct_faction_foe</icons>
+				<values>friend|neutral|foe</values>
+				<tooltipsres>ct_tooltip_factionfriend|ct_tooltip_factionneutral|ct_tooltip_factionfoe</tooltipsres>
+				<defaulttooltipres>ct_tooltip_factionfoe</defaulttooltipres>
+				<defaulticon>ct_faction_foe</defaulticon>
+			</parameters>
+		</button_iconcycler>
+	</template>
 
 	<template name="button_status">
 		<button_iconcycler>
