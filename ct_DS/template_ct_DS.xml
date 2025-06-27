@@ -45,8 +45,8 @@
 			<!-- This is where I want to filter by faction and initiative result -->
 			<script>
 				function onFilter( w )
-					local isPC = false;			
-					if  isPC == true then
+					local isNPC = true;			
+					if  isNPC == true then
 						return true;
 					else
 						return false;
