@@ -13,6 +13,7 @@ function onInit()
 	-- Set up the PC links
 	self.onLinkChanged();
 	self.onFactionChanged();
+	-- self.onInitiativeChanged();
 
 	-- Register the deletion menu item for the host
 	registerMenuItem(Interface.getString("list_menu_deleteitem"), "delete", 6);
@@ -22,6 +23,17 @@ end
 function onMenuSelection(selection, subselection)
 	if selection == 6 and subselection == 7 then
 		self.delete();
+	end
+end
+
+function onInitiativeChanged()
+	self.updateDisplay();
+
+	-- If initiative result is 0, hide from top tracker
+	if initresult.getValue() == 0 then
+		Debug.chat(initresult.getValue(), "true");
+	else
+		Debug.chat(initresult.getValue(), "false");
 	end
 end
 

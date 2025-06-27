@@ -259,6 +259,9 @@
 			<hideonvalue>0</hideonvalue>
 			<tabtarget prev="nonid_name" />
 			<script>
+				-- function onValueChanged()
+				-- 	window.onInitiativeChanged();
+				-- end
 				function update()
 					window.windowlist.applySort();
 				end

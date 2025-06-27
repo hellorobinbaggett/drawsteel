@@ -147,9 +147,11 @@
 	<script name="CalendarManager" file="scripts/manager_calendar.lua" />
 	<!-- <script name="CombatManager" file="scripts/manager_combat.lua" /> -->
 	<script name="CombatDropManager" file="scripts/manager_combat_drop.lua" />
+	<script name="CombatDropManager2" file="scripts/manager_combat_drop2.lua" />
 	<script name="CombatFormationManager" file="scripts/manager_combat_formation.lua" />
 	<script name="CombatRecordManager" file="scripts/manager_combat_record.lua" />
-	<script name="CombatManager2" file="scripts/manager_combat2.lua" />
+	<script name="CombatManagerMonsters" file="scripts/manager_monsters_combat.lua" />
+	<script name="CombatManagerHeroes" file="scripts/manager_heroes_combat.lua" />
 	<script name="CurrencyManager" file="scripts/manager_currency.lua" />
 	<script name="EffectManager" file="scripts/manager_effect.lua" />
 	<script name="EffectManager5E" file="scripts/manager_effect_5E.lua" />
@@ -197,6 +199,8 @@
 	<script name="DiceTowerManager" file="scripts/manager_dicetower.lua" />
 	<script name="ModifierStack" file="scripts/manager_modifierstack.lua" />
 	<script name="WindowSaveManager" file="scripts/manager_window_save.lua" />
+
+	<script name="StaminaTracker" file="ct_DS/scripts/ct_stamina.lua" />
 
 	
 

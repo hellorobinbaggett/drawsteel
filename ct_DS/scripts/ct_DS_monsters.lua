@@ -4,8 +4,7 @@
 --
 
 function onInit()
-	self.onVisibilityToggle();
-
+	-- self.onVisibilityToggle();
 	local node = getDatabaseNode();
 	DB.addHandler(DB.getPath(node, "*.name"), "onUpdate", self.onNameOrTokenUpdated);
 	DB.addHandler(DB.getPath(node, "*.nonid_name"), "onUpdate", self.onNameOrTokenUpdated);
@@ -75,6 +74,6 @@ end
 
 -- TODO: have drop functionality change the specific monster section list
 function onDrop(x, y, draginfo)
-	-- local sCTNode = UtilityManager.getWindowDatabasePath(getWindowAt(x,y));
-	-- return CombatDropManager.handleAnyDrop(draginfo, sCTNode);
+	local sCTNode = UtilityManager.getWindowDatabasePath(getWindowAt(x,y));
+	return CombatDropManager.handleAnyDrop(draginfo, sCTNode);
 end

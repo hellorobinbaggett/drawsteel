@@ -25,6 +25,17 @@ function onMenuSelection(selection, subselection)
 	end
 end
 
+function onInitiativeChanged()
+	self.updateDisplay();
+
+	-- If initiative result is 0, hide from top tracker
+	if initresult.getValue() == 0 then
+		Debug.chat(initresult.getValue(), "true");
+	else
+		Debug.chat(initresult.getValue(), "false");
+	end
+end
+
 function onLinkChanged()
 	-- If a PC, then set up the links to the char sheet
 	if self.isPC() then

@@ -21,7 +21,18 @@
 			<anchored>
 			</anchored>
 			<bounds>18,418,280,-70</bounds>
-			<datasource>.list_heroes</datasource>
+			<datasource>.list</datasource>
+			<!-- This is where I want to filter by faction and initiative result -->
+			<script>
+				function onFilter( w )
+					local isPC = false;			
+					if  isPC == true then
+						return true;
+					else
+						return false;
+					end
+				end
+			</script>
 		</list_content>
 	</template>
 
@@ -30,7 +41,18 @@
 			<anchored>
 			</anchored>
 			<bounds>298,418,-30,-70</bounds>
-			<datasource>.list_monsters</datasource>
+			<datasource>.list</datasource>
+			<!-- This is where I want to filter by faction and initiative result -->
+			<script>
+				function onFilter( w )
+					local isPC = false;			
+					if  isPC == true then
+						return true;
+					else
+						return false;
+					end
+				end
+			</script>
 		</list_content>
 	</template>
 

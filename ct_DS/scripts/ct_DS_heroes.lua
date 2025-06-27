@@ -11,6 +11,7 @@ function onInit()
 	DB.addHandler(DB.getPath(node, "*.nonid_name"), "onUpdate", self.onNameOrTokenUpdated);
 	DB.addHandler(DB.getPath(node, "*.isidentified"), "onUpdate", self.onNameOrTokenUpdated);
 	DB.addHandler(DB.getPath(node, "*.token"), "onUpdate", self.onNameOrTokenUpdated);
+	DB.addHandler(DB.getPath(node, "*.initresult"), "onUpdate", self.onNameOrTokenUpdated);
 end
 function onClose()
 	local node = getDatabaseNode();
@@ -18,6 +19,7 @@ function onClose()
 	DB.removeHandler(DB.getPath(node, "*.nonid_name"), "onUpdate", self.onNameOrTokenUpdated);
 	DB.removeHandler(DB.getPath(node, "*.isidentified"), "onUpdate", self.onNameOrTokenUpdated);
 	DB.removeHandler(DB.getPath(node, "*.token"), "onUpdate", self.onNameOrTokenUpdated);
+	DB.removeHandler(DB.getPath(node, "*.initresult"), "onUpdate", self.onNameOrTokenUpdated);
 end
 
 function onNameOrTokenUpdated()
@@ -75,6 +77,6 @@ end
 
 -- TODO: have drop functionality change the specific heroes section list
 function onDrop(x, y, draginfo)
-	-- local sCTNode = UtilityManager.getWindowDatabasePath(getWindowAt(x,y));
-	-- return CombatDropManager.handleAnyDrop(draginfo, sCTNode);
+	local sCTNode = UtilityManager.getWindowDatabasePath(getWindowAt(x,y));
+	return CombatDropManager.handleAnyDrop(draginfo, sCTNode);
 end
