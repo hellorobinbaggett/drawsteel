@@ -91,7 +91,7 @@
 
 
 	<!-- Draw Steel Ruleset scripts -->
-	<script name="ActorManagerDS" file="scripts/manager_actor_ds.lua" />
+	<script name="ActorManager_DS" file="scripts/manager_actor_ds.lua" />
 	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
 	<script name="ActionsManager_DS" file="scripts/manager_actions_DS.lua" />
 	<script name="InitiativeManager" file="manager_initiative_ds.lua" />

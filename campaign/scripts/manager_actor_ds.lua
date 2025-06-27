@@ -12,6 +12,17 @@ function onInit()
 	initActorHealth();
 end
 
+function isInitValue(v)
+	local rActor = ActorManager.resolveActor(v);
+	if rActor then
+		return rActor.sValue or 0;
+	end
+	return 0;
+end
+function isInitSet(v)
+	return ActorManager.isInitValue(v, 0);
+end
+
 --
 --	HEALTH
 -- 

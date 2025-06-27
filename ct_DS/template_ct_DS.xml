@@ -25,13 +25,13 @@
 			<!-- This is where I want to filter by faction and initiative result -->
 			<script>
 				function onFilter( w )
-					local isPC = false;			
-					if  isPC == true then
-						return true;
-					else
-						return false;
-					end
-				end
+                   local nodeCT = w.getDatabaseNode();
+                   return ActorManager.isPC(nodeCT);
+                end
+				function onFilter( w )
+                   local nodeCT = w.getDatabaseNode();
+                   return ActorManager_DS.IsInitSet(nodeCT);
+                end
 			</script>
 		</list_content>
 	</template>
@@ -45,13 +45,13 @@
 			<!-- This is where I want to filter by faction and initiative result -->
 			<script>
 				function onFilter( w )
-					local isNPC = true;			
-					if  isNPC == true then
-						return true;
-					else
-						return false;
-					end
-				end
+                   local nodeCT = w.getDatabaseNode();
+                   return not ActorManager.isPC(nodeCT);
+                end
+				function onFilter( w )
+                   local nodeCT = w.getDatabaseNode();
+                   return ActorManager_DS.IsInitSet(nodeCT);
+                end
 			</script>
 		</list_content>
 	</template>
