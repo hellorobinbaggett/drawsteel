@@ -13,14 +13,15 @@ function onInit()
 end
 
 function isInitValue(v)
-	local rActor = ActorManager.resolveActor(v);
-	if rActor then
-		return rActor.sValue or 0;
+	local rActor = DB.getValue(ActorManager.getCTNode(v), "initresult", 0);
+	if rActor == 0 then
+		return false;
+	else
+		return true;
 	end
-	return 0;
 end
 function isInitSet(v)
-	return ActorManager.isInitValue(v, 0);
+	return ActorManager_DS.isInitValue(v, 0);
 end
 
 --

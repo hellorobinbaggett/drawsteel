@@ -14,6 +14,20 @@
 		</buttoncontrol>
 	</template>
 
+	<template name="power_roll_skill">
+		<buttoncontrol>
+			<anchored width="32" height="32" />
+			<icon normal="power_roll" pressed="power_roll_down" />
+		</buttoncontrol>
+	</template>
+
+	<template name="initiative_roll">
+		<buttoncontrol>
+			<anchored width="32" height="32" />
+			<icon normal="button_dialog_roll" pressed="button_dialog_roll_down" />
+		</buttoncontrol>
+	</template>
+
 	<template name="button_text">
 		<buttoncontrol>
 			<anchored height="20" />

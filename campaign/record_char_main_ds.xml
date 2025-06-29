@@ -200,18 +200,46 @@
 				<static textres="char_label_max" />
 			</label_charfieldbottom>
 
-			<basicnumber name="recoveryvalue" source="recoveryvalue">
+			<number_linked_framed name="recoveryvalue" source="recoveryvalue">
 				<anchored to="recoveriesframe" width="86" height="30">
 					<top anchor="top" offset="140" />
 					<left anchor="center" offset="-44" />
 				</anchored>
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_recoveryvalue" />
+				<tooltip textres="char_tooltip_recoverydescription" />
+				<target>max</target>
+				<hideonvalue>0</hideonvalue>
 				<script>
-					function onValueChanged()
-					end
+				function onInit()
+					addSource("hp.max");
+
+					super.onInit();
+				end
+
+				function onSourceUpdate()
+					local nodeWin = window.getDatabaseNode();
+					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					
+					local nBonus;
+
+					nBonus = math.floor(nCurrentScore / 3);
+
+					setValue(nBonus);
+				end
+
+				function onDoubleClick()
+					local nodeWin = window.getDatabaseNode();
+					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					
+					local nBonus;
+
+					nBonus = math.floor(nCurrentScore / 3);
+
+					setValue(nBonus);
+				end
 				</script>
-			</basicnumber>
+			</number_linked_framed>
 			<label_charfieldbottom name="recoveryvalue_label">
 				<anchored to="recoveryvalue" offset="0,0" />
 				<static textres="char_label_value" />
@@ -219,7 +247,7 @@
 
 		<!-- SKILLS -->
 			<frame_char name="skillsframe">
-				<bounds>0,190,350,138</bounds>
+				<bounds>0,190,350,80</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="skillsframe" />
@@ -257,7 +285,7 @@
 
 		<!-- WEAKNESSESS AND IMMUNITIES-->
 			<frame_char name="weaknessframe">
-				<bounds>340,318,-1,57</bounds>
+				<bounds>235,260,-1,60</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="weaknessframe" />
@@ -273,7 +301,7 @@
 				<nodrag />
 			</stringu>
 			<frame_char name="immunityframe">
-				<bounds>340,260,-1,68</bounds>
+				<bounds>0,260,245,60</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="immunityframe" />
@@ -290,8 +318,8 @@
 			</stringu>
 
 		<!-- unique effects/ conditions - -->
-			<frame_char name="conditionsframe">
-				<bounds>1,318,350,57</bounds>
+			<!-- <frame_char name="conditionsframe">
+				<bounds>340,230,-1,100</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="conditionsframe" />
@@ -304,23 +332,24 @@
 					<right offset="-20" />
 					<bottom offset="-15" />
 				</anchored>
+				<multilinespacing>20</multilinespacing>
 				<nodrag />
-			</stringu>
+			</stringu> -->
 
-		<!-- CLASS RESOURCE AND SURGES -->
+		<!-- CLASS RESOURCE AND SURGES AND HERO TOKENS -->
 			<label_charframetop name="classresourcetitle">
 				<anchored height="20">
 					<top anchor="bottom" offset="-140" />
-					<left offset="90" />
-					<right offset="-90" />
+					<left offset="105" />
+					<right offset="-105" />
 				</anchored>
 				<icons>char_stats</icons>
 			</label_charframetop>
 
-			<basicnumber name="classresource" source="classresource">
+		<basicnumber name="classresource" source="classresource">
 				<anchored to="classresourcetitle" width="100" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-70" />
+					<left anchor="center" offset="-120" />
 				</anchored>
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_classresource" />
@@ -352,22 +381,24 @@
 				<static textres="char_label_surges" />
 			</label_charfieldtop>
 
-			<!-- <number_linked_framed name="herotokens" source="herotokens">
+			<!-- TODO: make hero tokens the same for every character sheet -->
+			<basicnumber name="herotokens" source="herotokens">
 				<anchored to="surges" position="righthigh" offset="15,0" width="90" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_herotokens" />
+				<tooltip textres="char_tooltip_herotokendescription" />
 				<min value="0" />
 				<script>
 					function onValueChanged()
-						window.onHealthChanged();
 					end
 				</script>
-			</number_linked_framed>
+			</basicnumber>
 
 			<label_charfieldtop name="herotokens_label">
 				<anchored to="herotokens" offset="300,8" />
 				<static textres="char_label_herotokens" />
-			</label_charfieldtop> -->
+			</label_charfieldtop>
+
 
 		<!-- STAMINA SECTION -->
 			<label_charframetop name="healthtitle">
@@ -478,6 +509,63 @@
 				<static textres="char_label_winded" />
 				<color>000000</color>
 			</label_charfieldtop>
+
+			<initiative_roll name="classresource_roll">
+                <anchored to="classresourcetitle" width="100" height="30">
+					<top anchor="bottom" offset="8" />
+					<left anchor="center" offset="-170" />
+				</anchored>
+                <tooltip textres="char_tooltip_classresource" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "Heroic Resource:", 
+                            aDice = { "d3" },
+							nMod = 0,
+                        };
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+        	</initiative_roll>
+
+			<initiative_roll name="savingthrow_roll">
+                <bounds>0,172,38,45</bounds>
+                <tooltip textres="tooltip_st" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "Saving Throw:", 
+                            aDice = { "d10" },
+							nMod = 0,
+                        };
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+        	</initiative_roll>
 
 		</sheetdata>
 	</windowclass>

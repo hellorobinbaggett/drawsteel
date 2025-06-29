@@ -251,7 +251,7 @@
 		</button_faction>
 	</template>
 	<template name="number_ctentry_initresult">
-		<number_ct_crosslink name="initresult">
+		<basicnumber name="initresult">
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
 				<right anchor="left" relation="relative" offset="-15" />
@@ -269,7 +269,29 @@
 					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
 				end
 			</script>
-		</number_ct_crosslink>
+		</basicnumber>
+	</template>
+
+	<template name="number_ctentry_stamina">
+		<basicnumber name="stamina">
+			<anchored to="rightanchor" width="30" height="20">
+				<top />
+				<right anchor="left" relation="relative" offset="-15" />
+			</anchored>
+			<hideonvalue>0</hideonvalue>
+			<tabtarget prev="nonid_name" />
+			<script>
+				-- function onValueChanged()
+				-- 	window.onInitiativeChanged();
+				-- end
+				function update()
+					window.windowlist.applySort();
+				end
+				function onDragStart(button, x, y, draginfo)
+					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
+				end
+			</script>
+		</basicnumber>
 	</template>
 
 	<!-- Player combat tracker entry -->

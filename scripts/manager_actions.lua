@@ -655,7 +655,16 @@ function createActionMessage(rSource, rRoll)
 
 	-- For power rolls
 	rMessage = PowerRollManager.powerRoll(rMessage, rRoll);
-	-- rMessage = InitiativeManager.initiativeRoll(rMessage, rRoll);
+
+	-- For initiative rolls
+	if string.match(rMessage.text, "Initiative Roll:") then
+		rMessage = InitiativeManager.initiativeRoll(rMessage, rRoll);
+	end
+
+	-- For saving throws
+	if string.match(rMessage.text, "Saving Throw:") then
+		rMessage = InitiativeManager.saveRoll(rMessage, rRoll);
+	end
 	
 	-- Check to see if this roll should be secret (GM or dice tower tag)
 	if rRoll.bSecret then

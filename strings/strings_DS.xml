@@ -240,6 +240,8 @@
 	<string name="strategy">Strategy</string>
 	<string name="timescape">Timescape</string>
 	<string name="tooltip_pr">Power Roll</string>
+	<string name="tooltip_ir">Roll Initiative</string>
+	<string name="tooltip_st">Saving Throw</string>
 	<string name="tooltip_drawsteel">Draw Steel!</string>
 
 	<!-- Characters -->
@@ -273,7 +275,12 @@
 	<string name="char_tooltip_doubleedge">Tier Upgrade</string>
 	<string name="char_tooltip_doublebane">Tier Downgrade</string>
 	<string name="char_tooltip_skill">+2 for skills</string>
-	<string name="char_tooltip_surgesdescription">Each surge has a value equal to your highest characteristic score</string>
+	<string name="char_tooltip_surgesdescription">Spend up to 3 surges on an attack to deal extra damage (each surge deals damage equal to your highest characteristic score). 
+	\n Spend 2 surges to increase the potency by 1 for one target</string>
+	<string name="char_tooltip_herotokendescription">At the start of a new game session, the heroes have a number of hero tokens equal to the number of heroes in the party. 
+	\nSpend 1 token to gain 2 surges. 
+	\nSpend 1 hero token to succeed on a save. 
+	\nSpend 1 to reroll a test. Spend 2 tokens to regain stamina equal to your Recovery value.</string>
 	<string name="char_tooltip_modifierdescription">Please enter the NUMBER that you would like to add to your ability roll</string>
 	<string name="char_tooltip_shields">Shields</string>
 	<string name="char_tooltip_shieldsdescription">Each shield has a value equal to your highest characteristic score</string>
@@ -314,6 +321,7 @@
 	<string name="char_label_equipment">EQUIPMENT</string>
 	<string name="char_label_armor">ARMOR</string>
 	<string name="char_label_weapon">WEAPON/IMPLEMENT</string>
+	<string name="char_label_skill">Skill</string>
 	<string name="char_label_stamina">Stamina</string>
 	<string name="char_label_speed">SPEED</string>
 	<string name="char_label_project">PROJECT</string>

@@ -13,6 +13,12 @@
 			</anchored>
 			<bounds>18,80,-30,293</bounds>
 			<datasource>.list</datasource>
+			<script>
+				function onFilter( w )
+                   local nodeCT = w.getDatabaseNode();
+                   return ActorManager_DS.isInitSet(nodeCT);
+                end
+			</script>
 		</list_content>
 	</template>
 
@@ -24,34 +30,38 @@
 			<datasource>.list</datasource>
 			<!-- This is where I want to filter by faction and initiative result -->
 			<script>
-				function onFilter( w )
-                   local nodeCT = w.getDatabaseNode();
-                   return ActorManager.isPC(nodeCT);
-                end
-				function onFilter( w )
-                   local nodeCT = w.getDatabaseNode();
-                   return ActorManager_DS.IsInitSet(nodeCT);
-                end
+                function onFilter( w )
+				local nodeCT = w.getDatabaseNode();
+				local PCfilter = ActorManager.isPC(nodeCT);
+				local Initfilter = ActorManager_DS.isInitSet(nodeCT);
+				
+					if PCfilter == true and Initfilter == false then
+						return true;
+					else
+						return false;
+					end
+				end
 			</script>
 		</list_content>
 	</template>
 
 	<template name="list_ctbox_base_monsters">
 		<list_content name="list_monsters">
-			<anchored>
-			</anchored>
 			<bounds>298,418,-30,-70</bounds>
 			<datasource>.list</datasource>
 			<!-- This is where I want to filter by faction and initiative result -->
 			<script>
 				function onFilter( w )
-                   local nodeCT = w.getDatabaseNode();
-                   return not ActorManager.isPC(nodeCT);
-                end
-				function onFilter( w )
-                   local nodeCT = w.getDatabaseNode();
-                   return ActorManager_DS.IsInitSet(nodeCT);
-                end
+				local nodeCT = w.getDatabaseNode();
+				local PCfilter = ActorManager.isPC(nodeCT);
+				local Initfilter = ActorManager_DS.isInitSet(nodeCT);
+				
+					if PCfilter == false and Initfilter == false then
+						return true;
+					else
+						return false;
+					end
+				end
 			</script>
 		</list_content>
 	</template>
@@ -204,7 +214,7 @@
 			<script file="ct_DS/scripts/ct_DS_monsters.lua" />
 		</list_ctbox_base_monsters>
 	</template>
-
+	
 	<template name="sub_ct_header_host">
 		<sub_content_framed_groupbox_narrow_top name="sub_header">
 			<class>sub_ct_header_host</class>
@@ -307,6 +317,15 @@
 				end
 				function onButtonPress()
 					CombatManager.nextRound(1);
+					
+					for _,v in pairs(CombatManager.getCombatantNodes()) do
+							DB.setValue(v, "active", "number", 0);
+						end
+
+						-- Clear GM identity additions (based on option)
+						ChatIdentityManager.clearCombatantIdentity();
+
+						CombatManager.onCombatResetEvent();					
 				end
 				function onDragStart(button, x, y, draginfo)
 					draginfo.setType("combattrackernextround");
@@ -366,10 +385,19 @@
 		</button_ct_controls_faction>
 	</template>
 
-	<!-- Player combat tracker window -->
-	<template name="list_ct_client">
+	<!-- OLD Player combat tracker window -->
+	<!-- <template name="list_ct_client">
 		<list_ctbox_base>
 			<class>client_ct_entry</class>
+			<script file="ct/scripts/clientct.lua" />
+		</list_ctbox_base>
+	</template> -->
+
+	<template name="list_ct_client">
+		<list_ctbox_base>
+			<class>ct_entry</class>
+			<empty font="list-empty-ct" textres="ct_emptylist" />
+			<allowcreate />
 			<script file="ct/scripts/clientct.lua" />
 		</list_ctbox_base>
 	</template>

@@ -17,7 +17,7 @@
 	<announcement text="=======DEV BUILD=======" /> 
 	<announcement text=" 
 	" font="emotefont" icon="rulesetlogo_DrawSteel" />
-	<announcement text="Draw Steel Ruleset v.086 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Ruleset v.093 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	<announcement text="To report bugs/request features: EXXODIS on Discord
 	" font="emotefont" icon="" />
@@ -94,7 +94,7 @@
 	<script name="ActorManager_DS" file="scripts/manager_actor_ds.lua" />
 	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
 	<script name="ActionsManager_DS" file="scripts/manager_actions_DS.lua" />
-	<script name="InitiativeManager" file="manager_initiative_ds.lua" />
+	<script name="InitiativeManager" file="scripts/manager_initiative_ds.lua" />
 
 	<!-- Desktop -->
 	<includefile source="desktop/desktop_classes-DS.xml" />
@@ -121,11 +121,11 @@
 	<script name="OOBManager" file="scripts/manager_oob.lua" />
 	<script name="OptionsManager" file="scripts/manager_options.lua" />
 	<script name="OptionsCore" file="scripts/data_options_core.lua" />
-	<script name="RecordAssetManager" file="scripts/manager_record_asset.lua" />
+	<!-- <script name="RecordAssetManager" file="scripts/manager_record_asset.lua" /> -->
 	<!-- <script name="RecordDataManager" file="scripts/manager_record_data.lua" /> -->
-	<script name="RecordIndexManager" file="scripts/manager_record_index.lua" />
+	<!-- <script name="RecordIndexManager" file="scripts/manager_record_index.lua" />
 	<script name="RecordIndexViewManager" file="scripts/manager_record_index_view.lua" />
-	<script name="RecordShareManager" file="scripts/manager_record_share.lua" />
+	<script name="RecordShareManager" file="scripts/manager_record_share.lua" /> -->
 	<script name="SoundManager" file="scripts/manager_sound.lua" />
 	<script name="SoundManagerSyrinscape" file="scripts/manager_sound_syrinscape.lua" />
 	<script name="SoundManagerFile" file="scripts/manager_sound_file.lua"/>
@@ -186,7 +186,7 @@
 	<script name="SoundsetManager" file="scripts/manager_soundset.lua" />
 	<!-- <script name="StoryManager" file="scripts/manager_story.lua" /> -->
 	<script name="ClassManager" file="scripts/manager_class.lua" />
-	<!-- <script name="AncestryManager" file="scripts/manager_ancestry.lua" /> -->
+	<script name="AncestryManager" file="scripts/manager_ancestry.lua" />
 	<script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" />
 	<script name="TableManager" file="scripts/manager_table.lua" />
 	<script name="TokenMoveManager" file="scripts/manager_token_move.lua" />

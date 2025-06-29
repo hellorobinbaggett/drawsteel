@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
-<!-- 
-	Please see the license.html file included with this distribution for 
+<!--
+	Please see the license.html file included with this distribution for
 	attribution and copyright information.
 -->
 
@@ -23,16 +23,15 @@
 					if window.clearFilterValues then
 						window.clearFilterValues();
 					end
+					if window.list_iedit then
+						window.list_iedit.setValue(0);
+					end
+
 					local node = DB.createChild(StoryManager.DEFAULT_BOOK_CONTENT);
 					if node then
-						local w = Interface.openWindow("referencemanualpage", DB.getPath(node));
-						if w and w.name then
-							w.name.setFocus();
-						elseif w.header and w.header.subwindow and w.header.subwindow.name then
-							w.header.subwindow.name.setFocus();
-						end
+						RecordManager.onRecordAddEvent("story", node);
+						Interface.openWindow("referencemanualpage", DB.getPath(node));
 					end
-					window.list_iedit.setValue(0);
 				end
 			</script>
 		</buttoncontrol>
@@ -54,7 +53,14 @@
 				<right anchor="left" relation="relative" offset="-5" />
 			</anchored>
 			<icon normal="button_ref_moveup" />
-			<tooltip textres="story_tooltip_moveup" />
+			<script>
+				function setLockMode(bReadOnly)
+					setVisible(not bReadOnly);
+				end
+				function getLockMode()
+					return not isVisible();
+				end
+			</script>
 		</buttoncontrol>
 	</template>
 	<template name="button_story_book_imovedown">
@@ -62,6 +68,14 @@
 			<anchored to="imoveup" position="belowleft" width="10" height="10" />
 			<icon normal="button_ref_movedown" />
 			<tooltip textres="story_tooltip_movedown" />
+			<script>
+				function setLockMode(bReadOnly)
+					setVisible(not bReadOnly);
+				end
+				function getLockMode()
+					return not isVisible();
+				end
+			</script>
 		</buttoncontrol>
 	</template>
 
@@ -112,23 +126,22 @@
 		</buttoncontrol>
 	</template>
 
-	<template name="anchor_story_book_index_page_right">
-		<genericcontrol name="rightanchor">
-			<anchored to="frame" position="insidetopright" offset="0,0" height="0" width="0" />
-			<disabled />
-			<invisible />
-		</genericcontrol>
-	</template>
 	<template name="anchor_story_book_index_chapter_right">
-		<anchor_story_book_index_page_right>
-			<anchored offset="0,10" />
-		</anchor_story_book_index_page_right>
+		<anchor_listitem_right_relative>
+			<anchored to="frame" offset="0,10" />
+		</anchor_listitem_right_relative>
 	</template>
 	<template name="anchor_story_book_index_section_right">
-		<anchor_story_book_index_page_right>
-			<anchored offset="0,5" />
-		</anchor_story_book_index_page_right>
+		<anchor_listitem_right_relative>
+			<anchored to="frame" offset="0,5" />
+		</anchor_listitem_right_relative>
 	</template>
+	<template name="anchor_story_book_index_page_right">
+		<anchor_listitem_right_relative>
+			<anchored to="frame" />
+		</anchor_listitem_right_relative>
+	</template>
+
 	<template name="button_story_book_index_iadd">
 		<button_text>
 			<anchored width="120" height="15">
@@ -155,6 +168,7 @@
 	</template>
 	<template name="button_story_book_index_imoveup">
 		<button_story_book_imoveup>
+			<tooltip textres="story_book_tooltip_index_moveup" />
 			<invisible />
 			<script>
 				function onButtonPress()
@@ -165,6 +179,7 @@
 	</template>
 	<template name="button_story_book_index_imovedown">
 		<button_story_book_imovedown>
+			<tooltip textres="story_book_tooltip_index_movedown" />
 			<invisible />
 			<script>
 				function onButtonPress()
@@ -284,6 +299,14 @@
 			<anchored to="area_controls" position="insidetopleft" offset="10,5" />
 			<target>sub_index,list,list,list</target>
 			<togglelevel>3</togglelevel>
+			<script>
+				function onButtonPress()
+					for _,wChapter in ipairs(window.sub_index.subwindow.list.getWindows()) do
+						wChapter.list.setVisible(true);
+					end
+					self.applyTop();
+				end
+			</script>
 		</button_expand>
 	</template>
 	<template name="button_story_book_index_collapse">
@@ -291,6 +314,14 @@
 			<anchored to="area_controls" position="insidetopleft" offset="40,5" />
 			<target>sub_index,list,list,list</target>
 			<togglelevel>3</togglelevel>
+			<script>
+				function onButtonPress()
+					for _,wChapter in ipairs(window.sub_index.subwindow.list.getWindows()) do
+						wChapter.list.setVisible(true);
+					end
+					self.applyTop();
+				end
+			</script>
 		</button_collapse>
 	</template>
 
@@ -413,6 +444,7 @@
 	</template>
 	<template name="button_story_block_imoveup">
 		<button_story_book_imoveup>
+			<tooltip textres="story_tooltip_block_moveup" />
 			<script>
 				function onButtonPress()
 					StoryManager.onBlockMoveUp(window);
@@ -422,27 +454,13 @@
 	</template>
 	<template name="button_story_block_imovedown">
 		<button_story_book_imovedown>
+			<tooltip textres="story_tooltip_block_movedown" />
 			<script>
 				function onButtonPress()
 					StoryManager.onBlockMoveDown(window);
 				end
 			</script>
 		</button_story_book_imovedown>
-	</template>
-	<template name="button_story_block_image_linkclear">
-		<buttoncontrol>
-			<anchored to="image" position="lefthigh" offset="0,0" width="20" height="20" />
-			<state frame="button_ref_block_add_base" icon="button_ref_block_image_linkclear" tooltipres="story_tooltip_block_image_linkclear" />
-			<script>
-				function onInit()
-					setColor(StoryManager.getBlockButtonIconColor());
-				end
-				function onButtonPress()
-					DB.setValue(window.getDatabaseNode(), "imagelink", "windowreference", "", "");
-					StoryManager.onBlockNodeRebuild(window.getDatabaseNode());
-				end
-			</script>
-		</buttoncontrol>
 	</template>
 	<template name="button_story_block_image_scaleup">
 		<buttoncontrol>
@@ -511,11 +529,7 @@
 	</template>
 
 	<template name="anchor_story_block_right">
-		<genericcontrol name="rightanchor">
-			<anchored position="insidetopright" offset="0,0" height="0" width="0" />
-			<disabled />
-			<invisible />
-		</genericcontrol>
+		<anchor_listitem_right_flat />
 	</template>
 	<template name="spacer_story_block">
 		<genericcontrol>
@@ -544,7 +558,6 @@
 				<left />
 				<top relation="relative" offset="0" postoffset="0" />
 			</anchored>
-			<disabled />
 			<script>
 				local bInitialized = false;
 				function setData(sAsset)
@@ -556,23 +569,18 @@
 						StoryManager.adjustBlockToImageSize(window);
 					end
 				end
-			</script>
-		</genericcontrol>
-	</template>
-	<template name="linkc_story_block_image_clickcapture">
-		<windowreferencefield>
-			<anchored to="image" position="over" />
-			<script>
 				function onDragStart(button, x, y, draginfo)
-					draginfo.setType("shortcut");
-					draginfo.setIcon("button_link");
-					local sClass, sRecord = getValue();
-					draginfo.setShortcutData(sClass, sRecord);
-					draginfo.setDescription(DB.getValue(DB.findNode(sRecord), "name", ""));
+					return StoryManager.onImageDrag(window, draginfo);
+				end
+				function onClickDown()
+					return true;
+				end
+				function onClickRelease()
+					StoryManager.onImagePressed(window);
 					return true;
 				end
 			</script>
-		</windowreferencefield>
+		</genericcontrol>
 	</template>
 	<template name="string_story_block_image_caption">
 		<stringfield name="caption">
@@ -580,22 +588,24 @@
 			<font>reference-b</font>
 			<multilinespacing>20</multilinespacing>
 			<center />
-		</stringfield>
-	</template>
-	<template name="linkc_story_block_image_caption_clickcapture">
-		<windowreferencefield>
-			<anchored to="caption" position="over" />
+			<underline />
 			<script>
 				function onDragStart(button, x, y, draginfo)
-					draginfo.setType("shortcut");
-					draginfo.setIcon("button_link");
-					local sClass, sRecord = getValue();
-					draginfo.setShortcutData(sClass, sRecord);
-					draginfo.setDescription(DB.getValue(DB.findNode(sRecord), "name", ""));
-					return true;
+					return StoryManager.onImageDrag(window, draginfo);
+				end
+				function onClickDown()
+					if isReadOnly() then
+						return true;
+					end
+				end
+				function onClickRelease()
+					if isReadOnly() then
+						StoryManager.onImagePressed(window);
+						return true;
+					end
 				end
 			</script>
-		</windowreferencefield>
+		</stringfield>
 	</template>
 	<template name="icon_story_block">
 		<genericcontrol>

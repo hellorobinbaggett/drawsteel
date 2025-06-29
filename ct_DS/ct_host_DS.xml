@@ -10,7 +10,7 @@
 	<windowclass name="combattracker_host">
 		<frame>ctbox</frame>
 		<sizelimits>
-			<minimum width="400" height="400" />
+			<minimum width="600" height="690" />
 			<dynamic />
 		</sizelimits>
 		<softclose />
@@ -37,6 +37,33 @@
 			<scrollbar_content_list />
 
 			<resize_ctbox />
+
+			<initiative_roll name="ct_initiative_roll">
+                <bounds>-90,35,45,45</bounds>
+                <tooltip textres="tooltip_ir" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "Initiative Roll:", 
+                            aDice = { "d10" },
+							nMod = 0,
+                        };
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+        	</initiative_roll>
 		</sheetdata>
 	</windowclass>
 	<windowclass name="sub_ct_header_host">
@@ -74,13 +101,14 @@
 	</windowclass>
 	
 	<windowclass name="sub_ct_controls_host">
+
 		<margins control="0,0,0,2" />
 		<sheetdata>
 			<anchor_ct_controls_left />
 			<anchor_ct_controls_right />
 
-			<button_ct_controls_setactive name="button_setactive" />
-			<button_ct_controls_nextturn name="button_nextactor" />
+			<!-- <button_ct_controls_setactive name="button_setactive" />
+			<button_ct_controls_nextturn name="button_nextactor" /> -->
 			<button_ct_controls_menu name="button_menu" />
 
 			<button_ct_controls_nextround name="button_nextround" />

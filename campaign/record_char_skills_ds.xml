@@ -54,37 +54,36 @@
 				<static textres="char_label_skills" />
 			</label_frametop>
 
-
-            <string_skilllabel name="alchemy_label" source="skill.alchemy">
-                <anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,40">
-                </anchored>
-                <static textres="alchemy" />
-            </string_skilllabel>
-            <button_prof name="skilled_alchemy" source="alchemy.prof">
-                <anchored to="alchemy_label" position="lefthigh" offset="10,0" height="20" width="20" />
+            <!-- skill1 -->
+            <string_labeled name="skill1_label" source="skill.skill1">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,40" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill1" source="skill1.prof">
+                <anchored to="skill1_label" position="lefthigh" offset="10,0" height="20" width="20" />
                 <default>2</default>
             </button_prof>
             <string_skilllabel name="characteristic_label">
-                <anchored to="alchemy_label" position="right" offset="0,0">
+                <anchored to="skill1_label" position="right" offset="0,0">
                 </anchored>
                 <static textres="char_label_characteristic" />
             </string_skilllabel>
-            <button_characteristic name="skill_characteristic" source="alchemy.characteristic.button">
+            <button_characteristic name="skill_characteristic" source="skill1.characteristic.button">
                 <anchored to="characteristic_label" position="right" offset="10,0" height="20" width="60" />
                 <default>1</default>
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-            <power_roll name="alchemy">
-                <anchored to="craftingskillsframe_char" position="insidetopright" offset="20,40">
+            <power_roll_skill name="skill1">
+                <anchored to="skill_characteristic" position="righthigh" offset="30,-10">
                 </anchored>
                 <tooltip textres="tooltip_pr" />
                 <script>	
                     function action(draginfo)
                         local nodeWin = window.getDatabaseNode();
                         
-                        local skilled = DB.getValue(nodeWin, "alchemy.prof");
-                        local characteristic = DB.getValue(nodeWin, "alchemy.characteristic.button");
+                        local skilled = DB.getValue(nodeWin, "skill1.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill1.characteristic.button");
 
                         -- If you have this skill, add a +2 to the roll
                         if (skilled == 0) then
@@ -117,14 +116,14 @@
                             characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
-                        local abilityName = DB.getValue(nodeWin, "skill.alchemy", "");
+                        local abilityName = DB.getValue(nodeWin, "skill.skill1", "");
 
                         local rActor = ActorManager.resolveActor(window.getDatabaseNode());
                         local nodePC = ActorManager.getCreatureNode(rActor);
 
                         local rRoll = { 
                             sType = "dice", 
-                            sDesc = "" .. abilityName .. "", 
+                            sDesc = "" .. abilityName .. " Test:", 
                             aDice = { "d10", "d10" },
                             nMod = skilledMod + characteristicMod,
                             t1 = DB.getValue(nodeWin, "tier1"),
@@ -144,39 +143,38 @@
                         return action();
                     end
                 </script>
-            </power_roll>
+            </power_roll_skill>
 
-            <!-- architecture -->
-            <string_skilllabel name="architecture_label" source="skill.architecture">
-                <anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,60">
-                </anchored>
-                <static textres="architecture" />
-            </string_skilllabel>
-            <button_prof name="skilled_architecture" source="architecture.prof">
-                <anchored to="architecture_label" position="lefthigh" offset="10,0" height="20" width="20" />
+            <!-- skill2 -->
+            <string_labeled name="skill2_label" source="skill.skill2">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,75" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill2" source="skill2.prof">
+                <anchored to="skill2_label" position="lefthigh" offset="10,0" height="20" width="20" />
                 <default>2</default>
             </button_prof>
-            <string_skilllabel name="architecture_characteristic_label">
-                <anchored to="architecture_label" position="right" offset="0,0">
+            <string_skilllabel name="skill2_characteristic_label">
+                <anchored to="skill2_label" position="right" offset="0,0">
                 </anchored>
                 <static textres="char_label_characteristic" />
             </string_skilllabel>
-            <button_characteristic name="architecture_characteristic" source="architecture.characteristic.button">
-                <anchored to="architecture_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+            <button_characteristic name="skill2_characteristic" source="skill2.characteristic.button">
+                <anchored to="skill2_characteristic_label" position="right" offset="10,0" height="20" width="60" />
                 <default>1</default>
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-            <power_roll name="architecture">
-                <anchored to="craftingskillsframe_char" position="insidetopright" offset="20,60">
+            <power_roll_skill name="skill2">
+                <anchored to="skill2_characteristic" position="righthigh" offset="30,-10">
                 </anchored>
                 <tooltip textres="tooltip_pr" />
                 <script>	
                     function action(draginfo)
                         local nodeWin = window.getDatabaseNode();
                         
-                        local skilled = DB.getValue(nodeWin, "architecture.prof");
-                        local characteristic = DB.getValue(nodeWin, "architecture.characteristic.button");
+                        local skilled = DB.getValue(nodeWin, "skill2.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill2.characteristic.button");
 
                         -- If you have this skill, add a +2 to the roll
                         if (skilled == 0) then
@@ -209,14 +207,14 @@
                             characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
-                        local abilityName = DB.getValue(nodeWin, "skill.architecture", "");
+                        local abilityName = DB.getValue(nodeWin, "skill.skill2", "");
 
                         local rActor = ActorManager.resolveActor(window.getDatabaseNode());
                         local nodePC = ActorManager.getCreatureNode(rActor);
 
                         local rRoll = { 
                             sType = "dice", 
-                            sDesc = "" .. abilityName .. "", 
+                            sDesc = "" .. abilityName .. " Test:", 
                             aDice = { "d10", "d10" },
                             nMod = skilledMod + characteristicMod,
                             t1 = DB.getValue(nodeWin, "tier1"),
@@ -236,9 +234,826 @@
                         return action();
                     end
                 </script>
-            </power_roll>
+            </power_roll_skill>
 
-            
+            <!-- skill3 -->
+            <string_labeled name="skill3_label" source="skill.skill3">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,110" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill3" source="skill3.prof">
+                <anchored to="skill3_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill3_characteristic_label">
+                <anchored to="skill3_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill3_characteristic" source="skill3.characteristic.button">
+                <anchored to="skill3_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill3">
+                <anchored to="skill3_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill3.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill3.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill3", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill4 -->
+            <string_labeled name="skill4_label" source="skill.skill4">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,145" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill4" source="skill4.prof">
+                <anchored to="skill4_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill4_characteristic_label">
+                <anchored to="skill4_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill4_characteristic" source="skill4.characteristic.button">
+                <anchored to="skill4_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill4">
+                <anchored to="skill4_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill4.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill4.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill4", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill5 -->
+            <string_labeled name="skill5_label" source="skill.skill5">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,180" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill5" source="skill5.prof">
+                <anchored to="skill5_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill5_characteristic_label">
+                <anchored to="skill5_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill5_characteristic" source="skill5.characteristic.button">
+                <anchored to="skill5_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill5">
+                <anchored to="skill5_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill5.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill5.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill5", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill6 -->
+            <string_labeled name="skill6_label" source="skill.skill6">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,215" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill6" source="skill6.prof">
+                <anchored to="skill6_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill6_characteristic_label">
+                <anchored to="skill6_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill6_characteristic" source="skill6.characteristic.button">
+                <anchored to="skill6_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill6">
+                <anchored to="skill6_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill6.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill6.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill6", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill7 -->
+            <string_labeled name="skill7_label" source="skill.skill7">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,250" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill7" source="skill7.prof">
+                <anchored to="skill7_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill7_characteristic_label">
+                <anchored to="skill7_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill7_characteristic" source="skill7.characteristic.button">
+                <anchored to="skill7_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill7">
+                <anchored to="skill7_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill7.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill7.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill7", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill8 -->
+            <string_labeled name="skill8_label" source="skill.skill8">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,285" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill8" source="skill8.prof">
+                <anchored to="skill8_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill8_characteristic_label">
+                <anchored to="skill8_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill8_characteristic" source="skill8.characteristic.button">
+                <anchored to="skill8_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill8">
+                <anchored to="skill8_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill8.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill8.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill8", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill9 -->
+            <string_labeled name="skill9_label" source="skill.skill9">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,320" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill9" source="skill9.prof">
+                <anchored to="skill9_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill9_characteristic_label">
+                <anchored to="skill9_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill9_characteristic" source="skill9.characteristic.button">
+                <anchored to="skill9_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill9">
+                <anchored to="skill9_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill9.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill9.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill9", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill10 -->
+            <string_labeled name="skill10_label" source="skill.skill10">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,355" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill10" source="skill10.prof">
+                <anchored to="skill10_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill10_characteristic_label">
+                <anchored to="skill10_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill10_characteristic" source="skill10.characteristic.button">
+                <anchored to="skill10_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill10">
+                <anchored to="skill10_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill10.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill10.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill10", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
+
+            <!-- skill11 -->
+            <string_labeled name="skill11_label" source="skill.skill11">
+				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,390" width="140" />
+				<labelres>char_label_skill</labelres>
+			</string_labeled>
+            <button_prof name="skilled_skill11" source="skill11.prof">
+                <anchored to="skill11_label" position="lefthigh" offset="10,0" height="20" width="20" />
+                <default>2</default>
+            </button_prof>
+            <string_skilllabel name="skill11_characteristic_label">
+                <anchored to="skill11_label" position="right" offset="0,0">
+                </anchored>
+                <static textres="char_label_characteristic" />
+            </string_skilllabel>
+            <button_characteristic name="skill11_characteristic" source="skill11.characteristic.button">
+                <anchored to="skill11_characteristic_label" position="right" offset="10,0" height="20" width="60" />
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
+
+            <power_roll_skill name="skill11">
+                <anchored to="skill11_characteristic" position="righthigh" offset="30,-10">
+                </anchored>
+                <tooltip textres="tooltip_pr" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+                        
+                        local skilled = DB.getValue(nodeWin, "skill11.prof");
+                        local characteristic = DB.getValue(nodeWin, "skill11.characteristic.button");
+
+                        -- If you have this skill, add a +2 to the roll
+                        if (skilled == 0) then
+                            skilledMod = "0";
+                        end
+                        if (skilled == 1) then
+                            skilledMod = "2";
+                        end
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "AGL");
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(nodeWin, "REA");
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(nodeWin, "INU");
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(nodeWin, "PRS");
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+
+                        local abilityName = DB.getValue(nodeWin, "skill.skill11", "");
+
+                        local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+                        local nodePC = ActorManager.getCreatureNode(rActor);
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "" .. abilityName .. " Test:", 
+                            aDice = { "d10", "d10" },
+                            nMod = skilledMod + characteristicMod,
+                            t1 = DB.getValue(nodeWin, "tier1"),
+                            t2 = DB.getValue(nodeWin, "tier2"),
+                            t3 = DB.getValue(nodeWin, "tier3");
+                        };
+                        ActionsManager_DS.encodeDesktopMods(rRoll);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+            </power_roll_skill>
 
 		</sheetdata>
 	</windowclass>

@@ -1202,7 +1202,20 @@ end
 --
 -- RESET FUNCTIONS
 --
+function resetOrder()
+	-- De-activate all entries
+	for _,v in pairs(CombatManager.getCombatantNodes()) do
+		DB.setValue(v, "active", "number", 0);
+	end
 
+	-- Clear GM identity additions (based on option)
+	ChatIdentityManager.clearCombatantIdentity();
+
+	-- Reset the round counter
+	DB.setValue(CombatManager.CT_LIST, "number", 0);
+
+	CombatManager.onCombatResetEvent();
+end
 function resetInit()
 	-- De-activate all entries
 	for _,v in pairs(CombatManagerHeroes.getCombatantNodes()) do

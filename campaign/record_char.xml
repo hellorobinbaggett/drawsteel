@@ -66,10 +66,10 @@
 					<tabres>tab_abilities</tabres>
 					<subwindow>abilities</subwindow>
 				</tab>
-				<!-- <tab>
+				<tab>
 					<tabres>tab_skills</tabres>
 					<subwindow>skills_ds</subwindow>
-				</tab> -->
+				</tab>
 				<tab>
 					<tabres>tab_modifiers</tabres>
 					<subwindow>modifiers</subwindow>

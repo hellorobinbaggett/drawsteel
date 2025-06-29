@@ -80,6 +80,15 @@
 			<readonly />
 		</stringcontrol>
 	</template>
+
+	<template name="label_edit">
+		<stringcontrol>
+			<anchored height="20" />
+			<font>sheetlabel</font>
+			<nodrag />
+		</stringcontrol>
+	</template>
+
 	<template name="label_frametop">
 		<label>
 			<anchored position="insidetop" offset="0,10" />

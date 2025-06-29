@@ -5,15 +5,15 @@
 
 function onInit()
 	super.onInit();
-	AncestryManager.updatePageSub(sub_paging, getDatabasePath());
+	StoryManager.updatePageSub(sub_paging, getDatabasePath());
 end
 
 function handlePageTop()
-	AncestryManager.handlePageTop(self, getDatabasePath());
+	StoryManager.handlePageTop(self, getDatabasePath());
 end
 function handlePagePrev()
-	AncestryManager.handlePagePrev(self, getDatabasePath());
+	StoryManager.handlePagePrev(self, getDatabasePath());
 end
 function handlePageNext()
-	AncestryManager.handlePageNext(self, getDatabasePath());
+	StoryManager.handlePageNext(self, getDatabasePath());
 end

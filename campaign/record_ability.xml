@@ -137,6 +137,7 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "name", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
 						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
@@ -149,7 +150,7 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = characteristic,
 							t1 = DB.getValue(nodeWin, "tier1"),
