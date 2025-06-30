@@ -164,7 +164,7 @@
 	<script name="PartyLootManager" file="scripts/manager_ps_loot.lua" />
 	<script name="PartyXPManager" file="scripts/manager_party_xp.lua" />
 	<script name="TargetingManager" file="scripts/manager_targeting.lua" />
-	<script name="TokenManager" file="scripts/manager_token.lua" />
+	<!-- <script name="TokenManager" file="scripts/manager_token.lua" /> -->
 	<script name="TokenManager2" file="scripts/manager_token2.lua" />
 	<script name="VisionManager" file="scripts/manager_vision.lua" />
 
@@ -185,10 +185,10 @@
 	<script name="SoundsetManager" file="scripts/manager_soundset.lua" />
 	<!-- <script name="StoryManager" file="scripts/manager_story.lua" /> -->
 	<script name="ClassManager" file="scripts/manager_class.lua" />
-	<script name="AncestryManager" file="scripts/manager_ancestry.lua" />
-	<script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" />
-	<script name="TableManager" file="scripts/manager_table.lua" />
-	<script name="TokenMoveManager" file="scripts/manager_token_move.lua" />
+	<!-- <script name="AncestryManager" file="scripts/manager_ancestry.lua" /> -->
+	<!-- <script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" /> -->
+	<!-- <script name="TableManager" file="scripts/manager_table.lua" /> -->
+	<!-- <script name="TokenMoveManager" file="scripts/manager_token_move.lua" /> -->
 
 	<script name="ActionEffect" file="scripts/manager_action_effect.lua" />
 
@@ -204,17 +204,17 @@
 	
 
 	<!-- Campaign Records -->
-	<includefile source="campaign/template_campaign.xml" />
-	<includefile source="campaign/template_story.xml" />
+	<!-- <includefile source="campaign/template_campaign.xml" /> -->
+	<!-- <includefile source="campaign/template_story.xml" />
 	<includefile source="campaign/template_ancestry.xml" />
-	<includefile source="campaign/template_class.xml" />
+	<includefile source="campaign/template_class.xml" /> -->
 
 	<includefile source="campaign/campaign_masterindex.xml" />
 	<includefile source="campaign/campaign_pictures.xml" />
 	<includefile source="campaign/campaign_chars.xml" />
 
-	<includefile source="campaign/record_ancestry.xml" />
-	<includefile source="campaign/record_class.xml" />
+	<!-- <includefile source="campaign/record_ancestry.xml" />
+	<includefile source="campaign/record_class.xml" /> -->
 	<includefile source="campaign/record_battle.xml" />
 	<includefile source="campaign/record_battlerandom.xml" />
 	<includefile source="campaign/record_image.xml" />
