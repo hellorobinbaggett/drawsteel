@@ -1205,24 +1205,31 @@ function getRandomAdjective()
     "Quiet", "Rough", "Smooth", "Tall", "Unusual", "Vast", "Warm", "Xeric", "Yellow", "Zany",
     "Adorable", "Bitter", "Charming", "Delightful", "Energetic", "Fragile", "Glamorous", "Harmonious", "Impressive", "Jovial",
     "Lively", "Mysterious", "Noble", "Optimistic", "Peaceful", "Quirky", "Radiant", "Serene", "Tranquil", "Unique",
-    "Vibrant", "Whimsical", "Xenodochial", "Yielding", "Zealous", "Ample", "Bland", "Crisp", "Daring", "Elegant",
+    "Vibrant", "Whimsical", "Yielding", "Zealous", "Ample", "Bland", "Crisp", "Daring", "Elegant",
     "Fluffy", "Gorgeous", "Heavy", "Immense", "Jumbo", "Luminous", "Miniature", "Nervous", "Outstanding", "Playful",
-    "Quaint", "Robust", "Spicy", "Tender", "Ultra", "Velvety", "Witty", "Xylographic", "Yummy", "Zephyr-like",
+    "Quaint", "Robust", "Spicy", "Tender", "Ultra", "Velvety", "Witty", "Yummy", 
     "Abundant", "Bold", "Creative", "Dainty", "Enchanting", "Fantastic", "Generous", "Helpful", "Intelligent", "Jumpy",
     "Knowledgeable", "Loyal", "Magnificent", "Nice", "Outstanding", "Pensive", "Remarkable", "Silly", "Thoughtful", "Useful",
-    "Valuable", "Wise", "Xanthic", "Yearly", "Zestful", "Accessible", "Bubbly", "Chic", "Dazzling", "Excited",
-    "Fussy", "Grumpy", "Hardy", "Ideal", "Jazzy", "Kindly", "Lucky", "Mellow", "Neat", "Obvious",
-    "Precise", "Rare", "Scary", "Sprightly", "Terrible", "Upbeat", "Voracious", "Weary", "Xenial", "Youthful",
-    "Zonal", "Artistic", "Benevolent", "Cautious", "Determined", "Eccentric", "Fabulous", "Gleaming", "Humble", "Imaginative",
+    "Valuable", "Wise", "Yearly", "Zestful", "Accessible", "Bubbly", "Chic", "Dazzling", "Excited",
+    "Grumpy", "Hardy", "Ideal", "Jazzy", "Kindly", "Lucky", "Mellow", "Neat", "Obvious",
+    "Precise", "Rare", "Scary", "Sprightly", "Terrible", "Upbeat", "Voracious", "Weary", "Youthful",
+    "Artistic", "Benevolent", "Cautious", "Determined", "Eccentric", "Fabulous", "Gleaming", "Humble", "Imaginative",
     "Jubilant", "Kept", "Lush", "Mature", "Numerous", "Ordinary", "Patient", "Quick-witted", "Reclusive", "Shallow",
-    "Thrifty", "Unruly", "Verdant", "Wicked", "Xenogeneic", "Yielding", "Zillion", "Active", "Breezy", "Clever",
+    "Thrifty", "Unruly", "Verdant", "Wicked", "Yielding", "Zillion", "Active", "Breezy", "Clever",
     "Dapper", "Eminent", "Fair", "Giant", "Honest", "Inquisitive", "Jumpy", "Kindred", "Lofty", "Modest",
-    "New", "Old", "Perfect", "Quizzical", "Responsible", "Sensitive", "Tricky", "Unending", "Vain", "Weak",
-    "Xenophobic", "Yearning", "Zenith", "Appreciative", "Big", "Courageous", "Diverse", "Excellent", "Flawed", "Grand",
-    "High", "Intense", "Joyous", "Kindly", "Loose", "Massive", "Normal", "Observant", "Pleasant", "Regal"
+    "New", "Old", "Perfect", "Quizzical", "Sensitive", "Tricky", "Unending", "Vain", "Weak",
+    "Yearning", "Zenith", "Appreciative", "Big", "Courageous", "Excellent", "Flawed", "Grand",
+    "High", "Intense", "Joyous", "Kindly", "Loose", "Massive", "Normal", "Observant", "Pleasant", "Regal",
+	"Fetid", "Little", "Large", "Opulent", "Portly", "Tasty", "Honest", "Foul", "Sly", "Mediocre", "Small", 
+	"Diverse", "Big-assed", "Woke", "Xenophobic"
 	};
+
+	-- this code is for making two lists as to not repeat the same adjective per session
+	-- local aNames2 = {}
+	-- local randomAdjective = aNames.insert(aNames2, table.remove(aNames, math.random(#aNames)))
+
 	local randomAdjective = aNames[math.random(1, #aNames)]
-	-- Debug.chat(randomAdjective);
+
 	return randomAdjective;
 end
 
