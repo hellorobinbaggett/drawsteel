@@ -587,7 +587,7 @@ end
 
 function performMenuTokenFind(c)
 	local nodeActor = c.window.getDatabaseNode();
-	if not CombatManager.openMap(nodeActor) then
+	if not CombatManagerDS.openMap(nodeActor) then
 		ChatManager.SystemMessage(string.format(Interface.getString("record_message_token_find_fail"), DB.getValue(nodeActor, "name", "")));
 	end
 end

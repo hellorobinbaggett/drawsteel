@@ -1195,6 +1195,37 @@ function getRandomName(sKey, sBaseName)
 	return sNewName, nSuffix;
 end
 
+function getRandomAdjective()
+	local aNames = 
+	{
+	"Happy", "Sad", "Angry", "Brave", "Calm", "Eager", "Fierce", "Gentle", "Hollow", "Itchy",
+    "Jolly", "Keen", "Lazy", "Merry", "Nasty", "Obedient", "Proud", "Quick", "Rusty", "Sleepy",
+    "Tiny", "Ugly", "Vivid", "Wild", "Young", "Zingy", "Bright", "Dark", "Early", "Fast",
+    "Graceful", "Huge", "Innocent", "Joyful", "Kind", "Loud", "Muddy", "Neat", "Open", "Pale",
+    "Quiet", "Rough", "Smooth", "Tall", "Unusual", "Vast", "Warm", "Xeric", "Yellow", "Zany",
+    "Adorable", "Bitter", "Charming", "Delightful", "Energetic", "Fragile", "Glamorous", "Harmonious", "Impressive", "Jovial",
+    "Lively", "Mysterious", "Noble", "Optimistic", "Peaceful", "Quirky", "Radiant", "Serene", "Tranquil", "Unique",
+    "Vibrant", "Whimsical", "Xenodochial", "Yielding", "Zealous", "Ample", "Bland", "Crisp", "Daring", "Elegant",
+    "Fluffy", "Gorgeous", "Heavy", "Immense", "Jumbo", "Luminous", "Miniature", "Nervous", "Outstanding", "Playful",
+    "Quaint", "Robust", "Spicy", "Tender", "Ultra", "Velvety", "Witty", "Xylographic", "Yummy", "Zephyr-like",
+    "Abundant", "Bold", "Creative", "Dainty", "Enchanting", "Fantastic", "Generous", "Helpful", "Intelligent", "Jumpy",
+    "Knowledgeable", "Loyal", "Magnificent", "Nice", "Outstanding", "Pensive", "Remarkable", "Silly", "Thoughtful", "Useful",
+    "Valuable", "Wise", "Xanthic", "Yearly", "Zestful", "Accessible", "Bubbly", "Chic", "Dazzling", "Excited",
+    "Fussy", "Grumpy", "Hardy", "Ideal", "Jazzy", "Kindly", "Lucky", "Mellow", "Neat", "Obvious",
+    "Precise", "Rare", "Scary", "Sprightly", "Terrible", "Upbeat", "Voracious", "Weary", "Xenial", "Youthful",
+    "Zonal", "Artistic", "Benevolent", "Cautious", "Determined", "Eccentric", "Fabulous", "Gleaming", "Humble", "Imaginative",
+    "Jubilant", "Kept", "Lush", "Mature", "Numerous", "Ordinary", "Patient", "Quick-witted", "Reclusive", "Shallow",
+    "Thrifty", "Unruly", "Verdant", "Wicked", "Xenogeneic", "Yielding", "Zillion", "Active", "Breezy", "Clever",
+    "Dapper", "Eminent", "Fair", "Giant", "Honest", "Inquisitive", "Jumpy", "Kindred", "Lofty", "Modest",
+    "New", "Old", "Perfect", "Quizzical", "Responsible", "Sensitive", "Tricky", "Unending", "Vain", "Weak",
+    "Xenophobic", "Yearning", "Zenith", "Appreciative", "Big", "Courageous", "Diverse", "Excellent", "Flawed", "Grand",
+    "High", "Intense", "Joyous", "Kindly", "Loose", "Massive", "Normal", "Observant", "Pleasant", "Regal"
+	};
+	local randomAdjective = aNames[math.random(1, #aNames)]
+	-- Debug.chat(randomAdjective);
+	return randomAdjective;
+end
+
 --
 -- RESET FUNCTIONS
 --

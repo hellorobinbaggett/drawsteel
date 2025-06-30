@@ -89,7 +89,7 @@ function handleStandardCombatAdd(tCustom)
 	if not tCustom.nodeRecord then
 		return;
 	end
-	tCustom.nodeCT = CombatManager.createCombatantNode(tCustom.sTrackerKey);
+	tCustom.nodeCT = CombatManagerDS.createCombatantNode(tCustom.sTrackerKey);
 	if not tCustom.nodeCT then
 		return;
 	end
@@ -110,19 +110,19 @@ function handleStandardCombatAddFields(tCustom)
 	end
 
 	local nodeSource = tCustom.nodeRecord;
-	local tCurrentCombatants = CombatManager.getCombatantNodes(tCustom.sTrackerKey);
+	local tCurrentCombatants = CombatManagerDS.getCombatantNodes(tCustom.sTrackerKey);
 
 	if (tCustom.sFaction or "") == "" then
 		tCustom.sFaction = "foe";
 	end
 
 	-- Get the name to use for this addition
-	local bIsCTSource = CombatManager.isTrackerCT(nodeSource);
+	local bIsCTSource = CombatManagerDS.isTrackerCT(nodeSource);
 	local sNameLocal = tCustom.sName;
 	if not sNameLocal then
 		sNameLocal = DB.getValue(nodeSource, "name", "");
 		if bIsCTSource then
-			sNameLocal = CombatManager.stripCreatureNumber(sNameLocal);
+			sNameLocal = CombatManagerDS.stripCreatureNumber(sNameLocal);
 		end
 	end
 	local sNonIDLocal = DB.getValue(nodeSource, "nonid_name", "");
@@ -134,7 +134,7 @@ function handleStandardCombatAddFields(tCustom)
 			sNonIDLocal = Interface.getString("library_recordtype_empty_nonid_npc");
 		end
 	elseif bIsCTSource then
-		sNonIDLocal = CombatManager.stripCreatureNumber(sNonIDLocal);
+		sNonIDLocal = CombatManagerDS.stripCreatureNumber(sNonIDLocal);
 	end
 	
 	local nLocalID = DB.getValue(nodeSource, "isidentified", 1);
@@ -166,9 +166,9 @@ function handleStandardCombatAddFields(tCustom)
 		local aMatchesWithNumber = {};
 		local aMatchesToNumber = {};
 		for _,v in pairs(tCurrentCombatants) do
-			if v ~= tCustom.nodeCT and (CombatManager.getFactionFromCT(v) == tCustom.sFaction) then
+			if v ~= tCustom.nodeCT and (CombatManagerDS.getFactionFromCT(v) == tCustom.sFaction) then
 				local sEntryName = DB.getValue(v, "name", "");
-				local sTemp, sNumber = CombatManager.stripCreatureNumber(sEntryName);
+				local sTemp, sNumber = CombatManagerDS.stripCreatureNumber(sEntryName);
 				if sTemp == sNameLocal then
 					nodeLastMatch = v;
 					
@@ -199,9 +199,13 @@ function handleStandardCombatAddFields(tCustom)
 					DB.setValue(v, "name", "string", sEntryName .. " " .. nNameHigh);
 					DB.setValue(v, "nonid_name", "string", sEntryNonIDName .. " " .. nNameHigh);
 				elseif sOptNNPC == "random" then
-					local sNewName, nSuffix = CombatManager.getRandomName(tCustom.sTrackerKey, sEntryName);
+					local sNewName, nSuffix = CombatManagerDS.getRandomName(tCustom.sTrackerKey, sEntryName);
 					DB.setValue(v, "name", "string", sNewName);
 					DB.setValue(v, "nonid_name", "string", sEntryNonIDName .. " " .. nSuffix);
+				elseif sOptNNPC == "fun" then
+					local randomAdjective = CombatManagerDS.getRandomAdjective();
+					DB.setValue(v, "name", "string", randomAdjective .. " " .. sEntryName);
+					DB.setValue(v, "nonid_name", "string", sEntryNonIDName .. " " .. nNameHigh);
 				end
 			end
 			
@@ -211,9 +215,13 @@ function handleStandardCombatAddFields(tCustom)
 					sNameLocal = sNameLocal .. " " .. nNameHigh;
 					sNonIDLocal = sNonIDLocal .. " " .. nNameHigh;
 				elseif sOptNNPC == "random" then
-					local sNewName, nSuffix = CombatManager.getRandomName(tCustom.sTrackerKey, sNameLocal);
+					local sNewName, nSuffix = CombatManagerDS.getRandomName(tCustom.sTrackerKey, sNameLocal);
 					sNameLocal = sNewName;
 					sNonIDLocal = sNonIDLocal .. " " .. nSuffix;
+				elseif sOptNNPC == "fun" then
+					local sNewName = CombatManagerDS.getRandomAdjective(tCustom.sTrackerKey, sEntryName);
+					DB.setValue(v, "name", "string", sNewName);
+					DB.setValue(v, "nonid_name", "string", sEntryNonIDName );
 				end
 			end
 		end
@@ -277,7 +285,7 @@ function handleStandardCombatAddPlacement(tCustom)
 		return;
 	end
 
-	local tokenMap = CombatManager.addTokenFromCT(nodeImage, tCustom.nodeCT, tCustom.tPlacement.imagex, tCustom.tPlacement.imagey);
+	local tokenMap = CombatManagerDS.addTokenFromCT(nodeImage, tCustom.nodeCT, tCustom.tPlacement.imagex, tCustom.tPlacement.imagey);
 	if tokenMap then
 		TokenManager.linkToken(tCustom.nodeCT, tokenMap);
 	end
@@ -287,7 +295,7 @@ function handleStandardCombatAddPC(tCustom)
 	if not tCustom.nodeRecord then
 		return;
 	end
-	tCustom.nodeCT = CombatManager.createCombatantNode(tCustom.sTrackerKey);
+	tCustom.nodeCT = CombatManagerDS.createCombatantNode(tCustom.sTrackerKey);
 	if not tCustom.nodeCT then
 		return;
 	end

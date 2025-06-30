@@ -38,32 +38,7 @@
 
 			<resize_ctbox />
 
-			<initiative_roll name="ct_initiative_roll">
-                <bounds>-90,35,45,45</bounds>
-                <tooltip textres="tooltip_ir" />
-                <script>	
-                    function action(draginfo)
-                        local nodeWin = window.getDatabaseNode();
-
-                        local rRoll = { 
-                            sType = "dice", 
-                            sDesc = "Initiative Roll:", 
-                            aDice = { "d10" },
-							nMod = 0,
-                        };
-                        ActionsManager.performAction(draginfo, rActor, rRoll);
-                        return true;
-                    end
-                    
-                    function onDragStart(button, x, y, draginfo)
-                        return action(draginfo);
-                    end
-
-                    function onButtonPress()
-                        return action();
-                    end
-                </script>
-        	</initiative_roll>
+			<ct_initiative_roll />
 		</sheetdata>
 	</windowclass>
 	<windowclass name="sub_ct_header_host">
@@ -79,6 +54,8 @@
 			<spacer_ct_header_buttons_host name="spacer_buttons_header" />
 
 			<label_ct_header_name_v2 name="label_name" />
+			<label_ct_header_init name="label_name" />
+			<label_ct_header_stamina name="label_name" />
 		</sheetdata>
 	</windowclass>
 	<windowclass name="sub_ct_header_host_heroes" source="heroestest">

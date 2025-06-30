@@ -169,7 +169,7 @@
 				<anchored to="maxstamina" />
 				<static textres="npc_label_currentstamina" />
 			</label_column_right>
-			<number_column_right name="currentstamina">
+			<number_column_right name="currentstamina" source="hp.stamina">
 				<anchored to="maxstamina" />
 				<default>0</default>
 			</number_column_right>

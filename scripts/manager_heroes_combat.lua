@@ -1204,7 +1204,7 @@ end
 --
 function resetOrder()
 	-- De-activate all entries
-	for _,v in pairs(CombatManager.getCombatantNodes()) do
+	for _,v in pairs(CombatManagerDS.getCombatantNodes()) do
 		DB.setValue(v, "active", "number", 0);
 	end
 
@@ -1212,9 +1212,9 @@ function resetOrder()
 	ChatIdentityManager.clearCombatantIdentity();
 
 	-- Reset the round counter
-	DB.setValue(CombatManager.CT_LIST, "number", 0);
+	DB.setValue(CombatManagerDS.CT_LIST, "number", 0);
 
-	CombatManager.onCombatResetEvent();
+	CombatManagerDS.onCombatResetEvent();
 end
 function resetInit()
 	-- De-activate all entries

@@ -91,7 +91,7 @@
 					end
 				end
 				function onButtonPress()
-					CombatManager.nextTurn();
+					CombatManagerDS.nextTurn();
 				end
 				function onDragStart(button, x, y, draginfo)
 					draginfo.setType("combattrackernextactor");

@@ -121,7 +121,7 @@ function performAction(draginfo, rActor, rRoll)
 		return;
 	end
 	
-	if Session.IsHost and CombatManager.isCTHidden(ActorManager.getCTNode(rActor)) then
+	if Session.IsHost and CombatManagerDS.isCTHidden(ActorManager.getCTNode(rActor)) then
 		rRoll.bSecret = true;
 	end
 
@@ -723,7 +723,7 @@ function messageResult(bSecret, rSource, rTarget, rMessageGM, rMessagePlayer)
 	
 	if bShowResultsToPlayer then
 		local nodeCT = ActorManager.getCTNode(rTarget);
-		if nodeCT and CombatManager.isCTHidden(nodeCT) then
+		if nodeCT and CombatManagerDS.isCTHidden(nodeCT) then
 			rMessageGM.secret = true;
 			Comm.deliverChatMessage(rMessageGM, "");
 		else

@@ -120,7 +120,19 @@
 	<template name="label_ct_header_name_v2">
 		<label>
 			<static textres="ct_label_name" />
-			<bounds>210,4,300,14</bounds>
+			<bounds>90,4,300,14</bounds>
+		</label>
+	</template>
+	<template name="label_ct_header_init">
+		<label>
+			<static textres="ct_label_init" />
+			<bounds>-195,4,300,14</bounds>
+		</label>
+	</template>
+	<template name="label_ct_header_stamina">
+		<label>
+			<static textres="ct_label_hp" />
+			<bounds>-160,4,300,14</bounds>
 		</label>
 	</template>
 	<template name="label_ct_header_name_v2_heroes">
@@ -156,7 +168,7 @@
 			<tooltip textres="ct_tooltip_nextactor" />
 			<script>
 				function onButtonPress()
-					CombatManager.nextTurn();
+					CombatManagerDS.nextTurn();
 				end
 				function onDragStart(button, x, y, draginfo)
 					draginfo.setType("combattrackernextactor");
@@ -186,6 +198,35 @@
 			<disabled />
 		</genericcontrol>
 	</template>
+
+	<template name="ct_initiative_roll">
+		<initiative_roll>
+                <bounds>-330,35,50,50</bounds>
+                <tooltip textres="tooltip_ir" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
+
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "Initiative Roll:", 
+                            aDice = { "d10" },
+							nMod = 0,
+                        };
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+		</initiative_roll>
+    </template>
 
 	<!-- GM combat tracker window -->
 	<template name="list_ct_host">
@@ -306,26 +347,35 @@
 				end
 				function onMenuSelection(selection)
 					if selection == 4 then
-						CombatManager.nextRound(5);
+						CombatManagerDS.nextRound(5);
 					elseif selection == 5 then
-						CombatManager.nextRound(10);
+						CombatManagerDS.nextRound(10);
 					elseif selection == 6 then
-						CombatManager.nextRound(15);
+						CombatManagerDS.nextRound(15);
 					elseif selection == 7 then
-						CombatManager.nextRound(20);
+						CombatManagerDS.nextRound(20);
 					end
 				end
 				function onButtonPress()
-					CombatManager.nextRound(1);
-					
 					for _,v in pairs(CombatManager.getCombatantNodes()) do
+					DB.setValue(v, "active", "number", 0);
+				end
+
+				-- Clear GM identity additions (based on option)
+				ChatIdentityManager.clearCombatantIdentity();
+
+				CombatManager.onCombatResetEvent();
+
+					CombatManagerDS.nextRound(1);
+					
+					for _,v in pairs(CombatManagerDS.getCombatantNodes()) do
 							DB.setValue(v, "active", "number", 0);
 						end
 
 						-- Clear GM identity additions (based on option)
 						ChatIdentityManager.clearCombatantIdentity();
 
-						CombatManager.onCombatResetEvent();					
+						CombatManagerDS.onCombatResetEvent();					
 				end
 				function onDragStart(button, x, y, draginfo)
 					draginfo.setType("combattrackernextround");

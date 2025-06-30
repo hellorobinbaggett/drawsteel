@@ -404,8 +404,8 @@ function getDefenseAdvantage(rAttacker, rDefender, aAttackFilter)
 		-- local nodeAttacker = ActorManager.getCTNode(rAttacker);
 		-- local nodeDefender = ActorManager.getCTNode(rDefender);
 		-- if nodeAttacker and nodeDefender then
-			-- local tokenAttacker = CombatManager.getTokenFromCT(nodeAttacker);
-			-- local tokenDefender = CombatManager.getTokenFromCT(nodeDefender);
+			-- local tokenAttacker = CombatManagerDS.getTokenFromCT(nodeAttacker);
+			-- local tokenDefender = CombatManagerDS.getTokenFromCT(nodeDefender);
 			-- if tokenAttacker and tokenDefender then
 				-- local nodeAttackerContainer = tokenAttacker.getContainerNode();
 				-- local nodeDefenderContainer = tokenDefender.getContainerNode();

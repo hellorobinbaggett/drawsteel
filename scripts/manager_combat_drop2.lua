@@ -204,6 +204,6 @@ function onInitSwapDragTypeDrop(tCustom)
 	end
 
 	local _,sSourceCTPath = tCustom.draginfo.getShortcutData();
-	CombatManager.onInitSwap(DB.findNode(sSourceCTPath), ActorManager.getCTNode(rTarget));
+	CombatManagerDS.onInitSwap(DB.findNode(sSourceCTPath), ActorManager.getCTNode(rTarget));
 	return true;
 end

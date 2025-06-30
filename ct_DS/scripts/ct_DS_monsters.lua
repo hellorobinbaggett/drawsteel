@@ -41,7 +41,7 @@ function onListChanged()
 	self.onVisibilityToggle()
 end
 function onSortCompare(w1, w2)
-	return CombatManager.onSortCompare(w1.getDatabaseNode(), w2.getDatabaseNode());
+	return CombatManagerDS.onSortCompare(w1.getDatabaseNode(), w2.getDatabaseNode());
 end
 
 local _bEnableVisibilityToggle = true;

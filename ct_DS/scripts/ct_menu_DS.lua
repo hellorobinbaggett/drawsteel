@@ -28,12 +28,12 @@ function onMenuSelection(selection, subselection)
 	if Session.IsHost then
 		if selection == 7 then
 			if subselection == 4 then
-				CombatManager.resetInit();
+				CombatManagerDS.resetInit();
 			end
 		elseif selection == 3 then
 			if subselection == 1 then
-				CombatManager.deleteNonFaction("friend");
-                CombatManager.deleteFaction("foe");
+				CombatManagerDS.deleteNonFaction("friend");
+                CombatManagerDS.deleteFaction("foe");
 			end
 		end
 	end

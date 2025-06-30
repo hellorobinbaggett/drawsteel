@@ -13,7 +13,7 @@
 		<sizelimits>
 			<minimum height="40" />
 		</sizelimits>
-		<script file="ct/scripts/ct_entry.lua" />
+		<script file="ct_DS/scripts/ct_DS_entry.lua" />
 		<sheetdata>
 			<htx name="token3Dflat" />
 			<hs name="tokenrefid" />
@@ -37,7 +37,7 @@
 
 			<button_ctentry_friendfoe name="friendfoe" />
 
-			<!-- <number_ctentry_stamina name="stamina" /> -->
+			<number_ctentry_stamina name="stamina" />
 			<number_ctentry_initresult name="initresult" />
 
 			<string_ct_entry_name name="name" />
@@ -91,7 +91,7 @@
 
 			<button_ctentry_friendfoe name="friendfoe" />
 
-			<!-- <number_ctentry_stamina name="stamina" /> -->
+			<number_ctentry_stamina name="stamina" />
 			<number_ctentry_initresult name="initresult" />
 
 			<string_ct_entry_name name="name" />
@@ -145,7 +145,7 @@
 
 			<button_ctentry_friendfoe name="friendfoe" />
 
-			<!-- <number_ctentry_stamina name="stamina" /> -->
+			<number_ctentry_stamina name="stamina" />
 			<number_ctentry_initresult name="initresult" />
 
 			<string_ct_entry_name name="name" />

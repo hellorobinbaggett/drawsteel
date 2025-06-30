@@ -9,10 +9,10 @@ function onTabletopInit()
 		Token.addEventHandler("onTargetUpdate", TokenManager.onTargetUpdate);
 		User.addEventHandler("onIdentityStateChange", TokenManager.onIdentityStateChange);
 
-		CombatManager.setCustomDeleteCombatantHandler(TokenManager.onCombatantDelete);
-		CombatManager.addAllCombatantFieldChangeHandler("active", "onUpdate", TokenManager.updateActive);
-		CombatManager.addAllCombatantFieldChangeHandler("space", "onUpdate", TokenManager.updateSpaceReach);
-		CombatManager.addAllCombatantFieldChangeHandler("reach", "onUpdate", TokenManager.updateSpaceReach);
+		CombatManagerDS.setCustomDeleteCombatantHandler(TokenManager.onCombatantDelete);
+		CombatManagerDS.addAllCombatantFieldChangeHandler("active", "onUpdate", TokenManager.updateActive);
+		CombatManagerDS.addAllCombatantFieldChangeHandler("space", "onUpdate", TokenManager.updateSpaceReach);
+		CombatManagerDS.addAllCombatantFieldChangeHandler("reach", "onUpdate", TokenManager.updateSpaceReach);
 	end
 	DB.addHandler("charsheet.*", "onDelete", TokenManager.deleteOwner);
 	DB.addHandler("charsheet.*", "onObserverUpdate", TokenManager.updateOwner);
@@ -25,11 +25,11 @@ function onTabletopInit()
 	Token.addEventHandler("onWheel", TokenManager.onWheel);
 	Token.addEventHandler("onHover", TokenManager.onHover);
 
-	CombatManager.addAllCombatantFieldChangeHandler("tokenrefid", "onUpdate", TokenManager.updateAttributes);
-	CombatManager.addAllCombatantFieldChangeHandler("friendfoe", "onUpdate", TokenManager.updateFaction);
-	CombatManager.addAllCombatantFieldChangeHandler("name", "onUpdate", TokenManager.updateName);
-	CombatManager.addAllCombatantFieldChangeHandler("nonid_name", "onUpdate", TokenManager.updateName);
-	CombatManager.addAllCombatantFieldChangeHandler("isidentified", "onUpdate", TokenManager.updateName);
+	CombatManagerDS.addAllCombatantFieldChangeHandler("tokenrefid", "onUpdate", TokenManager.updateAttributes);
+	CombatManagerDS.addAllCombatantFieldChangeHandler("friendfoe", "onUpdate", TokenManager.updateFaction);
+	CombatManagerDS.addAllCombatantFieldChangeHandler("name", "onUpdate", TokenManager.updateName);
+	CombatManagerDS.addAllCombatantFieldChangeHandler("nonid_name", "onUpdate", TokenManager.updateName);
+	CombatManagerDS.addAllCombatantFieldChangeHandler("isidentified", "onUpdate", TokenManager.updateName);
 	
 	TokenManager.initOptionTracking();
 end
@@ -144,8 +144,8 @@ function initOptionTracking()
 	DB.addHandler("options.TNAM", "onUpdate", TokenManager.onOptionChanged);
 end
 function onOptionChanged(nodeOption)
-	for _,nodeCT in pairs(CombatManager.getAllCombatantNodes()) do
-		local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	for _,nodeCT in pairs(CombatManagerDS.getAllCombatantNodes()) do
+		local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 		if tokenCT then
 			TokenManager.updateAttributesHelper(tokenCT, nodeCT);
 		end
@@ -181,7 +181,7 @@ function onCombatantDelete(nodeCT)
 		end
 	end
 	
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		tokenCT.delete();
 	end
@@ -197,12 +197,12 @@ function onMove(tokenMap)
 end
 function onTokenDelete(tokenMap)
 	if Session.IsHost then
-		CombatManager.onTokenDelete(tokenMap);
+		CombatManagerDS.onTokenDelete(tokenMap);
 	end
 end
 function onContainerChanged(tokenCT, nodeOldContainer, nOldId)
 	if nodeOldContainer then
-		local nodeCT = CombatManager.getCTFromTokenRef(nodeOldContainer, nOldId);
+		local nodeCT = CombatManagerDS.getCTFromTokenRef(nodeOldContainer, nOldId);
 		if nodeCT then
 			local nodeNewContainer = tokenCT.getContainerNode();
 			if nodeNewContainer then
@@ -224,7 +224,7 @@ function onWheelCT(nodeCT, notches)
 	local bControl = Input.isControlPressed();
 	local bAlt = Input.isAltPressed();
 	if bControl or bAlt then
-		local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+		local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 		if tokenCT then
 			if bControl then
 				TokenManager.onWheelHelper(tokenCT, notches);
@@ -262,7 +262,7 @@ function onWheelHeightHelper(tokenCT, notches)
 end
 
 function onDrop(tokenCT, draginfo)
-	local nodeCT = CombatManager.getCTFromToken(tokenCT);
+	local nodeCT = CombatManagerDS.getCTFromToken(tokenCT);
 	if nodeCT then
 		return CombatDropManager.handleAnyDrop(draginfo, DB.getPath(nodeCT));
 	else
@@ -273,7 +273,7 @@ function onDrop(tokenCT, draginfo)
 	end
 end
 function onDoubleClick(tokenMap, vImage)
-	local nodeCT = CombatManager.getCTFromToken(tokenMap);
+	local nodeCT = CombatManagerDS.getCTFromToken(tokenMap);
 	if nodeCT then
 		if Session.IsHost then
 			local sClass, sRecord = DB.getValue(nodeCT, "link", "", "");
@@ -283,7 +283,7 @@ function onDoubleClick(tokenMap, vImage)
 				Interface.openWindow(sClass, nodeCT);
 			end
 		else
-			if CombatManager.getFactionFromCT(nodeCT) == "friend" then
+			if CombatManagerDS.getFactionFromCT(nodeCT) == "friend" then
 				local sClass, sRecord = DB.getValue(nodeCT, "link", "", "");
 				if sClass == "charsheet" then
 					if sRecord ~= "" and DB.isOwner(sRecord) then
@@ -315,7 +315,7 @@ function onWheel(tokenMap, notches)
 		if Session.IsHost then
 			bAllow = true;
 		else
-			local nodeCT = CombatManager.getCTFromToken(tokenMap);
+			local nodeCT = CombatManagerDS.getCTFromToken(tokenMap);
 			if nodeCT then
 				bAllow = Token.isOwner(tokenMap);
 			else
@@ -329,7 +329,7 @@ function onWheel(tokenMap, notches)
 	end
 end
 function onHover(tokenMap, bOver)
-	local nodeCT = CombatManager.getCTFromToken(tokenMap);
+	local nodeCT = CombatManagerDS.getCTFromToken(tokenMap);
 	if nodeCT then
 		if OptionsManager.isOption("TNAM", "hover") then
 			local widgetName = tokenMap.findWidget("name");
@@ -345,7 +345,7 @@ function onHover(tokenMap, bOver)
 			local sOption;
 			if Session.IsHost then
 				sOption = OptionsManager.getOption("TGMH");
-			elseif CombatManager.getFactionFromCT(nodeCT) == "friend" then
+			elseif CombatManagerDS.getFactionFromCT(nodeCT) == "friend" then
 				sOption = OptionsManager.getOption("TPCH");
 			else
 				sOption = OptionsManager.getOption("TNPCH");
@@ -365,7 +365,7 @@ function onHover(tokenMap, bOver)
 			local sOption;
 			if Session.IsHost then
 				sOption = OptionsManager.getOption("TGME");
-			elseif CombatManager.getFactionFromCT(nodeCT) == "friend" then
+			elseif CombatManagerDS.getFactionFromCT(nodeCT) == "friend" then
 				sOption = OptionsManager.getOption("TPCE");
 			else
 				sOption = OptionsManager.getOption("TNPCE");
@@ -383,8 +383,8 @@ function onHover(tokenMap, bOver)
 end
 function onIdentityStateChange(sIdentity, sUser, sStateName, vState)
 	if sStateName == "color" and sUser ~= "" then
-		for _,nodeCT in ipairs(CombatManager.getAllCombatantNodes()) do
-			local token = CombatManager.getTokenFromCT(nodeCT);
+		for _,nodeCT in ipairs(CombatManagerDS.getAllCombatantNodes()) do
+			local token = CombatManagerDS.getTokenFromCT(nodeCT);
 			if token then
 				local rActor = ActorManager.resolveActor(nodeCT);
 				if rActor and ActorManager.isPC(rActor) then
@@ -402,7 +402,7 @@ function onIdentityStateChange(sIdentity, sUser, sStateName, vState)
 end
 
 function updateAttributesFromToken(tokenMap)
-	local nodeCT = CombatManager.getCTFromToken(tokenMap);
+	local nodeCT = CombatManagerDS.getCTFromToken(tokenMap);
 	if nodeCT then
 		TokenManager.updateAttributesHelper(tokenMap, nodeCT);
 	else
@@ -411,7 +411,7 @@ function updateAttributesFromToken(tokenMap)
 end
 function updateAttributes(nodeField)
 	local nodeCT = DB.getParent(nodeField);
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		TokenManager.updateAttributesHelper(tokenCT, nodeCT);
 	end
@@ -454,7 +454,7 @@ function updateTooltip(tokenCT, nodeCT)
 	
 	if Session.IsHost then
 		local tTooltip = {};
-		local sFaction = CombatManager.getFactionFromCT(nodeCT);
+		local sFaction = CombatManagerDS.getFactionFromCT(nodeCT);
 		
 		local sOptTNAM = OptionsManager.getOption("TNAM");
 		if sOptTNAM == "tooltip" then
@@ -468,7 +468,7 @@ end
 
 function updateName(nodeName)
 	local nodeCT = DB.getParent(nodeName);
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		TokenManager.updateNameHelper(tokenCT, nodeCT);
 		TokenManager.updateTooltip(tokenCT, nodeCT);
@@ -586,7 +586,7 @@ function updateHeightHelper(tokenMap)
 end
 
 function updateVisibility(nodeCT)
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		TokenManager.updateVisibilityHelper(tokenCT, nodeCT);
 
@@ -595,15 +595,15 @@ function updateVisibility(nodeCT)
 			TargetingManager.removeCTTargeted(nodeCT);
 		end
 	else
-		if CombatManager.getFactionFromCT(nodeCT) ~= "friend" then
-			if not CombatManager.getTokenVisibilityFromCT(nodeCT) then
+		if CombatManagerDS.getFactionFromCT(nodeCT) ~= "friend" then
+			if not CombatManagerDS.getTokenVisibilityFromCT(nodeCT) then
 				TargetingManager.removeCTTargeted(nodeCT);
 			end
 		end
 	end
 end
 function updateVisibilityHelper(tokenCT, nodeCT)
-	if CombatManager.getFactionFromCT(nodeCT) == "friend" then
+	if CombatManagerDS.getFactionFromCT(nodeCT) == "friend" then
 		if OptionsManager.isOption("TPTY", "on") then
 			tokenCT.setVisible(true);
 		elseif not Session.IsHost and DB.isOwner(ActorManager.getCreatureNode(nodeCT)) then
@@ -612,7 +612,7 @@ function updateVisibilityHelper(tokenCT, nodeCT)
 			tokenCT.setVisible(nil);
 		end
 	else
-		if CombatManager.getTokenVisibilityFromCT(nodeCT) then
+		if CombatManagerDS.getTokenVisibilityFromCT(nodeCT) then
 			if tokenCT.isVisible() ~= true then
 				tokenCT.setVisible(nil);
 			end
@@ -623,9 +623,9 @@ function updateVisibilityHelper(tokenCT, nodeCT)
 end
 
 function deleteOwner(nodePC)
-	local nodeCT = CombatManager.getCTFromNode(nodePC);
+	local nodeCT = CombatManagerDS.getCTFromNode(nodePC);
 	if nodeCT then
-		local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+		local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 		if tokenCT then
 			if Session.IsHost then
 				tokenCT.setOwner();
@@ -636,9 +636,9 @@ function deleteOwner(nodePC)
 end
 -- NOTE: Assume registered on host; Only called for PC (charsheet) node owner changes
 function updateOwner(nodePC)
-	local nodeCT = CombatManager.getCTFromNode(nodePC);
+	local nodeCT = CombatManagerDS.getCTFromNode(nodePC);
 	if nodeCT then
-		local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+		local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 		if tokenCT then
 			TokenManager.updateOwnerHelper(tokenCT, nodeCT);
 		end
@@ -654,7 +654,7 @@ end
 
 function updateActive(nodeField)
 	local nodeCT = DB.getParent(nodeField);
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		TokenManager.updateActiveHelper(tokenCT, nodeCT);
 	end
@@ -672,7 +672,7 @@ end
 
 function updateFaction(nodeFaction)
 	local nodeCT = DB.getParent(nodeFaction);
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		if Session.IsHost then
 			TokenManager.updateFactionHelper(tokenCT, nodeCT);
@@ -690,7 +690,7 @@ function updateFaction(nodeFaction)
 	end
 end
 function updateFactionHelper(tokenCT, nodeCT)
-	local sFaction = CombatManager.getFactionFromCT(nodeCT);
+	local sFaction = CombatManagerDS.getFactionFromCT(nodeCT);
 
 	local bAllowPublicAccess = false;
 	if (sFaction == "friend") and OptionsManager.isOption("TPTY", "on") then
@@ -716,7 +716,7 @@ end
 
 function updateSpaceReach(nodeField)
 	local nodeCT = DB.getParent(nodeField);
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		TokenManager.updateSizeHelper(tokenCT, nodeCT);
 	end
@@ -741,7 +741,7 @@ function updateSizeHelper(tokenCT, nodeCT)
 	end
 
 	-- Faction/space underlay
-	local sFaction = CombatManager.getFactionFromCT(nodeCT);
+	local sFaction = CombatManagerDS.getFactionFromCT(nodeCT);
 	if sFaction == "friend" then
 		tokenCT.addUnderlay(nHalfSpace, "2F" .. ColorManager.COLOR_TOKEN_FACTION_FRIEND);
 	elseif sFaction == "foe" then
@@ -775,7 +775,7 @@ function updateTokenColor(token)
 	end
 
 	-- If valid CT actor, then check for custom color based on token linking
-	local nodeCT = CombatManager.getCTFromToken(token);
+	local nodeCT = CombatManagerDS.getCTFromToken(token);
 	local rActor = ActorManager.resolveActor(nodeCT);
 	if rActor then
 		-- If PC, check to see if identity has owner and is active
@@ -800,7 +800,7 @@ function updateTokenColor(token)
 		end
 
 		-- Otherwise, use faction coloring
-		local sFaction = CombatManager.getFactionFromCT(nodeCT);
+		local sFaction = CombatManagerDS.getFactionFromCT(nodeCT);
 		if sFaction == "friend" then
 			token.setColor(ColorManager.COLOR_TOKEN_FACTION_FRIEND);
 			return;
@@ -872,7 +872,7 @@ end
 function getTokenSpace(tokenMap)
 	local nSpace = TokenManager.getDragTokenUnits();
 	if not nSpace then
-		local nodeCT = CombatManager.getCTFromToken(tokenMap);
+		local nodeCT = CombatManagerDS.getCTFromToken(tokenMap);
 		if nodeCT then
 			nSpace = DB.getValue(nodeCT, "space");
 		end
@@ -906,14 +906,14 @@ end
 
 function updateEffects(nodeCT)
 	if Session.IsHost then
-		local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+		local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 		if tokenCT then
 			VisionManager.updateTokenVisionHelper(tokenCT, nodeCT);
 			VisionManager.updateTokenLightingHelper(tokenCT, nodeCT);
 		end
 	end
 	if TokenManager.isDefaultEffectsEnabled() then
-		local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+		local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 		if tokenCT then
 			TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 			TokenManager.updateTooltip(tokenCT, nodeCT);
@@ -965,7 +965,7 @@ function addDefaultHealthFeatures(f, tHealthFields)
 end
 function updateHealth(nodeField)
 	local nodeCT = DB.getParent(nodeField);
-	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	local tokenCT = CombatManagerDS.getTokenFromCT(nodeCT);
 	if tokenCT then
 		TokenManager.updateHealthHelper(tokenCT, nodeCT);
 		TokenManager.updateTooltip(tokenCT, nodeCT);
@@ -975,7 +975,7 @@ function updateHealthHelper(tokenCT, nodeCT)
 	local sOptTH;
 	if Session.IsHost then
 		sOptTH = OptionsManager.getOption("TGMH");
-	elseif CombatManager.getFactionFromCT(nodeCT) == "friend" then
+	elseif CombatManagerDS.getFactionFromCT(nodeCT) == "friend" then
 		sOptTH = OptionsManager.getOption("TPCH");
 	else
 		sOptTH = OptionsManager.getOption("TNPCH");
@@ -1115,7 +1115,7 @@ function updateEffectsHelper(tokenCT, nodeCT)
 	local sOptTE;
 	if Session.IsHost then
 		sOptTE = OptionsManager.getOption("TGME");
-	elseif CombatManager.getFactionFromCT(nodeCT) == "friend" then
+	elseif CombatManagerDS.getFactionFromCT(nodeCT) == "friend" then
 		sOptTE = OptionsManager.getOption("TPCE");
 	else
 		sOptTE = OptionsManager.getOption("TNPCE");

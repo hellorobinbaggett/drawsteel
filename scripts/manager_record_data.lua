@@ -416,7 +416,7 @@ function getRecordTypeFromRecordPath(sRecordPath)
 	local sListPathSansModule = RecordDataManager.getListPathFromRecordPath(sRecordPath);
 	local sRecordType = RecordDataManager.getRecordTypeFromListPath(sListPathSansModule);
 
-	if (sRecordType == "") and CombatManager.isTrackerCT(sListPathSansModule) then
+	if (sRecordType == "") and CombatManagerDS.isTrackerCT(sListPathSansModule) then
 		local sClass,_ = DB.getValue(DB.getPath(sRecordPath, "link"), "", "");
 		sRecordType = RecordDataManager.getRecordTypeFromDisplayClass(sClass);
 	end

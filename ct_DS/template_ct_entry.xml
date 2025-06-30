@@ -266,32 +266,22 @@
 					window.windowlist.applySort();
 				end
 				function onDragStart(button, x, y, draginfo)
-					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
+					return CombatManagerDS.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
 				end
 			</script>
 		</basicnumber>
 	</template>
 
 	<template name="number_ctentry_stamina">
-		<basicnumber name="stamina">
+		<number_ct_crosslink name="stamina">
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
 				<right anchor="left" relation="relative" offset="-15" />
 			</anchored>
 			<hideonvalue>0</hideonvalue>
 			<tabtarget prev="nonid_name" />
-			<script>
-				-- function onValueChanged()
-				-- 	window.onInitiativeChanged();
-				-- end
-				function update()
-					window.windowlist.applySort();
-				end
-				function onDragStart(button, x, y, draginfo)
-					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
-				end
-			</script>
-		</basicnumber>
+			<script file="ct_DS/scripts/ct_stamina.lua" />
+		</number_ct_crosslink>
 	</template>
 
 	<!-- Player combat tracker entry -->
@@ -302,7 +292,7 @@
 				function onValueChanged()
 					local bActive = (getValue() == 1);
 					window.onActiveChanged(bActive);
-					CombatManager.onEntryActivationChanged(window.getDatabaseNode());
+					CombatManagerDS.onEntryActivationChanged(window.getDatabaseNode());
 				end
 			</script>
 		</button_ctentry_active_base>
@@ -319,11 +309,11 @@
 				end
 				function onClickRelease(button, x, y)
 					if button == 1 then
-						return CombatManager.handleCTTokenPressed(window.getDatabaseNode());
+						return CombatManagerDS.handleCTTokenPressed(window.getDatabaseNode());
 					end
 				end
 				function onDoubleClick(x, y)
-					CombatManager.handleCTTokenDoubleClick(window.getDatabaseNode());
+					CombatManagerDS.handleCTTokenDoubleClick(window.getDatabaseNode());
 					return true;
 				end
 			</script>
@@ -349,7 +339,7 @@
 					window.windowlist.applySort();
 				end
 				function onDragStart(button, x, y, draginfo)
-					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
+					return CombatManagerDS.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
 				end
 			</script>
 		</number_ct_static>

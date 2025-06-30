@@ -108,13 +108,13 @@
 					
 					local bShow = false;
 					local nodeCT = ActorManager.getCTNode(window.getDatabaseNode());
-					if nodeCT and CombatManager.getTokenFromCT(nodeCT) then
+					if nodeCT and CombatManagerDS.getTokenFromCT(nodeCT) then
 						bShow = true;
 					end
 					setVisible(bShow);
 				end
 				function onButtonPress()
-					if CombatManager.openMap(window.getDatabaseNode()) then
+					if CombatManagerDS.openMap(window.getDatabaseNode()) then
 						UtilityManager.getTopWindow(window).close();
 					end
 				end
