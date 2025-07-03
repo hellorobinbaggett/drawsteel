@@ -17,15 +17,15 @@
 		<sharable />
 		<script>
 			function onInit()
-				self.onStateChanged();
+				self.Update();
 			end
 			function getRecordType()
 				return "treasureparcel";
 			end
 			function onLockChanged()
-				self.onStateChanged();
+				self.Update();
 			end
-			function onStateChanged()
+			function Update()
 				if header.subwindow then
 					header.subwindow.update();
 				end

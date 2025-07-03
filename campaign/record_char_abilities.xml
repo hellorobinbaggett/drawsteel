@@ -69,7 +69,35 @@
 				<static textres="char_label_herotokens" />
 			</label_charfieldtop>
 
+			<initiative_roll name="classresource_roll">
+                <anchored to="classresourcetitle" width="100" height="30">
+					<top anchor="bottom" offset="8" />
+					<left anchor="center" offset="-170" />
+				</anchored>
+                <tooltip textres="char_tooltip_classresource" />
+                <script>	
+                    function action(draginfo)
+                        local nodeWin = window.getDatabaseNode();
 
+                        local rRoll = { 
+                            sType = "dice", 
+                            sDesc = "Heroic Resource:", 
+                            aDice = { "d3" },
+							nMod = 0,
+                        };
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        return true;
+                    end
+                    
+                    function onDragStart(button, x, y, draginfo)
+                        return action(draginfo);
+                    end
+
+                    function onButtonPress()
+                        return action();
+                    end
+                </script>
+        	</initiative_roll>
 
 
 

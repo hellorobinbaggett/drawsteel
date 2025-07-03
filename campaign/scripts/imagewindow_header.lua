@@ -9,17 +9,17 @@ function onInit()
 		nonid_name.setAnchor("left", nil, "center", "absolute", 22);
 		self.onLayoutSizeChanged = self.onStateChanged;
 	end
-	self.onStateChanged();
+	self.Update();
 end
 
 function onLockModeChanged()
-	self.onStateChanged();
+	self.Update();
 end
 function onIDModeChanged()
-	self.onStateChanged();
+	self.Update();
 end
 
-function onStateChanged()
+function Update()
 	local nodeRecord = getDatabaseNode();
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID = RecordDataManager.getIDState("image", nodeRecord);

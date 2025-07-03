@@ -17,15 +17,16 @@
 
 	<!-- Announcements -->
 	<announcement text="=======DEV BUILD=======" /> 
-	<announcement text="Draw Steel Ruleset v.094 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Ruleset v.096 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	
 	<!-- This allows the ruleset to pull from CoreRPG for the basic scripts and functionality -->
-	<!-- Layers -->
+	<!-- TODO: go through previously copied code from CoreRPG and point those dependencies to the CoreRPG that is imported -->
 	<importruleset source="CoreRPG" />
 	
 	<!-- Tabletop settings -->
-	<includefile source="gameelements.xml" />
+	<includefile source="gameelements_DS.xml" />
+	<includefile source="campaign/campaign_masterindex_DS.xml" />
 
 	<!-- DRAW STEEL files -->
 	<includefile source="campaign/record_char_main_ds.xml" />
@@ -54,18 +55,14 @@
 	<includefile source="graphics/graphics_tabs.xml" />
 	
 	<!-- String resources -->
-	<includefile source="strings/strings_common.xml" />
-	<includefile source="strings/strings_dice.xml" />
-	<includefile source="strings/strings_sound.xml" />
-	<includefile source="strings/strings_utility.xml" />
-	<includefile source="strings/strings_campaign.xml" />
-	<includefile source="strings/strings_ct.xml" />
-	<includefile source="strings/strings_ps.xml" />
+	<includefile source="strings/strings_common_DS.xml" />
+	<includefile source="strings/strings_utility_DS.xml" />
+	<includefile source="strings/strings_campaign_DS.xml" />
+	<includefile source="strings/strings_ct_DS.xml" />
 	<includefile source="strings/strings_DS.xml" />
 
 	<!-- Common templates -->
 	<includefile source="common/template_common.xml" />
-
 	<includefile source="common/template_buttons.xml" />
 	<includefile source="common/template_column.xml" />
 	<includefile source="common/template_combobox.xml" />
@@ -74,8 +71,7 @@
 	<includefile source="common/template_toolbar.xml" />
 	<includefile source="common/template_windows.xml" />
 	<includefile source="common/template_windows_menu.xml" />
-
-	<includefile source="common/template_legacy.xml" />
+	<includefile source="common/template_legacy.xml" /> 
 
 	<!-- Layout templates -->
 	<includefile source="layout/template_layout.xml" />
@@ -84,9 +80,8 @@
 	<script name="WindowMenuManager" file="scripts/manager_window_menu.lua" />
 
 	<!-- High-level scripts : added for effects -->
-	<script name="DataCommon" file="scripts/data_common.lua" />
-	<script name="Effects" file="scripts/data_common.lua" />
-
+	<script name="DataCommon" file="scripts/data_common_DS.lua" />
+	<script name="Effects" file="scripts/data_common_DS.lua" />
 
 	<!-- Draw Steel Ruleset scripts -->
 	<script name="ActorManager_DS" file="scripts/manager_actor_ds.lua" />
@@ -99,10 +94,7 @@
 
 	<!-- Global scripts -->
 	<script name="Desktop" file="scripts/data_desktop.lua" />
-	<script name="DesktopManager" file="scripts/manager_desktop.lua" />
 	<script name="ToolbarManager" file="scripts/manager_toolbar.lua" />
-	
-	
 	<script name="AssetManager" file="scripts/manager_asset.lua" />
 	<script name="AssetWindowManager" file="scripts/manager_asset_window.lua" />
 	<script name="ChatManager" file="scripts/manager_chat.lua" />
@@ -111,20 +103,13 @@
 	<script name="DialogManager" file="scripts/manager_dialog.lua" />
 	<script name="DiceManager" file="scripts/manager_dice.lua" />
 	<script name="DiceRollManager" file="scripts/manager_dice_roll.lua" />
-	<!-- <script name="DiceSkinManager" file="scripts/manager_diceskin.lua" /> -->
 	<script name="ExportManager" file="scripts/manager_export.lua" />
 	<script name="ImportUtilityManager" file="scripts/manager_import_utility.lua" />
-	<script name="LibraryData" file="scripts/data_library.lua" />
+	<script name="LibraryData_DS" file="scripts/data_library_DS.lua" />
 	<script name="ListManager" file="scripts/manager_list.lua" />
 	<script name="OOBManager" file="scripts/manager_oob.lua" />
 	<script name="OptionsManager" file="scripts/manager_options.lua" />
-	<!-- <script name="OptionsCore" file="scripts/data_options_core.lua" /> -->
 	<script name="OptionsDS" file="scripts/data_options_DS.lua" />
-	<!-- <script name="RecordAssetManager" file="scripts/manager_record_asset.lua" /> -->
-	<!-- <script name="RecordDataManager" file="scripts/manager_record_data.lua" /> -->
-	<!-- <script name="RecordIndexManager" file="scripts/manager_record_index.lua" />
-	<script name="RecordIndexViewManager" file="scripts/manager_record_index_view.lua" />
-	<script name="RecordShareManager" file="scripts/manager_record_share.lua" /> -->
 	<script name="SoundManager" file="scripts/manager_sound.lua" />
 	<script name="SoundManagerSyrinscape" file="scripts/manager_sound_syrinscape.lua" />
 	<script name="SoundManagerFile" file="scripts/manager_sound_file.lua"/>
@@ -132,12 +117,10 @@
 	<script name="StringManager" file="scripts/manager_string.lua" />
 	<script name="StringUTF8Manager" file="scripts/manager_string_utf8.lua" />
 	<script name="UserManager" file="scripts/manager_user.lua" />
-	<!-- <script name="UtilityManager" file="scripts/manager_utility.lua" /> -->
 	<script name="VersionManager" file="scripts/manager_version.lua" />
 	<script name="VersionManager2" file="scripts/manager_version2.lua" />
 	<script name="WindowManager" file="scripts/manager_window.lua" />
 	<script name="WindowTabManager" file="scripts/manager_window_tab.lua" />
-
 	<script name="ActorManager" file="scripts/manager_actor.lua" />
 	<script name="ActorCommonManager" file="scripts/manager_actor_common.lua" />
 	<script name="ActorDisplayManager" file="scripts/manager_actor_display.lua" />
@@ -151,7 +134,6 @@
 	<script name="CombatRecordManager" file="scripts/manager_combat_record.lua" />
 	<script name="CombatManagerMonsters" file="scripts/manager_monsters_combat.lua" />
 	<script name="CombatManagerHeroes" file="scripts/manager_heroes_combat.lua" />
-	<script name="CurrencyManager" file="scripts/manager_currency.lua" />
 	<script name="EffectManager" file="scripts/manager_effect.lua" />
 	<script name="EffectManager5E" file="scripts/manager_effect_5E.lua" />
 	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
@@ -164,10 +146,8 @@
 	<script name="PartyLootManager" file="scripts/manager_ps_loot.lua" />
 	<script name="PartyXPManager" file="scripts/manager_party_xp.lua" />
 	<script name="TargetingManager" file="scripts/manager_targeting.lua" />
-	<!-- <script name="TokenManager" file="scripts/manager_token.lua" /> -->
 	<script name="TokenManager2" file="scripts/manager_token2.lua" />
 	<script name="VisionManager" file="scripts/manager_vision.lua" />
-
 	<script name="CampaignDataManager" file="scripts/manager_campaigndata.lua" />
 	<script name="CharManager" file="scripts/manager_char.lua" />
 	<script name="CharInventoryManager" file="scripts/manager_char_inventory.lua" />
@@ -183,13 +163,6 @@
 	<script name="PowerManagerCore" file="scripts/manager_power_core.lua" />
 	<script name="QuickMapManager" file="scripts/manager_quickmap.lua" />
 	<script name="SoundsetManager" file="scripts/manager_soundset.lua" />
-	<!-- <script name="StoryManager" file="scripts/manager_story.lua" /> -->
-	<script name="ClassManager" file="scripts/manager_class.lua" />
-	<!-- <script name="AncestryManager" file="scripts/manager_ancestry.lua" /> -->
-	<!-- <script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" /> -->
-	<!-- <script name="TableManager" file="scripts/manager_table.lua" /> -->
-	<!-- <script name="TokenMoveManager" file="scripts/manager_token_move.lua" /> -->
-
 	<script name="ActionEffect" file="scripts/manager_action_effect.lua" />
 
 	<!-- NOTE: Initialize desktop management scripts after general scripts registered. -->
@@ -198,23 +171,13 @@
 	<script name="DiceTowerManager" file="scripts/manager_dicetower.lua" />
 	<script name="ModifierStack" file="scripts/manager_modifierstack.lua" />
 	<script name="WindowSaveManager" file="scripts/manager_window_save.lua" />
-
 	<script name="StaminaTracker" file="ct_DS/scripts/ct_stamina.lua" />
 
-	
-
 	<!-- Campaign Records -->
-	<!-- <includefile source="campaign/template_campaign.xml" /> -->
-	<!-- <includefile source="campaign/template_story.xml" />
 	<includefile source="campaign/template_ancestry.xml" />
-	<includefile source="campaign/template_class.xml" /> -->
-
-	<includefile source="campaign/campaign_masterindex.xml" />
+	<includefile source="campaign/template_class.xml" /> 
 	<includefile source="campaign/campaign_pictures.xml" />
 	<includefile source="campaign/campaign_chars.xml" />
-
-	<!-- <includefile source="campaign/record_ancestry.xml" />
-	<includefile source="campaign/record_class.xml" /> -->
 	<includefile source="campaign/record_battle.xml" />
 	<includefile source="campaign/record_battlerandom.xml" />
 	<includefile source="campaign/record_image.xml" />
@@ -224,26 +187,18 @@
 	<includefile source="campaign/record_parcel.xml" />
 	<includefile source="campaign/record_quest.xml" />
 	<includefile source="campaign/record_soundset.xml" />
-	<!-- <includefile source="campaign/record_story.xml" /> -->
-	<!-- <includefile source="campaign/record_story_advanced.xml" /> -->
-	<!-- <includefile source="campaign/record_story_book.xml" /> -->
-	<!-- <includefile source="campaign/record_storytemplate.xml" /> -->
 	<includefile source="campaign/record_table.xml" />
 	<includefile source="campaign/record_vehicle.xml" />
-
-	<includefile source="campaign/record_char.xml" />
+	<includefile source="campaign/record_char_DS.xml" />
 	<includefile source="campaign/record_char_main.xml" />
-
 	<includefile source="campaign/record_char_abilities.xml" />
 	<includefile source="campaign/record_char_features.xml" />
 	<includefile source="campaign/record_char_inventory.xml" />
 	<includefile source="campaign/record_char_skills.xml" />
-
 	<includefile source="campaign/record_char_notes.xml" />
 	<includefile source="campaign/record_char_kits.xml" />
 	<includefile source="campaign/record_char_other.xml" />
 	<includefile source="campaign/record_ability.xml" />
-
 	<includefile source="campaign/record_power_action.xml" />
 	<includefile source="campaign/record_power_item.xml" />
 	
@@ -257,4 +212,44 @@
 
 	<includefile source="campaign/template_char.xml" />
 	<includefile source="campaign/template_char_ds.xml" />
+
+
+
+
+	<!-- CORERPG SCRIPTS -->
+	<!-- _______________________________________________ -->
+	<!-- || These were originally copied from CoreRPG ||-->
+	<!-- || They are no longer needed because of the  ||-->
+	<!-- || <importruleset> on line 25.               || -->
+	<!-- =============================================== -->
+
+	<!-- <includefile source="campaign/record_story.xml" /> -->
+	<!-- <includefile source="campaign/record_story_advanced.xml" /> -->
+	<!-- <includefile source="campaign/record_story_book.xml" /> -->
+	<!-- <includefile source="campaign/record_storytemplate.xml" /> -->
+	<!-- <includefile source="campaign/record_ancestry.xml" /> -->
+	<!-- <includefile source="campaign/record_class.xml" /> -->
+	<!-- <includefile source="campaign/campaign_masterindex.xml" /> -->
+	<!-- <includefile source="campaign/template_campaign.xml" /> -->
+	<!-- <includefile source="campaign/template_story.xml" />-->
+	<!-- <script name="StoryManager" file="scripts/manager_story.lua" /> -->
+	<!-- <script name="ClassManager" file="scripts/manager_class.lua" /> -->
+	<!-- <script name="AncestryManager" file="scripts/manager_ancestry.lua" /> -->
+	<!-- <script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" /> -->
+	<!-- <script name="TableManager" file="scripts/manager_table.lua" /> -->
+	<!-- <script name="TokenMoveManager" file="scripts/manager_token_move.lua" /> -->
+	<!-- <script name="TokenManager" file="scripts/manager_token.lua" /> -->
+	<!-- <script name="DiceSkinManager" file="scripts/manager_diceskin.lua" /> -->
+	<!-- <script name="OptionsCore" file="scripts/data_options_core.lua" /> -->
+	<!-- <script name="RecordAssetManager" file="scripts/manager_record_asset.lua" /> -->
+	<!-- <script name="RecordDataManager" file="scripts/manager_record_data.lua" /> -->
+	<!-- <script name="RecordIndexManager" file="scripts/manager_record_index.lua" /> -->
+	<!-- <script name="RecordIndexViewManager" file="scripts/manager_record_index_view.lua" /> -->
+	<!-- <script name="RecordShareManager" file="scripts/manager_record_share.lua" /> -->
+	<!-- <script name="UtilityManager" file="scripts/manager_utility.lua" /> -->
+	<!-- <script name="DesktopManager" file="scripts/manager_desktop.lua" /> -->
+	<!-- <includefile source="strings/strings_ps.xml" /> -->
+	<!-- <includefile source="strings/strings_dice.xml" /> -->
+	<!-- <includefile source="strings/strings_sound.xml" /> -->
+	<!-- <script name="CurrencyManager" file="scripts/manager_currency.lua" /> -->
 </root>

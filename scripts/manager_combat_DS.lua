@@ -1220,8 +1220,7 @@ function getRandomAdjective()
     "New", "Old", "Perfect", "Quizzical", "Sensitive", "Tricky", "Unending", "Vain", "Weak",
     "Yearning", "Zenith", "Appreciative", "Big", "Courageous", "Excellent", "Flawed", "Grand",
     "High", "Intense", "Joyous", "Kindly", "Loose", "Massive", "Normal", "Observant", "Pleasant", "Regal",
-	"Fetid", "Little", "Large", "Opulent", "Portly", "Tasty", "Honest", "Foul", "Sly", "Mediocre", "Small", 
-	"Diverse", "Big-assed", "Woke", "Xenophobic"
+	"Fetid", "Little", "Large", "Opulent", "Portly", "Tasty", "Honest", "Foul", "Sly", "Mediocre", "Small"
 	};
 
 	-- this code is for making two lists as to not repeat the same adjective per session

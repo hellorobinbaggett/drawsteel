@@ -719,7 +719,7 @@ function onImageShortcutDrop(cImage, x, y, draginfo)
 	end
 end
 function onImageCTFactionDrop(cImage, x, y, draginfo)
-	return CombatManagerDS.handleFactionDropOnImage(draginfo, cImage, x, y);
+	return CombatManager.handleFactionDropOnImage(draginfo, cImage, x, y);
 end
 function onImageTokenDrop(cImage, x, y, draginfo)
 	local sClass,sRecord = draginfo.getShortcutData();
@@ -733,10 +733,10 @@ function onImageTokenDrop(cImage, x, y, draginfo)
 		return;
 	end
 
-	local nodeCT = CombatManagerDS.getCTFromNode(sRecord);
+	local nodeCT = CombatManager.getCTFromNode(sRecord);
 	if nodeCT then
-		local tokenMap = CombatManagerDS.addTokenFromCT(cImage.getDatabaseNode(), nodeCT, x, y);
-		CombatManagerDS.replaceCombatantToken(nodeCT, tokenMap);
+		local tokenMap = CombatManager.addTokenFromCT(cImage.getDatabaseNode(), nodeCT, x, y);
+		CombatManager.replaceCombatantToken(nodeCT, tokenMap);
 	else
 		local tCustom = {
 			sClass = sClass,

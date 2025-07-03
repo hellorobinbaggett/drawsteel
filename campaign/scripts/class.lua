@@ -5,15 +5,15 @@
 
 function onInit()
 	super.onInit();
-	ClassManager.updatePageSub(sub_paging, getDatabasePath());
+	StoryManager.updatePageSub(sub_paging, getDatabasePath());
 end
 
 function handlePageTop()
-	ClassManager.handlePageTop(self, getDatabasePath());
+	StoryManager.handlePageTop(self, getDatabasePath());
 end
 function handlePagePrev()
-	ClassManager.handlePagePrev(self, getDatabasePath());
+	StoryManager.handlePagePrev(self, getDatabasePath());
 end
 function handlePageNext()
-	ClassManager.handlePageNext(self, getDatabasePath());
+	StoryManager.handlePageNext(self, getDatabasePath());
 end

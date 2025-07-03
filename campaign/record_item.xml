@@ -13,7 +13,8 @@
 
 	<windowclass name="item_main">
 		<margins control="0,0,0,2" />
-		<script file="campaign/scripts/item_main.lua" />
+		<!-- TODO: item_main has been removed from this ruleset. There needs to be a new lua file for setting all these fields to readonly -->
+		<!-- <script file="item_main.lua" /> -->
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 

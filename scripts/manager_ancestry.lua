@@ -3,8 +3,8 @@
 -- attribution and copyright information.
 --
 
-DEFAULT_BOOK_INDEX = "reference.refmanualindex";
-DEFAULT_BOOK_CONTENT = "reference.refmanualdata";
+DEFAULT_BOOK_INDEX = "reference.refancestryindex";
+DEFAULT_BOOK_CONTENT = "reference.refancestrydata";
 
 DEFAULT_BOOK_INDEX_CHAPTER_LIST = "chapters";
 DEFAULT_BOOK_INDEX_SECTION_LIST = "subchapters";
@@ -15,10 +15,10 @@ DEFAULT_BOOK_INDEX_PAGE_LIST = "refpages";
 --			(unless alternate read-only location specified)
 
 function onTabletopInit()
-	AncestryManager.registerCopyPasteToolbarButtons();
+	StoryManager.registerCopyPasteToolbarButtons();
 
-	AncestryManager.initStoryIndex();
-	AncestryManager.initBookPaths();
+	StoryManager.initStoryIndex();
+	StoryManager.initBookPaths();
 end
 
 --
@@ -28,32 +28,32 @@ end
 function initStoryIndex()
 	local tMappings = RecordDataManager.getDataPaths("story");
 	for _,sMapping in ipairs(tMappings) do
-		DB.addHandler(DB.getPath(sMapping, "*@*"), "onAdd", AncestryManager.onStoryRecordAdd);
-		DB.addHandler(DB.getPath(sMapping, "*@*"), "onDelete", AncestryManager.onStoryRecordDelete);
-		DB.addHandler(DB.getPath(sMapping, "*@*"), "onCategoryChange", AncestryManager.onStoryRecordCategoryChange);
-		DB.addHandler(DB.getPath(sMapping, "*.name@*"), "onUpdate", AncestryManager.onStoryRecordRename);
+		DB.addHandler(DB.getPath(sMapping, "*@*"), "onAdd", StoryManager.onStoryRecordAdd);
+		DB.addHandler(DB.getPath(sMapping, "*@*"), "onDelete", StoryManager.onStoryRecordDelete);
+		DB.addHandler(DB.getPath(sMapping, "*@*"), "onCategoryChange", StoryManager.onStoryRecordCategoryChange);
+		DB.addHandler(DB.getPath(sMapping, "*.name@*"), "onUpdate", StoryManager.onStoryRecordRename);
 	end
 
-	local sPath = string.format("%s.*@*", AncestryManager.DEFAULT_BOOK_CONTENT);
-	DB.addHandler(sPath, "onIntegrityChange", AncestryManager.onStoryAdvancedRecordIntegrityChange);
+	local sPath = string.format("%s.*@*", StoryManager.DEFAULT_BOOK_CONTENT);
+	DB.addHandler(sPath, "onIntegrityChange", StoryManager.onStoryAdvancedRecordIntegrityChange);
 end
 function onStoryRecordAdd(node)
-	AncestryManager.addStoryIndexRecord(node);
+	StoryManager.addStoryIndexRecord(node);
 end
 function onStoryRecordDelete(node)
-	AncestryManager.removeStoryIndexRecord(node);
+	StoryManager.removeStoryIndexRecord(node);
 	if DB.getModule(node) == "" then
-		AncestryManager.deleteBookIndexRecordByTargetRecord(DB.getPath(node));
+		StoryManager.deleteBookIndexRecordByTargetRecord(DB.getPath(node));
 	end
 end
 function onStoryRecordCategoryChange(node)
-	AncestryManager.updateStoryIndexRecordCategory(node);
+	StoryManager.updateStoryIndexRecordCategory(node);
 end
 function onStoryRecordRename(nodeName)
-	AncestryManager.updateStoryIndexRecordName(DB.getParent(nodeName));
+	StoryManager.updateStoryIndexRecordName(DB.getParent(nodeName));
 end
 function onStoryAdvancedRecordIntegrityChange(node)
-	AncestryManager.onRecordNodeRebuild(node);
+	StoryManager.onRecordNodeRebuild(node);
 end
 
 local _tStoryRecords = {};
@@ -63,7 +63,7 @@ function getStoryIndex(sModule, bInit)
 		if bInit then
 			tRecords = {};
 			_tStoryRecords[sModule or ""] = tRecords;
-			RecordManager.callForEachModuleRecord("story", sModule, AncestryManager.addStoryIndexRecord);
+			RecordManager.callForEachModuleRecord("story", sModule, StoryManager.addStoryIndexRecord);
 		else
 			return;
 		end
@@ -76,7 +76,7 @@ function addStoryIndexRecord(node, bInit)
 	end
 
 	local sModule = DB.getModule(node);
-	local tRecords = AncestryManager.getStoryIndex(sModule, bInit);
+	local tRecords = StoryManager.getStoryIndex(sModule, bInit);
 	if not tRecords then
 		return;
 	end
@@ -90,7 +90,7 @@ function addStoryIndexRecord(node, bInit)
 end
 function removeStoryIndexRecord(node)
 	local sModule = DB.getModule(node);
-	local tRecords = AncestryManager.getStoryIndex(sModule);
+	local tRecords = StoryManager.getStoryIndex(sModule);
 	if not tRecords then
 		return;
 	end
@@ -99,7 +99,7 @@ function removeStoryIndexRecord(node)
 end
 function updateStoryIndexRecordCategory(node)
 	local sModule = DB.getModule(node);
-	local tRecords = AncestryManager.getStoryIndex(sModule);
+	local tRecords = StoryManager.getStoryIndex(sModule);
 	if not tRecords then
 		return;
 	end
@@ -111,7 +111,7 @@ function updateStoryIndexRecordCategory(node)
 end
 function updateStoryIndexRecordName(node)
 	local sModule = DB.getModule(node);
-	local tRecords = AncestryManager.getStoryIndex(sModule);
+	local tRecords = StoryManager.getStoryIndex(sModule);
 	if not tRecords then
 		return;
 	end
@@ -124,21 +124,21 @@ function updateStoryIndexRecordName(node)
 end
 
 function rebuildStoryPageIndexes(sModule)
-	AncestryManager.rebuildBookIndex(sModule);
-	AncestryManager.rebuildNonBookIndex(sModule);
+	StoryManager.rebuildBookIndex(sModule);
+	StoryManager.rebuildNonBookIndex(sModule);
 end
 
 -- NOTE: Book pages are added via index order; so no need to sort additionally
 function rebuildBookIndex(sModule)
-	local sIndexPath = AncestryManager.getBookIndexPath(sModule);
+	local sIndexPath = StoryManager.getBookIndexPath(sModule);
 	if not sIndexPath then
 		return;
 	end
 
-	local tBookPages = AncestryManager.clearBookPages(sModule);
+	local tBookPages = StoryManager.clearBookPages(sModule);
 	for _,nodeChapter in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(sIndexPath), { "order" })) do
-		for _,nodeSection in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(nodeChapter, AncestryManager.DEFAULT_BOOK_INDEX_SECTION_LIST), { "order" })) do
-			for _,nodePage in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(nodeSection, AncestryManager.DEFAULT_BOOK_INDEX_PAGE_LIST), { "order" })) do
+		for _,nodeSection in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(nodeChapter, StoryManager.DEFAULT_BOOK_INDEX_SECTION_LIST), { "order" })) do
+			for _,nodePage in ipairs(UtilityManager.getSortedNodeList(DB.getChildList(nodeSection, StoryManager.DEFAULT_BOOK_INDEX_PAGE_LIST), { "order" })) do
 				local _,sRecord = DB.getValue(nodePage, "listlink", "", "");
 				if sRecord ~= "" then
 					table.insert(tBookPages, { sPageRecord = DB.getPath(nodePage), sTargetRecord = sRecord, });
@@ -150,11 +150,11 @@ end
 local _tBookIndexPath = {};
 function getBookIndexPath(sModule)
 	if not _tBookIndexPath[sModule or ""] then
-		local node = AncestryManager.getModuleBookRecordNode(sModule);
+		local node = StoryManager.getModuleBookRecordNode(sModule);
 		if node then
-			_tBookIndexPath[sModule or ""] = DB.getPath(node, AncestryManager.DEFAULT_BOOK_INDEX_CHAPTER_LIST);
+			_tBookIndexPath[sModule or ""] = DB.getPath(node, StoryManager.DEFAULT_BOOK_INDEX_CHAPTER_LIST);
 		else
-			_tBookIndexPath[sModule or ""] = string.format("%s@%s", DB.getPath(AncestryManager.DEFAULT_BOOK_INDEX, AncestryManager.DEFAULT_BOOK_INDEX_CHAPTER_LIST), sModule or "");
+			_tBookIndexPath[sModule or ""] = string.format("%s@%s", DB.getPath(StoryManager.DEFAULT_BOOK_INDEX, StoryManager.DEFAULT_BOOK_INDEX_CHAPTER_LIST), sModule or "");
 		end
 	end
 	return _tBookIndexPath[sModule or ""];
@@ -169,9 +169,9 @@ function clearBookPages(sModule)
 end
 function isBookRecord(sModule, sRecord, bRebuild)
 	if bRebuild then
-		AncestryManager.rebuildBookIndex(sModule);
+		StoryManager.rebuildBookIndex(sModule);
 	end
-	local tBookPages = AncestryManager.getBookPages(sModule);
+	local tBookPages = StoryManager.getBookPages(sModule);
 	for _,v in ipairs(tBookPages) do
 		if v.sTargetRecord == sRecord then
 			return true;
@@ -181,8 +181,8 @@ function isBookRecord(sModule, sRecord, bRebuild)
 end
 function deleteBookIndexRecordByTargetRecord(sRecord)
 	local sModule = DB.getModule(sRecord) or "";
-	AncestryManager.rebuildBookIndex(sModule);
-	local tBookPages = AncestryManager.getBookPages(sModule);
+	StoryManager.rebuildBookIndex(sModule);
+	local tBookPages = StoryManager.getBookPages(sModule);
 	for kPage,v in ipairs(tBookPages) do
 		if v.sTargetRecord == sRecord then
 			DB.deleteNode(v.sPageRecord);
@@ -194,17 +194,17 @@ end
 
 -- NOTE: Non-book pages are added in any order; so additional sort needed
 function rebuildNonBookIndex(sModule)
-	local tRecords = AncestryManager.getStoryIndex(sModule, true);
-	local tModulePages = AncestryManager.clearNonBookPages(sModule);
+	local tRecords = StoryManager.getStoryIndex(sModule, true);
+	local tModulePages = StoryManager.clearNonBookPages(sModule);
 	for k,v in pairs(tRecords) do
-		if not AncestryManager.isBookRecord(sModule, DB.getPath(k)) then
+		if not StoryManager.isBookRecord(sModule, DB.getPath(k)) then
 			local sCategory = DB.getCategory(v.vNode);
 			tModulePages[sCategory] = tModulePages[sCategory] or {};
 			table.insert(tModulePages[sCategory], v);
 		end
 	end
 	for _,tPages in pairs(tModulePages) do
-		table.sort(tPages, AncestryManager.sortFuncStoryIndex);
+		table.sort(tPages, StoryManager.sortFuncStoryIndex);
 	end
 end
 local _tNonBookPages = {};
@@ -228,10 +228,10 @@ end
 
 function getStoryPrevRecord(sModule, sRecord, bRebuild)
 	if bRebuild then
-		AncestryManager.rebuildStoryPageIndexes(sModule);
+		StoryManager.rebuildStoryPageIndexes(sModule);
 	end
 
-	local tBookPages = AncestryManager.getBookPages(sModule);
+	local tBookPages = StoryManager.getBookPages(sModule);
 	if (sRecord or "") == "" then
 		return (tBookPages[#tBookPages] and tBookPages[#tBookPages].sTargetRecord) or nil;
 	end
@@ -246,7 +246,7 @@ function getStoryPrevRecord(sModule, sRecord, bRebuild)
 	end
 
 	local sCategory = DB.getCategory(sRecord);
-	local tNonBookPages = AncestryManager.getNonBookPages(sModule, sCategory);
+	local tNonBookPages = StoryManager.getNonBookPages(sModule, sCategory);
 	for kPage,v in ipairs(tNonBookPages) do
 		if DB.getPath(v.vNode) == sRecord then
 			if tNonBookPages[kPage - 1] then
@@ -260,10 +260,10 @@ function getStoryPrevRecord(sModule, sRecord, bRebuild)
 end
 function getStoryNextRecord(sModule, sRecord, bRebuild)
 	if bRebuild then
-		AncestryManager.rebuildStoryPageIndexes(sModule);
+		StoryManager.rebuildStoryPageIndexes(sModule);
 	end
 
-	local tBookPages = AncestryManager.getBookPages(sModule);
+	local tBookPages = StoryManager.getBookPages(sModule);
 	if (sRecord or "") == "" then
 		return (tBookPages[1] and tBookPages[1].sTargetRecord) or nil;
 	end
@@ -278,7 +278,7 @@ function getStoryNextRecord(sModule, sRecord, bRebuild)
 	end
 
 	local sCategory = DB.getCategory(sRecord);
-	local tNonBookPages = AncestryManager.getNonBookPages(sModule, sCategory);
+	local tNonBookPages = StoryManager.getNonBookPages(sModule, sCategory);
 	for kPage,v in ipairs(tNonBookPages) do
 		if DB.getPath(v.vNode) == sRecord then
 			if tNonBookPages[kPage + 1] then
@@ -381,11 +381,11 @@ function updatePageSub(cSub, sRecord)
 
 	local sModule = DB.getModule(sRecord);
 
-	AncestryManager.rebuildStoryPageIndexes(sModule);
+	StoryManager.rebuildStoryPageIndexes(sModule);
 
-	local bBookRecord = AncestryManager.isBookRecord(sModule, sRecord);
-	local sPrevPath = AncestryManager.getStoryPrevRecord(sModule, sRecord) or "";
-	local sNextPath = AncestryManager.getStoryNextRecord(sModule, sRecord) or "";
+	local bBookRecord = StoryManager.isBookRecord(sModule, sRecord);
+	local sPrevPath = StoryManager.getStoryPrevRecord(sModule, sRecord) or "";
+	local sNextPath = StoryManager.getStoryNextRecord(sModule, sRecord) or "";
 
 	if not bBookRecord and (sPrevPath == "") and (sNextPath == "") then
 		cSub.setVisible(false);
@@ -403,18 +403,18 @@ function handlePageTop(w, sRecord)
 		return;
 	end
 	local sModule = DB.getModule(sRecord);
-	local wBook = AncestryManager.openBook(sModule);
+	local wBook = StoryManager.openBook(sModule);
 	if wBook then
-		AncestryManager.activateLink(wBook, w.getClass(), sRecord);
+		StoryManager.activateLink(wBook, w.getClass(), sRecord);
 	end
 end
 function handlePageFirst(w, sModule)
 	if (sModule or "") == "" then
 		return;
 	end
-	local sPath = AncestryManager.getStoryNextRecord(sModule, nil, true) or "";
+	local sPath = StoryManager.getStoryNextRecord(sModule, nil, true) or "";
 	if sPath ~= "" then
-		AncestryManager.activateLink(w, nil, sPath);
+		StoryManager.activateLink(w, nil, sPath);
 	end
 end
 function handlePagePrev(w, sRecord)
@@ -422,9 +422,9 @@ function handlePagePrev(w, sRecord)
 		return;
 	end
 	local sModule = DB.getModule(sRecord);
-	local sPath = AncestryManager.getStoryPrevRecord(sModule, sRecord, true) or "";
+	local sPath = StoryManager.getStoryPrevRecord(sModule, sRecord, true) or "";
 	if sPath ~= "" then
-		AncestryManager.activateLink(w, nil, sPath);
+		StoryManager.activateLink(w, nil, sPath);
 	end
 end
 function handlePageNext(w, sRecord)
@@ -432,18 +432,18 @@ function handlePageNext(w, sRecord)
 		return;
 	end
 	local sModule = DB.getModule(sRecord);
-	local sPath = AncestryManager.getStoryNextRecord(sModule, sRecord, true) or "";
+	local sPath = StoryManager.getStoryNextRecord(sModule, sRecord, true) or "";
 	if sPath ~= "" then
-		AncestryManager.activateLink(w, nil, sPath);
+		StoryManager.activateLink(w, nil, sPath);
 	end
 end
 function handlePageLast(w, sModule)
 	if (sModule or "") == "" then
 		return;
 	end
-	local sPath = AncestryManager.getStoryPrevRecord(sModule, nil, true) or "";
+	local sPath = StoryManager.getStoryPrevRecord(sModule, nil, true) or "";
 	if sPath ~= "" then
-		AncestryManager.activateLink(w, nil, sPath);
+		StoryManager.activateLink(w, nil, sPath);
 	end
 end
 
@@ -455,9 +455,9 @@ function onLinkActivated(w, sClass, sRecord)
 	local wTop = UtilityManager.getTopWindow(w);
 	local sTopClass = wTop.getClass();
 	if sTopClass == "reference_manual" then
-		AncestryManager.activateLink(w, sClass, sRecord, Input.isShiftPressed());
+		StoryManager.activateLink(w, sClass, sRecord, Input.isShiftPressed());
 	else
-		AncestryManager.activateLink(w, sClass, sRecord, true);
+		StoryManager.activateLink(w, sClass, sRecord, true);
 	end
 end
 function activateLink(w, sClass, sRecord, bPopOut)
@@ -478,7 +478,7 @@ function activateLink(w, sClass, sRecord, bPopOut)
 	end
 	if (sClass or "") == "" then
 		-- Handle special legacy case of embedded reference manual page data
-		if AncestryManager.isBookRecord(DB.getModule(sRecord), sRecord, true) then
+		if StoryManager.isBookRecord(DB.getModule(sRecord), sRecord, true) then
 			sClass = "referencemanualpage";
 		else
 			return;
@@ -491,20 +491,20 @@ function activateLink(w, sClass, sRecord, bPopOut)
 	if sTopClass == "reference_manual" then
 		local sModule = DB.getModule(sRecord);
 		if (sModule ~= "") and (sModule ~= DB.getModule(w.getDatabaseNode())) then
-			if AncestryManager.isBookRecord(sModule, sRecord, true) then
-				local wNew = Interface.openWindow("reference_manual", string.format("%s@%s", AncestryManager.DEFAULT_BOOK_INDEX, sModule));
-				AncestryManager.activateLink(wNew, sClass, sRecord);
+			if StoryManager.isBookRecord(sModule, sRecord, true) then
+				local wNew = Interface.openWindow("reference_manual", string.format("%s@%s", StoryManager.DEFAULT_BOOK_INDEX, sModule));
+				StoryManager.activateLink(wNew, sClass, sRecord);
 				return;
 			end
-			AncestryManager.openLinkInNewWindow(sClass, sRecord);
+			StoryManager.openLinkInNewWindow(sClass, sRecord);
 			return;
 		end
 	end
 
 	if bPopOut then
-		AncestryManager.openLinkInNewWindow(sClass, sRecord);
+		StoryManager.openLinkInNewWindow(sClass, sRecord);
 	else
-		AncestryManager.activateEmbeddedLink(wTop, sClass, sRecord);
+		StoryManager.activateEmbeddedLink(wTop, sClass, sRecord);
 	end
 end
 function activateEmbeddedLink(w, sClass, sRecord)
@@ -531,7 +531,7 @@ function activateEmbeddedLink(w, sClass, sRecord)
 		end
 		w.content.setVisible(true);
 
-		AncestryManager.updatePageSub(w.sub_paging, sRecord);
+		StoryManager.updatePageSub(w.sub_paging, sRecord);
 
 		SoundsetManager.updateStoryContext();
 	else
@@ -576,7 +576,7 @@ function updateOrderValues(cList)
 	local tResults = {};
 	for kChildWinRecord,tChildWinRecord in ipairs(tChildRecords) do
 		if tChildWinRecord.nOrder ~= kChildWinRecord then
-			AncestryManager.setWindowOrderValue(tChildWinRecord.win, kChildWinRecord);
+			StoryManager.setWindowOrderValue(tChildWinRecord.win, kChildWinRecord);
 		end
 		tResults[kChildWinRecord] = tChildWinRecord.win;
 	end
@@ -589,7 +589,7 @@ end
 
 local _tBookPaths = {};
 function initBookPaths()
-	AncestryManager.addBookPath(AncestryManager.DEFAULT_BOOK_INDEX);
+	StoryManager.addBookPath(StoryManager.DEFAULT_BOOK_INDEX);
 end
 function getBookPaths()
 	return _tBookPaths;
@@ -604,7 +604,7 @@ end
 function getBookRecordNodes()
 	local tResults = {};
 	for _,sModule in ipairs(Module.getModules()) do
-		local node = AncestryManager.getModuleBookRecordNode(sModule);
+		local node = StoryManager.getModuleBookRecordNode(sModule);
 		if node then
 			table.insert(tResults, node);
 		end
@@ -612,7 +612,7 @@ function getBookRecordNodes()
 	return tResults;
 end
 function getModuleBookRecordNode(sModule)
-	for _,sPath in ipairs(AncestryManager.getBookPaths()) do
+	for _,sPath in ipairs(StoryManager.getBookPaths()) do
 		local node = DB.findNode(string.format("%s@%s", sPath, sModule or ""));
 		if node then
 			return node;
@@ -626,10 +626,10 @@ end
 --
 
 function openBook(sModule)
-	local node = AncestryManager.getModuleBookRecordNode(sModule);
+	local node = StoryManager.getModuleBookRecordNode(sModule);
 	if not node then
 		if Session.IsHost and (sModule or "") == "" then
-			node = DB.createNode(AncestryManager.DEFAULT_BOOK_INDEX);
+			node = DB.createNode(StoryManager.DEFAULT_BOOK_INDEX);
 		end
 		if not node then
 			return nil;
@@ -646,19 +646,19 @@ function onBookIndexAdd(w)
 
 	local sClass = w.getClass();
 	if sClass == "story_book_index" then
-		local wChapter = AncestryManager.onBookIndexAddEndHelper(w.list);
+		local wChapter = StoryManager.onBookIndexAddEndHelper(w.list);
 		if wChapter then
 			wChapter.name.setFocus();
 		end
 	elseif sClass == "story_book_index_chapter" then
-		local wSection = AncestryManager.onBookIndexAddEndHelper(w.list);
+		local wSection = StoryManager.onBookIndexAddEndHelper(w.list);
 		if wSection then
 			wSection.name.setFocus();
 		end
 	elseif sClass == "story_book_index_section" then
-		local wRecord = AncestryManager.onBookIndexAddEndHelper(w.list);
+		local wRecord = StoryManager.onBookIndexAddEndHelper(w.list);
 		if wRecord then
-			local sContentPath = AncestryManager.DEFAULT_BOOK_CONTENT;
+			local sContentPath = StoryManager.DEFAULT_BOOK_CONTENT;
 			local nodePage = DB.createChild(sContentPath);
 			wRecord.setLink("story_book_page_advanced", DB.getPath(nodePage));
 			wRecord.name.setFocus();
@@ -666,12 +666,12 @@ function onBookIndexAdd(w)
 	end
 end
 function onBookIndexAddEndHelper(cList)
-	local nCount = #(AncestryManager.updateOrderValues(cList));
-	return AncestryManager.onBookIndexAddHelper(cList, nCount + 1);
+	local nCount = #(StoryManager.updateOrderValues(cList));
+	return StoryManager.onBookIndexAddHelper(cList, nCount + 1);
 end
 function onBookIndexAddHelper(cList, nOrder)
 	local wAdd = cList.createWindow();
-	AncestryManager.setWindowOrderValue(wAdd, nOrder);
+	StoryManager.setWindowOrderValue(wAdd, nOrder);
 	return wAdd;
 end
 
@@ -701,10 +701,10 @@ function onBookIndexMoveUp(w)
 	if not nodeList or DB.isStatic(nodeList) then
 		return;
 	end
-	local tOrderedChildren = AncestryManager.updateOrderValues(cParentList);
+	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
 	local sClass = w.getClass();
-	local nOrder = AncestryManager.getWindowOrderValue(w);
+	local nOrder = StoryManager.getWindowOrderValue(w);
 
 	-- Determine move distance: 1, 5 (Shift), Top (Control)
 	local nMoveStep = 1;
@@ -721,11 +721,11 @@ function onBookIndexMoveUp(w)
 			-- Remove the current chapter and shift all chapters in between
 			for i = nOrder - 1, nNewOrder, -1 do
 				local wOther = tOrderedChildren[i];
-				local nOtherOrder = AncestryManager.getWindowOrderValue(wOther);
-				AncestryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
 			end
-			AncestryManager.setWindowOrderValue(tOrderedChildren[nOrder], nNewOrder);
-			AncestryManager.updateOrderValues(cParentList);
+			StoryManager.setWindowOrderValue(tOrderedChildren[nOrder], nNewOrder);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
 		end
 	end
@@ -737,24 +737,24 @@ function onBookIndexMoveUp(w)
 			-- Remove the current subchapter and shift all subchapters in between
 			for i = nOrder - 1, nNewOrder, -1 do
 				local wOther = tOrderedChildren[i];
-				local nOtherOrder = AncestryManager.getWindowOrderValue(wOther);
-				AncestryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
 			end
-			AncestryManager.setWindowOrderValue(w, nNewOrder);
-			AncestryManager.updateOrderValues(cParentList);
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
 
 		elseif nOrder == 1 then
 			local wChapter = w.windowlist.window;
 			local cChapterParentList = wChapter.windowlist;
-			local tChapterOrderedChildren = AncestryManager.updateOrderValues(cChapterParentList);
-			local nChapterOrder = AncestryManager.getWindowOrderValue(wChapter);
+			local tChapterOrderedChildren = StoryManager.updateOrderValues(cChapterParentList);
+			local nChapterOrder = StoryManager.getWindowOrderValue(wChapter);
 			local wPrevChapter = nil;
 			if nChapterOrder > 1 then
 				wPrevChapter = tChapterOrderedChildren[nChapterOrder - 1];
 			end
 			if wPrevChapter then
-				AncestryManager.onBookIndexMoveHelper(w, wPrevChapter.list, false);
+				StoryManager.onBookIndexMoveHelper(w, wPrevChapter.list, false);
 			end
 		end
 	end
@@ -766,39 +766,39 @@ function onBookIndexMoveUp(w)
 			-- Remove the current page and shift all pages in between
 			for i = nOrder - 1, nNewOrder, -1 do
 				local wOther = tOrderedChildren[i];
-				local nOtherOrder = AncestryManager.getWindowOrderValue(wOther);
-				AncestryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder + 1);
 			end
-			AncestryManager.setWindowOrderValue(w, nNewOrder);
-			AncestryManager.updateOrderValues(cParentList);
+			StoryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
-			AncestryManager.updateOrderValues(cParentList);
+			StoryManager.updateOrderValues(cParentList);
 
 		elseif nOrder == 1 then
 			local wSection = w.windowlist.window;
 			local cSectionParentList = wSection.windowlist;
-			local tSectionOrderedChildren = AncestryManager.updateOrderValues(cSectionParentList);
-			local nSectionOrder = AncestryManager.getWindowOrderValue(wSection);
+			local tSectionOrderedChildren = StoryManager.updateOrderValues(cSectionParentList);
+			local nSectionOrder = StoryManager.getWindowOrderValue(wSection);
 			local wPrevSection = nil;
 			if nSectionOrder > 1 then
 				wPrevSection = tSectionOrderedChildren[nSectionOrder - 1];
 			elseif nSectionOrder == 1 then
 				local wChapter = wSection.windowlist.window;
 				local cChapterParentList = wChapter.windowlist;
-				local tChapterOrderedChildren = AncestryManager.updateOrderValues(cChapterParentList);
-				local nChapterOrder = AncestryManager.getWindowOrderValue(wChapter);
+				local tChapterOrderedChildren = StoryManager.updateOrderValues(cChapterParentList);
+				local nChapterOrder = StoryManager.getWindowOrderValue(wChapter);
 				if nChapterOrder > 1 then
 					local wPrevChapter = tChapterOrderedChildren[nChapterOrder - 1];
-					local tPrevChapterOrderedChildren = AncestryManager.updateOrderValues(wPrevChapter.list);
+					local tPrevChapterOrderedChildren = StoryManager.updateOrderValues(wPrevChapter.list);
 					if #tPrevChapterOrderedChildren > 0 then
 						wPrevSection = tPrevChapterOrderedChildren[#tPrevChapterOrderedChildren];
 					else
-						wPrevSection = AncestryManager.onBookIndexAddHelper(wPrevChapter.list, 1);
+						wPrevSection = StoryManager.onBookIndexAddHelper(wPrevChapter.list, 1);
 					end
 				end
 			end
 			if wPrevSection then
-				AncestryManager.onBookIndexMoveHelper(w, wPrevSection.list, false);
+				StoryManager.onBookIndexMoveHelper(w, wPrevSection.list, false);
 			end
 		end
 	end
@@ -810,10 +810,10 @@ function onBookIndexMoveDown(w)
 	if not nodeList or DB.isStatic(nodeList) then
 		return;
 	end
-	local tOrderedChildren = AncestryManager.updateOrderValues(cParentList);
+	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
 	local sClass = w.getClass();
-	local nOrder = AncestryManager.getWindowOrderValue(w);
+	local nOrder = StoryManager.getWindowOrderValue(w);
 
 	-- Determine move distance: 1, 5 (Shift), Bottom (Control)
 	local nMoveStep = 1;
@@ -831,14 +831,14 @@ function onBookIndexMoveDown(w)
 			-- Remove the current chapter and shift all chapters in between
 			for i = nOrder + 1, nNewOrder do
 				local wOther = tOrderedChildren[i];
-				local nOtherOrder = AncestryManager.getWindowOrderValue(wOther);
-				AncestryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
 			end
-			AncestryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.setWindowOrderValue(w, nNewOrder);
 
-			AncestryManager.updateOrderValues(cParentList);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
-			tOrderedChildren = AncestryManager.updateOrderValues(cParentList);
+			tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 		end
 	end
 	if sClass == "story_book_index_section" then
@@ -849,26 +849,26 @@ function onBookIndexMoveDown(w)
 			-- Remove the current subchapter and shift all subchapters in between
 			for i = nOrder + 1, nNewOrder do
 				local wOther = tOrderedChildren[i];
-				local nOtherOrder = AncestryManager.getWindowOrderValue(wOther);
-				AncestryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
 			end
-			AncestryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.setWindowOrderValue(w, nNewOrder);
 
-			tOrderedChildren = AncestryManager.updateOrderValues(cParentList);
+			tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
 
 		elseif nOrder == #tOrderedChildren then
 			-- Move to the top of the next chapter
 			local wChapter = w.windowlist.window;
 			local cChapterParentList = wChapter.windowlist;
-			local tChapterOrderedChildren = AncestryManager.updateOrderValues(cChapterParentList);
-			local nChapterOrder = AncestryManager.getWindowOrderValue(wChapter);
+			local tChapterOrderedChildren = StoryManager.updateOrderValues(cChapterParentList);
+			local nChapterOrder = StoryManager.getWindowOrderValue(wChapter);
 			local wNextChapter = nil;
 			if nChapterOrder < #tChapterOrderedChildren then
 				wNextChapter = tChapterOrderedChildren[nChapterOrder + 1];
 			end
 			if wNextChapter then
-				AncestryManager.onBookIndexMoveHelper(w, wNextChapter.list, true);
+				StoryManager.onBookIndexMoveHelper(w, wNextChapter.list, true);
 			end
 		end
 	end
@@ -880,50 +880,50 @@ function onBookIndexMoveDown(w)
 			-- Remove teh current page and shift all pages in between
 			for i = nOrder + 1, nNewOrder do
 				local wOther = tOrderedChildren[i];
-				local nOtherOrder = AncestryManager.getWindowOrderValue(wOther);
-				AncestryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
+				local nOtherOrder = StoryManager.getWindowOrderValue(wOther);
+				StoryManager.setWindowOrderValue(wOther, nOtherOrder - 1);
 			end
-			AncestryManager.setWindowOrderValue(w, nNewOrder);
+			StoryManager.setWindowOrderValue(w, nNewOrder);
 
-			AncestryManager.updateOrderValues(cParentList);
+			StoryManager.updateOrderValues(cParentList);
 			cParentList.applySort();
 
 		elseif nOrder == #tOrderedChildren then
 			-- Move to the bottom of the list
 			local wSection = w.windowlist.window;
 			local cSectionParentList = wSection.windowlist;
-			local tSectionOrderedChildren = AncestryManager.updateOrderValues(cSectionParentList);
-			local nSectionOrder = AncestryManager.getWindowOrderValue(wSection);
+			local tSectionOrderedChildren = StoryManager.updateOrderValues(cSectionParentList);
+			local nSectionOrder = StoryManager.getWindowOrderValue(wSection);
 			local wNextSection = nil;
 			if nSectionOrder < #tSectionOrderedChildren then
 				wNextSection = tSectionOrderedChildren[nSectionOrder + 1];
 			elseif nSectionOrder == #tSectionOrderedChildren then
 				local wChapter = wSection.windowlist.window;
 				local cChapterParentList = wChapter.windowlist;
-				local tChapterOrderedChildren = AncestryManager.updateOrderValues(cChapterParentList);
-				local nChapterOrder = AncestryManager.getWindowOrderValue(wChapter);
+				local tChapterOrderedChildren = StoryManager.updateOrderValues(cChapterParentList);
+				local nChapterOrder = StoryManager.getWindowOrderValue(wChapter);
 				if nChapterOrder < #tChapterOrderedChildren then
 					local wNextChapter = tChapterOrderedChildren[nChapterOrder + 1];
-					local tNextChapterOrderedChildren = AncestryManager.updateOrderValues(wNextChapter.list);
+					local tNextChapterOrderedChildren = StoryManager.updateOrderValues(wNextChapter.list);
 					if #tNextChapterOrderedChildren > 0 then
 						wNextSection = tNextChapterOrderedChildren[1];
 					else
-						wNextSection = AncestryManager.onBookIndexAddHelper(wNextChapter.list, 1);
+						wNextSection = StoryManager.onBookIndexAddHelper(wNextChapter.list, 1);
 					end
 				end
 			end
 			if wNextSection then
-				AncestryManager.onBookIndexMoveHelper(w, wNextSection.list, true);
+				StoryManager.onBookIndexMoveHelper(w, wNextSection.list, true);
 			end
 		end
 	end
 end
 
 function onBookIndexMoveHelper(w, cList, bDown)
-	local tOrderedChildren = AncestryManager.updateOrderValues(cList);
+	local tOrderedChildren = StoryManager.updateOrderValues(cList);
 	if bDown then
 		for kChild,wChild in ipairs(tOrderedChildren) do
-			AncestryManager.setWindowOrderValue(wChild, kChild + 1);
+			StoryManager.setWindowOrderValue(wChild, kChild + 1);
 		end
 	end
 
@@ -933,9 +933,9 @@ function onBookIndexMoveHelper(w, cList, bDown)
 	DB.deleteNode(nodeOld);
 
 	if bDown then
-		AncestryManager.setWindowOrderValue(wNew, 1);
+		StoryManager.setWindowOrderValue(wNew, 1);
 	else
-		AncestryManager.setWindowOrderValue(wNew, #tOrderedChildren + 1);
+		StoryManager.setWindowOrderValue(wNew, #tOrderedChildren + 1);
 	end
 end
 
@@ -944,48 +944,48 @@ function onBookIndexDrop(w, draginfo)
 		local sClass, sRecord = draginfo.getShortcutData();
 		local sRecordType = RecordDataManager.getRecordTypeFromRecordPath(sRecord);
 		if sRecordType == "story" then
-			return AncestryManager.onBookIndexStoryDrop(w, sClass, sRecord);
+			return StoryManager.onBookIndexStoryDrop(w, sClass, sRecord);
 		end
 	end
 end
 function onBookIndexStoryDrop(w, sClass, sRecord)
 	local sIndexClass = w.getClass();
 	if sIndexClass == "story_book_index_chapter" then
-		local tOrderedSections = AncestryManager.updateOrderValues(w.list);
-		local wSection = tOrderedSections[1] or AncestryManager.onBookIndexAddEndHelper(w.list);
-		return AncestryManager.onBookIndexStoryDrop(wSection, sClass, sRecord);
+		local tOrderedSections = StoryManager.updateOrderValues(w.list);
+		local wSection = tOrderedSections[1] or StoryManager.onBookIndexAddEndHelper(w.list);
+		return StoryManager.onBookIndexStoryDrop(wSection, sClass, sRecord);
 
 	elseif sIndexClass == "story_book_index_section" then
-		local tOrderedPages = AncestryManager.updateOrderValues(w.list);
+		local tOrderedPages = StoryManager.updateOrderValues(w.list);
 		for i = 1, #tOrderedPages do
-			AncestryManager.setWindowOrderValue(tOrderedPages[i], i + 1);
+			StoryManager.setWindowOrderValue(tOrderedPages[i], i + 1);
 		end
-		local wPage = AncestryManager.onBookIndexAddHelper(w.list, 1);
+		local wPage = StoryManager.onBookIndexAddHelper(w.list, 1);
 		wPage.setLink(sClass, sRecord);
 		return true;
 
 	elseif sIndexClass == "story_book_index_page" then
-		local tOrderedPages = AncestryManager.updateOrderValues(w.windowlist);
-		local nOrder = AncestryManager.getWindowOrderValue(w);
+		local tOrderedPages = StoryManager.updateOrderValues(w.windowlist);
+		local nOrder = StoryManager.getWindowOrderValue(w);
 		for i = nOrder + 1, #tOrderedPages do
-			AncestryManager.setWindowOrderValue(tOrderedPages[i], i + 1);
+			StoryManager.setWindowOrderValue(tOrderedPages[i], i + 1);
 		end
-		local wPage = AncestryManager.onBookIndexAddHelper(w.windowlist, nOrder + 1);
+		local wPage = StoryManager.onBookIndexAddHelper(w.windowlist, nOrder + 1);
 		wPage.setLink(sClass, sRecord);
 		return true;
 
 	elseif sIndexClass == "story_book_index" then
-		local tOrderedChapters = AncestryManager.updateOrderValues(w.list);
+		local tOrderedChapters = StoryManager.updateOrderValues(w.list);
 		local wChapter = tOrderedChapters[#tOrderedChapters];
 		if not wChapter then
-			wChapter = AncestryManager.onBookIndexAddEndHelper(w.list);
+			wChapter = StoryManager.onBookIndexAddEndHelper(w.list);
 		end
-		local tOrderedSections = AncestryManager.updateOrderValues(wChapter.list);
+		local tOrderedSections = StoryManager.updateOrderValues(wChapter.list);
 		local wSection = tOrderedSections[#tOrderedSections];
 		if not wSection then
-			wSection = AncestryManager.onBookIndexAddEndHelper(wChapter.list);
+			wSection = StoryManager.onBookIndexAddEndHelper(wChapter.list);
 		end
-		local wPage = AncestryManager.onBookIndexAddEndHelper(wSection.list);
+		local wPage = StoryManager.onBookIndexAddEndHelper(wSection.list);
 		wPage.setLink(sClass, sRecord);
 		return true;
 	end
@@ -1176,10 +1176,10 @@ local tKeywordIgnore = {
 }
 
 function onBookKeywordGen()
-	for _,nodeChapter in ipairs(DB.getChildList(DB.getPath(AncestryManager.DEFAULT_BOOK_INDEX, AncestryManager.DEFAULT_BOOK_INDEX_CHAPTER_LIST))) do
-		for _,nodeSection in ipairs(DB.getChildList(nodeChapter, AncestryManager.DEFAULT_BOOK_INDEX_SECTION_LIST)) do
-			for _,nodePage in ipairs(DB.getChildList(nodeSection, AncestryManager.DEFAULT_BOOK_INDEX_PAGE_LIST)) do
-				AncestryManager.onBookKeywordGenPage(nodePage);
+	for _,nodeChapter in ipairs(DB.getChildList(DB.getPath(StoryManager.DEFAULT_BOOK_INDEX, StoryManager.DEFAULT_BOOK_INDEX_CHAPTER_LIST))) do
+		for _,nodeSection in ipairs(DB.getChildList(nodeChapter, StoryManager.DEFAULT_BOOK_INDEX_SECTION_LIST)) do
+			for _,nodePage in ipairs(DB.getChildList(nodeSection, StoryManager.DEFAULT_BOOK_INDEX_PAGE_LIST)) do
+				StoryManager.onBookKeywordGenPage(nodePage);
 			end
 		end
 	end
@@ -1187,14 +1187,14 @@ end
 function onBookKeywordGenPage(nodePage)
 	local tKeywords = {};
 
-	AncestryManager.helperGetKeywordsFromText(DB.getValue(nodePage, "name", ""), tKeywords);
+	StoryManager.helperGetKeywordsFromText(DB.getValue(nodePage, "name", ""), tKeywords);
 
 	local _,sRecord = DB.getValue(nodePage, "listlink", "", "");
 	local nodeRefPage = DB.findNode(sRecord);
 	if nodeRefPage then
 		for _,nodeBlock in ipairs(DB.getChildList(nodeRefPage, "blocks")) do
-			AncestryManager.helperGetKeywordsFromText(DB.getText(nodeBlock, "text", ""), tKeywords);
-			AncestryManager.helperGetKeywordsFromText(DB.getText(nodeBlock, "text2", ""), tKeywords);
+			StoryManager.helperGetKeywordsFromText(DB.getText(nodeBlock, "text", ""), tKeywords);
+			StoryManager.helperGetKeywordsFromText(DB.getText(nodeBlock, "text2", ""), tKeywords);
 		end
 	end
 
@@ -1219,12 +1219,12 @@ end
 --
 
 function onBlockAddEndHelper(cList)
-	local nCount = #(AncestryManager.updateOrderValues(cList));
-	return AncestryManager.onBookIndexAddHelper(cList, nCount + 1);
+	local nCount = #(StoryManager.updateOrderValues(cList));
+	return StoryManager.onBookIndexAddHelper(cList, nCount + 1);
 end
 function onBlockAddHelper(cList, nOrder)
 	local wAdd = cList.createWindow();
-	AncestryManager.setWindowOrderValue(wAdd, nOrder);
+	StoryManager.setWindowOrderValue(wAdd, nOrder);
 	return wAdd;
 end
 
@@ -1234,7 +1234,7 @@ function onBlockAdd(wRecord, sBlockType)
 		return;
 	end
 
-	local wNew = AncestryManager.onBlockAddEndHelper(wRecord.blocks);
+	local wNew = StoryManager.onBlockAddEndHelper(wRecord.blocks);
 
 	-- Setting block type should come last, since it forces block rebuild
 	local nodeBlock = wNew.getDatabaseNode()
@@ -1259,7 +1259,7 @@ function onBlockAdd(wRecord, sBlockType)
 		DB.setValue(nodeBlock, "blocktype", "string", "singletext");
 	end
 
-	AncestryManager.onBlockNodeRebuild(wNew.getDatabaseNode());
+	StoryManager.onBlockNodeRebuild(wNew.getDatabaseNode());
 end
 function onBlockDelete(wBlock)
 	DB.deleteNode(wBlock.getDatabaseNode());
@@ -1271,28 +1271,28 @@ function onBlockMoveUp(wBlock)
 	if not nodeList or DB.isStatic(nodeList) then
 		return;
 	end
-	local tOrderedChildren = AncestryManager.updateOrderValues(cParentList);
+	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
-	local nOrder = AncestryManager.getWindowOrderValue(wBlock);
+	local nOrder = StoryManager.getWindowOrderValue(wBlock);
 
 	-- If Alt key is pressed, duplicate the block and place it before the current block
 	if Input.isAltPressed() then
 		-- Create a duplicate block
 		local newBlock = cParentList.createWindow();
 		DB.copyNode(wBlock.getDatabaseNode(), newBlock.getDatabaseNode());
-		AncestryManager.onBlockNodeRebuild(newBlock.getDatabaseNode());
+		StoryManager.onBlockNodeRebuild(newBlock.getDatabaseNode());
 
 		-- Shift all blocks after the current one down by 1
 		for i = #tOrderedChildren, nOrder, -1 do
-			AncestryManager.setWindowOrderValue(tOrderedChildren[i], i + 1);
+			StoryManager.setWindowOrderValue(tOrderedChildren[i], i + 1);
 		end
 
 		-- Set the order for the new duplicate block
-		AncestryManager.setWindowOrderValue(newBlock, nOrder);
+		StoryManager.setWindowOrderValue(newBlock, nOrder);
 
 		-- Apply sorting to reflect the new order
 		cParentList.applySort();
-		AncestryManager.updateOrderValues(cParentList);
+		StoryManager.updateOrderValues(cParentList);
 		return; -- Exit after duplication and reordering
 	end
 
@@ -1312,11 +1312,11 @@ function onBlockMoveUp(wBlock)
 
 		-- Remove the current block and shift all blocks in between
 		for i = nOrder, nNewOrder + 1, -1 do
-			AncestryManager.setWindowOrderValue(tOrderedChildren[i - 1], i);
+			StoryManager.setWindowOrderValue(tOrderedChildren[i - 1], i);
 		end
 
 		-- Set the new order for the current block
-		AncestryManager.setWindowOrderValue(wBlock, nNewOrder);
+		StoryManager.setWindowOrderValue(wBlock, nNewOrder);
 
 		-- Apply sorting to reflect the changes
 		cParentList.applySort();
@@ -1329,9 +1329,9 @@ function onBlockMoveDown(wBlock)
 	if not nodeList or DB.isStatic(nodeList) then
 		return;
 	end
-	local tOrderedChildren = AncestryManager.updateOrderValues(cParentList);
+	local tOrderedChildren = StoryManager.updateOrderValues(cParentList);
 
-	local nOrder = AncestryManager.getWindowOrderValue(wBlock);
+	local nOrder = StoryManager.getWindowOrderValue(wBlock);
 
 	-- If Alt key is pressed, duplicate the block and place it below the current block
 	if Input.isAltPressed() then
@@ -1339,15 +1339,15 @@ function onBlockMoveDown(wBlock)
 		-- Create a duplicate block
 		local newBlock = cParentList.createWindow();
 		DB.copyNode(wBlock.getDatabaseNode(), newBlock.getDatabaseNode());
-		AncestryManager.onBlockNodeRebuild(newBlock.getDatabaseNode());
+		StoryManager.onBlockNodeRebuild(newBlock.getDatabaseNode());
 
 		-- Shift all blocks after the current one down by 1
 		for i = #tOrderedChildren, nOrder + 1, -1 do
-			AncestryManager.setWindowOrderValue(tOrderedChildren[i], i + 1);
+			StoryManager.setWindowOrderValue(tOrderedChildren[i], i + 1);
 		end
 
 		-- Set the order for the new duplicate block
-		AncestryManager.setWindowOrderValue(newBlock, nOrder + 1);
+		StoryManager.setWindowOrderValue(newBlock, nOrder + 1);
 
 		-- Apply sorting to reflect the new order
 		cParentList.applySort();
@@ -1370,11 +1370,11 @@ function onBlockMoveDown(wBlock)
 
 		-- Remove the current block and shift all blocks in between
 		for i = nOrder, nNewOrder - 1 do
-			AncestryManager.setWindowOrderValue(tOrderedChildren[i + 1], i);
+			StoryManager.setWindowOrderValue(tOrderedChildren[i + 1], i);
 		end
 
 		-- Set the new order for the current block
-		AncestryManager.setWindowOrderValue(wBlock, nNewOrder);
+		StoryManager.setWindowOrderValue(wBlock, nNewOrder);
 
 		-- Apply sorting to reflect the changes
 		cParentList.applySort();
@@ -1399,12 +1399,12 @@ function onBlockDrop(wBlock, draginfo)
 			local sAsset = DB.getText(nodeDrag, "image", "");
 			local sName = DB.getValue(nodeDrag, "name", "");
 
-			AncestryManager.onBlockImageDropHelper(wBlock, sAsset, sName, sClass, sRecord);
+			StoryManager.onBlockImageDropHelper(wBlock, sAsset, sName, sClass, sRecord);
 			return true;
 		end
 	elseif (sDragType == "image") or (sDragType == "token") then
 		local sAsset = draginfo.getTokenData();
-		AncestryManager.onBlockImageDropHelper(wBlock, sAsset);
+		StoryManager.onBlockImageDropHelper(wBlock, sAsset);
 		return true;
 	end
 
@@ -1424,36 +1424,36 @@ function onBlockImageDropHelper(wBlock, sAsset, sName, sClass, sRecord)
 	DB.deleteChild(nodeWin, "scale");
 	DB.deleteChild(nodeWin, "size");
 
-	AncestryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
+	StoryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
 end
 
 function onBlockScaleUp(wBlock)
-	local nScale = AncestryManager.getBlockImageScale(wBlock);
+	local nScale = StoryManager.getBlockImageScale(wBlock);
 	if nScale < 100 then
 		local nodeWin = wBlock.getDatabaseNode();
 		nScale = math.min(nScale + 10, 100);
 		DB.setValue(nodeWin, "scale", "number", nScale);
 		DB.deleteChild(nodeWin, "size");
 
-		AncestryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
+		StoryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
 	end
 end
 function onBlockScaleDown(wBlock)
-	local nScale = AncestryManager.getBlockImageScale(wBlock);
+	local nScale = StoryManager.getBlockImageScale(wBlock);
 	if nScale > 10 then
 		local nodeWin = wBlock.getDatabaseNode();
 		nScale = math.max(nScale - 10, 10);
 		DB.setValue(nodeWin, "scale", "number", nScale);
 		DB.deleteChild(nodeWin, "size");
 
-		AncestryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
+		StoryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
 	end
 end
 function onBlockSizeClear(wBlock)
 	local nodeWin = wBlock.getDatabaseNode();
 	DB.deleteChild(nodeWin, "size");
 
-	AncestryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
+	StoryManager.onBlockNodeRebuild(wBlock.getDatabaseNode());
 end
 
 --
@@ -1461,19 +1461,19 @@ end
 --
 
 function onBlockUpdate(wBlock, bReadOnly)
-	AncestryManager.updateBlockControls(wBlock, bReadOnly);
+	StoryManager.updateBlockControls(wBlock, bReadOnly);
 end
 
 function updateBlockControls(wBlock, bReadOnly)
-	AncestryManager.updateBlockTextControls(wBlock, bReadOnly);
-	AncestryManager.updateBlockImageControls(wBlock, bReadOnly);
-	AncestryManager.updateBlockEditControls(wBlock, bReadOnly);
+	StoryManager.updateBlockTextControls(wBlock, bReadOnly);
+	StoryManager.updateBlockImageControls(wBlock, bReadOnly);
+	StoryManager.updateBlockEditControls(wBlock, bReadOnly);
 end
 function updateBlockTextControls(wBlock, bReadOnly)
-	AncestryManager.updateBlockTextControlHelper(wBlock.header, bReadOnly);
-	AncestryManager.updateBlockTextControlHelper(wBlock.text, bReadOnly);
-	AncestryManager.updateBlockTextControlHelper(wBlock.text_left, bReadOnly);
-	AncestryManager.updateBlockTextControlHelper(wBlock.text_right, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.header, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.text, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.text_left, bReadOnly);
+	StoryManager.updateBlockTextControlHelper(wBlock.text_right, bReadOnly);
 
 	if bReadOnly then
 		if wBlock.button_frameselect then
@@ -1544,7 +1544,7 @@ function updateBlockImageControls(wBlock, bReadOnly)
 				wBlock.button_image_scaledown.destroy();
 			end
 		else
-			local tLegacySize = AncestryManager.getBlockImageLegacySize(wBlock);
+			local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
 			if tLegacySize then
 				if not wBlock.button_image_sizeclear then
 					wBlock.createControl("button_story_block_image_sizeclear", "button_image_sizeclear");
@@ -1559,7 +1559,7 @@ function updateBlockImageControls(wBlock, bReadOnly)
 				if wBlock.button_image_sizeclear then
 					wBlock.button_image_sizeclear.destroy();
 				end
-				local nScale = AncestryManager.getBlockImageScale(wBlock);
+				local nScale = StoryManager.getBlockImageScale(wBlock);
 				if nScale < 100 then
 					if not wBlock.button_image_scaleup then
 						wBlock.createControl("button_story_block_image_scaleup", "button_image_scaleup");
@@ -1622,19 +1622,19 @@ function onRecordNodeRebuild(nodeRecord)
 	for _,wManual in ipairs(tManualWindows) do
 		local wPage = wManual.content.subwindow;
 		if wPage and (wPage.getDatabaseNode() == nodeRecord) and (wPage.getClass() == "story_book_page_advanced") then
-			AncestryManager.onRecordRebuild(wPage.content.subwindow);
+			StoryManager.onRecordRebuild(wPage.content.subwindow);
 		end
 	end
 
 	-- Check open reference manual pages to rebuild
 	local w = Interface.findWindow("referencemanualpage", nodeRecord);
 	if w then
-		AncestryManager.onRecordRebuild(w.content.subwindow);
+		StoryManager.onRecordRebuild(w.content.subwindow);
 	end
 end
 function onRecordRebuild(wRecord)
 	for _,wBlock in ipairs(wRecord.blocks.getWindows()) do
-		AncestryManager.onBlockRebuild(wBlock);
+		StoryManager.onBlockRebuild(wBlock);
 	end
 end
 
@@ -1648,7 +1648,7 @@ function onBlockNodeRebuild(nodeBlock)
 		if wPage and (wPage.getDatabaseNode() == nodePage) and (wPage.getClass() == "story_book_page_advanced") then
 			for _,wBlock in ipairs(wPage.content.subwindow.blocks.getWindows()) do
 				if wBlock.getDatabaseNode() == nodeBlock then
-					AncestryManager.onBlockRebuild(wBlock);
+					StoryManager.onBlockRebuild(wBlock);
 					break;
 				end
 			end
@@ -1660,19 +1660,19 @@ function onBlockNodeRebuild(nodeBlock)
 	if w then
 		for _,wBlock in ipairs(w.content.subwindow.blocks.getWindows()) do
 			if wBlock.getDatabaseNode() == nodeBlock then
-				AncestryManager.onBlockRebuild(wBlock);
+				StoryManager.onBlockRebuild(wBlock);
 				break;
 			end
 		end
 	end
 end
 function onBlockRebuild(wBlock)
-	AncestryManager.clearBlockControls(wBlock);
+	StoryManager.clearBlockControls(wBlock);
 
 	local nodeBlock = wBlock.getDatabaseNode();
 	local sBlockType = DB.getValue(nodeBlock, "blocktype", "");
 	if sBlockType == "header" then
-		AncestryManager.addBlockHeader(wBlock);
+		StoryManager.addBlockHeader(wBlock);
 	else
 		local sAlign = DB.getValue(nodeBlock, "align", "");
 		local tAlign = StringManager.split(sAlign, ",");
@@ -1680,36 +1680,36 @@ function onBlockRebuild(wBlock)
 		-- Single column
 		if #tAlign <= 1 then
 			if sBlockType:match("image") or sBlockType:match("picture") then
-				AncestryManager.addBlockImage(wBlock);
+				StoryManager.addBlockImage(wBlock);
 			elseif sBlockType:match("icon") then
-				AncestryManager.addBlockIcon(wBlock);
+				StoryManager.addBlockIcon(wBlock);
 			else
-				AncestryManager.addBlockText(wBlock);
+				StoryManager.addBlockText(wBlock);
 			end
 		-- Dual columns
 		elseif #tAlign >= 2 then
-			AncestryManager.addBlockText(wBlock, tAlign[1]);
+			StoryManager.addBlockText(wBlock, tAlign[1]);
 
 			if sBlockType:match("image") or sBlockType:match("picture") then
-				AncestryManager.addBlockImage(wBlock, tAlign[2]);
+				StoryManager.addBlockImage(wBlock, tAlign[2]);
 			elseif sBlockType:match("icon") then
-				AncestryManager.addBlockIcon(wBlock, tAlign[2]);
+				StoryManager.addBlockIcon(wBlock, tAlign[2]);
 			else
-				AncestryManager.addBlockText(wBlock, tAlign[2], true);
+				StoryManager.addBlockText(wBlock, tAlign[2], true);
 			end
 		end
 	end
 
-	AncestryManager.adjustBlockToImageSize(wBlock);
+	StoryManager.adjustBlockToImageSize(wBlock);
 
 	local bReadOnly = WindowManager.getReadOnlyState(wBlock.windowlist.window.getDatabaseNode());
-	AncestryManager.updateBlockControls(wBlock, bReadOnly);
+	StoryManager.updateBlockControls(wBlock, bReadOnly);
 end
 
 function clearBlockControls(wBlock)
-	AncestryManager.clearBlockTextControls(wBlock);
-	AncestryManager.clearBlockImageControls(wBlock);
-	AncestryManager.clearBlockEditControls(wBlock);
+	StoryManager.clearBlockTextControls(wBlock);
+	StoryManager.clearBlockImageControls(wBlock);
+	StoryManager.clearBlockEditControls(wBlock);
 end
 function clearBlockTextControls(wBlock)
 	if wBlock.button_frameselect_right then
@@ -1788,15 +1788,15 @@ function getBlockImageData(wBlock, sAlign)
 	local tImageSize = {};
 	tImageSize.w, tImageSize.h = Interface.getAssetSize(sAsset);
 
-	local tLegacySize = AncestryManager.getBlockImageLegacySize(wBlock);
+	local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
 	if tLegacySize then
-		AncestryManager.applyBlockGraphicSizeMaxHelper(tImageSize, tLegacySize.w, tLegacySize.h);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, tLegacySize.w, tLegacySize.h);
 	end
 
 	if (sAlign == "left") or (sAlign == "right") then
-		AncestryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
 	else
-		AncestryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
 	end
 
 	local nScale = tonumber(DB.getValue(node, "scale")) or 100;
@@ -1845,16 +1845,16 @@ function getBlockIconData(wBlock, sAlign)
 
 	local tImageSize = { w = 100, h = 100 };
 
-	local tLegacySize = AncestryManager.getBlockImageLegacySize(wBlock);
+	local tLegacySize = StoryManager.getBlockImageLegacySize(wBlock);
 	if tLegacySize then
 		tImageSize.w = tLegacySize.w;
 		tImageSize.h = tLegacySize.h;
 	end
 
 	if (sAlign == "left") or (sAlign == "right") then
-		AncestryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxColumnImageWidth);
 	else
-		AncestryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
+		StoryManager.applyBlockGraphicSizeMaxHelper(tImageSize, _nMaxSingleImageWidth);
 	end
 
 	return sAsset, tImageSize.w, tImageSize.h;
@@ -1873,7 +1873,7 @@ function applyBlockGraphicSizeMaxHelper(tImageSize, nMaxW, nMaxH)
 end
 
 function addBlockHeader(wBlock)
-	local sFrame = AncestryManager.getBlockFrame(wBlock);
+	local sFrame = StoryManager.getBlockFrame(wBlock);
 
 	local cHeader = wBlock.header;
 	if not cHeader then
@@ -1900,7 +1900,7 @@ function addBlockHeader(wBlock)
 	end
 end
 function addBlockText(wBlock, sAlign, bUseSecondField)
-	local sFrame = AncestryManager.getBlockFrame(wBlock, sAlign);
+	local sFrame = StoryManager.getBlockFrame(wBlock, sAlign);
 
 	local sSource;
 	if bUseSecondField then
@@ -1975,7 +1975,7 @@ function addBlockText(wBlock, sAlign, bUseSecondField)
 	end
 end
 function addBlockImage(wBlock, sAlign)
-	local sAsset = AncestryManager.getBlockImageData(wBlock, sAlign);
+	local sAsset = StoryManager.getBlockImageData(wBlock, sAlign);
 
 	local cImage = wBlock.image;
 	if not cImage then
@@ -1984,7 +1984,7 @@ function addBlockImage(wBlock, sAlign)
 
 	if sAsset == "" then
 		cImage.setIcon("button_ref_block_image");
-		cImage.setColor(AncestryManager.getBlockButtonIconColor());
+		cImage.setColor(StoryManager.getBlockButtonIconColor());
 		cImage.setFrame("border");
 	else
 		cImage.setData(sAsset);
@@ -1997,7 +1997,7 @@ function addBlockImage(wBlock, sAlign)
 	end
 end
 function addBlockIcon(wBlock, sAlign)
-	local sIcon = AncestryManager.getBlockIconData(wBlock, sAlign);
+	local sIcon = StoryManager.getBlockIconData(wBlock, sAlign);
 
 	local cIcon = wBlock.icon;
 	if not cIcon then
@@ -2019,10 +2019,10 @@ function adjustBlockToImageSize(wBlock)
 		local tSize = {};
 		if wBlock.image then
 			c = wBlock.image;
-			_, tSize.w, tSize.h = AncestryManager.getBlockImageData(wBlock, sGraphicAlign);
+			_, tSize.w, tSize.h = StoryManager.getBlockImageData(wBlock, sGraphicAlign);
 		elseif wBlock.icon then
 			c = wBlock.icon;
-			_, tSize.w, tSize.h = AncestryManager.getBlockIconData(wBlock, sGraphicAlign);
+			_, tSize.w, tSize.h = StoryManager.getBlockIconData(wBlock, sGraphicAlign);
 		end
 
 		c.setAnchoredWidth(tSize.w);
@@ -2038,7 +2038,7 @@ function adjustBlockToImageSize(wBlock)
 
 		if #tAlign >= 2 then
 			local nOffset = tSize.w + (2 * _nGraphicOffsetX);
-			local sFrame = AncestryManager.getBlockFrame(wBlock, tAlign[1]);
+			local sFrame = StoryManager.getBlockFrame(wBlock, tAlign[1]);
 			if sFrame ~= "" then
 				nOffset = nOffset + (_nTextWithFrameOffsetX - _nTextSansFrameOffsetX);
 			end
@@ -2106,7 +2106,7 @@ function registerCopyPasteToolbarButtons()
 			sType = "action",
 			sIcon = "button_toolbar_copy",
 			sTooltipRes = "record_toolbar_copy",
-			fnActivate = AncestryManager.onCopyButtonPressed,
+			fnActivate = StoryManager.onCopyButtonPressed,
 			bHostOnly = true,
 		});
 	ToolbarManager.registerButton("story_paste",
@@ -2114,20 +2114,20 @@ function registerCopyPasteToolbarButtons()
 			sType = "action",
 			sIcon = "button_toolbar_paste",
 			sTooltipRes = "record_toolbar_paste",
-			fnOnInit = AncestryManager.onPasteButtonInit,
-			fnActivate = AncestryManager.onPasteButtonPressed,
+			fnOnInit = StoryManager.onPasteButtonInit,
+			fnActivate = StoryManager.onPasteButtonPressed,
 			bHostOnly = true,
 		});
 end
 function onCopyButtonPressed(c)
-	AncestryManager.performRecordCopy(c.window);
+	StoryManager.performRecordCopy(c.window);
 end
 function onPasteButtonInit(c)
     Debug.chat(c);
 	c.onStateChanged();
 end
 function onPasteButtonPressed(c)
-	AncestryManager.performRecordPaste(c.window);
+	StoryManager.performRecordPaste(c.window);
 end
 
 local _sPasteRecord = "";
@@ -2142,7 +2142,7 @@ function setPasteRecord(sRecord)
 		return;
 	end
 	_sPasteRecord = sRecord or "";
-	AncestryManager.onPasteRecordChangeEvent();
+	StoryManager.onPasteRecordChangeEvent();
 end
 function onPasteRecordChangeEvent()
 	local tManualWindows = Interface.getWindows("reference_manual");
@@ -2160,13 +2160,13 @@ function performRecordCopy(wRecord)
 	if not wRecord then
 		return;
 	end
-	AncestryManager.setPasteRecord(wRecord.getDatabasePath())
+	StoryManager.setPasteRecord(wRecord.getDatabasePath())
 end
 function performRecordPaste(wRecord)
 	if not wRecord then
 		return;
 	end
-	local sPasteRecord = AncestryManager.getPasteRecord();
+	local sPasteRecord = StoryManager.getPasteRecord();
 	if sPasteRecord == "" then
 		return;
 	end
@@ -2181,9 +2181,9 @@ function performRecordPaste(wRecord)
 			end
 		end
 	end
-	AncestryManager.onRecordNodeRebuild(nodeRecord);
+	StoryManager.onRecordNodeRebuild(nodeRecord);
 
-	AncestryManager.setPasteRecord("");
+	StoryManager.setPasteRecord("");
 end
 
 --
@@ -2218,12 +2218,12 @@ function migrateRecordLegacyTextToBlock(wRecord)
 		end
 	end
 
-	local tOrderedChildren = AncestryManager.updateOrderValues(wRecord.blocks);
+	local tOrderedChildren = StoryManager.updateOrderValues(wRecord.blocks);
 	for kChild,wChild in ipairs(tOrderedChildren) do
-		AncestryManager.setWindowOrderValue(wChild, kChild + 1);
+		StoryManager.setWindowOrderValue(wChild, kChild + 1);
 	end
 
-	local wNew = AncestryManager.onBlockAddHelper(wRecord.blocks, 1);
+	local wNew = StoryManager.onBlockAddHelper(wRecord.blocks, 1);
 	local nodeBlock = wNew.getDatabaseNode();
 	DB.setValue(nodeBlock, "text", "formattedtext", sOldText);
 	DB.deleteChild(node, "text");
@@ -2243,7 +2243,7 @@ function migrateRecordLegacyTextToBlock(wRecord)
 
 	-- Setting block type should come last, since it forces block rebuild
 	DB.setValue(nodeBlock, "blocktype", "string", "singletext");
-	AncestryManager.onBlockNodeRebuild(wNew.getDatabaseNode());
+	StoryManager.onBlockNodeRebuild(wNew.getDatabaseNode());
 
 	wRecord.blocks.applySort();
 end

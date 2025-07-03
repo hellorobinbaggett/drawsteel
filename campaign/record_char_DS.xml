@@ -146,47 +146,84 @@
 				<labelres>char_label_subclass</labelres>
 			</string_labeled>
 
-			<!-- SUBCLASS -->
+			<!-- LEVEL -->
 			<string_labeled name="leveltitle">
 				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_level</labelres>
 			</string_labeled>
 
-			<!-- <string_labeled name="subclass">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,10">
-					<right offset="-15" />
+			<!-- TODO: implement linkable fields for the subclass,class,ancetry,and career (similar to 5e) -->
+			<!-- vv below is some code from 5e for how they have linkfield_record setup vv -->
+			<!-- <label_charframetop name="speciestitle">
+				<anchored height="20">
+					<top offset="55" />
+					<left anchor="center" offset="10" />
+					<right offset="-10" />
 				</anchored>
-				<labelres>char_label_subclass</labelres>
-			</string_labeled>
-			<string_labeled name="level">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,10">
-					<right offset="-15" />
+				<icons>char_race</icons>
+				<static textres="char_label_race" />
+			</label_charframetop>
+			<genericcontrol name="speciesleftanchor">
+				<anchored to="speciestitle" position="belowleft" offset="-10,5" />
+				<disabled />
+			</genericcontrol>
+			<genericcontrol name="speciesrightanchor">
+				<anchored to="speciestitle" position="belowright" offset="-10,5" />
+				<disabled />
+			</genericcontrol>
+			<linkfield_record name="racelink">
+				<anchored to="speciesleftanchor" width="20" height="20">
+					<top />
+					<left relation="relative" offset="2" postoffset="2" />
 				</anchored>
-				<labelres>char_label_level</labelres>
-			</string_labeled>
-
-			<string_labeled name="race">
-				<anchored to="detailframe" position="insidetopleft" offset="15,10" width="150" />
-				<labelres>char_label_race</labelres>
-			</string_labeled>
-			<string_labeled name="gender">
-				<anchored to="race" position="righthigh" offset="5,0" width="70" />
-				<labelres>char_label_gender</labelres>
-			</string_labeled>
-			<string_labeled name="age">
-				<anchored to="gender" position="righthigh" offset="5,0" width="70" />
-				<labelres>char_label_age</labelres>
-			</string_labeled>
-			<string_labeled name="height">
-				<anchored to="age" position="righthigh" offset="5,0" width="70" />
-				<labelres>char_label_height</labelres>
-			</string_labeled>
-			<string_labeled name="weight">
-				<anchored to="height" position="righthigh" offset="5,0" width="70" />
-				<labelres>char_label_weight</labelres>
-			</string_labeled> -->
-
-
+				<description field="race" />
+				<hideonempty />
+				<nodrag />
+				<script>
+					function onClickDown()
+						return true;
+					end
+					function onClickRelease()
+						return CharManager.onSpeciesLinkPressed(window.getDatabaseNode());
+					end
+				</script>
+			</linkfield_record>
+			<linkfield_record name="subracelink">
+				<anchored to="speciesleftanchor" width="20" height="20">
+					<top />
+					<left relation="relative" offset="2" postoffset="2" />
+				</anchored>
+				<description field="race" />
+				<hideonempty />
+				<nodrag />
+				<script>
+					function onClickDown()
+						return true;
+					end
+					function onClickRelease()
+						return CharManager.onAncestryLinkPressed(window.getDatabaseNode());
+					end
+				</script>
+			</linkfield_record>
+			<button_iadd_recordtype name="button_species_add">
+				<anchored to="speciesrightanchor">
+					<top />
+					<right relation="relative" offset="-2" postoffset="-2" />
+				</anchored>
+				<recordtype>race</recordtype>
+			</button_iadd_recordtype>
+			<stringu name="race">
+				<anchored to="speciesleftanchor">
+					<top />
+					<left relation="relative" offset="5" postoffset="5" />
+					<right parent="speciesrightanchor" relation="relative" offset="-5" postoffset="-5" />
+				</anchored>
+				<script>
+					function onValueChanged()
+						window.onSpeciesChanged();
+					end
+				</script>
+			</stringu> -->
 
 		</sheetdata>
 	</windowclass>

@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<!-- <template name="button_ancestry_add_advanced">
+	<template name="button_class_add_advanced">
 		<buttoncontrol insertbefore="filter_sharedonly">
 			<anchored to="rightanchor" width="20" height="20">
 				<top />
@@ -23,20 +23,19 @@
 					if window.clearFilterValues then
 						window.clearFilterValues();
 					end
-					local node = DB.createChild(AncestryManager.DEFAULT_BOOK_CONTENT);
-					if node then
-						local w = Interface.openWindow("referenceancestry", DB.getPath(node));
-						if w and w.name then
-							w.name.setFocus();
-						elseif w.header and w.header.subwindow and w.header.subwindow.name then
-							w.header.subwindow.name.setFocus();
-						end
+					if window.list_iedit then
+						window.list_iedit.setValue(0);
 					end
-					window.list_iedit.setValue(0);
+
+					local node = DB.createChild(StoryManager.DEFAULT_BOOK_CONTENT);
+					if node then
+						RecordManager.onRecordAddEvent("class", node);
+						Interface.openWindow("referencemanualpage", DB.getPath(node));
+					end
 				end
 			</script>
 		</buttoncontrol>
-	</template> -->
+	</template>
 
 	<!-- Book - General -->
 	<template name="button_story_book_idelete">
@@ -137,7 +136,7 @@
 			</anchored>
 			<script>
 				function onButtonPress()
-					AncestryManager.onBookIndexAdd(window);
+					StoryManager.onBookIndexAdd(window);
 				end
 			</script>
 		</button_text>
@@ -147,7 +146,7 @@
 			<script>
 				function onButtonPress()
 					if getValue() == 0 then
-						AncestryManager.onBookIndexDelete(window);
+						StoryManager.onBookIndexDelete(window);
 					end
 				end
 			</script>
@@ -158,7 +157,7 @@
 			<invisible />
 			<script>
 				function onButtonPress()
-					AncestryManager.onBookIndexMoveUp(window);
+					StoryManager.onBookIndexMoveUp(window);
 				end
 			</script>
 		</button_story_book_imoveup>
@@ -168,7 +167,7 @@
 			<invisible />
 			<script>
 				function onButtonPress()
-					AncestryManager.onBookIndexMoveDown(window);
+					StoryManager.onBookIndexMoveDown(window);
 				end
 			</script>
 		</button_story_book_imovedown>
@@ -331,7 +330,7 @@
 			<readonly />
 			<script>
 				function onLinkActivated(sClass, sRecord)
-					AncestryManager.onLinkActivated(window, sClass, sRecord);
+					StoryManager.onLinkActivated(window, sClass, sRecord);
 				end
 			</script>
 		</simpleft>
@@ -354,7 +353,7 @@
 			<noscroll />
 			<script>
 				function onDrop(x, y, draginfo)
-					return AncestryManager.onBlockDrop(getWindowAt(x, y), draginfo);
+					return StoryManager.onBlockDrop(getWindowAt(x, y), draginfo);
 				end
 			</script>
 		</windowlist>
@@ -389,12 +388,12 @@
 			<invisible />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 					setIcons("button_ref_block_" .. blocktype[1]);
 					setTooltipText(Interface.getString("story_tooltip_block_" .. blocktype[1]));
 				end
 				function onButtonPress()
-					AncestryManager.onBlockAdd(window, blocktype[1]);
+					StoryManager.onBlockAdd(window, blocktype[1]);
 				end
 			</script>
 		</buttoncontrol>
@@ -405,7 +404,7 @@
 			<script>
 				function onButtonPress()
 					if getValue() == 0 then
-						AncestryManager.onBlockDelete(window);
+						StoryManager.onBlockDelete(window);
 					end
 				end
 			</script>
@@ -415,7 +414,7 @@
 		<button_story_book_imoveup>
 			<script>
 				function onButtonPress()
-					AncestryManager.onBlockMoveUp(window);
+					StoryManager.onBlockMoveUp(window);
 				end
 			</script>
 		</button_story_book_imoveup>
@@ -424,7 +423,7 @@
 		<button_story_book_imovedown>
 			<script>
 				function onButtonPress()
-					AncestryManager.onBlockMoveDown(window);
+					StoryManager.onBlockMoveDown(window);
 				end
 			</script>
 		</button_story_book_imovedown>
@@ -435,11 +434,11 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_linkclear" tooltipres="story_tooltip_block_image_linkclear" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					DB.setValue(window.getDatabaseNode(), "imagelink", "windowreference", "", "");
-					AncestryManager.onBlockNodeRebuild(window.getDatabaseNode());
+					StoryManager.onBlockNodeRebuild(window.getDatabaseNode());
 				end
 			</script>
 		</buttoncontrol>
@@ -450,10 +449,10 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_scaleup" tooltipres="story_tooltip_block_image_scaleup" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
-					AncestryManager.onBlockScaleUp(window);
+					StoryManager.onBlockScaleUp(window);
 				end
 			</script>
 		</buttoncontrol>
@@ -464,10 +463,10 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_scaledown" tooltipres="story_tooltip_block_image_scaledown" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
-					AncestryManager.onBlockScaleDown(window);
+					StoryManager.onBlockScaleDown(window);
 				end
 			</script>
 		</buttoncontrol>
@@ -478,10 +477,10 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_image_sizeclear" tooltipres="story_tooltip_block_image_sizeclear" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
-					AncestryManager.onBlockSizeClear(window);
+					StoryManager.onBlockSizeClear(window);
 				end
 			</script>
 		</buttoncontrol>
@@ -492,7 +491,7 @@
 			<state frame="button_ref_block_add_base" icon="button_ref_block_frame" tooltipres="story_tooltip_block_frame" />
 			<script>
 				function onInit()
-					setColor(AncestryManager.getBlockButtonIconColor());
+					setColor(StoryManager.getBlockButtonIconColor());
 				end
 				function onButtonPress()
 					local bLeft = (frameleft ~= nil);
@@ -553,7 +552,7 @@
 				end
 				function onAssetUpdate(sAsset)
 					if bInitialized then
-						AncestryManager.adjustBlockToImageSize(window);
+						StoryManager.adjustBlockToImageSize(window);
 					end
 				end
 			</script>
@@ -612,7 +611,7 @@
 				end
 				function onAssetUpdate(sAsset)
 					if bInitialized then
-						AncestryManager.adjustBlockToImageSize(window);
+						StoryManager.adjustBlockToImageSize(window);
 					end
 				end
 			</script>

@@ -24,9 +24,13 @@
 					<bottom offset="-6" />
 				</anchored>
 				<datasource>.ancestrytraitslist</datasource>
-				<class>char_features</class>
+				<class>char_ancestry_traits</class>
 				<acceptdrop>
 					<class>record_window_story</class>
+					<class>referencetext</class>
+					<class>referencetextwide</class>
+					<class>note</class>
+					<class>encounter</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>
@@ -60,9 +64,13 @@
 					<bottom offset="-6" />
 				</anchored>
 				<datasource>.featureslist</datasource>
-				<class>char_features</class>
+				<class>char_class_features</class>
 				<acceptdrop>
 					<class>record_window_story</class>
+					<class>referencetext</class>
+					<class>referencetextwide</class>
+					<class>note</class>
+					<class>encounter</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>
@@ -83,7 +91,7 @@
 		</sheetdata>
 	</windowclass>
 
-	    <windowclass name="char_features">
+	    <windowclass name="char_ancestry_traits">
 		<margins control="0,0,0,2" />
 		<sheetdata>
 			<genericcontrol name="rightanchor">
@@ -125,7 +133,68 @@
 					<top />
 					<right anchor="left" relation="relative" offset="-5" />
 				</anchored>
-				<class>ability</class>
+				<class>referencetext</class>
+				<class>referencetextwide</class>
+				<class>note</class>
+				<class>encounter</class>
+			</linkcontrol_static>
+			<string_textlistitem name="name">
+				<anchored to="rightanchor">
+					<top />
+					<left parent="" offset="5" />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<multilinespacing>20</multilinespacing>
+			</string_textlistitem>
+		</sheetdata>
+	</windowclass>	
+
+	<windowclass name="char_class_features">
+		<margins control="0,0,0,2" />
+		<sheetdata>
+			<genericcontrol name="rightanchor">
+				<anchored height="0" width="0">
+					<top offset="2" />
+					<right />
+				</anchored>
+			</genericcontrol>
+			<button_idelete name="idelete1">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>titles_iedit</editmode>
+			</button_idelete>
+			<button_idelete name="idelete2">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>maneuvers_iedit</editmode>
+			</button_idelete>
+			<button_idelete name="idelete3">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>ancestrytraits_iedit</editmode>
+			</button_idelete>
+			<button_idelete name="idelete4">
+				<anchored to="rightanchor">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<editmode>features_iedit</editmode>
+			</button_idelete>
+			<linkcontrol_static name="link">
+				<anchored to="rightanchor" width="20" height="20">
+					<top />
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<class>referencetext</class>
+				<class>referencetextwide</class>
+				<class>note</class>
+				<class>encounter</class>
 			</linkcontrol_static>
 			<string_textlistitem name="name">
 				<anchored to="rightanchor">

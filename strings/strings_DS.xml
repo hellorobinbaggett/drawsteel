@@ -28,6 +28,8 @@
 	<string name="library_recordtype_label_monsters">Monsters</string>
 	<string name="library_recordtype_label_ancestry">Ancestries</string>
 	<string name="library_recordtype_single_ancestry">Ancestry</string>
+	<string name="library_recordtype_label_data">Data</string>
+	<string name="library_recordtype_single_data">Data</string>
 	<string name="library_recordtype_empty_ancestry">&#171; New Ancestry &#187;</string>
 	<string name="library_recordview_label_specialability_byclass">By Class</string>
 

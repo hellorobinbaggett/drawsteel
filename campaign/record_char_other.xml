@@ -149,7 +149,7 @@
 					<bottom offset="-6" />
 				</anchored>
 				<datasource>.perksandtitleslist</datasource>
-				<class>char_features</class>
+				<class>char_ancestry_traits</class>
 				<acceptdrop>
 					<class>record_window_story</class>
 					<field>*</field>
@@ -160,15 +160,16 @@
 				<target>perksandtitles</target>
 			</scrollbar_list>
 
-			<button_iedit name="perksandtitles_iedit">
+
+			<button_iedit name="ancestrytraits_iedit">
 				<anchored to="perksandtitles" position="aboveright" offset="-15,5" />
 				<edittarget>perksandtitles</edittarget>
 			</button_iedit>
+
 			<button_iadd name="perksandtitles_iadd">
 				<anchored to="perksandtitles" position="aboveright" offset="5,5" />
 				<target>perksandtitles</target>
 			</button_iadd>
 		</sheetdata>
 	</windowclass>
-\
 </root>

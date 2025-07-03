@@ -291,7 +291,7 @@ end
 function onRoll(rSource, rTarget, rRoll)
 	ActionsManager_DS.decodeAdvantage(rRoll);
 	
-	local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+	local rMessage = ActionsManager_DS.createActionMessage(rSource, rRoll);
 
 	if rRoll.nTarget then
 		local nTotal = ActionsManager.total(rRoll);

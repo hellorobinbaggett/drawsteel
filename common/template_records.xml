@@ -341,9 +341,10 @@
 				<script>	
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
-						local abilityName1 = DB.getValue(nodeWin, "abilityname", "");
+						local abilityName = DB.getValue(nodeWin, "abilityname", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
 						if (characteristic or "") == "" then
 							characteristic = "0";
@@ -354,7 +355,7 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName1 .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = characteristic,
 							t1 = DB.getValue(nodeWin, "tier1"),
@@ -462,11 +463,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_2", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_2");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic2 or "") == "" then
-							characteristic2 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -474,13 +476,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic2,
-							t1 = DB.getValue(nodeWin, "tier1_2"),
-							t2 = DB.getValue(nodeWin, "tier2_2"),
-							t3 = DB.getValue(nodeWin, "tier3_2");
-							effect = DB.getValue(nodeWin, "ability.effect_2");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
@@ -582,11 +584,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_3", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic4 = DB.getValue(nodeWin, "ability.characteristic_3");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic4 or "") == "" then
-							characteristic4 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -594,13 +597,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic4,
-							t1 = DB.getValue(nodeWin, "tier1_3"),
-							t2 = DB.getValue(nodeWin, "tier2_3"),
-							t3 = DB.getValue(nodeWin, "tier3_3");
-							effect = DB.getValue(nodeWin, "ability.effect_3");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
@@ -701,11 +704,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_4", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_4");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic2 or "") == "" then
-							characteristic2 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -713,13 +717,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic2,
-							t1 = DB.getValue(nodeWin, "tier1_4"),
-							t2 = DB.getValue(nodeWin, "tier2_4"),
-							t3 = DB.getValue(nodeWin, "tier3_4");
-							effect = DB.getValue(nodeWin, "ability.effect_4");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
@@ -821,11 +825,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_5", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_5");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic2 or "") == "" then
-							characteristic2 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -833,13 +838,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic2,
-							t1 = DB.getValue(nodeWin, "tier1_5"),
-							t2 = DB.getValue(nodeWin, "tier2_5"),
-							t3 = DB.getValue(nodeWin, "tier3_5");
-							effect = DB.getValue(nodeWin, "ability.effect_5");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
@@ -941,11 +946,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_6", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_6");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic2 or "") == "" then
-							characteristic2 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -953,13 +959,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic2,
-							t1 = DB.getValue(nodeWin, "tier1_6"),
-							t2 = DB.getValue(nodeWin, "tier2_6"),
-							t3 = DB.getValue(nodeWin, "tier3_6");
-							effect = DB.getValue(nodeWin, "ability.effect_6");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
@@ -1061,11 +1067,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_7", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_7");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic2 or "") == "" then
-							characteristic2 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -1073,13 +1080,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic2,
-							t1 = DB.getValue(nodeWin, "tier1_7"),
-							t2 = DB.getValue(nodeWin, "tier2_7"),
-							t3 = DB.getValue(nodeWin, "tier3_7");
-							effect = DB.getValue(nodeWin, "ability.effect_7");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
@@ -1181,11 +1188,12 @@
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_8", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
 
-						local characteristic2 = DB.getValue(nodeWin, "ability.characteristic_8");
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
 
-						if (characteristic2 or "") == "" then
-							characteristic2 = "0";
+						if (characteristic or "") == "" then
+							characteristic = "0";
 						end
 
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
@@ -1193,13 +1201,13 @@
 
 						local rRoll = { 
 							sType = "dice", 
-							sDesc = "" .. abilityName .. "", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic2,
-							t1 = DB.getValue(nodeWin, "tier1_8"),
-							t2 = DB.getValue(nodeWin, "tier2_8"),
-							t3 = DB.getValue(nodeWin, "tier3_8");
-							effect = DB.getValue(nodeWin, "ability.effect_8");
+							nMod = characteristic,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);

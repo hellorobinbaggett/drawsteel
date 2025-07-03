@@ -31,18 +31,18 @@
 	</windowclass>
 	<windowclass name="story_header_advanced" copy="record_header_story">
 		<script>
-			function onStateChanged()
-				super.onStateChanged();
-				story_paste.onStateChanged();
+			function Update()
+				super.Update();
+				story_paste.Update();
 			end
 		</script>
 		<sheetdata>
 			<toolbar_action_header_right name="story_paste" insertbefore="name">
 				<script>
 					function onStoryPasteChanged()
-						self.onStateChanged();
+						self.Update();
 					end
-					function onStateChanged()
+					function Update()
 						if Session.IsHost then
 							local bReadOnly = WindowManager.getReadOnlyState(window.getDatabaseNode());
 							local bCanPaste = StoryManager.hasPasteRecord();

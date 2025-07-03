@@ -46,11 +46,11 @@ function testRoll(rMessage, rRoll)
 
 		-- check for critical hits and natural 20s
 		if powerRollTotal == nCritThreshold then
-			rMessage.text = tostring(rMessage.text) .. "\n[CRITICAL HIT]";
+			rMessage.text = tostring(rMessage.text) .. "\n[CRITICAL]";
 		end
 		-- natural 20s are always Tier 3 no matter what modifiers or banes present
 		if powerRollTotal > nCritThreshold then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nPower Roll: Automatic TIER 3\n[CRITICAL HIT]\n[NATURAL 20]";
+			rMessage.text = tostring(rRoll.sDesc) .. "\nPower Roll: Automatic TIER 3\n[CRITICAL]\n[NATURAL 20]";
 		end
 
 	end
