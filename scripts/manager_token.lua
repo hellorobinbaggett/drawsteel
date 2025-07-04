@@ -175,8 +175,8 @@ function getImageTokenLockState(token)
 end
 
 function onCombatantDelete(nodeCT)
-	if TokenManager2 and TokenManager2.onCombatantDelete then
-		if TokenManager2.onCombatantDelete(nodeCT) then
+	if TokenManager_DS and TokenManager_DS.onCombatantDelete then
+		if TokenManager_DS.onCombatantDelete(nodeCT) then
 			return;
 		end
 	end
@@ -442,13 +442,13 @@ function updateAttributesHelper(tokenCT, nodeCT)
 	if TokenManager.isDefaultEffectsEnabled() then
 		TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 	end
-	if TokenManager2 and TokenManager2.updateAttributesHelper then
-		TokenManager2.updateAttributesHelper(tokenCT, nodeCT);
+	if TokenManager_DS and TokenManager_DS.updateAttributesHelper then
+		TokenManager_DS.updateAttributesHelper(tokenCT, nodeCT);
 	end
 end
 function updateTooltip(tokenCT, nodeCT)
-	if TokenManager2 and TokenManager2.updateTooltip then
-		TokenManager2.updateTooltip(tokenCT, nodeCT);
+	if TokenManager_DS and TokenManager_DS.updateTooltip then
+		TokenManager_DS.updateTooltip(tokenCT, nodeCT);
 		return;
 	end
 	
@@ -684,8 +684,8 @@ function updateFaction(nodeFaction)
 		if TokenManager.isDefaultEffectsEnabled() then
 			TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 		end
-		if TokenManager2 and TokenManager2.updateFaction then
-			TokenManager2.updateFaction(tokenCT, nodeCT);
+		if TokenManager_DS and TokenManager_DS.updateFaction then
+			TokenManager_DS.updateFaction(tokenCT, nodeCT);
 		end
 	end
 end

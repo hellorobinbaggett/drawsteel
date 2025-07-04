@@ -6,18 +6,18 @@
 -->
 
 <root version="1.0" release="1" logo="logo.png">
-	<announcement text="Draw Steel Ruleset (v.094) by EXXODIS" font="emotefont" icon="power_roll_down" />
+	<announcement text="Draw Steel Ruleset (v.0961) by EXXODIS" font="emotefont" icon="power_roll_down" />
 
 	<!-- Attributes -->
 	<description>
-		<displayname>Draw Steel (DEV)</displayname>
+		<displayname>Draw Steel</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
 
 	<!-- Announcements -->
-	<announcement text="=======DEV BUILD=======" /> 
-	<announcement text="Draw Steel Ruleset v.096 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<!-- <announcement text="=======DEV BUILD=======" />  -->
+	<announcement text="Draw Steel Ruleset v.0961 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	
 	<!-- This allows the ruleset to pull from CoreRPG for the basic scripts and functionality -->
@@ -29,9 +29,9 @@
 	<includefile source="campaign/campaign_masterindex_DS.xml" />
 
 	<!-- DRAW STEEL files -->
-	<includefile source="campaign/record_char_main_ds.xml" />
-	<includefile source="campaign/record_char_skills_ds.xml" />
-	<includefile source="campaign/record_char_skills_ds.xml" />
+	<includefile source="campaign/record_char_main_DS.xml" />
+	<includefile source="campaign/record_char_skills_DS.xml" />
+	<includefile source="campaign/record_char_skills_DS.xml" />
 	<includefile source="campaign/record_monster_DS.xml" />
 	<includefile source="campaign/template_monster_ability.xml" />
 	<includefile source="graphics/graphics_buttons_DS.xml" />
@@ -43,16 +43,6 @@
 
 	<!-- Graphics -->
 	<includefile source="graphics/graphics_icons_DS.xml" />
-	<includefile source="graphics/graphics_buttons.xml" />
-	<includefile source="graphics/graphics_dice.xml" />
-	<includefile source="graphics/graphics_fonts.xml" />
-	<includefile source="graphics/graphics_frames.xml" />
-	<includefile source="graphics/graphics_icons.xml" />
-	<includefile source="graphics/graphics_portraits.xml" />
-	<includefile source="graphics/graphics_radial.xml" />
-	<includefile source="graphics/graphics_ref.xml" />
-	<includefile source="graphics/graphics_sidebar.xml" />
-	<includefile source="graphics/graphics_tabs.xml" />
 	
 	<!-- String resources -->
 	<includefile source="strings/strings_common_DS.xml" />
@@ -84,10 +74,10 @@
 	<script name="Effects" file="scripts/data_common_DS.lua" />
 
 	<!-- Draw Steel Ruleset scripts -->
-	<script name="ActorManager_DS" file="scripts/manager_actor_ds.lua" />
+	<script name="ActorManager_DS" file="scripts/manager_actor_DS.lua" />
 	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
 	<script name="ActionsManager_DS" file="scripts/manager_actions_DS.lua" />
-	<script name="InitiativeManager" file="scripts/manager_initiative_ds.lua" />
+	<script name="InitiativeManager" file="scripts/manager_initiative_DS.lua" />
 
 	<!-- Desktop -->
 	<includefile source="desktop/desktop_classes-DS.xml" />
@@ -146,13 +136,12 @@
 	<script name="PartyLootManager" file="scripts/manager_ps_loot.lua" />
 	<script name="PartyXPManager" file="scripts/manager_party_xp.lua" />
 	<script name="TargetingManager" file="scripts/manager_targeting.lua" />
-	<script name="TokenManager2" file="scripts/manager_token2.lua" />
+	<script name="TokenManager_DS" file="scripts/manager_token_DS.lua" />
 	<script name="VisionManager" file="scripts/manager_vision.lua" />
 	<script name="CampaignDataManager" file="scripts/manager_campaigndata.lua" />
 	<script name="CharManager" file="scripts/manager_char.lua" />
 	<script name="CharInventoryManager" file="scripts/manager_char_inventory.lua" />
 	<script name="CharEncumbranceManager" file="scripts/manager_char_encumbrance.lua" />
-	<script name="ImageManager" file="scripts/manager_image.lua" />
 	<script name="ImageDeathMarkerData" file="scripts/data_image_deathmarker.lua" />
 	<script name="ImageDeathMarkerManager" file="scripts/manager_image_deathmarker.lua"/>
 	<script name="ImageDistanceManager" file="scripts/manager_image_distance.lua" />
@@ -176,31 +165,16 @@
 	<!-- Campaign Records -->
 	<includefile source="campaign/template_ancestry.xml" />
 	<includefile source="campaign/template_class.xml" /> 
-	<includefile source="campaign/campaign_pictures.xml" />
-	<includefile source="campaign/campaign_chars.xml" />
-	<includefile source="campaign/record_battle.xml" />
-	<includefile source="campaign/record_battlerandom.xml" />
-	<includefile source="campaign/record_image.xml" />
-	<includefile source="campaign/record_item.xml" />
-	<includefile source="campaign/record_note.xml" />
-	<includefile source="campaign/record_picture.xml" />
-	<includefile source="campaign/record_parcel.xml" />
-	<includefile source="campaign/record_quest.xml" />
-	<includefile source="campaign/record_soundset.xml" />
-	<includefile source="campaign/record_table.xml" />
-	<includefile source="campaign/record_vehicle.xml" />
 	<includefile source="campaign/record_char_DS.xml" />
-	<includefile source="campaign/record_char_main.xml" />
-	<includefile source="campaign/record_char_abilities.xml" />
-	<includefile source="campaign/record_char_features.xml" />
-	<includefile source="campaign/record_char_inventory.xml" />
-	<includefile source="campaign/record_char_skills.xml" />
-	<includefile source="campaign/record_char_notes.xml" />
-	<includefile source="campaign/record_char_kits.xml" />
-	<includefile source="campaign/record_char_other.xml" />
-	<includefile source="campaign/record_ability.xml" />
-	<includefile source="campaign/record_power_action.xml" />
-	<includefile source="campaign/record_power_item.xml" />
+	<includefile source="campaign/record_char_main_DS.xml" />
+	<includefile source="campaign/record_char_abilities_DS.xml" />
+	<includefile source="campaign/record_char_features_DS.xml" />
+	<includefile source="campaign/record_char_inventory_DS.xml" />
+	<includefile source="campaign/record_char_skills_DS.xml" />
+	<includefile source="campaign/record_char_notes_DS.xml" />
+	<includefile source="campaign/record_char_kits_DS.xml" />
+	<includefile source="campaign/record_char_other_DS.xml" />
+	<includefile source="campaign/record_ability_DS.xml" />
 	
 	<!-- Combat tracker -->
 	<includefile source="ct_DS/template_ct_entry.xml" />
@@ -210,7 +184,6 @@
 	<includefile source="ct_DS/ct_client_entry.xml" />
 	<includefile source="ct_DS/ct_client_entry_section.xml" />
 
-	<includefile source="campaign/template_char.xml" />
 	<includefile source="campaign/template_char_ds.xml" />
 
 
@@ -227,8 +200,6 @@
 	<!-- <includefile source="campaign/record_story_advanced.xml" /> -->
 	<!-- <includefile source="campaign/record_story_book.xml" /> -->
 	<!-- <includefile source="campaign/record_storytemplate.xml" /> -->
-	<!-- <includefile source="campaign/record_ancestry.xml" /> -->
-	<!-- <includefile source="campaign/record_class.xml" /> -->
 	<!-- <includefile source="campaign/campaign_masterindex.xml" /> -->
 	<!-- <includefile source="campaign/template_campaign.xml" /> -->
 	<!-- <includefile source="campaign/template_story.xml" />-->
@@ -252,4 +223,34 @@
 	<!-- <includefile source="strings/strings_dice.xml" /> -->
 	<!-- <includefile source="strings/strings_sound.xml" /> -->
 	<!-- <script name="CurrencyManager" file="scripts/manager_currency.lua" /> -->
+	<!-- <includefile source="campaign/campaign_pictures.xml" /> -->
+	<!-- <includefile source="campaign/campaign_chars.xml" /> -->
+	<!-- <includefile source="campaign/record_battle.xml" /> -->
+	<!-- <includefile source="campaign/record_battlerandom.xml" /> -->
+	<!-- <includefile source="campaign/record_item.xml" /> -->
+	<!-- <includefile source="campaign/record_note.xml" /> -->
+	<!-- <includefile source="campaign/record_picture.xml" /> -->
+	<!-- <includefile source="campaign/record_parcel.xml" /> -->
+	<!-- <includefile source="campaign/record_quest.xml" /> -->
+	<!-- <includefile source="campaign/record_soundset.xml" /> -->
+	<!-- <includefile source="campaign/record_table.xml" /> -->
+	<!-- <includefile source="campaign/record_vehicle.xml" /> -->
+	<!-- <includefile source="campaign/record_char_main.xml" /> -->
+	<!-- <includefile source="campaign/record_power_action.xml" /> -->
+	<!-- <includefile source="campaign/record_power_item.xml" /> -->
+	<!-- <includefile source="graphics/graphics_buttons.xml" /> -->
+	<!-- <includefile source="graphics/graphics_dice.xml" /> -->
+	<!-- <includefile source="graphics/graphics_fonts.xml" /> -->
+	<!-- <includefile source="graphics/graphics_frames.xml" /> -->
+	<!-- <includefile source="graphics/graphics_icons.xml" /> -->
+	<!-- <includefile source="graphics/graphics_portraits.xml" /> -->
+	<!-- <includefile source="graphics/graphics_radial.xml" /> -->
+	<!-- <includefile source="graphics/graphics_ref.xml" /> -->
+	<!-- <includefile source="graphics/graphics_sidebar.xml" /> -->
+	<!-- <includefile source="graphics/graphics_tabs.xml" /> -->
+	<!-- <includefile source="campaign/record_power_action.xml" /> -->
+	<!-- <includefile source="campaign/record_power_item.xml" /> -->
+	<!-- <includefile source="campaign/record_image.xml" /> -->
+	<!-- <includefile source="campaign/template_char.xml" /> -->
+	<!-- <script name="ImageManager" file="scripts/manager_image.lua" /> -->
 </root>

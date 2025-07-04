@@ -29,24 +29,12 @@ aRecordOverrides = {
 			["Level"] = { sField = "level" },
 		},
 	},
-	["ancestry"] = {
-		aDataMap = { "ancestry", "reference.refmanualdata", "reference.encounters", },
-		sListDisplayClass = "masterindexitem_story",
-		fRecordDisplayClass = getStoryDisplayClass,
-		aRecordDisplayClasses = { "encounter", "referencemanualpage", },
-		aGMEditButtons = { "button_ancestry_add_advanced", },
-		aExportAuxSource = { "reference.refmanualindex", },
-		aExportAuxTarget = { "reference.refmanualindex", },
-	},
-	["class"] = {
-		aDataMap = { "class", "reference.refmanualdata", "reference.encounters", },
-		sListDisplayClass = "masterindexitem_story",
-		fRecordDisplayClass = getStoryDisplayClass,
-		aRecordDisplayClasses = { "encounter", "referencemanualpage", },
-		aGMEditButtons = { "button_class_add_advanced", },
-		aExportAuxSource = { "reference.refmanualindex", },
-		aExportAuxTarget = { "reference.refmanualindex", },
-	},
+	-- ["ancestry"] = {
+	-- 	aDataMap = { "ancestry", "reference.ancestries" },
+	-- },
+	-- ["class"] = {
+	-- 	aDataMap = { "class", "reference.classes" },
+	-- },
 };
 
 aListViews = {

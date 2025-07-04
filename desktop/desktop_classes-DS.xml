@@ -371,7 +371,7 @@
 		</sheetdata>
 	</windowclass>
 
-	<!-- testing new code -->
+	<!-- roll modifier buttons -->
 	<windowclass name="modifierstack" merge="join">
 			<sheetdata>
 				<button_modifierkey name="EDGE">
@@ -394,11 +394,12 @@
 					<text>x2 Bane</text>
 					<tooltip textres="char_tooltip_doublebane" />
 				</button_modifierkey>	
-				<button_modifierkey name="SKILL">
+				<!-- DEPRECATED: this is now in the character sheet "skills" tab -->
+				<!-- <button_modifierkey name="SKILL">
 					<bounds>222,6,60,48</bounds>
 					<text>Skill</text>
 					<tooltip textres="char_tooltip_skill" />
-				</button_modifierkey>						
+				</button_modifierkey>						 -->
 			</sheetdata>
 		</windowclass>
 

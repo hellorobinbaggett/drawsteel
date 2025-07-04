@@ -14,6 +14,28 @@
 			</anchored>
 		</masterindexitem_icon_base>
 	</template>
+	<template name="masterindexitem_icon_base">
+		<genericcontrol>
+			<anchored width="20" height="20" />
+			<frame name="fieldlight" offset="3,3,3,3" />
+			<script>
+				function onInit()
+					if window.name then
+						setColor(Interface.getFontColor(window.name.getFont()));
+					else
+						setColor("000000")
+					end
+				end
+				function onClickDown(button, x, y)
+					return true;
+				end
+				function onClickRelease(button, x, y)
+					window.link.activate();
+					return true;
+				end
+			</script>
+		</genericcontrol>
+	</template>
 
 	<windowclass name="masterindexitem_class" copy="masterindexitem">
 		<script>
