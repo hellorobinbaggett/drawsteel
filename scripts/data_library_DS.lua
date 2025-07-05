@@ -1,12 +1,12 @@
 
 aRecordOverrides = {
 	-- CoreRPG overrides
-	["npc"] = { 
+	["npc"] = {
 		bExport = true,
 		bID = true,
-		aDataMap = { "npc", "reference.npcs" }, 
+		aDataMap = { "npc", "reference.npcs" },
 		sListDisplayClass = "masterindexitem_id",
-		-- sRecordDisplayClass = "npc", 
+		-- sRecordDisplayClass = "npc",
 		aGMEditButtons = { "button_add_npc_import" },
 		aCustom = {
 			tWindowMenu = { ["left"] = { "chat_speak" } },
@@ -18,7 +18,23 @@ aRecordOverrides = {
 			-- ["Keywords"] = { sField = "keywords_name" },
 		},
 	},
+	["ancestry"] = {
+		nExport = 1,
+		aDataMap = { "ancestry", "reference.ancestries" },
+	},
+	["class"] = {
+		nExport = 2,
+		aDataMap = { "class", "reference.classes" },
+	},
+	-- ["feat"] = {
+	-- 	nExport = 3,
+	-- 	aDataMap = { "feat", "reference.features" },
+	-- },
+
+	-- new record types
 	["ability"] = {
+		nExport = 4,
+		sSidebarCategory = "create",
 		bExport = true,
 		aDataMap = { "ability", "reference.abilities" },
 		aCustomFilters = {
@@ -29,12 +45,18 @@ aRecordOverrides = {
 			["Level"] = { sField = "level" },
 		},
 	},
-	-- ["ancestry"] = {
-	-- 	aDataMap = { "ancestry", "reference.ancestries" },
-	-- },
-	-- ["class"] = {
-	-- 	aDataMap = { "class", "reference.classes" },
-	-- },
+	["kits"] = {
+		nExport = 4,
+		sSidebarCategory = "create",
+		bExport = true,
+		aDataMap = { "kits", "reference.kits" },
+	},
+	["career"] = {
+		nExport = 4,
+		sSidebarCategory = "create",
+		bExport = true,
+		aDataMap = { "career", "reference.career" },
+	},
 };
 
 aListViews = {

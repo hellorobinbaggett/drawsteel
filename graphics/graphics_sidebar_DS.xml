@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<icon name="sidebar_icon_recordtype_feat" file="graphics/sidebar/sidebar_icon_feat.png" />
+	<icon name="sidebar_icon_recordtype_kits" file="graphics/sidebar/sidebar_icon_battle.png" />
+	<icon name="sidebar_icon_recordtype_career" file="graphics/sidebar/sidebar_icon_background.png" />
+
+
+
+	<!-- AlienRpg -->
+	<!--
+	<icon name="sidebar_icon_recordtype_charship" file="graphics/sidebar/sidebar_icon_spaceship.png" />
+	<icon name="sidebar_icon_recordtype_planet" file="graphics/sidebar/sidebar_icon_planet.png" />
+	<icon name="sidebar_icon_recordtype_ship" file="graphics/sidebar/sidebar_icon_spaceship_2.png" />
+	-->
+
+	<!-- CallOfCthulhu7E -->
+	<!--
+	<icon name="sidebar_icon_recordtype_chase" file="graphics/sidebar/sidebar_icon_cthulhu.png" />
+	<icon name="sidebar_icon_recordtype_era" file="graphics/sidebar/sidebar_icon_cthulhu.png" />
+	<icon name="sidebar_icon_recordtype_occupation" file="graphics/sidebar/sidebar_icon_class.png" />
+	<icon name="sidebar_icon_recordtype_talent" file="graphics/sidebar/sidebar_icon_feat.png" />
+	-->
+
+	<!-- Conan -->
+	<!--
+	<icon name="sidebar_icon_recordtype_enchantment" file="graphics/sidebar/sidebar_icon_potion.png" />
+	<icon name="sidebar_icon_recordtype_talents" file="graphics/sidebar/sidebar_icon_feat.png" />
+	-->
+
+	<!-- ICRPG -->
+	<!--
+	<icon name="sidebar_icon_recordtype_bioform" file="graphics/sidebar/sidebar_icon_race.png" />
+	<icon name="sidebar_icon_recordtype_tag" file="graphics/sidebar/sidebar_icon_default.png" />
+	-->
+
+	<!-- MGT2 -->
+	<!--
+	<icon name="sidebar_icon_recordtype_battle" file="graphics/sidebar/sidebar_icon_battle_3.png" />
+	<icon name="sidebar_icon_recordtype_charsheet" file="graphics/sidebar/sidebar_icon_charsheet_2.png" />
+	<icon name="sidebar_icon_recordtype_item" file="graphics/sidebar/sidebar_icon_item_2.png" />
+	<icon name="sidebar_icon_recordtype_battlespacecraft" file="graphics/sidebar/sidebar_icon_spaceship_2.png" />
+	<icon name="sidebar_icon_recordtype_charspacecraft" file="graphics/sidebar/sidebar_icon_spaceship.png" />
+	<icon name="sidebar_icon_recordtype_homeworld" file="graphics/sidebar/sidebar_icon_planet.png" />
+	<icon name="sidebar_icon_recordtype_psionic" file="graphics/sidebar/sidebar_icon_fire.png" />
+	<icon name="sidebar_icon_recordtype_race" file="graphics/sidebar/sidebar_icon_race_3.png" />
+	<icon name="sidebar_icon_recordtype_spacecraft" file="graphics/sidebar/sidebar_icon_spaceship.png" />
+	<icon name="sidebar_icon_recordtype_tradegoods" file="graphics/sidebar/sidebar_icon_treasureparcel_2.png" />
+	<icon name="sidebar_icon_recordtype_worlds" file="graphics/sidebar/sidebar_icon_system_2.png" />
+	<icon name="sidebar_icon_recordtype_vehicle" file="graphics/sidebar/sidebar_icon_vehicle_4.png" />
+	-->
+
+	<!-- Mongoose Traveller 1E -->
+	<!--
+	<icon name="sidebar_icon_recordtype_battle" file="graphics/sidebar/sidebar_icon_battle_3.png" />
+	<icon name="sidebar_icon_recordtype_charsheet" file="graphics/sidebar/sidebar_icon_charsheet_2.png" />
+	<icon name="sidebar_icon_recordtype_item" file="graphics/sidebar/sidebar_icon_item_2.png" />
+	<icon name="sidebar_icon_recordtype_homeworld" file="graphics/sidebar/sidebar_icon_planet.png" />
+	<icon name="sidebar_icon_recordtype_psionic" file="graphics/sidebar/sidebar_icon_fire.png" />
+	<icon name="sidebar_icon_recordtype_race" file="graphics/sidebar/sidebar_icon_race_3.png" />
+	<icon name="sidebar_icon_recordtype_vehicle" file="graphics/sidebar/sidebar_icon_vehicle_4.png" />
+	<icon name="sidebar_icon_recordtype_worlds" file="graphics/sidebar/sidebar_icon_system_2.png" />
+	-->
+
+	<!-- PFRPG2 (Common) -->
+	<!--
+	<icon name="sidebar_icon_recordtype_heritage" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_trait" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_lookupdate" file="graphics/sidebar/sidebar_icon_default.png" />
+	-->
+
+	<!-- RolemasterClassic (Common) -->
+	<!--
+	<icon name="sidebar_icon_recordtype_profession" file="graphics/sidebar/sidebar_icon_class.png" />
+	<icon name="sidebar_icon_recordtype_spelllist" file="graphics/sidebar/sidebar_icon_spell.png" />
+	-->
+
+	<!-- SavageWorlds -->
+	<!--
+	<icon name="sidebar_icon_recordtype_archetype" file="graphics/sidebar/sidebar_icon_class.png" />
+	<icon name="sidebar_icon_recordtype_edge" file="graphics/sidebar/sidebar_icon_feat.png" />
+	<icon name="sidebar_icon_recordtype_hindrance" file="graphics/sidebar/sidebar_icon_hindrance.png" />
+	<icon name="sidebar_icon_recordtype_monstrousability" file="graphics/sidebar/sidebar_icon_bang.png" />
+
+	<icon name="sidebar_icon_recordtype_hq" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_hqroom" file="graphics/sidebar/sidebar_icon_default.png" />
+
+	<icon name="sidebar_icon_recordtype_cyberware" file="graphics/sidebar/sidebar_icon_cpu.png" />
+	<icon name="sidebar_icon_recordtype_modification" file="graphics/sidebar/sidebar_icon_default.png" />
+	-->
+
+	<!-- Symbaroum -->
+	<!--
+	<icon name="sidebar_icon_recordtype_abilities" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_archetypes" file="graphics/sidebar/sidebar_icon_background.png" />
+	<icon name="sidebar_icon_recordtype_mystical_powers" file="graphics/sidebar/sidebar_icon_spell.png" />
+	<icon name="sidebar_icon_recordtype_mystical_traditions" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_races" file="graphics/sidebar/sidebar_icon_race.png" />
+	<icon name="sidebar_icon_recordtype_referencetables" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_rituals" file="graphics/sidebar/sidebar_icon_fire.png" />
+	<icon name="sidebar_icon_recordtype_traits" file="graphics/sidebar/sidebar_icon_default.png" />
+	-->
+
+	<!-- Vaesen -->
+	<!--
+	<icon name="sidebar_icon_recordtype_headquarters" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_upgrade" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_vaesen" file="graphics/sidebar/sidebar_icon_default.png" />
+	-->
+
+	<!-- VTM5TH -->
+	<!--
+	<icon name="sidebar_icon_recordtype_clan" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_discipline" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_merit" file="graphics/sidebar/sidebar_icon_default.png" />
+	<icon name="sidebar_icon_recordtype_predator" file="graphics/sidebar/sidebar_icon_npc.png" />
+	-->
+
+	<!-- WOIN -->
+	<!--
+	<icon name="sidebar_icon_recordtype_exploit" file="graphics/sidebar/sidebar_icon_feat.png" />
+	-->
+</root>

@@ -8,111 +8,8 @@
 <root>
 	<windowclass name="charsheet_inventory">
 		<sheetdata>
-			
-			<frame_char name="coinframe">
-				<bounds>0,0,-1,70</bounds>
-			</frame_char>
-
-			<label_frametop name="coin_label">
-				<anchored to="coinframe" />
-				<static textres="char_label_money" />
-			</label_frametop>
-
-			<basicnumber name="wealthlevel">
-				<anchored to="coinframe">
-					<top offset="30" />
-					<left offset="15" />
-					<right offset="-20" />
-					<bottom offset="-15" />
-				</anchored>
-				<default>1</default>
-				<target>wealthlevel</target>
-			</basicnumber>
-
-			<frame_char name="appearanceframe">
-				<bounds>0,65,-1,140</bounds>
-			</frame_char>
-
-			<label_frametop>
-				<anchored to="appearanceframe" offset="125,8"/>
-				<static textres="char_label_projects" />
-			</label_frametop>
-
-			<string_labeled name="project1">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,25" width="165" />
-				<labelres>char_label_project</labelres>
-			</string_labeled>
-			<string_labeled name="assigned1">
-				<anchored to="project1" position="righthigh" offset="5,0" width="125" />
-				<labelres>char_label_assigned</labelres>
-			</string_labeled>
-			<string_labeled name="points1">
-				<anchored to="assigned1" position="righthigh" offset="5,0" width="50" />
-				<labelres>char_label_points</labelres>
-				<default>0/0</default>
-			</string_labeled>
-			<string_labeled name="roll1">
-				<anchored to="points1" position="righthigh" offset="5,0" width="100" />
-				<labelres>char_label_roll</labelres>
-			</string_labeled>
-
-			<string_labeled name="project2">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,50" width="165" />
-				<labelres>char_label_project</labelres>
-			</string_labeled>
-			<string_labeled name="assigned2">
-				<anchored to="project2" position="righthigh" offset="5,0" width="125" />
-				<labelres>char_label_assigned</labelres>
-			</string_labeled>
-			<string_labeled name="points2">
-				<anchored to="assigned2" position="righthigh" offset="5,0" width="50" />
-				<labelres>char_label_points</labelres>
-				<default>0/0</default>
-			</string_labeled>
-			<string_labeled name="roll2">
-				<anchored to="points2" position="righthigh" offset="5,0" width="100" />
-				<labelres>char_label_roll</labelres>
-			</string_labeled>
-
-			<string_labeled name="project3">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,75" width="165" />
-				<labelres>char_label_project</labelres>
-			</string_labeled>
-			<string_labeled name="assigned3">
-				<anchored to="project3" position="righthigh" offset="5,0" width="125" />
-				<labelres>char_label_assigned</labelres>
-			</string_labeled>
-			<string_labeled name="points3">
-				<anchored to="assigned3" position="righthigh" offset="5,0" width="50" />
-				<labelres>char_label_points</labelres>
-				<default>0/0</default>
-			</string_labeled>
-			<string_labeled name="roll3">
-				<anchored to="points3" position="righthigh" offset="5,0" width="100" />
-				<labelres>char_label_roll</labelres>
-			</string_labeled>
-
-			<string_labeled name="project4">
-				<anchored to="appearanceframe" position="insidetopleft" offset="15,100" width="165" />
-				<labelres>char_label_project</labelres>
-			</string_labeled>
-			<string_labeled name="assigned4">
-				<anchored to="project4" position="righthigh" offset="5,0" width="125" />
-				<labelres>char_label_assigned</labelres>
-			</string_labeled>
-			<string_labeled name="points4">
-				<anchored to="assigned4" position="righthigh" offset="5,0" width="50" />
-				<labelres>char_label_points</labelres>
-				<default>0/0</default>
-			</string_labeled>
-			<string_labeled name="roll4">
-				<anchored to="points4" position="righthigh" offset="5,0" width="100" />
-				<labelres>char_label_roll</labelres>
-			</string_labeled>
-
-
 			<frame_char name="inventoryframe">
-				<bounds>0,200,-1,-10</bounds>
+				<bounds>0,0,-1,-55</bounds>
 			</frame_char>
 			
 			<label name="count_label">
@@ -209,6 +106,25 @@
 				<static textres="char_label_totalweight" />
 			</label> -->		
 
+			<frame_char name="coinframe">
+				<bounds>0,-65,-1,60</bounds>
+			</frame_char>
+
+			<label_frametop name="coin_label">
+				<anchored to="coinframe" />
+				<static textres="char_label_money" />
+			</label_frametop>
+
+			<basicnumber name="wealthlevel">
+				<anchored to="coinframe">
+					<top offset="30" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
+				</anchored>
+				<default>1</default>
+				<target>wealthlevel</target>
+			</basicnumber>
 		</sheetdata>
 	</windowclass>
 

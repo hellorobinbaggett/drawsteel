@@ -29,6 +29,7 @@
 			</sub_content_framed_groupbox>
 		</sheetdata>
 	</windowclass>
+	
 	<windowclass name="ancestry_header_advanced" copy="record_header_story">
 		<script>
 			function update()

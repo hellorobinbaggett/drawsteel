@@ -40,9 +40,9 @@
 			<sub_charsheet name="notes">
 				<class>charsheet_notes</class>
 			</sub_charsheet>
-			<sub_charsheet name="other">
+			<!-- <sub_charsheet name="other">
 				<class>charsheet_other</class>
-			</sub_charsheet>
+			</sub_charsheet> -->
 			<sub_charsheet name="inventory">
 				<class>charsheet_inventory</class>
 			</sub_charsheet>
@@ -71,17 +71,17 @@
 					<subwindow>skills_ds</subwindow>
 				</tab>
 				<tab>
-					<tabres>tab_modifiers</tabres>
+					<tabres>tab_combat</tabres>
 					<subwindow>modifiers</subwindow>
 				</tab>
 				<tab>
 					<tabres>tab_notes</tabres>
 					<subwindow>notes</subwindow>
 				</tab>
-				<tab>
+				<!-- <tab>
 					<tabres>tab_other</tabres>
-					<subwindow>other</subwindow>
-				</tab>
+					<subwindow>other_new</subwindow>
+				</tab> -->
 				<tab>
 					<tabres>tab_inventory</tabres>
 					<subwindow>inventory</subwindow>

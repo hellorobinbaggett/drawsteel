@@ -8,6 +8,9 @@
 <root>
 	<string name="ct_emptylist">Assign initiative below to add heroes and monsters</string>
 
+	<string name="class_header_features">Class Features</string>
+	<string name="class_header_featurechoices">Choices</string>
+
 	<string name="menu_init">Initiative</string>
 	<string name="menu_initall">Roll All Initiatives</string>
 	<string name="menu_initnpc">Roll NPC Initiatives</string>
