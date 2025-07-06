@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<root>
+	<windowclass name="kit" copy="record_window">
+		<minimize>minimized_reference</minimize>
+
+		<margins control="0,0,0,2" />
+
+		<sheetdata>
+			<anchor_content_top />
+
+			<!-- <ft_content_column_full name="notes">
+				<bounds>35,120,-35,230</bounds>
+			</ft_content_column_full>
+
+			<number_characteristicscore name="Tier1Melee" source="Kit.Bonus.Melee.Damage.Tier1">
+				<anchored to="notes" />
+				<default>0</default>
+			</number_characteristicscore>
+			<number_characteristicscore name="Tier2Melee" source="Kit.Bonus.Melee.Damage.Tier2">
+				<anchored to="Tier1Melee">
+					<right anchor="left" relation="relative" offset="-5" />
+				</anchored>
+				<default>0</default>
+			</number_characteristicscore>
+			<number_characteristicscore name="Tier3Melee" source="Kit.Bonus.Melee.Damage.Tier3">
+				<anchored to="Tier2Melee">
+					<right anchor="left" relation="relative" offset="20" />
+				</anchored>
+				<default>0</default>
+			</number_characteristicscore> -->
+
+
+
+			<area_content_framed_groupbox_bottom name="area_controls" insertbefore="content">
+				<anchored height="30" />
+			</area_content_framed_groupbox_bottom>
+			<button_text_sm name="button_generate" insertbefore="content">
+				<anchored to="area_controls" width="100">
+					<top offset="5" />
+					<left anchor="center" offset="-50" />
+				</anchored>
+				<state textres="battle_button_equip" />
+				<gmvisibleonly />
+			</button_text_sm>
+		</sheetdata>
+	</windowclass>
+</root>

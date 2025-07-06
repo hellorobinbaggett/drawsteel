@@ -9,6 +9,12 @@
 	<!-- Draw Steel Graphics -->
 	<icon name="power_roll" file="graphics/buttons/DS_power_roll_2d10.png" />
 	<icon name="power_roll_down" file="graphics/buttons/DS_power_roll_down_2d10.png" />
+	<icon name="might_block" file="graphics/buttons/M_black.png" />
+	<icon name="agility_block" file="graphics/buttons/A_black.png" />
+	<icon name="intuition_block" file="graphics/buttons/I_black.png" />
+	<icon name="reason_block" file="graphics/buttons/R_black.png" />
+	<icon name="presence_block" file="graphics/buttons/P_black.png" />
+
 
     <!-- Skills -->
 	<icon name="button_prof" file="graphics/buttons/button_prof.png" />

@@ -11,48 +11,79 @@
 	</windowclass>
 	
 	<windowclass name="ability_main">
-		<margins control="0,35,0,2" />
+		<margins control="0,0,0,2" />
 		<script file="campaign/scripts/ability_main.lua" />
 		<sheetdata name="sheetdata_ability">
 				<anchor_column name="columnanchor" />
 			<!-- DESCRIPTION -->
-			<ft_columnh name="notes" copy="record_window_text" />
+			<ft_columnh name="notes" copy="record_window_text" >
+				<anchored>
+					<left offset="40" />
+				</anchored>
+			</ft_columnh>
 
+			<line_column name="notesdivider" />
 			<!-- KEYWORDS -->
-			<line_column name="divider1" />
 			<label_column name="keywords_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<!-- TODO: make keywords be better -->
-			<string_columnh name="keywords" />
-			<label_column name="type_label">
+			<basicstring name="keywords">
+				<anchored width="160" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="80" />
+				</anchored>
+			</basicstring>
+			<!-- TYPE -->
+			<label name="type_label">
 				<static textres="ability_label_type" />
-			</label_column>
-			<string_columnh name="type" />
+				<anchored to="keywords" position="righthigh" offset="16,0" width="90" height="20" />
+			</label>
+			<basicstring name="type">
+				<anchored to="type_label" position="righthigh" offset="-50,0" width="91" height="20" />
+			</basicstring>
+
+
 			<label_column name="distance_label">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<string_columnh name="distance" />
-			<label_column name="target_label">
+			<basicstring name="distance">
+				<anchored width="100" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="80" />
+				</anchored>
+			</basicstring>
+
+			<label name="target_label">
 				<static textres="ability_label_target" />
-			</label_column>
-			<string_columnh name="target" />
+				<anchored to="distance" position="righthigh" offset="16,0" width="90" height="20" />
+			</label>
+			<basicstring name="target">
+				<anchored to="target_label" position="righthigh" offset="-40,0" width="160" height="20" />
+			</basicstring>
 
 			<!-- POWER ROLL -->
 			<line_column name="divider2" />
 		
 			<label_column name="characteristic_label">
 				<static textres="ability_label_powerrollplus" />
-				<tooltip textres="char_tooltip_modifierdescription" />
+				<anchored>
+					<top offset="5" />
+				</anchored>
 			</label_column>
-			<string_columnh name="characteristic" source="ability.characteristic.number">
-				<tooltip textres="char_tooltip_modifierdescription" />
-			</string_columnh>
+
+			<button_characteristic name="characteristic" source="ability.characteristic.button">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>1</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic>
 
 			<label_column name="tier1_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
-					<left offset="15" />
+					<left offset="36" />
 				</anchored>
 			</label_column>
 			<string_columnh name="tier1" source="tier1">
@@ -64,7 +95,7 @@
 			<label_column name="tier2_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
-					<left offset="15" />
+					<left offset="36" />
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2" source="tier2" />
@@ -72,7 +103,7 @@
 			<label_column name="tier3_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
-					<left offset="15" />
+					<left offset="36" />
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3" source="tier3" />
@@ -100,75 +131,110 @@
 
 			<!-- CLASS SUBCLASS TAGS -->
 			<line_column name="divider4" />
-			<label_column name="cost_label">
-				<static textres="ability_label_cost" />
-			</label_column>
-			<string_columnh name="cost">
-				<delaykeyupdate />
-			</string_columnh>
+			<line_column name="divider5" />
+
 			<label_column name="class_label">
 				<static textres="ability_label_class" />
 			</label_column>
-			<string_columnh name="class">
-				<delaykeyupdate />
-			</string_columnh>
-			<label_column name="subclass_label">
+			<basicstring name="class">
+				<anchored width="80" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="40" />
+				</anchored>
+			</basicstring>
+
+			<label name="subclass_label">
 				<static textres="ability_label_subclass" />
-			</label_column>
-			<string_columnh name="subclass">
-				<delaykeyupdate />
-			</string_columnh>
+				<anchored to="class" position="righthigh" offset="16,0" width="90" height="20" />
+			</label>
+			<basicstring name="subclass">
+				<anchored to="subclass_label" position="righthigh" offset="-30,0" width="150" height="20" />
+			</basicstring>
+
 			<label_column name="abilitytype_label">
 				<static textres="ability_label_abilitytype" />
 			</label_column>
-			<string_columnh name="abilitytype">
-				<delaykeyupdate />
-			</string_columnh>
-			<label_column name="abilitylevel_label">
+			<basicstring name="abilitytype">
+				<anchored width="80" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="80" />
+				</anchored>
+			</basicstring>
+
+			<label name="cost_label">
+				<static textres="ability_label_cost" />
+				<anchored to="abilitytype" position="righthigh" offset="16,0" width="90" height="20" />
+			</label>
+			<basicnumber name="ability_cost">
+				<anchored to="cost_label" position="righthigh" offset="-55,0" width="20" height="20" />
+				<hideonvalue>0</hideonvalue>
+			</basicnumber>
+
+			<label name="abilitylevel_label">
 				<static textres="ability_label_abilitylevel" />
-			</label_column>
-			<string_columnh name="abilitylevel">
-				<delaykeyupdate />
-			</string_columnh>
-
-			<!-- <basicnumber name="tier1_damage">
-			<anchored to="tier1" width="30" height="20">
-					<top offset="0" />
-					<left anchor="left" relation="relative" offset="0" />
-				</anchored>
+				<anchored to="ability_cost" position="righthigh" offset="16,0" width="90" height="20" />
+			</label>
+			<basicnumber name="ability_level">
+				<anchored to="abilitylevel_label" position="righthigh" offset="-50,0" width="20" height="20" />
+				<hideonvalue>0</hideonvalue>
 			</basicnumber>
-			<basicnumber name="tier2_damage">
-			<anchored to="tier2" width="30" height="20">
-					<top offset="0" />
-					<left anchor="left" relation="relative" offset="0" />
-				</anchored>
-			</basicnumber>
-			<basicnumber name="tier3_damage">
-			<anchored to="tier3" width="30" height="20">
-					<top offset="0" />
-					<left anchor="left" relation="relative" offset="0" />
-				</anchored>
-			</basicnumber> -->
 
-					<!-- // power roll button -->
+
+
+			<!-- // power roll button -->
 			<power_roll name="power_roll">
 				<anchored to="columnanchor" width="30" height="30">
-					<top offset="-30" />
-					<left anchor="right" relation="relative" offset="0" />
+					<top offset="4" />
+					<left anchor="right" relation="relative" offset="-1" />
 				</anchored>
 				<tooltip textres="tooltip_pr" />
 				<script>	
 					function action(draginfo)
 						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local CharSheetID = DB.findNode(sCharSheetID);
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button");
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(CharSheetID, "AGL");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(CharSheetID, "REA");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(CharSheetID, "INU");
+							if (characteristicMod == nil) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(CharSheetID, "PRS");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(CharSheetID, "MGT");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+
 						local abilityName = DB.getValue(nodeWin, "name", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
-
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.number");
-
-						if (characteristic or "") == "" then
-							characteristic = "0";
-						end
-
 						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
 						local nodePC = ActorManager.getCreatureNode(rActor);
 
@@ -176,7 +242,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristic,
+							nMod = characteristicMod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");

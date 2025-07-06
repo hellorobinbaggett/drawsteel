@@ -85,6 +85,9 @@
                         local skilled = DB.getValue(nodeWin, "skill1.prof");
                         local characteristic = DB.getValue(nodeWin, "skill1.characteristic.button");
 
+                        local test = DB.getValue(nodeWin, "AGL");
+                        Debug.chat(nodeWin);
+
                         -- If you have this skill, add a +2 to the roll
                         if (skilled == 0) then
                             skilledMod = "0";

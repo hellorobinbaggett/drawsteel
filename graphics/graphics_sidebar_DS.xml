@@ -2,7 +2,7 @@
 
 <root>
 	<icon name="sidebar_icon_recordtype_feat" file="graphics/sidebar/sidebar_icon_feat.png" />
-	<icon name="sidebar_icon_recordtype_kits" file="graphics/sidebar/sidebar_icon_battle.png" />
+	<icon name="sidebar_icon_recordtype_kit" file="graphics/sidebar/sidebar_icon_battle.png" />
 	<icon name="sidebar_icon_recordtype_career" file="graphics/sidebar/sidebar_icon_background.png" />
 
 

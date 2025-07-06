@@ -184,7 +184,7 @@
 			</number_column>
 
 			<basicstring name="speedtype_name">
-				<bounds>135,180,-5,19</bounds>
+				<anchored to="speed" position="righthigh" offset="5,0" width="90" height="20" />
 			</basicstring>
 
 

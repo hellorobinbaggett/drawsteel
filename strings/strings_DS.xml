@@ -6,13 +6,14 @@
 	<!-- Utility -->
 	<string name="library_recordtype_label_npc">Monsters</string>
 	<string name="library_recordtype_single_npc">Monster</string>
+	<string name="battle_button_equip">Equip</string>
 	
 	<string name="tab_titles">Titles</string>
 	<string name="tab_main">Main</string>
 	<string name="tab_skills">Skills</string>
 	<string name="tab_abilities">Abilities</string>
 	<string name="tab_notes">Notes</string>
-	<string name="tab_kits">Kits</string>
+	<!-- <string name="tab_kit">Kits</string> -->
 	<string name="tab_modifiers">Modifiers</string>
 	<string name="tab_combat">Combat</string>
 	<string name="tab_downtime">Downtime</string>
@@ -21,7 +22,7 @@
 	<string name="tab_other">Other</string>
 	<string name="tab_xp">XP</string>
 	<string name="tab_xp">Abilities</string>
-	<string name="library_recordtype_label_kits">Kits</string>
+	<string name="library_recordtype_label_kit">Kits</string>
 	<string name="library_recordtype_label_career">Career</string>
 	<string name="library_recordtype_label_ability">Abilities</string>
 	<string name="library_recordtype_single_ability">Ability</string>
@@ -78,6 +79,7 @@
 	<string name="char_label_speed">SPEED</string>
 	<string name="char_label_stability">STABILITY</string>
 	<string name="char_label_melee">MELEE</string>
+	<string name="char_label_meleedamagebonus">Melee Damage Bonus:</string>
 	<string name="char_label_ranged">RANGED</string>
 	<string name="char_label_reach">REACH BNS</string>
 	<string name="char_label_mobility">MOBILITY</string>
@@ -91,6 +93,7 @@
 	<string name="char_tooltip_inv_carried">Stowed</string>
 	<string name="char_tooltip_inv_equipped">Readied</string>
 	<string name="skill_tooltip">Click to change characteristic</string>
+	<string name="wip_tooltip">This button has not been fully implemented yet.</string>
 	<string name="char_label_attributes">Attributes</string>
 	<string name="char_label_skills">Skills</string>
 	<string name="char_label_features">Features</string>
@@ -299,7 +302,7 @@
 	\nSpend 1 token to gain 2 surges. 
 	\nSpend 1 hero token to succeed on a save. 
 	\nSpend 1 to reroll a test. Spend 2 tokens to regain stamina equal to your Recovery value.</string>
-	<string name="char_tooltip_modifierdescription">Please enter the NUMBER that you would like to add to your ability roll</string>
+	<string name="char_tooltip_modifierdescription">Only use this for NPCs (enter the modifier to the power roll)</string>
 	<string name="char_tooltip_shields">Shields</string>
 	<string name="char_tooltip_shieldsdescription">Each shield has a value equal to your highest characteristic score</string>
 	<string name="char_tooltip_temp">Temporary Stamina</string>
@@ -479,7 +482,7 @@
 	<string name="ability_label_spendresource">Spend Resource</string>
 	<string name="ability_label_powerroll">Power Roll</string>
 	<string name="ability_label_powerrollplus">Power Roll + </string>
-	<string name="ability_label_tier1">11 or lower</string>
+	<string name="ability_label_tier1"> &lt; 12</string>
 	<string name="ability_label_tier2">12-16</string>
 	<string name="ability_label_tier3">17+</string>
 	<string name="ability_grouped_label_name">Name</string>

@@ -618,11 +618,11 @@
 
 	<template name="button_characteristic">
 		<buttonfield>
-			<state textres="mgt" tooltipres="char_tooltip_characteristic_might" />
-			<state textres="agl" tooltipres="char_tooltip_characteristic_agility" />
-			<state textres="rea" tooltipres="char_tooltip_characteristic_reason" />
-			<state textres="inu" tooltipres="char_tooltip_characteristic_intuition" />
-			<state textres="prs" tooltipres="char_tooltip_characteristic_presence" />
+			<state icon="might_block" tooltipres="char_tooltip_characteristic_might" />
+			<state icon="agility_block" tooltipres="char_tooltip_characteristic_agility" />
+			<state icon="reason_block" tooltipres="char_tooltip_characteristic_reason" />
+			<state icon="intuition_block" tooltipres="char_tooltip_characteristic_intuition" />
+			<state icon="presence_block" tooltipres="char_tooltip_characteristic_presence" />
 		</buttonfield>
 	</template>
 
