@@ -11,9 +11,9 @@ function onInit()
 	TokenManager.addEffectTagIconBonus(DataCommon.bonuscomps);
 	TokenManager.addEffectTagIconSimple(DataCommon.othercomps);
 	TokenManager.addEffectConditionIcon(DataCommon.condcomps);
-	TokenManager.addDefaultEffectFeatures(nil, EffectManager5E.parseEffectComp);
+	TokenManager.addDefaultEffectFeatures(nil, EffectManager_DS.parseEffectComp);
 end
 
 function handleIFEffectTag(rActor, nodeEffect, vComp)
-	return EffectManager5E.checkConditional(rActor, nodeEffect, vComp.remainder);
+	return EffectManager_DS.checkConditional(rActor, nodeEffect, vComp.remainder);
 end

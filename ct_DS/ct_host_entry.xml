@@ -37,8 +37,7 @@
 
 			<button_ctentry_friendfoe name="friendfoe" />
 
-			<number_ctentry_stamina name="stamina">
-			</number_ctentry_stamina>
+			<number_ctentry_stamina name="stamina" />
 			<number_ctentry_initresult name="initresult" />
 
 			<string_ct_entry_name name="name" />

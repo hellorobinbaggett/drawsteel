@@ -280,7 +280,7 @@
 			</anchored>
 			<hideonvalue>0</hideonvalue>
 			<tabtarget prev="nonid_name" />
-			<script file="ct_DS/scripts/ct_stamina.lua" />
+			<readonly />
 		</number_ct_crosslink>
 	</template>
 

@@ -6,7 +6,7 @@
 -->
 
 <root version="1.0" release="1" logo="logo.png">
-	<announcement text="Draw Steel Ruleset (v.0961) by EXXODIS" font="emotefont" icon="power_roll_down" />
+	<announcement text="Draw Steel Ruleset (v.0962) by EXXODIS" font="emotefont" icon="power_roll_down" />
 
 	<!-- Attributes -->
 	<description>
@@ -17,7 +17,7 @@
 
 	<!-- Announcements -->
 	<!-- <announcement text="=======DEV BUILD=======" />  -->
-	<announcement text="Draw Steel Ruleset v.0961 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Ruleset v.0962 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	
 	<!-- This allows the ruleset to pull from CoreRPG for the basic scripts and functionality -->
@@ -83,6 +83,7 @@
 	<includefile source="desktop/desktop_classes_DS.xml" />
 
 	<!-- Global scripts -->
+	<script name="EffectManager_DS" file="scripts/manager_effect_DS.lua" />
 	<script name="Desktop" file="scripts/data_desktop.lua" />
 	<script name="ToolbarManager" file="scripts/manager_toolbar.lua" />
 	<script name="AssetManager" file="scripts/manager_asset.lua" />
@@ -125,7 +126,6 @@
 	<script name="CombatManagerMonsters" file="scripts/manager_monsters_combat.lua" />
 	<script name="CombatManagerHeroes" file="scripts/manager_heroes_combat.lua" />
 	<script name="EffectManager" file="scripts/manager_effect.lua" />
-	<script name="EffectManager5E" file="scripts/manager_effect_5E.lua" />
 	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
 	<script name="GmIdentityManager" file="scripts/manager_gmidentity.lua" />
 	<script name="LanguageManager" file="scripts/manager_language.lua" />
@@ -166,6 +166,8 @@
 	<includefile source="campaign/record_feat_DS.xml" /> 
 	<includefile source="campaign/record_ancestry_DS.xml" /> 
 	<includefile source="campaign/record_class_DS.xml" /> 
+	<includefile source="campaign/record_kit_DS.xml" /> 
+	<includefile source="campaign/record_career_DS.xml" /> 
 	<includefile source="campaign/record_char_DS.xml" />
 	<includefile source="campaign/record_char_main_DS.xml" />
 	<includefile source="campaign/record_char_abilities_DS.xml" />
