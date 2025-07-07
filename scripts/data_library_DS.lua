@@ -19,9 +19,11 @@ aRecordOverrides = {
 		},
 	},
 	["ancestry"] = {
+		bExport = true,
 		aDataMap = { "ancestry", "reference.ancestries" },
 	},
 	["class"] = {
+		bExport = true,
 		aDataMap = { "class", "reference.classes" },
 	},
 	-- ["feat"] = {
@@ -43,16 +45,16 @@ aRecordOverrides = {
 		},
 	},
 	-- TODO: implement kits and careers
-	-- ["kit"] = {
-	-- 	sSidebarCategory = "create",
-	-- 	bExport = true,
-	-- 	aDataMap = { "kit", "reference.kit" },
-	-- },
-	-- ["career"] = {
-	-- 	sSidebarCategory = "create",
-	-- 	bExport = true,
-	-- 	aDataMap = { "career", "reference.career" },
-	-- },
+	["kit"] = {
+		sSidebarCategory = "create",
+		bExport = true,
+		aDataMap = { "kit", "reference.kit" },
+	},
+	["career"] = {
+		sSidebarCategory = "create",
+		bExport = true,
+		aDataMap = { "career", "reference.career" },
+	},
 };
 
 aListViews = {

@@ -8,8 +8,11 @@
 <root>
 	<windowclass name="charsheet_modifiers">
 		<sheetdata>
+			<frame_char name="combatframe">
+				<bounds>0,20,145,200</bounds>
+			</frame_char>
 			<frame_char name="appearanceframe">
-				<bounds>0,20,-1,200</bounds>
+				<bounds>140,20,-1,200</bounds>
 			</frame_char>
 			<!-- <label_frametop>
 				<anchored to="appearanceframe" offset="125,50"/>
@@ -31,22 +34,27 @@
 			</scrollbar_list> -->
 
 			<label_frametop>
-				<anchored to="appearanceframe" offset="200,-15"/>
+				<anchored to="appearanceframe" offset="180,-15"/>
 				<static textres="char_label_modifier" />
 			</label_frametop>
 
+			<label_frametop>
+				<anchored to="combatframe" offset="30,-15"/>
+				<static textres="char_label_stats" />
+			</label_frametop>
+
 			<string_labeled name="kit">
-				<anchored to="appearanceframe" position="insidetopleft" offset="90,10" width="160" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="32,10" width="160" />
 				<labelres>char_label_name</labelres>
 			</string_labeled>
 
 			<string_labeled name="type">
-				<anchored to="kit" position="righthigh" offset="5,0" width="135" />
+				<anchored to="kit" position="righthigh" offset="5,0" width="115" />
 				<labelres>char_label_type</labelres>
 			</string_labeled>
 
 			<string_labeled name="kitweapon">
-				<anchored to="appearanceframe" position="insidetopleft" offset="94,35" width="140" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="32,35" width="140" />
 				<labelres>char_label_weapon</labelres>
 			</string_labeled>
 			<string_labeled name="kitarmor">
@@ -59,12 +67,12 @@
 			</string_labeled> -->
 
 			<label_frametop>
-				<anchored to="appearanceframe" offset="125,60"/>
+				<anchored to="appearanceframe" offset="105,60"/>
 				<static textres="char_label_kitbonuses" />
 			</label_frametop>
 
 			<string_labeled name="kitspeed">
-				<anchored to="appearanceframe" position="insidetopleft" offset="100,77" width="90" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="30,77" width="90" />
 				<labelres>char_label_speed</labelres>
 			</string_labeled>
 			<string_labeled name="kitmeleedistance">
@@ -77,7 +85,7 @@
 			</string_labeled>
 
 			<string_labeled name="kitarea">
-				<anchored to="appearanceframe" position="insidetopleft" offset="100,107" width="90" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="30,107" width="90" />
 				<labelres>char_label_area</labelres>
 			</string_labeled>
 			<string_labeled name="kitstability">
@@ -90,12 +98,12 @@
 			</string_labeled>
 
 			<label_frametop>
-				<anchored to="appearanceframe" offset="125,135"/>
+				<anchored to="appearanceframe" offset="105,135"/>
 				<static textres="char_label_damagebonuses" />
 			</label_frametop>
 
 			<string_labeled name="Kit.Melee.Damage.Tier1" source="Kit.Melee.Damage.Tier1">
-				<anchored to="appearanceframe" position="insidetopleft" offset="160,155" width="20" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="85,155" width="20" />
 				<labelres>char_label_melee</labelres>
 				<default>+0</default>
 			</string_labeled>
@@ -121,6 +129,46 @@
 				<anchored to="Kit.Ranged.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
 				<default>+0</default>
 			</string_labeled>
+
+			<string_labeled name="size">
+				<anchored to="combatframe" position="insidetopleft" offset="95,40" width="20" />
+				<description textres="char_tooltip_size" />
+				<default>1M</default>
+			</string_labeled>
+            <string_characteristiclabel name="size_label">
+				<anchored to="size" />
+				<static textres="size" />
+			</string_characteristiclabel>
+
+			<number_characteristicscore name="stability" source="abilities.stability.value">
+				<anchored to="combatframe" position="insidetopleft" offset="95,70" width="20" />
+				<description textres="char_tooltip_stability" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="stability_label">
+				<anchored to="stability" />
+				<static textres="stability" />
+			</string_characteristiclabel>	
+
+			<number_characteristicscore name="speed" source="abilities.speed.value">
+				<anchored to="combatframe" position="insidetopleft" offset="95,100" width="20" />
+				<description textres="char_tooltip_speed" />
+				<default>5</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="speed_label">
+				<anchored to="speed" />
+				<static textres="speed" />
+			</string_characteristiclabel>		
+
+			<number_characteristicscore name="disengage" source="abilities.disengage.value">
+				<anchored to="combatframe" position="insidetopleft" offset="95,130" width="20" />
+				<description textres="char_tooltip_disengage" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="disengage_label">
+				<anchored to="disengage" />
+				<static textres="disengage" />
+			</string_characteristiclabel>	
 
 			<!-- <string_labeled name="Kit.Magic.Damage.Tier1" source="Kit.Magic.Damage.Tier1">
 				<anchored to="Kit.Ranged.Damage.Tier3" position="righthigh" offset="25,0" width="20" />

@@ -102,12 +102,123 @@
 				<static textres="presence" />
 			</string_characteristiclabel>
 
-        <!-- STATS -->
-            <frame_char name="statsframe">
+        <!-- STAMINA -->
+            <frame_char name="staminaframe">
 				<bounds>140,0,210,200</bounds>
 			</frame_char>
-			<!-- SIZE -->
-			<string_labeled name="size">
+			<label_frametop>
+				<anchored to="staminaframe" />
+				<static textres="char_label_stamina" />
+			</label_frametop>
+			<label_frametop>
+				<anchored to="staminaframe" />
+				<static textres="char_label_savingthrow" />
+				<anchored>
+					<top offset="135" />
+				</anchored>
+			</label_frametop>
+
+			<number_charstamina name="stamina" source="hp.stamina">
+				<anchored to="staminaframe" width="48" height="30">
+					<top anchor="top" offset="45" />
+					<left anchor="center" offset="-55" />
+				</anchored>
+				<description textres="char_tooltip_stamina" />
+				<font>reference-b-large</font>
+				<script>
+					function onValueChanged()
+						window.onHealthChanged();
+					end
+				</script>
+			</number_charstamina>
+
+			<basicnumber name="max" source="hp.max">
+				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_max" />
+				<min value="0" />
+				<script>
+					function onValueChanged()
+					end
+				</script>
+			</basicnumber>
+
+			<basicnumber name="temp" source="hp.temporary">
+				<anchored to="staminaframe" width="48" height="30">
+					<top anchor="top" offset="95" />
+					<left anchor="center" offset="-55" />
+				</anchored>
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_temp" />
+				<hideonvalue>0</hideonvalue>
+				<color>0000AA</color>
+			</basicnumber>
+
+			<number_linked_framed name="winded" source="hp.winded">
+				<anchored to="temp" position="righthigh" offset="15,0" width="48" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_winded" />
+				<target>max</target>
+				<hideonvalue>0</hideonvalue>
+				<script>
+				function onInit()
+					addSource("hp.max");
+
+					super.onInit();
+				end
+
+				function onSourceUpdate()
+					local nodeWin = window.getDatabaseNode();
+					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					
+					local nBonus;
+
+					nBonus = math.floor(nCurrentScore / 2);
+
+					setValue(nBonus);
+				end
+
+				function onDoubleClick()
+					local nodeWin = window.getDatabaseNode();
+					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					
+					local nBonus;
+
+					nBonus = math.floor(nCurrentScore / 2);
+
+					setValue(nBonus);
+				end
+				</script>
+				<color>303030</color>
+			</number_linked_framed>
+
+			<label_charfieldtop name="max_label">
+				<anchored to="max" offset="0,-4" />
+				<static textres="char_label_maxhp" />
+				<color>000000</color>
+			</label_charfieldtop>
+
+			<label_charfieldtop name="temp_label">
+				<anchored to="temp" offset="0,-4" />
+				<static textres="char_label_temp" />
+				<color>000000</color>
+			</label_charfieldtop>
+
+			<label_charfieldtop name="stamina_label">
+				<anchored to="stamina" offset="0,-4" />
+				<static textres="char_label_current" />
+				<color>000000</color>
+			</label_charfieldtop>
+
+			<label_charfieldtop name="winded_label">
+				<anchored to="winded" offset="0,-4" />
+				<static textres="char_label_winded" />
+				<color>000000</color>
+			</label_charfieldtop>
+
+
+
+			<!-- <string_labeled name="size">
 				<anchored to="statsframe" position="insidetopleft" offset="125,30" />
 				<description textres="char_tooltip_size" />
 				<default>1M</default>
@@ -116,7 +227,7 @@
 				<anchored to="size" />
 				<static textres="size" />
 			</string_characteristiclabel>
-			<!-- SPEED -->
+
 			<number_characteristicscore name="speed" source="abilities.speed.value">
 				<anchored to="size" />
 				<description textres="char_tooltip_speed" />
@@ -126,7 +237,7 @@
 				<anchored to="speed" />
 				<static textres="speed" />
 			</string_characteristiclabel>		
-			<!-- STABILITY -->
+
 			<number_characteristicscore name="stability" source="abilities.stability.value">
 				<anchored to="speed"  />
 				<description textres="char_tooltip_stability" />
@@ -135,25 +246,7 @@
             <string_characteristiclabel name="stability_label">
 				<anchored to="stability" />
 				<static textres="stability" />
-			</string_characteristiclabel>	
-			<!-- VICTORIES -->
-			<number_characteristicscore name="victories" source="abilities.victories.value">
-				<anchored to="stability" />
-				<description textres="char_tooltip_victories" />
-			</number_characteristicscore>
-            <string_characteristiclabel name="victories_label">
-				<anchored to="victories" />
-				<static textres="victories" />
-			</string_characteristiclabel>
-			<!-- Experience -->
-			<number_characteristicscore name="experience" source="abilities.experience.value">
-				<anchored to="victories" />
-				<default>0</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="experience_label">
-				<anchored to="experience" />
-				<static textres="experience" />
-			</string_characteristiclabel>	
+			</string_characteristiclabel>	 -->
 
 
         <!-- RECOVERIES -->
@@ -339,7 +432,7 @@
 		<!-- CLASS RESOURCE AND SURGES AND HERO TOKENS -->
 			<label_charframetop name="classresourcetitle">
 				<anchored height="20">
-					<top anchor="bottom" offset="-140" />
+					<top anchor="bottom" offset="-80" />
 					<left offset="105" />
 					<right offset="-105" />
 				</anchored>
@@ -401,114 +494,14 @@
 
 
 		<!-- STAMINA SECTION -->
-			<label_charframetop name="healthtitle">
+			<!-- <label_charframetop name="healthtitle">
 				<anchored height="20">
 					<top anchor="bottom" offset="-70" />
 					<left offset="70" />
 					<right offset="-70" />
 				</anchored>
 				<icons>char_stats</icons>
-			</label_charframetop>
-
-			<basicnumber name="max" source="hp.max">
-				<anchored to="healthtitle" width="48" height="30">
-					<top anchor="bottom" offset="15" />
-					<left anchor="center" offset="-110" />
-				</anchored>
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_max" />
-				<min value="0" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
-			</basicnumber>
-
-			<number_charstamina name="stamina" source="hp.stamina">
-				<anchored to="max" position="righthigh" offset="15,0" width="48" height="30" />
-				<description textres="char_tooltip_stamina" />
-				<font>reference-b-large</font>
-				<script>
-					function onValueChanged()
-						window.onHealthChanged();
-					end
-				</script>
-			</number_charstamina>
-
-			<basicnumber name="temp" source="hp.temporary">
-				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_temp" />
-				<hideonvalue>0</hideonvalue>
-				<color>0000AA</color>
-			</basicnumber>
-
-			<number_linked_framed name="winded" source="hp.winded">
-				<anchored to="temp" position="righthigh" offset="15,0" width="48" height="30" />
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_winded" />
-				<target>max</target>
-				<hideonvalue>0</hideonvalue>
-				<script>
-				function onInit()
-					addSource("hp.max");
-
-					super.onInit();
-				end
-
-				function onSourceUpdate()
-					local nodeWin = window.getDatabaseNode();
-					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
-					
-					local nBonus;
-
-					nBonus = math.floor(nCurrentScore / 2);
-
-					setValue(nBonus);
-				end
-
-				function onDoubleClick()
-					local nodeWin = window.getDatabaseNode();
-					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
-					
-					local nBonus;
-
-					nBonus = math.floor(nCurrentScore / 2);
-
-					setValue(nBonus);
-				end
-				</script>
-				<color>303030</color>
-			</number_linked_framed>
-
-			<label_charfieldtop name="stamina_label">
-				<anchored to="healthtitle" offset="0,-20" />
-				<static textres="char_label_stamina" />
-			</label_charfieldtop>
-
-			<label_charfieldtop name="max_label">
-				<anchored to="max" offset="0,-4" />
-				<static textres="char_label_maxhp" />
-				<color>000000</color>
-			</label_charfieldtop>
-
-			<label_charfieldtop name="temp_label">
-				<anchored to="temp" offset="0,-4" />
-				<static textres="char_label_temp" />
-				<color>000000</color>
-			</label_charfieldtop>
-
-			<label_charfieldtop name="stamina_label">
-				<anchored to="stamina" offset="0,-4" />
-				<static textres="char_label_current" />
-				<color>000000</color>
-			</label_charfieldtop>
-
-			<label_charfieldtop name="winded_label">
-				<anchored to="winded" offset="0,-4" />
-				<static textres="char_label_winded" />
-				<color>000000</color>
-			</label_charfieldtop>
+			</label_charframetop> -->
 
 			<initiative_roll name="classresource_roll">
                 <anchored to="classresourcetitle" width="100" height="30">
@@ -541,7 +534,7 @@
         	</initiative_roll>
 
 			<initiative_roll name="savingthrow_roll">
-                <bounds>0,172,38,45</bounds>
+                <bounds>200,149,90,45</bounds>
                 <tooltip textres="tooltip_st" />
                 <script>	
                     function action(draginfo)

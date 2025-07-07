@@ -7,6 +7,38 @@
 
 <root>
 	<windowclass name="npc" copy="record_window_tabbed">
+		<script>
+			function onValueChanged()
+				window.onHealthChanged();
+			end
+
+			function onHealthChanged()
+				stamina.setColor(getPCSheetWoundColor(getDatabaseNode()));
+			end
+
+			function getPCSheetWoundColor(nodePC)
+				local nMaxStamina = 0;
+				local nCurrentStamina = 0;
+				if nodePC then
+					nMaxStamina = math.max(DB.getValue(nodePC, "hp.max", 0), 0);
+					nCurrentStamina = math.max(DB.getValue(nodePC, "hp.stamina", 0), 0);
+				end
+
+				local sColor = "630000";
+
+				local nWindedValue = nMaxStamina / 2;
+				
+				if nCurrentStamina > nWindedValue then
+					sColor = "1a6313";
+				end
+
+				if nWindedValue > nCurrentStamina and nCurrentStamina > 0 then
+					sColor = "a37800";
+				end
+
+				return sColor;
+			end
+		</script>
 		<minimize>minimized_npc</minimize>
 		<gmexport>npc</gmexport>
 		<tab>
@@ -161,16 +193,16 @@
 				<static textres="npc_label_maxstamina" />
 				<anchored offset="40" />
 			</label_column>
-			<number_column name="maxstamina">
+			<number_column name="a">
 				<default>0</default>
 			</number_column>		
 
 			<label_column_right name="currentstamina_label">
-				<anchored to="maxstamina" />
+				<anchored to="a" />
 				<static textres="npc_label_currentstamina" />
 			</label_column_right>
-			<number_column_right name="currentstamina" source="hp.stamina">
-				<anchored to="maxstamina" />
+			<number_column_right name="stamina" source="hp.stamina">
+				<anchored to="a" />
 				<default>0</default>
 			</number_column_right>
 

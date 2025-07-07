@@ -26,8 +26,8 @@
 				<datasource>.ancestrytraitslist</datasource>
 				<class>char_ancestry_traits</class>
 				<acceptdrop>
-					<class>reference_ancestryfeature</class>
-					<class>reference_ancestryfeaturechoice</class>
+					<class>reference_ancestryfeature_listitem</class>
+					<class>reference_ancestryfeaturechoice_listitem</class>
 					<field>*</field>
 				</acceptdrop>
 			</list_text>

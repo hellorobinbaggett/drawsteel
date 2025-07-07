@@ -9,7 +9,7 @@
 	<windowclass name="charsheet">
 		<frame>charsheet</frame>
 		<sizelimits>
-			<minimum width="525" height="568" />
+			<minimum width="525" height="555" />
 			<dynamic />
 		</sizelimits>
 		<minimize>minimized_npc</minimize>
@@ -134,22 +134,34 @@
 				<labelres>char_label_career</labelres>
 			</string_labeled>			
 
+			<!-- LEVEL -->
+			<string_labeled name="leveltitle">
+				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="40" />
+				<labelres>char_label_level</labelres>
+			</string_labeled>
+
 			<!-- CLASS -->
 			<string_labeled name="classtitle">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="120" />
+				<anchored to="leveltitle" position="righthigh" offset="5,0" width="90" />
 				<labelres>char_label_class</labelres>
 			</string_labeled>
 
 			<!-- SUBCLASS -->
 			<string_labeled name="subclasstitle">
-				<anchored to="classtitle" position="righthigh" offset="5,0" width="120" />
+				<anchored to="classtitle" position="righthigh" offset="5,0" width="90" />
 				<labelres>char_label_subclass</labelres>
 			</string_labeled>
 
-			<!-- LEVEL -->
-			<string_labeled name="leveltitle">
-				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="80" />
-				<labelres>char_label_level</labelres>
+			<!-- XP -->
+			<string_labeled name="xptitle" >
+				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="20" />
+				<labelres>char_label_xp</labelres>
+			</string_labeled>
+
+			<!-- VICTORIES -->
+			<string_labeled name="victoriestitle" >
+				<anchored to="xptitle" position="righthigh" offset="5,0" width="60" />
+				<labelres>char_label_victories</labelres>
 			</string_labeled>
 
 			<!-- TODO: implement linkable fields for the subclass,class,ancetry,and career (similar to 5e) -->
