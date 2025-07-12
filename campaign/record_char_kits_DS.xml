@@ -7,6 +7,16 @@
 
 <root>
 	<windowclass name="charsheet_modifiers">
+		<script>
+			function onDrop(x, y, draginfo)
+				if draginfo.isType("shortcut") then
+					local sClass, sRecord = draginfo.getShortcutData();
+					Debug.chat(sClass);
+				end
+			end
+
+
+		</script>
 		<sheetdata>
 			<frame_char name="combatframe">
 				<bounds>0,20,145,200</bounds>
@@ -14,24 +24,6 @@
 			<frame_char name="appearanceframe">
 				<bounds>140,20,-1,200</bounds>
 			</frame_char>
-			<!-- <label_frametop>
-				<anchored to="appearanceframe" offset="125,50"/>
-				<static textres="char_label_kitnonuses" />
-			</label_frametop> -->
-			<!-- <stringu name="appearance">
-				<anchored to="appearanceframe">
-					<top offset="30" />
-					<left offset="15" />
-					<right offset="-20" />
-					<bottom offset="-15" />
-				</anchored>
-				<multilinespacing>20</multilinespacing>
-				<nodrag />
-			</stringu> -->
-			<!-- <scrollbar_list>
-				<anchored to="appearance" />
-				<target>appearance</target>
-			</scrollbar_list> -->
 
 			<label_frametop>
 				<anchored to="appearanceframe" offset="180,-15"/>
@@ -61,10 +53,6 @@
 				<anchored to="kitweapon" position="righthigh" offset="5,0" width="135" />
 				<labelres>char_label_armor</labelres>
 			</string_labeled>
-			<!-- <string_labeled name="kitimplement">
-				<anchored to="kitweapon" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_implement</labelres>
-			</string_labeled> -->
 
 			<label_frametop>
 				<anchored to="appearanceframe" offset="105,60"/>

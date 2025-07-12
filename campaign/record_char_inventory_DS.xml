@@ -218,6 +218,7 @@
 		<sheetdata>
 			<hidden_record_isidentified name="isidentified">
 				<class>item</class>
+				<class>kit</class>
 				<ignorehost />
 			</hidden_record_isidentified>
 
@@ -245,6 +246,7 @@
 					<right parent="rightanchor" anchor="left" relation="relative" offset="-5" />
 				</anchored>
 				<class>item</class>
+				<class>kit</class>
 			</linkcontrol_record>
 			<button_char_inv_carried name="carried">
 				<anchored width="20" height="20">

@@ -3,33 +3,145 @@
 <root>
 	<windowclass name="kit" copy="record_window">
 		<minimize>minimized_reference</minimize>
-
 		<margins control="0,0,0,2" />
+		<sizelimits>
+			<minimum width="350" height="445" />
+		</sizelimits>
 
 		<sheetdata>
 			<anchor_content_top />
 
-			<!-- <ft_content_column_full name="notes">
-				<bounds>35,120,-35,230</bounds>
-			</ft_content_column_full>
-
-			<number_characteristicscore name="Tier1Melee" source="Kit.Bonus.Melee.Damage.Tier1">
-				<anchored to="notes" />
-				<default>0</default>
-			</number_characteristicscore>
-			<number_characteristicscore name="Tier2Melee" source="Kit.Bonus.Melee.Damage.Tier2">
-				<anchored to="Tier1Melee">
-					<right anchor="left" relation="relative" offset="-5" />
+<frame_char name="appearanceframe">
+				<bounds>20,100,-20,200</bounds>
+			</frame_char>
+			<!-- <label_frametop>
+				<anchored to="appearanceframe" offset="125,50"/>
+				<static textres="char_label_kitnonuses" />
+			</label_frametop> -->
+			<!-- <stringu name="appearance">
+				<anchored to="appearanceframe">
+					<top offset="30" />
+					<left offset="15" />
+					<right offset="-20" />
+					<bottom offset="-15" />
 				</anchored>
-				<default>0</default>
-			</number_characteristicscore>
-			<number_characteristicscore name="Tier3Melee" source="Kit.Bonus.Melee.Damage.Tier3">
-				<anchored to="Tier2Melee">
-					<right anchor="left" relation="relative" offset="20" />
-				</anchored>
-				<default>0</default>
-			</number_characteristicscore> -->
+				<multilinespacing>20</multilinespacing>
+				<nodrag />
+			</stringu> -->
+			<!-- <scrollbar_list>
+				<anchored to="appearance" />
+				<target>appearance</target>
+			</scrollbar_list> -->
 
+			<string_labeled name="kit">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,10" width="160" />
+				<labelres>char_label_name</labelres>
+			</string_labeled>
+
+			<string_labeled name="type">
+				<anchored to="kit" position="righthigh" offset="5,0" width="115" />
+				<labelres>char_label_type</labelres>
+			</string_labeled>
+
+			<string_labeled name="kitweapon">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,35" width="140" />
+				<labelres>char_label_weapon</labelres>
+			</string_labeled>
+			<string_labeled name="kitarmor">
+				<anchored to="kitweapon" position="righthigh" offset="5,0" width="135" />
+				<labelres>char_label_armor</labelres>
+			</string_labeled>
+			<!-- <string_labeled name="kitimplement">
+				<anchored to="kitweapon" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_implement</labelres>
+			</string_labeled> -->
+
+			<label_frametop>
+				<anchored to="appearanceframe" offset="0,60"/>
+				<static textres="char_label_kitbonuses" />
+			</label_frametop>
+
+			<string_labeled name="kitspeed">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,77" width="90" />
+				<labelres>char_label_speed</labelres>
+			</string_labeled>
+			<string_labeled name="kitmeleedistance">
+				<anchored to="kitspeed" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_melee</labelres>
+			</string_labeled>
+			<string_labeled name="kitranged">
+				<anchored to="kitmeleedistance" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_ranged</labelres>
+			</string_labeled>
+
+			<string_labeled name="kitarea">
+				<anchored to="appearanceframe" position="insidetopleft" offset="15,107" width="90" />
+				<labelres>char_label_area</labelres>
+			</string_labeled>
+			<string_labeled name="kitstability">
+				<anchored to="kitarea" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_stability</labelres>
+			</string_labeled>
+			<string_labeled name="kitstamina">
+				<anchored to="kitstability" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_stamina</labelres>
+			</string_labeled>
+
+			<label_frametop>
+				<anchored to="appearanceframe" offset="105,135"/>
+				<static textres="char_label_damagebonuses" />
+			</label_frametop>
+
+			<string_labeled name="Kit.Melee.Damage.Tier1" source="Kit.Melee.Damage.Tier1">
+				<anchored to="appearanceframe" position="insidetopleft" offset="70,155" width="20" />
+				<labelres>char_label_melee</labelres>
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Melee.Damage.Tier2" source="Kit.Melee.Damage.Tier2">
+				<anchored to="Kit.Melee.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Melee.Damage.Tier3" source="Kit.Melee.Damage.Tier3">
+				<anchored to="Kit.Melee.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+
+			<string_labeled name="Kit.Ranged.Damage.Tier1" source="Kit.Ranged.Damage.Tier1">
+				<anchored to="Kit.Melee.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
+				<labelres>char_label_ranged</labelres>
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Ranged.Damage.Tier2" source="Kit.Ranged.Damage.Tier2">
+				<anchored to="Kit.Ranged.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+			<string_labeled name="Kit.Ranged.Damage.Tier3" source="Kit.Ranged.Damage.Tier3">
+				<anchored to="Kit.Ranged.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
+				<default>+0</default>
+			</string_labeled>
+
+			
+			<frame_char name="signatureabilitiesframe">
+				<bounds>20,293,-20,70</bounds>
+			</frame_char>
+			<label_frametop>
+				<anchored to="signatureabilitiesframe" />
+				<static textres="char_label_signatureability" />
+			</label_frametop>
+			<list_text name="signatureabilities">
+				<anchored to="signatureabilitiesframe">
+					<left offset="15" />
+					<top offset="35" />
+					<right offset="-20" />
+					<bottom offset="-10" />
+				</anchored>
+				<datasource>.signatureabilities</datasource>
+				<class>char_action</class>
+				<acceptdrop>
+					<class>ability</class>
+					<field>*</field>
+				</acceptdrop>
+			</list_text>
 
 
 			<area_content_framed_groupbox_bottom name="area_controls" insertbefore="content">
@@ -41,7 +153,27 @@
 					<left anchor="center" offset="-50" />
 				</anchored>
 				<state textres="battle_button_equip" />
-				<gmvisibleonly />
+				<tooltip textres="tooltip_wip" />
+				<script>	
+					function action()
+
+						-- abilities window
+						local nodeWin = window.getDatabaseNode();
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						
+						Debug.chat(nodeWin);
+						Debug.chat(rActor);
+						Debug.chat(nodePC);
+
+						return true;
+					end
+
+					function onDrop(x, y, draginfo)
+						return action();
+					end
+				</script>
 			</button_text_sm>
 		</sheetdata>
 	</windowclass>

@@ -89,6 +89,7 @@
 	<string name="char_label_benefits">NOTES</string>
 	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_itemweight">En</string>
+	<string name="tooltip_wip">This feature is not implemented yet</string>
 	<string name="char_tooltip_itemweight">Encumbrance</string>
 	<string name="char_tooltip_inv_carried">Stowed</string>
 	<string name="char_tooltip_inv_equipped">Readied</string>
@@ -99,6 +100,7 @@
 	<string name="char_label_features">Features</string>
 	<string name="char_label_heroicabilities">Heroic Abilities</string>
 	<string name="char_label_kitabilities">Kit Abilities</string>
+	<string name="char_label_signatureability">Signature Ability</string>
 	<string name="char_label_signatureabilities">Signature Abilities</string>
 	<string name="char_label_heroicabilities">Heroic Abilities</string>
 	<string name="char_label_triggeredactions">Triggered Actions</string>
@@ -343,7 +345,7 @@
 	<string name="char_label_name">NAME</string>
 	<string name="char_label_equipment">EQUIPMENT</string>
 	<string name="char_label_armor">ARMOR</string>
-	<string name="char_label_weapon">WEAPON/IMPLEMENT</string>
+	<string name="char_label_weapon">WEAPON</string>
 	<string name="char_label_skill">Skill</string>
 	<string name="char_label_stamina">Stamina</string>
 	<string name="char_label_speed">SPEED</string>
