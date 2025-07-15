@@ -125,7 +125,7 @@ function linkPCFields()
 		name.setLink(DB.createChild(nodeChar, "name", "string"), true);
 		token.setLink(DB.createChild(nodeChar, "token", "token"));
 		token3Dflat.setLink(DB.createChild(nodeChar, "token3Dflat", "token"));
-		stamina.setLink(DB.createChild(nodeChar, "hp.stamina", "number"));
+		-- stamina.setLink(DB.createChild(nodeChar, "hp.stamina", "number"));
 
 		if Session.RulesetName == "CoreRPG" then
 			senses.setLink(DB.createChild(nodeChar, "senses", "string"), true);

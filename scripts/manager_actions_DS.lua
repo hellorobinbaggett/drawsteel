@@ -120,7 +120,12 @@ function createActionMessage(rSource, rRoll)
 
 	-- For saving throws
 	if string.match(rMessage.text, "Saving Throw:") then
-		rMessage = InitiativeManager.saveRoll(rMessage, rRoll);
+		rMessage = RollManager_DS.saveRoll(rMessage, rRoll);
+	end
+
+	-- For resource rolls
+	if string.match(rMessage.text, "Heroic Resource:") then
+		RollManager_DS.resourceRoll(rMessage, rRoll);
 	end
 	
 	-- Check to see if this roll should be secret (GM or dice tower tag)

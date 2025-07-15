@@ -319,7 +319,7 @@ function removeEffectByType(nodeCT, sEffectType)
 end
 
 function checkImmunities(rSource, rTarget, rEffect)
-	local aImmuneConditions = ActorManager5E.getConditionImmunities(rTarget, rSource);
+	local aImmuneConditions = ActorManager_DS.getConditionImmunities(rTarget, rSource);
 	if #aImmuneConditions == 0 then
 		return {};
 	end
@@ -408,7 +408,7 @@ end
 function evalAbilityHelper(rActor, sEffectAbility)
 	local sSign, sModifier, sTag = sEffectAbility:match("^%[([%+%-]?)([HTQ%d]?)([A-Z]+)%]$");
 
-	local nAbility = ActorManager5E.getAbilityBonus(rActor, sTag:lower());
+	local nAbility = ActorManager_DS.getAbilityBonus(rActor, sTag:lower());
 	if nAbility then
 		if sSign == "-" then
 			nAbility = 0 - nAbility;

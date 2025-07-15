@@ -116,9 +116,9 @@ function getAbilityEffectsBonus(rActor, sAbility)
 		return 0, 0;
 	end
 	
-	local nAbilityMod, nAbilityEffects = EffectManager5E.getEffectsBonus(rActor, sAbilityEffect, true);
+	local nAbilityMod, nAbilityEffects = EffectManager_DS.getEffectsBonus(rActor, sAbilityEffect, true);
 	
-	local nAbilityScore = ActorManager5E.getAbilityScore(rActor, sAbility);
+	local nAbilityScore = ActorManager_DS.getAbilityScore(rActor, sAbility);
 	if nAbilityScore > 0 then
 		local nAffectedScore = math.max(nAbilityScore + nAbilityMod, 0);
 		
@@ -199,7 +199,7 @@ function getAbilityScore(rActor, sAbility)
 			end
 		end
 	elseif StringManager.contains(DataCommon.classes, sAbility) then
-		nStatScore = ActorManager5E.getClassLevel(nodeActor, sAbility);
+		nStatScore = ActorManager_DS.getClassLevel(nodeActor, sAbility);
 	end
 	
 	return nStatScore;
@@ -218,7 +218,7 @@ function getAbilityBonus(rActor, sAbility)
 		sAbility = sAbility:sub(2);
 	end
 	
-	local nStatScore = ActorManager5E.getAbilityScore(rActor, sAbility);
+	local nStatScore = ActorManager_DS.getAbilityScore(rActor, sAbility);
 	if nStatScore < 0 then
 		return 0;
 	end
@@ -244,7 +244,7 @@ end
 function getSave(rActor, sSave)
 	local bADV = false;
 	local bDIS = false;
-	local nValue = ActorManager5E.getAbilityBonus(rActor, sSave);
+	local nValue = ActorManager_DS.getAbilityBonus(rActor, sSave);
 	local aAddText = {};
 	
 	local nodeActor = ActorManager.getCreatureNode(rActor);
@@ -305,7 +305,7 @@ end
 function getCheck(rActor, sCheck, sSkill)
 	local bADV = false;
 	local bDIS = false;
-	local nValue = ActorManager5E.getAbilityBonus(rActor, sCheck);
+	local nValue = ActorManager_DS.getAbilityBonus(rActor, sCheck);
 	local aAddText = {};
 
 	local nodeActor = ActorManager.getCreatureNode(rActor);
@@ -347,48 +347,48 @@ function getDefenseAdvantage(rAttacker, rDefender, aAttackFilter)
 	local bProne = false;
 	
 	if ActorManager.hasCT(rDefender) then
-		local bDefenderFrozen = EffectManager5E.hasEffectCondition(rDefender, "Paralyzed") or
-				EffectManager5E.hasEffectCondition(rDefender, "Petrified") or
-				EffectManager5E.hasEffectCondition(rDefender, "Stunned") or
-				EffectManager5E.hasEffectCondition(rDefender, "Unconscious");
+		local bDefenderFrozen = EffectManager_DS.hasEffectCondition(rDefender, "Paralyzed") or
+				EffectManager_DS.hasEffectCondition(rDefender, "Petrified") or
+				EffectManager_DS.hasEffectCondition(rDefender, "Stunned") or
+				EffectManager_DS.hasEffectCondition(rDefender, "Unconscious");
 
-		if EffectManager5E.hasEffect(rAttacker, "ADVATK", rDefender, true) then
+		if EffectManager_DS.hasEffect(rAttacker, "ADVATK", rDefender, true) then
 			bADV = true;
-		elseif #(EffectManager5E.getEffectsByType(rAttacker, "ADVATK", aAttackFilter, rDefender, true)) > 0 then
+		elseif #(EffectManager_DS.getEffectsByType(rAttacker, "ADVATK", aAttackFilter, rDefender, true)) > 0 then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rDefender, "GRANTADVATK", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "GRANTADVATK", rAttacker) then
 			bADV = true;
-		elseif #(EffectManager5E.getEffectsByType(rDefender, "GRANTADVATK", aAttackFilter, rAttacker)) > 0 then
+		elseif #(EffectManager_DS.getEffectsByType(rDefender, "GRANTADVATK", aAttackFilter, rAttacker)) > 0 then
 			bADV = true;
 		elseif bDefenderFrozen then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rAttacker, "Invisible", rDefender, true) then
+		elseif EffectManager_DS.hasEffect(rAttacker, "Invisible", rDefender, true) then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rDefender, "Blinded", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "Blinded", rAttacker) then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rDefender, "Restrained", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "Restrained", rAttacker) then
 			bADV = true;
 		end
 
-		if EffectManager5E.hasEffect(rAttacker, "DISATK", rDefender, true) then
+		if EffectManager_DS.hasEffect(rAttacker, "DISATK", rDefender, true) then
 			bDIS = true;
-		elseif #(EffectManager5E.getEffectsByType(rAttacker, "DISATK", aAttackFilter, rDefender, true)) > 0 then
+		elseif #(EffectManager_DS.getEffectsByType(rAttacker, "DISATK", aAttackFilter, rDefender, true)) > 0 then
 			bDIS = true;
-		elseif EffectManager5E.hasEffect(rDefender, "GRANTDISATK", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "GRANTDISATK", rAttacker) then
 			bDIS = true;
-		elseif #(EffectManager5E.getEffectsByType(rDefender, "GRANTDISATK", aAttackFilter, rAttacker)) > 0 then
+		elseif #(EffectManager_DS.getEffectsByType(rDefender, "GRANTDISATK", aAttackFilter, rAttacker)) > 0 then
 			bDIS = true;
-		elseif EffectManager5E.hasEffect(rDefender, "Invisible", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "Invisible", rAttacker) then
 			bDIS = true;
 		end
 
 		if EffectManager.hasCondition(rDefender, "Prone") then
 			bProne = true;
 		end
-		if EffectManager5E.hasEffect(rDefender, "Dodge", rAttacker) and 
+		if EffectManager_DS.hasEffect(rDefender, "Dodge", rAttacker) and 
 				not (bDefenderFrozen or
-				EffectManager5E.hasEffect(rDefender, "Grappled", rAttacker) or
-				EffectManager5E.hasEffect(rDefender, "Restrained", rAttacker)) then
+				EffectManager_DS.hasEffect(rDefender, "Grappled", rAttacker) or
+				EffectManager_DS.hasEffect(rDefender, "Restrained", rAttacker)) then
 			bDIS = true;
 		end
 		
@@ -477,7 +477,7 @@ function getDefenseValue(rAttacker, rDefender, rRoll)
 	else
 		return nil, 0, 0, false, false;
 	end
-	nDefenseStatMod = ActorManager5E.getAbilityBonus(rDefender, sDefenseStat);
+	nDefenseStatMod = ActorManager_DS.getAbilityBonus(rDefender, sDefenseStat);
 	
 	-- Effects
 	local nDefenseEffectMod = 0;
@@ -498,12 +498,12 @@ function getDefenseValue(rAttacker, rDefender, rRoll)
 			table.insert(aAttackFilter, "opportunity");
 		end
 
-		local aACEffects, nACEffectCount = EffectManager5E.getEffectsBonusByType(rDefender, {"AC"}, true, aAttackFilter, rAttacker);
+		local aACEffects, nACEffectCount = EffectManager_DS.getEffectsBonusByType(rDefender, {"AC"}, true, aAttackFilter, rAttacker);
 		for _,v in pairs(aACEffects) do
 			nBonusAC = nBonusAC + v.mod;
 		end
 		
-		nBonusStat = ActorManager5E.getAbilityEffectsBonus(rDefender, sDefenseStat);
+		nBonusStat = ActorManager_DS.getAbilityEffectsBonus(rDefender, sDefenseStat);
 		if (sDefenderNodeType == "pc") and (nBonusStat > 0) then
 			local sMaxDexBonus = DB.getValue(nodeDefender, "defenses.ac.dexbonus", "");
 			if sMaxDexBonus == "no" then
@@ -521,28 +521,28 @@ function getDefenseValue(rAttacker, rDefender, rRoll)
 			end
 		end
 		
-		local bDefenderFrozen = EffectManager5E.hasEffectCondition(rDefender, "Paralyzed") or
-				EffectManager5E.hasEffectCondition(rDefender, "Petrified") or
-				EffectManager5E.hasEffectCondition(rDefender, "Stunned") or
-				EffectManager5E.hasEffectCondition(rDefender, "Unconscious");
+		local bDefenderFrozen = EffectManager_DS.hasEffectCondition(rDefender, "Paralyzed") or
+				EffectManager_DS.hasEffectCondition(rDefender, "Petrified") or
+				EffectManager_DS.hasEffectCondition(rDefender, "Stunned") or
+				EffectManager_DS.hasEffectCondition(rDefender, "Unconscious");
 
-		if EffectManager5E.hasEffect(rAttacker, "ADVATK", rDefender, true) then
+		if EffectManager_DS.hasEffect(rAttacker, "ADVATK", rDefender, true) then
 			bADV = true;
 		elseif bDefenderFrozen then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rDefender, "GRANTADVATK", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "GRANTADVATK", rAttacker) then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rAttacker, "Invisible", rDefender, true) then
+		elseif EffectManager_DS.hasEffect(rAttacker, "Invisible", rDefender, true) then
 			bADV = true;
-		elseif EffectManager5E.hasEffect(rDefender, "Restrained", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "Restrained", rAttacker) then
 			bADV = true;
 		end
 
-		if EffectManager5E.hasEffect(rAttacker, "DISATK", rDefender, true) then
+		if EffectManager_DS.hasEffect(rAttacker, "DISATK", rDefender, true) then
 			bDIS = true;
-		elseif EffectManager5E.hasEffect(rDefender, "GRANTDISATK", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "GRANTDISATK", rAttacker) then
 			bDIS = true;
-		elseif EffectManager5E.hasEffect(rDefender, "Invisible", rAttacker) then
+		elseif EffectManager_DS.hasEffect(rDefender, "Invisible", rAttacker) then
 			bDIS = true;
 		end
 		
@@ -555,12 +555,12 @@ function getDefenseValue(rAttacker, rDefender, rRoll)
 		end
 		
 		if nCover < 5 then
-			local aCover = EffectManager5E.getEffectsByType(rDefender, "SCOVER", aAttackFilter, rAttacker);
-			if #aCover > 0 or EffectManager5E.hasEffect(rDefender, "SCOVER", rAttacker) then
+			local aCover = EffectManager_DS.getEffectsByType(rDefender, "SCOVER", aAttackFilter, rAttacker);
+			if #aCover > 0 or EffectManager_DS.hasEffect(rDefender, "SCOVER", rAttacker) then
 				nBonusSituational = nBonusSituational + 5 - nCover;
 			elseif nCover < 2 then
-				aCover = EffectManager5E.getEffectsByType(rDefender, "COVER", aAttackFilter, rAttacker);
-				if #aCover > 0 or EffectManager5E.hasEffect(rDefender, "COVER", rAttacker) then
+				aCover = EffectManager_DS.getEffectsByType(rDefender, "COVER", aAttackFilter, rAttacker);
+				if #aCover > 0 or EffectManager_DS.hasEffect(rDefender, "COVER", rAttacker) then
 					nBonusSituational = nBonusSituational + 2 - nCover;
 				end
 			end
@@ -585,7 +585,7 @@ function getDamageThreshold(rActor)
 		end
 	end
 
-	local tEffects = EffectManager5E.getEffectsByType(rActor, "DT");
+	local tEffects = EffectManager_DS.getEffectsByType(rActor, "DT");
 	for _,v in pairs(tEffects) do
 		nResult = math.max(nResult, v.mod);
 	end
@@ -613,10 +613,10 @@ function getDamageVulnerabilities(rActor, rSource)
 
 	local sRecordType = ActorManager.getRecordType(rActor);
 	if (sRecordType == "npc") or (sRecordType == "vehicle") then
-		tResults = ActorManager5E.parseDamageVulnResistImmuneHelper(rActor, "damagevulnerabilities");
+		tResults = ActorManager_DS.parseDamageVulnResistImmuneHelper(rActor, "damagevulnerabilities");
 	end
 
-	local tEffectResults = ActorManager5E.getDamageVulnResistImmuneEffectHelper(rActor, "VULN", rSource);
+	local tEffectResults = ActorManager_DS.getDamageVulnResistImmuneEffectHelper(rActor, "VULN", rSource);
 	for k,v in pairs(tEffectResults) do
 		tResults[k] = v;
 	end
@@ -628,10 +628,10 @@ function getDamageResistances(rActor, rSource)
 
 	local sRecordType = ActorManager.getRecordType(rActor);
 	if (sRecordType == "npc") or (sRecordType == "vehicle") then
-		tResults = ActorManager5E.parseDamageVulnResistImmuneHelper(rActor, "damageresistances");
+		tResults = ActorManager_DS.parseDamageVulnResistImmuneHelper(rActor, "damageresistances");
 	end
 
-	local tEffectResults = ActorManager5E.getDamageVulnResistImmuneEffectHelper(rActor, "RESIST", rSource);
+	local tEffectResults = ActorManager_DS.getDamageVulnResistImmuneEffectHelper(rActor, "RESIST", rSource);
 	for k,v in pairs(tEffectResults) do
 		tResults[k] = v;
 	end
@@ -643,13 +643,13 @@ function getDamageImmunities(rActor, rSource)
 
 	local sRecordType = ActorManager.getRecordType(rActor);
 	if (sRecordType == "npc") or (sRecordType == "vehicle") then
-		tResults = ActorManager5E.parseDamageVulnResistImmuneHelper(rActor, "damageimmunities");
+		tResults = ActorManager_DS.parseDamageVulnResistImmuneHelper(rActor, "damageimmunities");
 
 		if sRecordType == "vehicle" then
 			local nodeActor = ActorManager.getCreatureNode(rActor);
 			if nodeActor then
 				if (DB.getValue(nodeActor, "disablestandarddamageimmunities", 0) == 0) then
-					for _,v in ipairs(ActorManager5E.tStandardVehicleDamageImmunities) do
+					for _,v in ipairs(ActorManager_DS.tStandardVehicleDamageImmunities) do
 						tResults[v] = { mod = 0, aNegatives = {} };
 					end
 				end
@@ -657,7 +657,7 @@ function getDamageImmunities(rActor, rSource)
 		end
 	end
 
-	local tEffectResults = ActorManager5E.getDamageVulnResistImmuneEffectHelper(rActor, "IMMUNE", rSource);
+	local tEffectResults = ActorManager_DS.getDamageVulnResistImmuneEffectHelper(rActor, "IMMUNE", rSource);
 	for k,v in pairs(tEffectResults) do
 		tResults[k] = v;
 	end
@@ -726,7 +726,7 @@ end
 function getDamageVulnResistImmuneEffectHelper(rActor, sEffectType, rSource)
 	local tResults = {};
 
-	local aEffects = EffectManager5E.getEffectsByType(rActor, sEffectType, {}, rSource);
+	local aEffects = EffectManager_DS.getEffectsByType(rActor, sEffectType, {}, rSource);
 	for _,v in pairs(aEffects) do
 		local r = {};
 		
@@ -757,14 +757,14 @@ function getConditionImmunities(rActor, rSource)
 
 	local sActorType = ActorManager.getRecordType(rActor);
 	if (sActorType == "npc") or (sActorType == "vehicle") then
-		local tActorImmune = ActorManager5E.getNonPCActorConditionImmunitiesHelper(rActor);
+		local tActorImmune = ActorManager_DS.getNonPCActorConditionImmunitiesHelper(rActor);
 		for _,v in ipairs(tActorImmune) do
 			table.insert(tResults, v);
 		end
 	end
 
 
-	local tImmuneEffects = EffectManager5E.getEffectsByType(rActor, "IMMUNE", {}, rSource);
+	local tImmuneEffects = EffectManager_DS.getEffectsByType(rActor, "IMMUNE", {}, rSource);
 	for _,v in pairs(tImmuneEffects) do
 		for _,v in pairs(v.remainder) do
 			local vLower = v:lower();
@@ -825,11 +825,11 @@ function getNonPCActorConditionImmunitiesHelper(rActor)
 			bAddStandard = (DB.getValue(nodeActor, "disablestandardconditionimmunities", 0) == 0);
 		end
 		if bAddStandard then
-			for _,v in ipairs(ActorManager5E.tStandardVehicleConditionImmunities) do
+			for _,v in ipairs(ActorManager_DS.tStandardVehicleConditionImmunities) do
 				table.insert(tResults, v);
 			end
 			local sType = StringManager.simplify(DB.getValue(nodeActor, "type", ""));
-			if sType ~= ActorManager5E.VEHICLE_TYPE_LAND then
+			if sType ~= ActorManager_DS.VEHICLE_TYPE_LAND then
 				table.insert(tResults, "prone");
 			end
 		end

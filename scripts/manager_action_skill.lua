@@ -65,7 +65,7 @@ function getRoll(rActor, nodeSkill)
 	local sSkill = DB.getValue(nodeSkill, "name", "");
 	local sAbility = DB.getValue(nodeSkill, "stat", "");
 	
-	local nMod, bADV, bDIS, sAddText = ActorManager5E.getCheck(rActor, sAbility:lower(), sSkill);
+	local nMod, bADV, bDIS, sAddText = ActorManager_DS.getCheck(rActor, sAbility:lower(), sSkill);
 	rRoll.nMod = nMod;
 	rRoll.nMod = rRoll.nMod + DB.getValue(nodeSkill, "misc", 0);
 	
@@ -116,7 +116,7 @@ function getUnlistedRoll(rActor, sSkill)
 		sAbility = DataCommon.skilldata[sSkill].stat;
 	end
 	if sAbility then
-		nMod, bADV, bDIS, sAddText = ActorManager5E.getCheck(rActor, sAbility, sSkill);
+		nMod, bADV, bDIS, sAddText = ActorManager_DS.getCheck(rActor, sAbility, sSkill);
 	end
 	
 	rRoll.sDesc = "[SKILL] " .. StringManager.capitalizeAll(sSkill);
@@ -250,7 +250,7 @@ function modRoll(rSource, rTarget, rRoll)
 		end
 
 		-- Get ability modifiers
-		local nBonusStat, nBonusEffects = ActorManager5E.getAbilityEffectsBonus(rSource, sAbility);
+		local nBonusStat, nBonusEffects = ActorManager_DS.getAbilityEffectsBonus(rSource, sAbility);
 		if nBonusEffects > 0 then
 			bEffects = true;
 			nAddMod = nAddMod + nBonusStat;

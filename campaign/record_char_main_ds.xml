@@ -450,6 +450,7 @@
 					function onValueChanged()
 					end
 				</script>
+				<target>classresource</target>
 			</basicnumber>
 
 			<label_charfieldtop name="classresource_label">
@@ -486,6 +487,24 @@
 					end
 				</script>
 			</basicnumber>
+
+			<buttoncontrol name="surges">
+				<anchored to="surges" position="righthigh" offset="90,-7" width="20" height="20" />
+				<icon normal="button_action_damage" pressed="button_action_damage_down" />
+				<tooltip textres="char_tooltip_herotokenbtn_surge" />
+				<script>
+					<!-- TODO: script for spending 1 H.T. for getting +1 surge -->
+				</script>
+			</buttoncontrol>
+
+			<buttoncontrol name="healing">
+				<anchored to="surges" position="righthigh" offset="90,14" width="20" height="20" />
+				<icon normal="button_action_heal" pressed="button_action_heal_down" />
+				<tooltip textres="char_tooltip_herotokenbtn_heal" />
+				<script>
+					<!-- TODO: script for spending 2 H.T. to heal = recovery value -->
+				</script>
+			</buttoncontrol>
 
 			<label_charfieldtop name="herotokens_label">
 				<anchored to="herotokens" offset="300,8" />
@@ -530,6 +549,12 @@
                     function onButtonPress()
                         return action();
                     end
+
+					function incrementResource()
+						
+					end
+
+					<!-- TODO: write function to add result of roll to Heroic Resources -->
                 </script>
         	</initiative_roll>
 

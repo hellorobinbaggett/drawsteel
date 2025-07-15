@@ -144,32 +144,54 @@
 	<string name="ct_tooltip_menu">Click for CT menu</string>
 
 	<!-- Languages -->
-	<string name="language_value_caelian">Caelian</string>
-	<string name="language_value_anjali">Anjali</string>
-	<string name="language_value_filliaric">Filliaric</string>
+	<!-- Valsoiran Human Languages -->
+	<string name="language_value_uvalic">Uvalic</string>
 	<string name="language_value_higaran">Higaran</string>
-	<string name="language_value_hyrallic">Hyrallic</string>
-	<string name="language_value_kalliak">Kalliak</string>
-	<string name="language_value_kethaic">Kethaic</string>
-	<string name="language_value_khelt">Khelt</string>
+	<string name="language_value_oaxuatl">Oaxuatl</string>
 	<string name="language_value_khemaric">Khemharic</string>
 	<string name="language_value_khoursirian">Khoursirian</string>
-	<string name="language_value_kuric">Kuric</string>
-	<string name="language_value_mindspeech">Mindspeech</string>
-	<string name="language_value_oaxuatl">Oaxuatl</string>
 	<string name="language_value_phaedran">Phaedran</string>
-	<string name="language_value_protoctholl">Proto-Ctholl</string>
 	<string name="language_value_riojan">Riojan</string>
-	<string name="language_value_szetch">Szetch</string>
-	<string name="language_value_thefirstlanguage">The First Language</string>
-	<string name="language_value_urollialic">Urollialic</string>
-	<string name="language_value_uvalic">Uvalic</string>
-	<string name="language_value_vanric">Vanric</string>
-	<string name="language_value_variac">Variac</string>
-	<string name="language_value_voll">Voll</string>
-	<string name="language_value_xakalliac">Xakalliac</string>
-	<string name="language_value_yllyric">Yllyric</string>
-	<string name="language_value_zaliac">Zaliac</string>
+	<string name="language_value_vanric">Vaniric</string>
+	<string name="language_value_vaslorian">Vaslorian</string>
+
+	<!-- Vaslorian Languages by Ancestry -->
+	<string name="language_value_anjali">Anjali (devils)</string>
+	<string name="language_value_axiomatic">Axiomatic (memonek)</string>
+	<string name="language_value_caelian">Caelian (orden denizens)</string>
+	<string name="language_value_filliaric">Filliaric (angulotls)</string>
+	<string name="language_value_thefirstlanguage">The First Language (elder dragon)</string>
+	<string name="language_value_hyrallic">Hyrallic (high elf)</string>
+	<string name="language_value_illyvric">Illyvric (shadow elf)</string>
+	<string name="language_value_kalliak">Kalliak (orc)</string>
+	<string name="language_value_kethaic">Kethaic (kobold)</string>
+	<string name="language_value_khelt">Khelt (fey)</string>
+	<string name="language_value_khoursirian">Khoursirian (polder)</string>
+	<string name="language_value_highkuric">High Kuric (giants)</string>
+	<string name="language_value_lowkuric">Low Kuric (elemental)</string>
+	<string name="language_value_mindspeech">Mindspeech (voiceless talker)</string>
+	<string name="language_value_protoctholl">Proto-Ctholl (lower demons)</string>
+	<string name="language_value_szetch">Szetch (goblin)</string>
+	<string name="language_value_tholl">Tholl (higher demons)</string>
+	<string name="language_value_urollialic">Urollialic (olothec)</string>
+	<string name="language_value_variac">Variac (gnomes)</string>
+	<string name="language_value_vastariax">Vastariax (dragon)</string>
+	<string name="language_value_vhoric">Vhoric (hakaan)</string>
+	<string name="language_value_voll">Voll (time raider)</string>
+	<string name="language_value_yllyric">Yllyric (wode elf)</string>
+	<string name="language_value_zahariax">Za'hariax (overmind)</string>
+	<string name="language_value_zaliac">Zaliac (dwarf)</string>
+	
+	<!-- Dead Languages -->
+	<string name="language_value_ananjali">Ananjali</string>
+	<string name="language_value_high Rhyvian">High Rhyvian</string>
+	<string name="language_value_khamish">Khamish</string>
+	<string name="language_value_kheltivari">Kheltivari</string>
+	<string name="language_value_low Rhyvian">Low Rhyvian</string>
+	<string name="language_value_old Variac">Old Variac</string>
+	<string name="language_value_phorialtic">Phorialtic</string>
+	<string name="language_value_rallarian">Rallarian</string>
+	<string name="language_value_ullorvic">Ullorvic</string>
 
 	<!-- Modifiers -->
 	<string name="modifier_category_powerroll">POWER ROLL</string>
@@ -304,7 +326,10 @@
 	<string name="char_tooltip_herotokendescription">At the start of a new game session, the heroes have a number of hero tokens equal to the number of heroes in the party. 
 	\nSpend 1 token to gain 2 surges. 
 	\nSpend 1 hero token to succeed on a save. 
-	\nSpend 1 to reroll a test. Spend 2 tokens to regain stamina equal to your Recovery value.</string>
+	\nSpend 1 to reroll a test. You must use the new roll.
+	\nSpend 2 tokens to regain stamina equal to your Recovery value.</string>
+	<string name="char_tooltip_herotokenbtn_surge">Spend 1 token to gain 2 surges.</string>
+	<string name="char_tooltip_herotokenbtn_heal">Spend 2 tokens to regain stamina equal to your Recovery value.</string>
 	<string name="char_tooltip_modifierdescription">Only use this for NPCs (enter the modifier to the power roll)</string>
 	<string name="char_tooltip_shields">Shields</string>
 	<string name="char_tooltip_shieldsdescription">Each shield has a value equal to your highest characteristic score</string>
@@ -339,7 +364,7 @@
 	<string name="char_label_points">POINTS</string>
 	<string name="char_label_complication">COMPLICATION</string>
 	<string name="char_label_kit">KIT</string>
-	<string name="char_label_modifier">KIT | WARD</string>
+	<string name="char_label_modifier">KIT</string>
 	<string name="char_label_stats">STATS</string>
 	<string name="char_label_type">TYPE</string>
 	<string name="char_label_name">NAME</string>
@@ -492,6 +517,26 @@
 	<string name="ability_label_tier3">17+</string>
 	<string name="ability_grouped_label_name">Name</string>
 	<string name="ability_grouped_label_cost">Cost</string>
+
+	<!-- Character Builder -->
+	<string name="char_abilities_message_classadd">Class '%s' added to '%s'.</string>
+	<string name="char_abilities_message_ancestryadd">Ancestry '%s' added to '%s'.</string>
+	<string name="char_abilities_message_kitadd">Kit '%s' added to '%s'.</string>
+	<string name="char_abilities_message_careeradd">Career '%s' added to '%s'.</string>
+
+
+
+	<!-- Kits -->
+	<string name="kit_label_equipment">Equipment</string>
+	<string name="kit_label_staminabonus">Stamina Bonus (per echelon)</string>
+	<string name="kit_label_speedbonus">Speed Bonus</string>
+	<string name="kit_label_stabilitybonus">Stability Bonus</string>
+	<string name="kit_label_distancebonus">Distance Bonus</string>
+	<string name="kit_label_disengagebonus">Disengage Bonus</string>
+	<string name="kit_label_meleedamagebonus">Melee Damage Bonus</string>
+	<string name="kit_label_rangeddamagebonus">Ranged Damage Bonus</string>
+	<string name="kit_label_weapon">Weapon</string>
+	<string name="kit_label_armor">Armor</string>
 
 	<!-- CT -->
 	<string name="ct_emptylist_heroes">Drop PC links to add entries.</string>

@@ -32,36 +32,7 @@
 	<string name="ct_menu_effectdelete">Delete Effect</string>	
 	<string name="ct_menu_initmenu">Turn Order</string>
 	<string name="ct_menu_initreset">Reset Turn Order</string>
-
-
-	<!-- Languages -->
-	<string name="language_value_caelian">Caelian</string>
-	<string name="language_value_anjali">Anjali</string>
-	<string name="language_value_filliaric">Filliaric</string>
-	<string name="language_value_higaran">Higaran</string>
-	<string name="language_value_hyrallic">Hyrallic</string>
-	<string name="language_value_kalliak">Kalliak</string>
-	<string name="language_value_kethaic">Kethaic</string>
-	<string name="language_value_khelt">Khelt</string>
-	<string name="language_value_khemaric">Khemharic</string>
-	<string name="language_value_khoursirian">Khoursirian</string>
-	<string name="language_value_kuric">Kuric</string>
-	<string name="language_value_mindspeech">Mindspeech</string>
-	<string name="language_value_oaxuatl">Oaxuatl</string>
-	<string name="language_value_phaedran">Phaedran</string>
-	<string name="language_value_protoctholl">Proto-Ctholl</string>
-	<string name="language_value_riojan">Riojan</string>
-	<string name="language_value_szetch">Szetch</string>
-	<string name="language_value_thefirstlanguage">The First Language</string>
-	<string name="language_value_urollialic">Urollialic</string>
-	<string name="language_value_uvalic">Uvalic</string>
-	<string name="language_value_vanric">Vanric</string>
-	<string name="language_value_variac">Variac</string>
-	<string name="language_value_voll">Voll</string>
-	<string name="language_value_xakalliac">Xakalliac</string>
-	<string name="language_value_yllyric">Yllyric</string>
-	<string name="language_value_zaliac">Zaliac</string>
-
+	
 	<!-- Modifiers -->
 	<string name="modifier_category_powerroll">POWER ROLL</string>
 	<string name="modifier_label_EDGE">Edge</string>

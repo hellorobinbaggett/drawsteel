@@ -55,7 +55,7 @@
 
 			<label_ct_header_name_v2 name="label_name" />
 			<label_ct_header_init name="label_name" />
-			<label_ct_header_stamina name="label_name" />
+			<!-- <label_ct_header_stamina name="label_name" /> -->
 		</sheetdata>
 	</windowclass>
 	<windowclass name="sub_ct_header_host_heroes" source="heroestest">

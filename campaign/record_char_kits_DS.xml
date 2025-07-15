@@ -7,16 +7,6 @@
 
 <root>
 	<windowclass name="charsheet_modifiers">
-		<script>
-			function onDrop(x, y, draginfo)
-				if draginfo.isType("shortcut") then
-					local sClass, sRecord = draginfo.getShortcutData();
-					Debug.chat(sClass);
-				end
-			end
-
-
-		</script>
 		<sheetdata>
 			<frame_char name="combatframe">
 				<bounds>0,20,145,200</bounds>
@@ -35,88 +25,93 @@
 				<static textres="char_label_stats" />
 			</label_frametop>
 
-			<string_labeled name="kit">
-				<anchored to="appearanceframe" position="insidetopleft" offset="32,10" width="160" />
-				<labelres>char_label_name</labelres>
+			<string_labeled name="weapon">
+				<anchored to="appearanceframe" position="insidetopleft" offset="80,10" width="80" />
 			</string_labeled>
+            <string_characteristiclabel name="weapon_label">
+				<anchored to="weapon" width="60" />
+				<static textres="kit_label_weapon" />
+			</string_characteristiclabel>
 
-			<string_labeled name="type">
-				<anchored to="kit" position="righthigh" offset="5,0" width="115" />
-				<labelres>char_label_type</labelres>
+			<string_labeled name="armor">
+				<anchored to="appearanceframe" position="insidetopleft" offset="230,10" width="80" />
 			</string_labeled>
+            <string_characteristiclabel name="armor_label">
+				<anchored to="armor" width="50" />
+				<static textres="kit_label_armor" />
+			</string_characteristiclabel>
 
-			<string_labeled name="kitweapon">
-				<anchored to="appearanceframe" position="insidetopleft" offset="32,35" width="140" />
-				<labelres>char_label_weapon</labelres>
-			</string_labeled>
-			<string_labeled name="kitarmor">
-				<anchored to="kitweapon" position="righthigh" offset="5,0" width="135" />
-				<labelres>char_label_armor</labelres>
-			</string_labeled>
+			<number_characteristicscore name="distancebonus" source="kit.distancebonus">
+				<anchored to="appearanceframe" position="insidetopleft" offset="120,40" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="distancebonus_label">
+				<anchored to="distancebonus" offset="0,0" width="100" />
+				<static textres="kit_label_distancebonus" />
+			</string_characteristiclabel>	
 
-			<label_frametop>
-				<anchored to="appearanceframe" offset="105,60"/>
-				<static textres="char_label_kitbonuses" />
-			</label_frametop>
+			<number_characteristicscore name="speedbonus" source="kit.speedbonus">
+				<anchored to="appearanceframe" position="insidetopleft" offset="270,40" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="speedbonus_label">
+				<anchored to="speedbonus" offset="0,0" width="100" />
+				<static textres="kit_label_speedbonus" />
+			</string_characteristiclabel>
 
-			<string_labeled name="kitspeed">
-				<anchored to="appearanceframe" position="insidetopleft" offset="30,77" width="90" />
-				<labelres>char_label_speed</labelres>
-			</string_labeled>
-			<string_labeled name="kitmeleedistance">
-				<anchored to="kitspeed" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_melee</labelres>
-			</string_labeled>
-			<string_labeled name="kitranged">
-				<anchored to="kitmeleedistance" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_ranged</labelres>
-			</string_labeled>
+			<number_characteristicscore name="stabilitybonus" source="kit.stabilitybonus">
+				<anchored to="appearanceframe" position="insidetopleft" offset="120,70" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="stabilitybonus_label">
+				<anchored to="stabilitybonus" offset="0,0" width="100" />
+				<static textres="kit_label_stabilitybonus" />
+			</string_characteristiclabel>	
 
-			<string_labeled name="kitarea">
-				<anchored to="appearanceframe" position="insidetopleft" offset="30,107" width="90" />
-				<labelres>char_label_area</labelres>
-			</string_labeled>
-			<string_labeled name="kitstability">
-				<anchored to="kitarea" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_stability</labelres>
-			</string_labeled>
-			<string_labeled name="kitstamina">
-				<anchored to="kitstability" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_stamina</labelres>
-			</string_labeled>
+			<number_characteristicscore name="disengagebonus" source="kit.disengagebonus">
+				<anchored to="appearanceframe" position="insidetopleft" offset="280,70" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="disengage_label">
+				<anchored to="disengagebonus" offset="0,0" width="110" />
+				<static textres="kit_label_disengagebonus" />
+			</string_characteristiclabel>
 
-			<label_frametop>
-				<anchored to="appearanceframe" offset="105,135"/>
-				<static textres="char_label_damagebonuses" />
-			</label_frametop>
+			<number_characteristicscore name="staminabonus" source="kit.staminabonus">
+				<anchored to="appearanceframe" position="insidetopleft" offset="200,100" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="staminabonus_label">
+				<anchored to="staminabonus" offset="0,0" width="180" />
+				<static textres="kit_label_staminabonus" />
+			</string_characteristiclabel>	
 
-			<string_labeled name="Kit.Melee.Damage.Tier1" source="Kit.Melee.Damage.Tier1">
-				<anchored to="appearanceframe" position="insidetopleft" offset="85,155" width="20" />
-				<labelres>char_label_melee</labelres>
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit.Melee.Damage.Tier2" source="Kit.Melee.Damage.Tier2">
-				<anchored to="Kit.Melee.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit.Melee.Damage.Tier3" source="Kit.Melee.Damage.Tier3">
-				<anchored to="Kit.Melee.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
+			<number_characteristicscore name="meleedamagebonus_tier1" source="kit.meleedamagebonus_tier1">
+				<anchored to="appearanceframe" position="insidetopleft" offset="180,130" width="30" />
+			</number_characteristicscore>
+			<number_characteristicscore name="meleedamagebonus_tier2" source="kit.meleedamagebonus_tier2">
+				<anchored to="appearanceframe" position="insidetopleft" offset="220,130" width="30" />
+			</number_characteristicscore>
+			<number_characteristicscore name="meleedamagebonus_tier3" source="kit.meleedamagebonus_tier3">
+				<anchored to="appearanceframe" position="insidetopleft" offset="260,130" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="meleebonus_label">
+				<anchored to="meleedamagebonus_tier1" offset="0,0" width="140" />
+				<static textres="kit_label_meleedamagebonus" />
+			</string_characteristiclabel>	
 
-			<string_labeled name="Kit.Ranged.Damage.Tier1" source="Kit.Ranged.Damage.Tier1">
-				<anchored to="Kit.Melee.Damage.Tier3" position="righthigh" offset="25,0" width="20" />
-				<labelres>char_label_ranged</labelres>
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit.Ranged.Damage.Tier2" source="Kit.Ranged.Damage.Tier2">
-				<anchored to="Kit.Ranged.Damage.Tier1" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
-			<string_labeled name="Kit.Ranged.Damage.Tier3" source="Kit.Ranged.Damage.Tier3">
-				<anchored to="Kit.Ranged.Damage.Tier2" position="righthigh" offset="5,0" width="20" />
-				<default>+0</default>
-			</string_labeled>
+			<number_characteristicscore name="rangeddamagebonus_tier1" source="kit.rangeddamagebonus_tier1">
+				<anchored to="appearanceframe" position="insidetopleft" offset="180,160" width="30" />
+			</number_characteristicscore>
+			<number_characteristicscore name="rangeddamagebonus_tier2" source="kit.rangeddamagebonus_tier2">
+				<anchored to="appearanceframe" position="insidetopleft" offset="220,160" width="30" />
+			</number_characteristicscore>
+			<number_characteristicscore name="rangeddamagebonus_tier3" source="kit.rangeddamagebonus_tier3">
+				<anchored to="appearanceframe" position="insidetopleft" offset="260,160" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="rangedbonus_label">
+				<anchored to="rangeddamagebonus_tier1" offset="0,0" width="150" />
+				<static textres="kit_label_rangeddamagebonus" />
+			</string_characteristiclabel>	
+			
+
+			<!--vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv-->
+
 
 			<string_labeled name="size">
 				<anchored to="combatframe" position="insidetopleft" offset="95,40" width="20" />

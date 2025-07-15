@@ -8,6 +8,60 @@
 <root>
 	<windowclass name="charsheet">
 		<frame>charsheet</frame>
+		<script>
+			function onDrop(x, y, draginfo)
+				if draginfo.isType("shortcut") then
+						local sClass, sRecord = draginfo.getShortcutData();
+						local node = getDatabaseNode();
+
+						if StringManager.contains({ "kit" }, sClass) then
+							local nodeSource = DB.findNode(sRecord); -- kit record
+							local kitName = DB.getChild(nodeSource, "name"); -- kit name
+							local kitAbility = DB.getChild(nodeSource, "signatureabilities"); -- kit ability
+							local heroKit = DB.getChild(node, "career"); -- charactersheet kit title
+							local nodeKitList = DB.createChild(node, "kit"); -- charactersheet kit details
+							local nodeKitAbilityList = DB.createChild(node, "signatureabilities"); -- charactersheet abilities
+
+							DB.copyNode(nodeSource, nodeKitList); -- copy kit informatioin
+							DB.copyNode(kitName, heroKit); -- copy kit name
+							DB.copyNode(kitAbility, nodeKitAbilityList); -- copy kit ability
+
+							local heroName = DB.getChild(node, "name").getValue();
+							ChatManager.SystemMessageResource("char_abilities_message_kitadd", tostring(kitName.getValue()), tostring(heroName));
+						end
+
+						if StringManager.contains({ "ancestry" }, sClass) then
+							local nodeSource = DB.findNode(sRecord);
+							local ancestryName = DB.getChild(nodeSource, "name");
+							local heroAncestry = DB.getChild(node, "ancestry");
+							local nodeSourceFeatures = DB.getChild(nodeSource, "features");
+							local nodeAncestryList = DB.createChild(node, "ancestrytraitslist");
+
+							-- TODO: fix ancestry traits in character sheet
+							-- DB.copyNode(nodeSourceFeatures, nodeAncestryList);
+							DB.copyNode(ancestryName, heroAncestry);
+
+							local heroName = DB.getChild(node, "name").getValue();
+							ChatManager.SystemMessageResource("char_abilities_message_ancestryadd", tostring(ancestryName.getValue()), tostring(heroName));
+						end
+
+						if StringManager.contains({ "class" }, sClass) then
+							local heroClass = DB.getChild(node, "classtitle");
+							local heroFeatures = DB.getChild(node, "featureslist");
+
+							local nodeSource = DB.findNode(sRecord);
+							local className = DB.getChild(nodeSource, "name");
+							local classFeatures = DB.createChild(nodeSource, "features");
+							
+							DB.copyNode(className, heroClass);
+							DB.copyNode(classFeatures, heroFeatures);
+
+							local heroName = DB.getChild(node, "name").getValue();
+							ChatManager.SystemMessageResource("char_abilities_message_ancestryadd", tostring(className.getValue()), tostring(heroName));
+						end
+					end
+			end
+		</script>
 		<sizelimits>
 			<minimum width="525" height="555" />
 			<dynamic />
@@ -129,10 +183,16 @@
 			</string_labeled>
 
 			<!-- CAREER -->
-			<string_labeled name="career">
+			<!-- <string_labeled name="career">
 				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_career</labelres>
-			</string_labeled>			
+			</string_labeled>			 -->
+
+			<!-- KIT -->
+			<string_labeled name="career">
+				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
+				<labelres>char_label_kit</labelres>
+			</string_labeled>
 
 			<!-- LEVEL -->
 			<string_labeled name="leveltitle">
@@ -140,21 +200,9 @@
 				<labelres>char_label_level</labelres>
 			</string_labeled>
 
-			<!-- CLASS -->
-			<string_labeled name="classtitle">
-				<anchored to="leveltitle" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_class</labelres>
-			</string_labeled>
-
-			<!-- SUBCLASS -->
-			<string_labeled name="subclasstitle">
-				<anchored to="classtitle" position="righthigh" offset="5,0" width="90" />
-				<labelres>char_label_subclass</labelres>
-			</string_labeled>
-
 			<!-- XP -->
 			<string_labeled name="xptitle" >
-				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="20" />
+				<anchored to="leveltitle" position="righthigh" offset="5,0" width="20" />
 				<labelres>char_label_xp</labelres>
 			</string_labeled>
 
@@ -162,6 +210,18 @@
 			<string_labeled name="victoriestitle" >
 				<anchored to="xptitle" position="righthigh" offset="5,0" width="60" />
 				<labelres>char_label_victories</labelres>
+			</string_labeled>
+
+			<!-- CLASS -->
+			<string_labeled name="classtitle">
+				<anchored to="victoriestitle" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_class</labelres>
+			</string_labeled>
+
+			<!-- SUBCLASS -->
+			<string_labeled name="subclasstitle">
+				<anchored to="classtitle" position="righthigh" offset="5,0" width="90" />
+				<labelres>char_label_subclass</labelres>
 			</string_labeled>
 
 			<!-- TODO: implement linkable fields for the subclass,class,ancetry,and career (similar to 5e) -->
