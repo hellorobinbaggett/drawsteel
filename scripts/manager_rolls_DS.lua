@@ -11,18 +11,12 @@ function saveRoll(rMessage, rRoll)
 	return rMessage;
 end
 
-function resourceRoll(rMessage, rRoll)   
-    -- local nodeWin = window.getDatabaseNode();
-	-- local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
-	-- local CharSheetID = DB.findNode(sCharSheetID);
+function resourceRoll(rRoll)   
 
-	-- local result = rRoll.aDice[1].result;
-    -- local classresource = DB.getValue(CharSheetID, "classresource");
-    -- Debug.chat(classresource);
+	local result = rRoll.aDice[1].result;
 
-    -- local total = result + classresource;
-
-    -- Debug.chat(total);
+	-- get character sheet
+	-- get resource
 
     return true;
 end

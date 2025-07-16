@@ -33,12 +33,11 @@
 						if StringManager.contains({ "ancestry" }, sClass) then
 							local nodeSource = DB.findNode(sRecord);
 							local ancestryName = DB.getChild(nodeSource, "name");
-							local heroAncestry = DB.getChild(node, "ancestry");
 							local nodeSourceFeatures = DB.getChild(nodeSource, "features");
-							local nodeAncestryList = DB.createChild(node, "ancestrytraitslist");
+							local heroAncestry = DB.getChild(node, "ancestry");
+							local nodeAncestryList = DB.createChild(node, "features");
 
-							-- TODO: fix ancestry traits in character sheet
-							-- DB.copyNode(nodeSourceFeatures, nodeAncestryList);
+							DB.copyNode(nodeSourceFeatures, nodeAncestryList);
 							DB.copyNode(ancestryName, heroAncestry);
 
 							local heroName = DB.getChild(node, "name").getValue();
@@ -52,6 +51,16 @@
 							local nodeSource = DB.findNode(sRecord);
 							local className = DB.getChild(nodeSource, "name");
 							local classFeatures = DB.createChild(nodeSource, "features");
+
+							local leveledClassFeatures;
+
+							for v in classFeatures do
+								Debug.chat(v);
+								if(v.level == 1) then
+									leveledClassFeatures.insert(v,"v");
+								end
+							end
+
 							
 							DB.copyNode(className, heroClass);
 							DB.copyNode(classFeatures, heroFeatures);
@@ -195,10 +204,11 @@
 			</string_labeled>
 
 			<!-- LEVEL -->
-			<string_labeled name="leveltitle">
+			<number_labeled name="leveltitle">
 				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="40" />
 				<labelres>char_label_level</labelres>
-			</string_labeled>
+				<default>1</default>
+			</number_labeled>
 
 			<!-- XP -->
 			<string_labeled name="xptitle" >
@@ -220,7 +230,7 @@
 
 			<!-- SUBCLASS -->
 			<string_labeled name="subclasstitle">
-				<anchored to="classtitle" position="righthigh" offset="5,0" width="90" />
+				<anchored to="classtitle" position="righthigh" offset="5,0" width="110" />
 				<labelres>char_label_subclass</labelres>
 			</string_labeled>
 

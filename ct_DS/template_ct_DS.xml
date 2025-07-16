@@ -241,7 +241,7 @@
 	<template name="list_ct_host_heroes">
 		<list_ctbox_base_heroes>
 			<class>ct_entry_heroes</class>
-			<empty font="list-empty-ct" textres="ct_emptylist_heroes" />
+			<empty font="list-empty-ct" textres="char_emptylist_ancestryfeatures" />
 			<allowcreate />
 			<script file="ct_DS/scripts/ct_DS_heroes.lua" />
 		</list_ctbox_base_heroes>

@@ -259,39 +259,54 @@
 				<static textres="char_label_recoveries" />
 			</label_frametop>
 
-			<basicnumber name="recoverycurrent" source="recoverycurrent">
-				<anchored to="recoveriesframe" width="86" height="30">
-					<top anchor="top" offset="40" />
-					<left anchor="center" offset="-44" />
+			<number_charstamina name="recoverycurrent" source="recoverycurrent">
+				<anchored to="recoveriesframe" width="48" height="30">
+					<top anchor="top" offset="45" />
+					<left anchor="center" offset="-55" />
 				</anchored>
+				<description textres="char_tooltip_stamina" />
 				<font>reference-b-large</font>
-				<description textres="char_tooltip_currentrecoveries" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
+			</number_charstamina>
+
+			<basicnumber name="recoverymax" source="recoverymax">
+				<anchored to="recoverycurrent" position="righthigh" offset="15,0" width="48" height="30" />
+				<font>reference-b-large</font>
+				<description textres="char_tooltip_max" />
+				<min value="0" />
 			</basicnumber>
+
 			<label_charfieldbottom name="recoverycurrent_label">
 				<anchored to="recoverycurrent" offset="0,0" />
 				<static textres="char_label_current" />
 			</label_charfieldbottom>
 
-			<basicnumber name="recoverymax" source="recoverymax">
-				<anchored to="recoveriesframe" width="86" height="30">
-					<top anchor="top" offset="90" />
-					<left anchor="center" offset="-44" />
-				</anchored>
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_maxrecoveries" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
-			</basicnumber>
 			<label_charfieldbottom name="recoverymax_label">
 				<anchored to="recoverymax" offset="0,0" />
 				<static textres="char_label_max" />
-			</label_charfieldbottom>
+			</label_charfieldbottom> 
+
+			<buttoncontrol name="buttonrecovery">
+				<anchored to="recoverycurrent" position="righthigh" offset="-10,52" width="34" height="34" />
+				<icon normal="button_action_heal" pressed="button_action_heal_down" />
+				<tooltip textres="char_tooltip_recovery" />
+				<script>
+					function onButtonPress()
+					local node = window.getDatabaseNode();
+					local recoverycurrent = DB.getChild(node, "recoverycurrent");
+					local current = recoverycurrent.getValue();
+
+						if(current > 0) then
+							local total = current - 1;
+							DB.setValue(node, "recoverycurrent", "number", total);
+
+							local stamina = DB.getChild(node, "hp.stamina").getValue();
+							local recovery = DB.getChild(node, "recoveryvalue").getValue();
+							local totalStamina = stamina + recovery;
+							DB.setValue(node, "hp.stamina", "number", totalStamina);
+						end
+					end
+				</script>
+			</buttoncontrol>
 
 			<number_linked_framed name="recoveryvalue" source="recoveryvalue">
 				<anchored to="recoveriesframe" width="86" height="30">
@@ -493,16 +508,42 @@
 				<icon normal="button_action_damage" pressed="button_action_damage_down" />
 				<tooltip textres="char_tooltip_herotokenbtn_surge" />
 				<script>
-					<!-- TODO: script for spending 1 H.T. for getting +1 surge -->
+					function onButtonPress()
+					local node = window.getDatabaseNode();
+					local current = DB.getChild(node, "herotokens").getValue();
+
+						if(current > 0) then
+							local total = current - 1;
+							DB.setValue(node, "herotokens", "number", total);
+
+							local surges = DB.getChild(node, "surges").getValue();
+							local totalSurges = surges + 2;
+							DB.setValue(node, "surges", "number", totalSurges);
+						end
+					end
 				</script>
 			</buttoncontrol>
 
-			<buttoncontrol name="healing">
+			<buttoncontrol name="buttonhealing">
 				<anchored to="surges" position="righthigh" offset="90,14" width="20" height="20" />
 				<icon normal="button_action_heal" pressed="button_action_heal_down" />
 				<tooltip textres="char_tooltip_herotokenbtn_heal" />
 				<script>
-					<!-- TODO: script for spending 2 H.T. to heal = recovery value -->
+					function onButtonPress()
+					local node = window.getDatabaseNode();
+					local herotokens = DB.getChild(node, "herotokens");
+					local current = herotokens.getValue();
+
+						if(current > 1) then
+							local total = current - 2;
+							DB.setValue(node, "herotokens", "number", total);
+
+							local stamina = DB.getChild(node, "hp.stamina").getValue();
+							local recovery = DB.getChild(node, "recoveryvalue").getValue();
+							local totalStamina = stamina + recovery;
+							DB.setValue(node, "hp.stamina", "number", totalStamina);
+						end
+					end
 				</script>
 			</buttoncontrol>
 
@@ -538,7 +579,8 @@
                             aDice = { "d3" },
 							nMod = 0,
                         };
-                        ActionsManager.performAction(draginfo, rActor, rRoll);
+                        results = ActionsManager.performAction(draginfo, rActor, rRoll);
+						Debug.chat(results);
                         return true;
                     end
                     
@@ -552,7 +594,7 @@
 
 					function incrementResource()
 						
-					end
+					end				
 
 					<!-- TODO: write function to add result of roll to Heroic Resources -->
                 </script>

@@ -14,6 +14,7 @@
 	<icon name="intuition_block" file="graphics/buttons/I_black.png" />
 	<icon name="reason_block" file="graphics/buttons/R_black.png" />
 	<icon name="presence_block" file="graphics/buttons/P_black.png" />
+	<icon name="empty_block" file="graphics/buttons/blank_black.png" />
 
 
     <!-- Skills -->

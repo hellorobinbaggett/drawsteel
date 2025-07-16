@@ -78,6 +78,7 @@
 	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
 	<script name="ActionsManager_DS" file="scripts/manager_actions_DS.lua" />
 	<script name="InitiativeManager" file="scripts/manager_initiative_DS.lua" />
+	<script name="RollManager_DS" file="scripts/manager_rolls_DS.lua" />
 
 	<!-- Desktop -->
 	<includefile source="desktop/desktop_classes_DS.xml" />

@@ -623,6 +623,7 @@
 			<state icon="reason_block" tooltipres="char_tooltip_characteristic_reason" />
 			<state icon="intuition_block" tooltipres="char_tooltip_characteristic_intuition" />
 			<state icon="presence_block" tooltipres="char_tooltip_characteristic_presence" />
+			<state icon="empty_block" tooltipres="char_tooltip_characteristic_empty" />
 		</buttonfield>
 	</template>
 
@@ -644,7 +645,7 @@
                 </string_skilllabel>
                 <button_characteristic name="skill_characteristic" source="skill.characteristic.button">
                     <anchored to="characteristic_label" position="right" offset="10,0" height="20" width="60" />
-                    <default>1</default>
+                    <default>0</default>
                     <tooltip textres="skill_tooltip" />
 			    </button_characteristic>
 

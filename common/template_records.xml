@@ -43,6 +43,121 @@
 			<resize_recordsheet />
 		</sheetdata>
 	</windowclass>
+	<windowclass name="ability_window">
+		<frame>recordsheet</frame>
+		<placement>
+			<size width="400" height="500" />
+		</placement>
+		<sizelimits>
+			<minimum width="350" height="350" />
+			<dynamic />
+		</sizelimits>
+		<minimize>minimized_reference</minimize>
+		<sharable />
+		<tooltip field="name" />
+		<script file="common/scripts/record_window.lua" />
+		<sheetdata>
+			<windowmenubar_recordsheet name="menubar" />
+
+			<anchor_content_recordsheet_top name="contentanchor" />
+			<anchor_content_recordsheet_bottom name="bottomanchor" />
+
+			<!-- NOTE: Legacy override short term for layout -->
+			<sub_content_framed_groupbox_top name="header">
+				<anchored to="contentanchor">
+					<left offset="10" />
+					<right offset="-10" />
+					<top relation="relative" offset="10" postoffset="10" />
+				</anchored>
+				<frame name="groupbox" offset="10,10,10,10" />
+				<class>record_header</class>
+			</sub_content_framed_groupbox_top>
+
+			<power_roll name="abilityroll">
+				<!-- <anchored to="header" /> -->
+				<bounds>27,50,30,30</bounds>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local CharSheetID = DB.findNode(sCharSheetID);
+						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button");
+
+                        -- add the characteristic that is chosed for the skill
+                        characteristicMod = 0;
+                        -- AGL
+                        if (characteristic == 1) then
+                            characteristicMod = DB.getValue(CharSheetID, "AGL");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- REA
+                        if (characteristic == 2) then
+                            characteristicMod = DB.getValue(CharSheetID, "REA");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- INU
+                        if (characteristic == 3) then
+                            characteristicMod = DB.getValue(CharSheetID, "INU");
+							if (characteristicMod == nil) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- PRS
+                        if (characteristic == 4) then
+                            characteristicMod = DB.getValue(CharSheetID, "PRS");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+                        -- MGT
+                        if (characteristic == 0) then
+                            characteristicMod = DB.getValue(CharSheetID, "MGT");
+							if (characteristicMod == nill) then
+								characteristicMod = 0;
+							end
+                        end
+
+						local abilityName = DB.getValue(nodeWin, "name", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = characteristicMod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "ability.effect");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+			<sub_content_framed_groupbox name="content" />
+			<scrollbar_content />
+
+			<resize_recordsheet />
+		</sheetdata>
+	</windowclass>
 	<windowclass name="record_window_tabbed">
 		<frame>recordsheet</frame>
 		<placement>

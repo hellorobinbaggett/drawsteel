@@ -18,8 +18,6 @@ function update()
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID = LibraryData.getIDState("npc", nodeRecord);
 
-	local bSection2 = false;
-	if WindowManager.callSafeControlUpdate(self, "characteristic", bReadOnly) then bSection2 = true; end;
 	local bSection3 = false;
 	if WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly) then bSection3 = true; end;
 	local bSection4 = false;
@@ -33,7 +31,6 @@ function update()
 	divider3.setVisible(bSection3);
 	divider4.setVisible(bSection4);
 
-	WindowManager.callSafeControlUpdate(self, "characteristic", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_label", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "characteristic_old", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1", bReadOnly);

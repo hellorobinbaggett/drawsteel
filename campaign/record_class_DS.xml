@@ -109,45 +109,18 @@
 			<linkc_listitem_left name="shortcut">
 				<class>reference_classfeaturechoice</class>
 			</linkc_listitem_left>
-
-			<string_listitem_center name="name">
-				<empty textres="" />
-				<font>sheetlabel</font>
-			</string_listitem_center>
-		</sheetdata>
-	</windowclass>
-
-	<windowclass name="reference_classfeaturechoice_listitem">
-		<margins control="0,0,0,2" />
-		<script>
-			function onInit()
-				self.onLockModeChanged(WindowManager.getWindowReadOnlyState(self));
-			end
-			function onLockModeChanged(bReadOnly)
-				local tControls = { "choicetype", "level", "name", "idelete", };
-				WindowManager.callSafeControlsSetLockMode(self, tControls, bReadOnly);
-			end
-		</script>
-		<sheetdata>
-			<anchor_listitem_left_sm name="leftanchor" />
-			<anchor_listitem_right_sm name="rightanchor" />
-
-			<button_listitem_idelete_left name="idelete" />
-			<linkc_listitem_left name="shortcut">
-				<class>reference_classfeaturechoice</class>
-			</linkc_listitem_left>
-			<string_listitem_left name="choicetype">
-				<anchored width="180" />
-				<font>sheetlabel</font>
-				<empty textres="classfeaturechoice_empty_choicetype" />
-			</string_listitem_left>
 			<number_listitem_left name="level">
 				<nodrag />
 			</number_listitem_left>
-
-			<string_listitem_center name="name">
+			<string_listitem_left name="name">
+				<anchored width="180" />
 				<empty textres="library_recordtype_empty_classfeaturechoice" />
 				<font>sheetlabel</font>
+			</string_listitem_left>
+			<string_listitem_center name="choicetype">
+				<anchored width="180" />
+				<font>sheetlabel</font>
+				<empty textres="classfeaturechoice_empty_choicetype" />
 			</string_listitem_center>
 		</sheetdata>
 	</windowclass>
@@ -171,7 +144,7 @@
 			<anchor_content_top />
 
 			<label_content_column name="choicetype_label">
-				<static textres="label_choicetype" />
+				<static textres="label_subclass" />
 			</label_content_column>
 			<string_content_columnh name="choicetype">
 			</string_content_columnh>

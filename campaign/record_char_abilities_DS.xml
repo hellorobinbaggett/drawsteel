@@ -57,12 +57,57 @@
 				<anchored to="surges" position="righthigh" offset="15,0" width="90" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_herotokens" />
+				<tooltip textres="char_tooltip_herotokendescription" />
 				<min value="0" />
 				<script>
 					function onValueChanged()
 					end
 				</script>
 			</basicnumber>
+
+			<buttoncontrol name="surges">
+				<anchored to="surges" position="righthigh" offset="90,-7" width="20" height="20" />
+				<icon normal="button_action_damage" pressed="button_action_damage_down" />
+				<tooltip textres="char_tooltip_herotokenbtn_surge" />
+				<script>
+					function onButtonPress()
+					local node = window.getDatabaseNode();
+					local current = DB.getChild(node, "herotokens").getValue();
+
+						if(current > 0) then
+							local total = current - 1;
+							DB.setValue(node, "herotokens", "number", total);
+
+							local surges = DB.getChild(node, "surges").getValue();
+							local totalSurges = surges + 2;
+							DB.setValue(node, "surges", "number", totalSurges);
+						end
+					end
+				</script>
+			</buttoncontrol>
+
+			<buttoncontrol name="healing">
+				<anchored to="surges" position="righthigh" offset="90,14" width="20" height="20" />
+				<icon normal="button_action_heal" pressed="button_action_heal_down" />
+				<tooltip textres="char_tooltip_herotokenbtn_heal" />
+				<script>
+					function onButtonPress()
+					local node = window.getDatabaseNode();
+					local herotokens = DB.getChild(node, "herotokens");
+					local current = herotokens.getValue();
+
+						if(current > 1) then
+							local total = current - 2;
+							DB.setValue(node, "herotokens", "number", total);
+
+							local stamina = DB.getChild(node, "hp.stamina").getValue();
+							local recovery = DB.getChild(node, "recoveryvalue").getValue();
+							local totalStamina = stamina + recovery;
+							DB.setValue(node, "hp.stamina", "number", totalStamina);
+						end
+					end
+				</script>
+			</buttoncontrol>
 
 			<label_charfieldtop name="herotokens_label">
 				<anchored to="herotokens" offset="300,8" />

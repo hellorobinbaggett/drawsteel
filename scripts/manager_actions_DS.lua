@@ -125,7 +125,7 @@ function createActionMessage(rSource, rRoll)
 
 	-- For resource rolls
 	if string.match(rMessage.text, "Heroic Resource:") then
-		RollManager_DS.resourceRoll(rMessage, rRoll);
+		RollManager_DS.resourceRoll(rRoll);
 	end
 	
 	-- Check to see if this roll should be secret (GM or dice tower tag)
