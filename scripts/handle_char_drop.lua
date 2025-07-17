@@ -28,6 +28,10 @@ function onDrop(x, y, draginfo)
                 local heroAncestry = DB.getChild(node, "ancestry");
                 local nodeAncestryList = DB.createChild(node, "features");
 
+                if not nodeAncestryList then
+                    return nil;
+                end
+
                 DB.copyNode(nodeSourceFeatures, nodeAncestryList);
                 DB.copyNode(ancestryName, heroAncestry);
 
@@ -44,6 +48,10 @@ function onDrop(x, y, draginfo)
                 local nodeSource = DB.findNode(sRecord);
                 local className = DB.getChild(nodeSource, "name");
                 local classFeaturesList = DB.createChild(nodeSource, "features");
+
+                if not heroFeaturesList then
+                    return nil;
+                end
 
                 -- add only the class features that are equal to or below class level
                 local tNodes = DB.getChildren(nodeSource, "features")

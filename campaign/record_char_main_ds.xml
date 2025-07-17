@@ -125,11 +125,7 @@
 				</anchored>
 				<description textres="char_tooltip_stamina" />
 				<font>reference-b-large</font>
-				<script>
-					function onValueChanged()
-						window.onHealthChanged();
-					end
-				</script>
+				<script file="campaign/scripts/stamina.lua" />
 			</number_charstamina>
 
 			<basicnumber name="max" source="hp.max">
@@ -499,6 +495,7 @@
 				<min value="0" />
 				<script>
 					function onValueChanged()
+					
 					end
 				</script>
 			</basicnumber>
