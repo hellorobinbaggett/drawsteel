@@ -564,9 +564,9 @@
 			</label_charframetop> -->
 
 			<initiative_roll name="classresource_roll">
-                <anchored to="classresourcetitle" width="100" height="30">
+                <anchored to="classresourcetitle" width="30" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-170" />
+					<left anchor="center" offset="-140" />
 				</anchored>
                 <tooltip textres="char_tooltip_classresource" />
                 <script>	
@@ -579,8 +579,7 @@
                             aDice = { "d3" },
 							nMod = 0,
                         };
-                        results = ActionsManager.performAction(draginfo, rActor, rRoll);
-						Debug.chat(results);
+                        ActionsManager.performAction(draginfo, rActor, rRoll);
                         return true;
                     end
                     

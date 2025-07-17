@@ -44,12 +44,12 @@ aRecordOverrides = {
 			["Level"] = { sField = "ability_level" },
 		},
 	},
-	-- TODO: implement kits and careers
 	["kit"] = {
 		sSidebarCategory = "create",
 		bExport = true,
 		aDataMap = { "kit", "reference.kit" },
 	},
+	-- TODO: implement careers
 	["career"] = {
 		sSidebarCategory = "create",
 		bExport = true,

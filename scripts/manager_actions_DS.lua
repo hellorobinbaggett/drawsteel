@@ -124,8 +124,11 @@ function createActionMessage(rSource, rRoll)
 	end
 
 	-- For resource rolls
-	if string.match(rMessage.text, "Heroic Resource:") then
-		RollManager_DS.resourceRoll(rRoll);
+	if string.match(rMessage.text, "Heroic Resource:") then	
+		-- local node = getDatabaseNode();
+		-- local current = DB.getChild(node, "classresource");
+		-- local current = math(current + rRoll.nTotal);
+
 	end
 	
 	-- Check to see if this roll should be secret (GM or dice tower tag)
