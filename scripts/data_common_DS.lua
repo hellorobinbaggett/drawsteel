@@ -16,7 +16,7 @@ conditionaltags = {
 	-- psuedo conditions
 	"covered",
 	"concealed",
-	"death",
+	"dead",
 	"defending",
 	"dying",
 	"falling",
@@ -26,7 +26,13 @@ conditionaltags = {
 	"invisible",
 	"sneaking",
 	"unconscious",
-	"winded"
+	"winded",
+	"marked",
+	"judged",
+	"burning",
+	"hidden",
+	"submerged",
+	"captain"
 };
 
 -- Conditions supported in effect conditionals and for token widgets
@@ -40,23 +46,13 @@ conditions = {
 	"restrained", 
 	"slowed", 
 	"taunted",
-	"weakened"
-};
-
-others = {
-	"covered",
-	"concealed",
-	"death",
-	"defending",
-	"dying",
-	"falling",
-	"flanking",
+	"weakened",
+	"marked",
+	"judged",
+	"burning",
 	"hidden",
-	"high ground",
-	"invisible",
-	"sneaking",
-	"unconscious",
-	"winded"
+	"submerged",
+	"captain"
 };
 
 -- Condition effect types for token widgets
@@ -71,18 +67,12 @@ condcomps = {
 	["weakened"] = "cond_weakened",
 	["taunted"] = "cond_surprised",
 	-- psuedo conditions
-	["covered"] = "cond_cover",
-	["concealed"] = "cond_cover",
-	["death"] = "cond_dead",
-	["dying"] = "cond_dying",
-	["falling"] = "cond_pinned",
-	["flanking"] = "cond_edge",
+	["marked"] = "cond_pinned",
+	["judged"] = "cond_turned",
+	["burning"] = "cond_conceal",
 	["hidden"] = "cond_invisible",
-	["high ground"] = "cond_edge",
-	["invisible"] = "cond_invisible",
-	["sneaking"] = "cond_incorporeal",
-	["unconscious"] = "cond_unconscious",
-	["winded"] = "cond_weakened"
+	["submerged"] = "cond_generic",
+	["captain"] = "cond_helpless"
 };
 
 -- Other visible effect types for token widgets

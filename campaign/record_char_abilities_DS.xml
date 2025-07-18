@@ -115,9 +115,9 @@
 			</label_charfieldtop>
 
 			<initiative_roll name="classresource_roll">
-                <anchored to="classresourcetitle" width="100" height="30">
+                <anchored to="classresourcetitle" width="30" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-170" />
+					<left anchor="center" offset="-140" />
 				</anchored>
                 <tooltip textres="char_tooltip_classresource" />
                 <script>	
@@ -164,10 +164,6 @@
 				<!-- <columns width="222" filldown="true" /> -->
 				<datasource>.actionslist</datasource>
 				<class>char_action</class>
-				<acceptdrop>
-					<class>ability</class>
-					<field>*</field>
-				</acceptdrop>
 			</list_text>
 
 			<scrollbar_list>
@@ -201,10 +197,6 @@
 				</anchored>
 				<datasource>.signatureabilities</datasource>
 				<class>char_action</class>
-				<acceptdrop>
-					<class>ability</class>
-					<field>*</field>
-				</acceptdrop>
 			</list_text>
 			
 			<scrollbar_list>
@@ -238,10 +230,6 @@
 				</anchored>
 				<datasource>.heroicabilitieslist</datasource>
 				<class>char_action</class>
-				<acceptdrop>
-					<class>ability</class>
-					<field>*</field>
-				</acceptdrop>
 			</list_text>
 			
 			<scrollbar_list>
@@ -275,10 +263,6 @@
 				</anchored>
 				<datasource>.maneuverandtriggeredabilitieslist</datasource>
 				<class>char_action</class>
-				<acceptdrop>
-					<class>ability</class>
-					<field>*</field>
-				</acceptdrop>
 			</list_text>
 			
 			<scrollbar_list>

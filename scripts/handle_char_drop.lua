@@ -43,6 +43,7 @@ function onDrop(x, y, draginfo)
             if StringManager.contains({ "class" }, sClass) then
                 local heroClass = DB.getChild(node, "classtitle");
                 local heroFeaturesList = DB.createChild(node, "featureslist");
+                local heroChoiceList = DB.createChild(node, "classfeaturechoicelist");
                 local heroLevel = DB.getChild(node, "levelnumbertitle");
 
                 local nodeSource = DB.findNode(sRecord);
@@ -59,6 +60,14 @@ function onDrop(x, y, draginfo)
                     local level = DB.createChild(value, "level");
                     if(level.getValue() == heroLevel.getValue()) then
                         DB.createChildAndCopy(heroFeaturesList, value);
+                    end
+                end
+
+                local tNodes = DB.getChildren(nodeSource, "featurechoices")
+                for key,value in pairs(tNodes) do
+                    local level = DB.createChild(value, "level");
+                    if(level.getValue() == heroLevel.getValue()) then
+                        DB.createChildAndCopy(heroChoiceList, value);
                     end
                 end
 
@@ -93,6 +102,40 @@ function onDrop(x, y, draginfo)
                 ChatManager.SystemMessageResource("char_abilities_message_classadd", tostring(className.getValue()), tostring(heroName));
             end
 
-            -- TODO: career
+            -- TODO: abilities
+            if StringManager.contains({ "ability" }, sClass) then
+                local nodeSource = DB.findNode(sRecord); -- ability record
+                local abilityName = DB.getChild(nodeSource, "name"); -- kit name
+                local nodeAbilitiesList = DB.createChild(node, "actionslist");
+                local nodeSignaturesList = DB.createChild(node, "signatureabilities");
+                local nodeTriggeredManeuvers = DB.createChild(node, "maneuverandtriggeredabilitieslist");
+                local nodeHeroicAbilities = DB.createChild(node, "heroicabilitieslist");
+                local heroAbilityList = DB.createChild(node, "actionslist");
+
+
+                local signature = string.match(DB.getChild(nodeSource, "abilitytype").getValue(), "Signature");
+                local triggered = string.match(DB.getChild(nodeSource, "type").getValue(), "Triggered");
+                local maneuver = string.match(DB.getChild(nodeSource, "type").getValue(), "Maneuver");
+
+                Debug.chat(signature);
+                Debug.chat(triggered);
+                Debug.chat(maneuver);
+
+                if (DB.getChild(nodeSource, "ability_cost")) then
+                    if (DB.getChild(nodeSource, "ability_cost").getValue() > 0) then
+                        DB.createChildAndCopy(nodeHeroicAbilities, nodeSource);
+                    elseif (signature) then
+                        DB.createChildAndCopy(nodeSignaturesList, nodeSource);
+                    elseif (triggered or maneuver) then
+                        DB.createChildAndCopy(nodeTriggeredManeuvers, nodeSource);
+                    else -- generic ability
+                        DB.createChildAndCopy(heroAbilityList, nodeSource);
+                    end
+                end
+                
+
+                local heroName = DB.getChild(node, "name").getValue();
+                ChatManager.SystemMessageResource("char_abilities_message_abilityadd", tostring(abilityName.getValue()), tostring(heroName));
+            end
         end
 end

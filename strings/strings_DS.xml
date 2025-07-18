@@ -322,7 +322,7 @@
 	<string name="char_tooltip_size">Size</string>
 	<string name="char_tooltip_speed">Speed</string>
 	<string name="char_tooltip_stability">Stability</string>
-	<string name="char_tooltip_classresource">Heroic Resource</string>
+	<string name="char_tooltip_classresource">d3</string>
 	<string name="char_tooltip_stamina">Current Stamina</string>
 	<string name="char_tooltip_max">Max Stamina</string>
 	<string name="char_tooltip_surges">Surges</string>
@@ -535,6 +535,7 @@
 	<string name="char_abilities_message_classadd">Class '%s' added to '%s'.</string>
 	<string name="char_abilities_message_ancestryadd">Ancestry '%s' added to '%s'.</string>
 	<string name="char_abilities_message_kitadd">Kit '%s' added to '%s'.</string>
+	<string name="char_abilities_message_abilityadd">Ability '%s' added to '%s'.</string>
 	<string name="char_abilities_message_careeradd">Career '%s' added to '%s'.</string>
 	<string name="char_emptylist_ancestryfeatures">Drop ancestry link to populate.</string>
 	<string name="char_emptylist_kit">Drop kit link to populate.</string>
