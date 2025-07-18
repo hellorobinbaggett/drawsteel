@@ -148,11 +148,21 @@
 				<anchored to="subclass_label" position="righthigh" offset="-30,0" width="150" height="20" />
 			</basicstring>
 
+			<label_column name="ancestry_label">
+				<static textres="ability_label_ancestry" />
+			</label_column>
+			<basicstring name="ancestry">
+				<anchored width="90" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="70" />
+				</anchored>
+			</basicstring>
+
 			<label_column name="abilitytype_label">
 				<static textres="ability_label_abilitytype" />
 			</label_column>
 			<basicstring name="abilitytype">
-				<anchored width="80" height="20">
+				<anchored width="120" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
 					<left offset="80" />
 				</anchored>
@@ -160,7 +170,7 @@
 
 			<label name="cost_label">
 				<static textres="ability_label_cost" />
-				<anchored to="abilitytype" position="righthigh" offset="16,0" width="90" height="20" />
+				<anchored to="ancestry" position="righthigh" offset="16,0" width="90" height="20" />
 			</label>
 			<basicnumber name="ability_cost">
 				<anchored to="cost_label" position="righthigh" offset="-55,0" width="20" height="20" />

@@ -110,10 +110,6 @@
 				<target>features</target>
 			</scrollbar_list>
 
-			<button_iedit name="features_iedit">
-				<anchored to="features" position="aboveright" offset="-15,5" />
-				<edittarget>features</edittarget>
-			</button_iedit>
 			<button_iadd name="features_iadd">
 				<anchored to="features" position="aboveright" offset="5,5" />
 				<target>features</target>
@@ -149,10 +145,6 @@
 				<target>classfeaturechoice</target>
 			</scrollbar_list>
 
-			<button_iedit name="classfeaturechoice_iedit">
-				<anchored to="classfeaturechoice" position="aboveright" offset="-15,5" />
-				<edittarget>classfeaturechoice</edittarget>
-			</button_iedit>
 			<button_iadd name="classfeaturechoice_iadd">
 				<anchored to="classfeaturechoice" position="aboveright" offset="5,5" />
 				<target>classfeaturechoice</target>

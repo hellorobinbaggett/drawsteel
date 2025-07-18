@@ -287,18 +287,23 @@
 				<tooltip textres="char_tooltip_recovery" />
 				<script>
 					function onButtonPress()
+					local nodeWin = window.getDatabaseNode();
 					local node = window.getDatabaseNode();
 					local recoverycurrent = DB.getChild(node, "recoverycurrent");
 					local current = recoverycurrent.getValue();
+					local nMax = DB.getValue(nodeWin, "hp.max");
+					local nCurrent = DB.getValue(nodeWin, "hp.stamina");
 
 						if(current > 0) then
-							local total = current - 1;
-							DB.setValue(node, "recoverycurrent", "number", total);
+							if(nMax > nCurrent) then
+								local total = current - 1;
+								DB.setValue(node, "recoverycurrent", "number", total);
 
-							local stamina = DB.getChild(node, "hp.stamina").getValue();
-							local recovery = DB.getChild(node, "recoveryvalue").getValue();
-							local totalStamina = stamina + recovery;
-							DB.setValue(node, "hp.stamina", "number", totalStamina);
+								local stamina = DB.getChild(node, "hp.stamina").getValue();
+								local recovery = DB.getChild(node, "recoveryvalue").getValue();
+								local totalStamina = stamina + recovery;
+								DB.setValue(node, "hp.stamina", "number", totalStamina);
+							end
 						end
 					end
 				</script>
@@ -493,11 +498,7 @@
 				<description textres="char_tooltip_herotokens" />
 				<tooltip textres="char_tooltip_herotokendescription" />
 				<min value="0" />
-				<script>
-					function onValueChanged()
-					
-					end
-				</script>
+				<!-- <script file="campaign/scripts/char_herotokens.lua" /> -->
 			</basicnumber>
 
 			<buttoncontrol name="surges">

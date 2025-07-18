@@ -42,18 +42,28 @@
 			</string_characteristiclabel>
 
 			<number_characteristicscore name="distancebonus" source="kit.distancebonus">
-				<anchored to="appearanceframe" position="insidetopleft" offset="120,40" width="30" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="70,40" width="30" />
 			</number_characteristicscore>
             <string_characteristiclabel name="distancebonus_label">
-				<anchored to="distancebonus" offset="0,0" width="100" />
-				<static textres="kit_label_distancebonus" />
+				<anchored to="distancebonus" offset="0,0" width="50" />
+				<static textres="kit_label_ranged" />
+				<tooltip textres="kit_label_rangeddistancebonus" />
+			</string_characteristiclabel>	
+
+			<number_characteristicscore name="meleedistancebonus" source="kit.meleedistancebonus">
+				<anchored to="appearanceframe" position="insidetopleft" offset="160,40" width="30" />
+			</number_characteristicscore>
+            <string_characteristiclabel name="meleedistancebonus_label">
+				<anchored to="meleedistancebonus" offset="0,0" width="45" />
+				<static textres="kit_label_melee" />
+				<tooltip textres="kit_label_meleedistancebonus" />
 			</string_characteristiclabel>	
 
 			<number_characteristicscore name="speedbonus" source="kit.speedbonus">
-				<anchored to="appearanceframe" position="insidetopleft" offset="270,40" width="30" />
+				<anchored to="appearanceframe" position="insidetopleft" offset="290,40" width="30" />
 			</number_characteristicscore>
             <string_characteristiclabel name="speedbonus_label">
-				<anchored to="speedbonus" offset="0,0" width="100" />
+				<anchored to="speedbonus" offset="0,0" width="85" />
 				<static textres="kit_label_speedbonus" />
 			</string_characteristiclabel>
 
@@ -136,7 +146,7 @@
 			<number_characteristicscore name="speed" source="abilities.speed.value">
 				<anchored to="combatframe" position="insidetopleft" offset="95,100" width="20" />
 				<description textres="char_tooltip_speed" />
-				<default>5</default>
+				<default>0</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="speed_label">
 				<anchored to="speed" />

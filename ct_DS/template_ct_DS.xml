@@ -201,7 +201,7 @@
 
 	<template name="ct_initiative_roll">
 		<initiative_roll>
-                <bounds>-330,32,50,50</bounds>
+                <bounds>100,-77,60,60</bounds>
                 <tooltip textres="tooltip_ir" />
                 <script>	
                     function action(draginfo)

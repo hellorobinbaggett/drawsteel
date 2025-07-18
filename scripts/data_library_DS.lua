@@ -37,11 +37,11 @@ aRecordOverrides = {
 		bExport = true,
 		aDataMap = { "ability", "reference.abilities" },
 		aCustomFilters = {
+			["Ancestry"] = { sField = "ancestry" },
 			["Class"] = { sField = "class" },
-			["Subclass"] = { sField = "subclass" },
-			["Type"] = { sField = "abilitytype" },
 			["Cost"] = { sField = "ability_cost" },
 			["Level"] = { sField = "ability_level" },
+			["Type"] = { sField = "abilitytype" },
 		},
 	},
 	["kit"] = {
@@ -66,6 +66,15 @@ aListViews = {
 			},
 			aFilters = {},
 			aGroups = { { sDBField = "class" } },
+			aGroupValueOrder = {},
+		},
+		["byancestry"] = {
+			aColumns = {
+				{ sName = "cost", sType = "basicnumber", sHeadingRes = "ability_grouped_label_cost", nWidth=200 },
+				{ sName = "name", sType = "basicnumber", sHeadingRes = "ability_grouped_label_name", nWidth=200 },
+			},
+			aFilters = {},
+			aGroups = { { sDBField = "ancestry" } },
 			aGroupValueOrder = {},
 		},
 	},

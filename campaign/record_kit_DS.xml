@@ -32,22 +32,26 @@
 
 
 			<label_column name="distancebonus_label">
-				<static textres="kit_label_distancebonus" />
+				<static textres="kit_label_rangeddistancebonus" />
 			</label_column>
 			<basicnumber name="distancebonus" source="distancebonus">
 				<anchored width="30" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="100" />
+					<left offset="150" />
 				</anchored>
 			</basicnumber>
 
-			<label name="speedbonus_label">
-				<static textres="kit_label_speedbonus" />
-				<anchored to="distancebonus" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicnumber name="speedbonus" source="speedbonus">
-				<anchored to="speedbonus_label" position="righthigh" offset="-5,0" width="30" height="20" />
+			<label_column name="meleedistancebonus_label">
+				<static textres="kit_label_meleedistancebonus" />
+			</label_column>
+			<basicnumber name="meleedistancebonus" source="meleedistancebonus">
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="150" />
+				</anchored>
 			</basicnumber>
+
+
 
 			<label_column name="stability_label">
 				<static textres="kit_label_stabilitybonus" />
@@ -76,6 +80,14 @@
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
 					<left offset="180" />
 				</anchored>
+			</basicnumber>
+
+			<label name="speedbonus_label">
+				<static textres="kit_label_speedbonus" />
+				<anchored to="staminabonus" position="righthigh" offset="16,0" width="90" height="20" />
+			</label>
+			<basicnumber name="staminabonus" source="speedbonus">
+				<anchored to="speedbonus_label" position="righthigh" offset="-5,0" width="30" height="20" />
 			</basicnumber>
 
 			<line_column name="divider2" />

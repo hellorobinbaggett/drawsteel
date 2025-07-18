@@ -29,6 +29,7 @@
 	<string name="library_recordtype_empty_ability">&#171; New Ability &#187;</string>
 	<string name="library_recordview_label_ability_bytype">By Type</string>
 	<string name="library_recordview_label_ability_byclass">By Class</string>
+	<string name="library_recordview_label_ability_byancestry">By Ancestry</string>
 	<string name="library_recordtype_label_monsters">Monsters</string>
 	<string name="library_recordtype_label_ancestry">Ancestries</string>
 	<string name="library_recordtype_single_ancestry">Ancestry</string>
@@ -511,6 +512,7 @@
 	<string name="ability_label_cost">Cost</string>
 	<string name="ability_label_class">Class</string>
 	<string name="ability_label_subclass">Subclass</string>
+	<string name="ability_label_ancestry">Ancestry</string>
 	<string name="ability_label_abilitytype">Ability Type</string>
 	<string name="ability_label_abilitylevel">Level</string>
 	<string name="ability_label_keywords">Keywords</string>
@@ -546,7 +548,10 @@
 	<string name="kit_label_staminabonus">Stamina Bonus (per echelon)</string>
 	<string name="kit_label_speedbonus">Speed Bonus</string>
 	<string name="kit_label_stabilitybonus">Stability Bonus</string>
-	<string name="kit_label_distancebonus">Distance Bonus</string>
+	<string name="kit_label_rangeddistancebonus">Ranged Distance Bonus</string>
+	<string name="kit_label_meleedistancebonus">Melee Distance Bonus</string>
+	<string name="kit_label_ranged">Ranged</string>
+	<string name="kit_label_melee">Melee</string>
 	<string name="kit_label_disengagebonus">Disengage Bonus</string>
 	<string name="kit_label_meleedamagebonus">Melee Damage Bonus</string>
 	<string name="kit_label_rangeddamagebonus">Ranged Damage Bonus</string>

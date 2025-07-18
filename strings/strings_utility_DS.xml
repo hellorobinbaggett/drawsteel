@@ -23,6 +23,7 @@
 	<string name="library_recordtype_empty_ability">&#171; New Ability &#187;</string>
 	<string name="library_recordview_label_ability_bytype">By Type</string>
 	<string name="library_recordview_label_ability_byclass">By Class</string>
+	<string name="library_recordview_label_ability_byancestry">By Ancestry</string>
 
 	<string name="library_recordtype_label_ancestry">Ancestries</string>
 	<string name="library_recordtype_single_ancestry">Ancestry</string>

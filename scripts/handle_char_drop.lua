@@ -83,7 +83,6 @@ function onDrop(x, y, draginfo)
                     local levelMultiplyer = (heroLevel.getValue() - 1)
                     local additionalStamina = (staminaPerLevel.getValue() * levelMultiplyer);
                     local totalStamina = (additionalStamina + startingStamina.getValue());
-                    Debug.chat(totalStamina);
                     DB.setValue(node, "hp.stamina", "number", totalStamina);
                     DB.setValue(node, "hp.max", "number", totalStamina);
                 end
@@ -116,10 +115,6 @@ function onDrop(x, y, draginfo)
                 local signature = string.match(DB.getChild(nodeSource, "abilitytype").getValue(), "Signature");
                 local triggered = string.match(DB.getChild(nodeSource, "type").getValue(), "Triggered");
                 local maneuver = string.match(DB.getChild(nodeSource, "type").getValue(), "Maneuver");
-
-                Debug.chat(signature);
-                Debug.chat(triggered);
-                Debug.chat(maneuver);
 
                 if (DB.getChild(nodeSource, "ability_cost")) then
                     if (DB.getChild(nodeSource, "ability_cost").getValue() > 0) then
