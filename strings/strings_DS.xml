@@ -569,6 +569,13 @@
 	<string name="class_label_startingIntuition">Starting Intuition</string>
 	<string name="class_label_startingPresence">Starting Presence</string>
 
+	<!-- Career -->
+	<string name="career_label_skills">Skills:</string>
+	<string name="career_label_languages">Languages:</string>
+	<string name="career_label_renown">Renown Bonus:</string>
+	<string name="career_label_wealth">Wealth Bonus:</string>
+	<string name="career_label_perk">Perk:</string>
+
 
 	<!-- CT -->
 	<string name="ct_emptylist_heroes">Drop PC links to add entries.</string>

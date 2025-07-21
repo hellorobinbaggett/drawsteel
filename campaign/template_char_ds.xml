@@ -618,12 +618,12 @@
 
 	<template name="button_characteristic">
 		<buttonfield>
+			<state icon="empty_block" tooltipres="char_tooltip_characteristic_empty" />
 			<state icon="might_block" tooltipres="char_tooltip_characteristic_might" />
 			<state icon="agility_block" tooltipres="char_tooltip_characteristic_agility" />
 			<state icon="reason_block" tooltipres="char_tooltip_characteristic_reason" />
 			<state icon="intuition_block" tooltipres="char_tooltip_characteristic_intuition" />
 			<state icon="presence_block" tooltipres="char_tooltip_characteristic_presence" />
-			<state icon="empty_block" tooltipres="char_tooltip_characteristic_empty" />
 		</buttonfield>
 	</template>
 

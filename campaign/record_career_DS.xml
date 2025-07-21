@@ -24,7 +24,63 @@
 		</tab> -->
 		
 	</windowclass>
-	<!-- TODO: write code for the main class body -->
-	<!-- tip: look at the record_content_notes in corerpg -->
-
 </root>
+
+
+<!-- 
+	<windowclass name="career_main">
+		<margins control="0,0,0,2" />
+		<sheetdata name="sheetdata_kit">
+				<anchor_column name="columnanchor" />
+			<ft_columnh name="notes" copy="record_window_text" >
+				<anchored height="130">
+					<left offset="5" />
+				</anchored>
+			</ft_columnh>
+
+			<line_column name="divider1" />
+
+
+			<label_column name="skills_label" source="careerskills">
+				<static textres="career_label_skills" />
+			</label_column>
+			<string_columnh name="careerskills" source="careerskills">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="languages_label">
+				<static textres="career_label_languages" />
+				<anchored>
+					<left offset="0" />
+				</anchored>
+			</label_column>
+			<string_columnh name="careerlanguages" source="careerlanguages">
+			</string_columnh>
+
+			<label_column name="renown_label">
+				<static textres="career_label_renown" />
+			</label_column>
+			<basicnumber name="careerrenown" source="careerrenown">
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="100" />
+				</anchored>
+			</basicnumber>
+
+			<label_column name="wealth_label">
+				<static textres="career_label_wealth" />
+			</label_column>
+			<basicnumber name="careerwealth" source="careerwealth">
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="100" />
+				</anchored>
+			</basicnumber>
+
+			<label_column name="perk_label">
+				<static textres="career_label_perk" />
+			</label_column>
+			<string_columnh name="careerperk" source="careerperk">
+			</string_columnh>
+		</sheetdata>
+	</windowclass> -->

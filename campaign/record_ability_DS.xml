@@ -19,7 +19,7 @@
 			<ft_columnh name="notes" copy="record_window_text" >
 			</ft_columnh>
 
-			<line_column name="notesdivider" />
+			<line_column name="divider1" />
 			<!-- KEYWORDS -->
 			<label_column name="keywords_label">
 				<static textres="ability_label_keywords" />
@@ -61,19 +61,19 @@
 			<!-- POWER ROLL -->
 			<line_column name="divider2" />
 		
-			<label_column name="characteristic_label">
+			<label_column name="characteristic_label" source="characteristic_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic" source="ability.characteristic.button">
+			<button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>5</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
@@ -116,7 +116,7 @@
 			<label_column name="effect_label">
 				<static textres="ability_label_effect" />
 			</label_column>
-			<string_columnh name="effect" source="ability.effect">
+			<string_columnh name="effect" source="effect">
 				<delaykeyupdate />
 			</string_columnh>
 			<label_column name="special_label">
@@ -128,7 +128,6 @@
 
 			<!-- CLASS SUBCLASS TAGS -->
 			<line_column name="divider4" />
-			<line_column name="divider5" />
 
 			<label_column name="class_label">
 				<static textres="ability_label_class" />
