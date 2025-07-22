@@ -5,4 +5,4 @@ Steps to get the ruleset in your fantasy grounds unity
 4. Put the .pak file in "...\AppData\Roaming\SmiteWorks\Fantasy Grounds\rulesets" folder
 
 LEGAL
-Draw Steel Custom Ruleset (v.040) is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. DRAW STEEL © 2024 MCDM Productions, LLC. 
+Draw Steel Custom Ruleset for Fantasy Grounds Unity is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. DRAW STEEL © 2024 MCDM Productions, LLC. 
