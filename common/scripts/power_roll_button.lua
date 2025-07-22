@@ -74,7 +74,7 @@ function action(draginfo)
         t1 = DB.getValue(nodeWin, "tier1"),
         t2 = DB.getValue(nodeWin, "tier2"),
         t3 = DB.getValue(nodeWin, "tier3");
-        effect = DB.getValue(nodeWin, "ability.effect");
+        effect = DB.getValue(nodeWin, "effect");
     };
     ActionsManager_DS.encodeDesktopMods(rRoll);
     ActionsManager.performAction(draginfo, rActor, rRoll);

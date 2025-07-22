@@ -87,6 +87,8 @@
 	<script name="InitiativeManager" file="scripts/manager_initiative_DS.lua" />
 	<script name="RollManager_DS" file="scripts/manager_rolls_DS.lua" />
 
+	<script name="WindowManager_DS" file="scripts/manager_window_DS.lua" />
+
 	<!-- Desktop -->
 	<includefile source="desktop/desktop_classes_DS.xml" />
 

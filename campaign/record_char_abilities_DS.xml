@@ -31,6 +31,7 @@
 				</script>
 			</basicnumber>
 
+			<!-- TODO: make the textres change based on class -->
 			<label_charfieldtop name="classresource_label">
 				<anchored to="classresource" offset="0,8" />
 				<static textres="char_label_classresource" />

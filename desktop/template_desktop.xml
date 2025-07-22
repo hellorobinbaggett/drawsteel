@@ -6,6 +6,74 @@
 -->
 
 <root>
+	<template name="number_charwizard_abilitymod">
+		<basicnumberc>
+			<nodrag />
+			<hideonvalue>0</hideonvalue>
+		</basicnumberc>
+	</template>
+	<template name="number_charwizard_abilitybase">
+		<number_charwizard_abilitymod>
+			<anchored width="40" height="40">
+				<top parent="strength_base" anchor="top" />
+				<left parent="strength_base" anchor="right" relation="relative" offset="40" />
+			</anchored>
+			<hideonvalue>0</hideonvalue>
+			<readonly />
+		</number_charwizard_abilitymod>
+	</template>
+	<template name="button_charwizard_ability_genvalup">
+		<buttoncontrol>
+			<anchored position="aboveright" offset="-25,-20" width="20" height="20" />
+			<icon normal="arrow_sm_up" />
+			<frame name="fieldlight" offset="2,2,2,2" />
+			<invisible />
+			<script>
+				function onButtonPress()
+					CharWizardAbilitiesManager.handleAbilityPointBuy(window, getName():gsub("_.*", ""), 1);
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+	<template name="button_charwizard_ability_genvaldown">
+		<buttoncontrol>
+			<anchored position="belowright" offset="-25,-20" width="20" height="20" />
+			<icon normal="arrow_sm_down" />
+			<frame name="fieldlight" offset="2,2,2,2" />
+			<invisible />
+			<script>
+				function onButtonPress()
+					CharWizardAbilitiesManager.handleAbilityPointBuy(window, getName():gsub("_.*", ""), -1);
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+	<template name="button_charwizard_ability_genleft">
+		<buttoncontrol>
+			<anchored position="lefthigh" offset="-2,10" width="20" height="20" />
+			<icon normal="arrow_sm_left" />
+			<frame name="fieldlight" offset="2,2,2,2" />
+			<invisible />
+			<script>
+				function onButtonPress()
+					CharWizardAbilitiesManager.handleAbilitySwapLeft(getName():gsub("_.*", ""));
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+	<template name="button_charwizard_ability_genright">
+		<buttoncontrol>
+			<anchored position="righthigh" offset="-2,10" width="20" height="20" />
+			<icon normal="arrow_sm_right" />
+			<frame name="fieldlight" offset="2,2,2,2" />
+			<invisible />
+			<script>
+				function onButtonPress()
+					CharWizardAbilitiesManager.handleAbilitySwapRight(getName():gsub("_.*", ""));
+				end
+			</script>
+		</buttoncontrol>
+	</template>
 	<template name="button_panel_lock">
 		<button_icon>
 			<tintable />

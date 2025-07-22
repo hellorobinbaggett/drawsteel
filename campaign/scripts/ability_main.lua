@@ -18,30 +18,35 @@ function update()
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID = LibraryData.getIDState("npc", nodeRecord);
 
-	-- HIDES empty sections
-	-- local bSection1 = false;
-	-- local bSection2 = false;
-	-- local bSection3 = false;
-	-- local bSection4 = false;
+	local bSection1 = false;
+	local bSection2 = false;
+	local bSection3 = false;
+	local bSection4 = false;
 
-	-- if WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly) then bSection3 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "effect", bReadOnly) then bSection3 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "special", bReadOnly) then bSection3 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "notes", bReadOnly) then bSection1 = true; end;
 
+	if WindowManager.callSafeControlUpdate(self, "keywords", bReadOnly) then bSection2 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type", bReadOnly) then bSection2 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance", bReadOnly) then bSection2 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target", bReadOnly) then bSection2 = true; end;
+
+	if WindowManager.callSafeControlUpdate(self, "characteristic", bReadOnly) then bSection3 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label", bReadOnly) then bSection3 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1", bReadOnly) then bSection3 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2", bReadOnly) then bSection3 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3", bReadOnly) then bSection3 = true; end;
 	
-	-- if WindowManager.callSafeControlUpdate(self, "class", bReadOnly) then bSection4 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "subclass", bReadOnly) then bSection4 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "ancestry", bReadOnly) then bSection4 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "ability_cost", bReadOnly) then bSection4 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "ability_level", bReadOnly) then bSection4 = true; end;
-	-- if WindowManager.callSafeControlUpdate(self, "abilitytype", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special", bReadOnly) then bSection4 = true; end;
 
-	-- divider1.setVisible(bSection1);
-	-- divider2.setVisible(bSection2);
-	-- divider3.setVisible(bSection3);
-	-- divider4.setVisible(bSection4);
+	divider1.setVisible(bSection1);
+	divider2.setVisible(bSection2);
+	divider3.setVisible(bSection3);
+	divider4.setVisible(bSection4);
 
 	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "notes", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier1", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier2", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "tier3", bReadOnly);
@@ -52,12 +57,13 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "trigger", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "effect", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "special", bReadOnly);
+
+	-- hidden data
 	WindowManager.callSafeControlUpdate(self, "class", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "subclass", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "ancestry", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "abilitytype", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "ability_cost", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "ability_level", bReadOnly);
-	WindowManager.callSafeControlUpdate(self, "abilitytype", bReadOnly);
-	WindowManager.callSafeControlUpdate(self, "notes", bReadOnly);
 
 end

@@ -93,7 +93,7 @@
 	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_itemweight">En</string>
 	<string name="tooltip_wip">This feature is not implemented yet</string>
-	<string name="char_tooltip_characteristic_empty">Press to select</string>
+	<string name="char_tooltip_characteristic_empty">Click to select</string>
 	<string name="char_tooltip_characteristic_might">Might</string>
 	<string name="char_tooltip_characteristic_agility">Agility</string>
 	<string name="char_tooltip_characteristic_reason">Reason</string>
@@ -424,7 +424,6 @@
 	<string name="char_label_winded">Winded</string>
 	<string name="char_label_current">Current</string>
 	<string name="char_label_savingthrow">Saving Throw</string>
-	<string name="char_label_classresource">Heroic Resource</string>
 	<string name="char_label_kitbonuses">Kit Bonuses</string>
 	<string name="char_label_recoveries">Recoveries</string>
 	<string name="char_label_immunities">Immunities</string>
@@ -534,6 +533,8 @@
 	<string name="ability_message_resourcewarning">You don't have enough class resources</string>
 
 	<!-- Character Builder -->
+	<string name="char_abilities_message_warning">---ERROR ADDING CLASS--- \n You must select one column for starting characteristics.</string>
+	<string name="char_abilities_message_add">%s: %s to '%s'.</string>
 	<string name="char_abilities_message_classadd">Class '%s' added to '%s'.</string>
 	<string name="char_abilities_message_ancestryadd">Ancestry '%s' added to '%s'.</string>
 	<string name="char_abilities_message_kitadd">Kit '%s' added to '%s'.</string>
@@ -560,14 +561,15 @@
 
 	<!-- Class -->
 	<string name="class_label_basics">Basics</string>
+	<string name="class_label_startingCharacteristics">Starting Characteristics</string>
 	<string name="class_label_startingStamina">Starting Stamina</string>
 	<string name="class_label_staminaPerLevel">Stamina Per Level</string>
 	<string name="class_label_startingRecoveries">Starting Recoveries</string>
-	<string name="class_label_startingMight">Starting Might</string>
-	<string name="class_label_startingAgility">Starting Agility</string>
-	<string name="class_label_startingReason">Starting Reason</string>
-	<string name="class_label_startingIntuition">Starting Intuition</string>
-	<string name="class_label_startingPresence">Starting Presence</string>
+	<string name="class_label_startingMight">Might</string>
+	<string name="class_label_startingAgility">Agility</string>
+	<string name="class_label_startingReason">Reason</string>
+	<string name="class_label_startingIntuition">Intuition</string>
+	<string name="class_label_startingPresence">Presence</string>
 
 	<!-- Career -->
 	<string name="career_label_skills">Skills:</string>

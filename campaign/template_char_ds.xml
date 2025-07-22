@@ -52,6 +52,11 @@
 			<tooltip textres="charselect_tooltip_export" />
 		</buttoncontrol>
 	</template>
+
+	<template name="frame_char_invis">
+		<genericcontrol>
+		</genericcontrol>
+	</template>
 	
 	<template name="frame_char">
 		<genericcontrol>
@@ -108,6 +113,13 @@
 				end
 			</script>
 		</stringcu>
+	</template>
+
+	<template name="button_checkbox">
+		<buttonfield>
+			<state icon="button_checkoff" tooltipres="char_tooltip_characteristic_might" />
+			<state icon="button_checkon" tooltipres="char_tooltip_characteristic_empty" />
+		</buttonfield>
 	</template>
 
 	<template name="button_charactivate">
@@ -533,6 +545,11 @@
 			<anchored position="belowleft" offset="0,8" width="32" height="22" />
 			<default>0</default>
 		</basicnumber>
+	</template>
+	<template name="string_characteristicscore">
+		<string>
+			<anchored position="belowleft" offset="0,8" width="32" height="22" />
+		</string>
 	</template>
 	<template name="string_characteristiclabel">
 		<label>

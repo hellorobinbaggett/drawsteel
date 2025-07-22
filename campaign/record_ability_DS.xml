@@ -14,7 +14,8 @@
 		<margins control="0,0,0,2" />
 		<script file="campaign/scripts/ability_main.lua" />
 		<sheetdata name="sheetdata_ability">
-				<anchor_column name="columnanchor" />
+			<anchor_column name="columnanchor" />
+			
 			<!-- DESCRIPTION -->
 			<ft_columnh name="notes" copy="record_window_text" >
 			</ft_columnh>
@@ -24,39 +25,36 @@
 			<label_column name="keywords_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
 			<!-- TYPE -->
-			<label name="type_label">
+			<label_column name="type_label">
 				<static textres="ability_label_type" />
-				<anchored to="keywords" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type">
-				<anchored to="type_label" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="type">
+				<delaykeyupdate />
+			</string_columnh>
 
 
 			<label_column name="distance_label">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label">
+			<label_column name="target_label">
 				<static textres="ability_label_target" />
-				<anchored to="distance" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target">
-				<anchored to="target_label" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<!-- POWER ROLL -->
 			<line_column name="divider2" />
@@ -64,14 +62,15 @@
 			<label_column name="characteristic_label" source="characteristic_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
-					<top offset="5" />
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="25" />
 				</anchored>
 			</label_column>
 
 			<button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
-					<left offset="80" />
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="-21" />
+					<left offset="105" />
 				</anchored>
                 <default>0</default>
                 <tooltip textres="skill_tooltip" />
@@ -80,13 +79,10 @@
 			<label_column name="tier1_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
-					<left offset="36" />
+					<left offset="36"/>
 				</anchored>
 			</label_column>
 			<string_columnh name="tier1" source="tier1">
-				<!-- <anchored>
-					<left offset="95" />
-				</anchored> -->
 			</string_columnh>
 
 			<label_column name="tier2_label">
@@ -132,58 +128,39 @@
 			<label_column name="class_label">
 				<static textres="ability_label_class" />
 			</label_column>
-			<basicstring name="class">
-				<anchored width="80" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="40" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="class">
+			</string_columnh>
 
-			<label name="subclass_label">
+			<label_column name="subclass_label">
 				<static textres="ability_label_subclass" />
-				<anchored to="class" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="subclass">
-				<anchored to="subclass_label" position="righthigh" offset="-30,0" width="150" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="subclass">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="ancestry_label">
 				<static textres="ability_label_ancestry" />
 			</label_column>
-			<basicstring name="ancestry">
-				<anchored width="90" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="70" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="ancestry">
+			</string_columnh>
 
 			<label_column name="abilitytype_label">
 				<static textres="ability_label_abilitytype" />
 			</label_column>
-			<basicstring name="abilitytype">
-				<anchored width="120" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="abilitytype">
+			</string_columnh>
 
-			<label name="cost_label">
+			<label_column name="ability_cost_label">
 				<static textres="ability_label_cost" />
-				<anchored to="ancestry" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicnumber name="ability_cost">
-				<anchored to="cost_label" position="righthigh" offset="-55,0" width="20" height="20" />
-				<hideonvalue>0</hideonvalue>
-			</basicnumber>
+			</label_column>
+			<number_columnh name="ability_cost">
+			</number_columnh>
 
-			<label name="abilitylevel_label">
+			<label_column name="ability_level_label">
 				<static textres="ability_label_abilitylevel" />
-				<anchored to="ability_cost" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicnumber name="ability_level">
-				<anchored to="abilitylevel_label" position="righthigh" offset="-50,0" width="20" height="20" />
-				<hideonvalue>0</hideonvalue>
-			</basicnumber>
+			</label_column>
+			<number_columnh name="ability_level">
+			</number_columnh>
 		</sheetdata>
 	</windowclass>
 </root>
