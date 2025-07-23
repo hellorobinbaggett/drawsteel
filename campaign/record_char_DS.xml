@@ -135,8 +135,8 @@
 				<labelres>char_label_career</labelres>
 			</string_labeled>			 -->
 
-			<!-- KIT -->
-			<string_labeled name="kit">
+			<!-- KIT oops this is messed up but now I can't change it or it will break stuff -->
+			<string_labeled name="career"> 
 				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_kit</labelres>
 			</string_labeled>

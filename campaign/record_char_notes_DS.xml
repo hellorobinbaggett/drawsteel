@@ -54,12 +54,12 @@
 			</string_labeled>
 
 			
-			<string_labeled name="career">
+			<string_labeled name="backgroundcareer">
 				<anchored to="detailframe" position="insidetopleft" offset="15,35" width="60" />
 				<labelres>char_label_career</labelres>
 			</string_labeled>
 			<string_labeled name="renown">
-				<anchored to="career" position="righthigh" offset="5,0" width="80" />
+				<anchored to="backgroundcareer" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_renown</labelres>
 			</string_labeled>
 			<string_labeled name="currentfollowers">
