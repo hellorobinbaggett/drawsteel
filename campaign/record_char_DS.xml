@@ -136,7 +136,7 @@
 			</string_labeled>			 -->
 
 			<!-- KIT -->
-			<string_labeled name="career">
+			<string_labeled name="kit">
 				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_kit</labelres>
 			</string_labeled>

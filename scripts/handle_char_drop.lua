@@ -4,12 +4,23 @@ function onDrop(x, y, draginfo)
             local node = getDatabaseNode();
             local heroName = DB.getChild(node, "name").getValue();
 
+            -- career
+            if StringManager.contains({ "career" }, sClass) then
+                local nodeSource = DB.findNode(sRecord); -- career record
+                local careerName = DB.getChild(nodeSource, "name"); -- career name
+                local heroCareer = DB.createChild(node, "career"); -- charactersheet career details
+
+                DB.copyNode(careerName, heroCareer); -- copy career name
+                ChatManager.SystemMessageResource("char_abilities_message_careeradd", tostring(careerName.getValue()), tostring(heroName));
+            end
+
+
             -- kit
             if StringManager.contains({ "kit" }, sClass) then
                 local nodeSource = DB.findNode(sRecord); -- kit record
                 local kitName = DB.getChild(nodeSource, "name"); -- kit name
                 local kitAbility = DB.getChild(nodeSource, "signatureabilities"); -- kit ability
-                local heroKit = DB.getChild(node, "career"); -- charactersheet kit title
+                local heroKit = DB.getChild(node, "kit"); -- charactersheet kit title
                 local nodeKitList = DB.createChild(node, "kit"); -- charactersheet kit details
                 local nodeKitAbilityList = DB.createChild(node, "signatureabilities"); -- charactersheet abilities
 
@@ -47,9 +58,6 @@ function onDrop(x, y, draginfo)
                 local nodeSource = DB.findNode(sRecord);
                 local className = DB.getChild(nodeSource, "name");
                 local classFeaturesList = DB.createChild(nodeSource, "features");
-                local check1 = DB.getChild(nodeSource, "choice1").getValue();
-                local check2 = DB.getChild(nodeSource, "choice2").getValue();
-                local check3 = DB.getChild(nodeSource, "choice3").getValue();
 
                 if not heroFeaturesList then
                     return nil;
@@ -153,7 +161,7 @@ function onDrop(x, y, draginfo)
             -- TODO: abilities
             if StringManager.contains({ "ability" }, sClass) then
                 local nodeSource = DB.findNode(sRecord); -- ability record
-                local abilityName = DB.getChild(nodeSource, "name"); -- kit name
+                local abilityName = DB.getChild(nodeSource, "name"); -- ability name
                 local nodeAbilitiesList = DB.createChild(node, "actionslist");
                 local nodeSignaturesList = DB.createChild(node, "signatureabilities");
                 local nodeTriggeredManeuvers = DB.createChild(node, "maneuverandtriggeredabilitieslist");
