@@ -54,12 +54,12 @@
 			</string_labeled>
 
 			
-			<string_labeled name="backgroundcareer">
+			<string_labeled name="career_name">
 				<anchored to="detailframe" position="insidetopleft" offset="15,35" width="60" />
 				<labelres>char_label_career</labelres>
 			</string_labeled>
 			<string_labeled name="renown">
-				<anchored to="backgroundcareer" position="righthigh" offset="5,0" width="80" />
+				<anchored to="career_name" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_renown</labelres>
 			</string_labeled>
 			<string_labeled name="currentfollowers">
@@ -107,7 +107,7 @@
 			</scrollbar_list>		
 			
 			<frame_char name="languageframe">
-				<bounds>320,70,-1,190</bounds>
+				<bounds>310,70,-1,190</bounds>
 			</frame_char>
 			<label_frametop>
 				<anchored to="languageframe" />
@@ -133,6 +133,11 @@
 				<anchored to="languages" position="aboveright" offset="5,5" />
 				<target>languages</target>
 			</button_iadd>
+			<buttonfield name="tutorial">
+				<state icon="button_help" tooltipres="tooltip_character_languages" />
+				<tooltip textres="tooltip_character_languages" />
+				<bounds>320,80,20,20</bounds>
+			</buttonfield>
 
 			<frame_char name="notesframe">
 				<bounds>0,260,-1,-5</bounds>

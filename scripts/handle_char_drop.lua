@@ -8,7 +8,7 @@ function onDrop(x, y, draginfo)
             if StringManager.contains({ "career" }, sClass) then
                 local nodeSource = DB.findNode(sRecord); -- career record
                 local careerName = DB.getChild(nodeSource, "name"); -- career name
-                local heroCareer = DB.createChild(node, "backgroundcareer"); -- charactersheet career details
+                local heroCareer = DB.createChild(node, "career_name"); -- charactersheet career details
 
                 DB.copyNode(careerName, heroCareer); -- copy career name
                 ChatManager.SystemMessageResource("char_abilities_message_careeradd", tostring(careerName.getValue()), tostring(heroName));
@@ -126,8 +126,12 @@ function onDrop(x, y, draginfo)
                 local tNodes = DB.getChildren(nodeSource, "featurechoices")
                 for key,value in pairs(tNodes) do
                     local level = DB.createChild(value, "level");
+                    local checkbox = DB.createChild(value, "checkbox");
+                    Debug.chat(checkbox);
                     if(level.getValue() == heroLevel.getValue()) then
-                        DB.createChildAndCopy(heroChoiceList, value);
+                        if(checkbox.getValue() == 1) then
+                            DB.createChildAndCopy(heroChoiceList, value);
+                        end
                     end
                 end
 

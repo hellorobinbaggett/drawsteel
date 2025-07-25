@@ -15,7 +15,8 @@
 	<icon name="reason_block" file="graphics/buttons/R_black.png" />
 	<icon name="presence_block" file="graphics/buttons/P_black.png" />
 	<icon name="empty_block" file="graphics/buttons/blank_black.png" />
-
+	<icon name="info_alert" file="graphics/buttons/button_info.png" />
+	<icon name="info_warning" file="graphics/buttons/button_info_yellow.png" />
 
     <!-- Skills -->
 	<icon name="button_prof" file="graphics/buttons/button_prof.png" />

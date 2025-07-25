@@ -66,7 +66,13 @@
 
 			<header_content_framed_headersimple name="featurechoices_header">
 				<static textres="class_header_featurechoices"/>
+				<tooltip textres="tooltip_class_featurechoices" />
 			</header_content_framed_headersimple>
+			<buttoncontrol>
+				<icon normal="info_alert" pressed="info_alert" />
+				<tooltip textres="tooltip_class_featurechoices" />
+				<bounds>210,5,20,20</bounds>
+			</buttoncontrol>
 			<button_iadd name="featurechoices_iadd">
 				<anchored to="featurechoices_header" position="insidetopright" offset="2,0" />
 				<target>featurechoices</target>
@@ -169,6 +175,12 @@
 				<anchored to="startingPresence" width="75" offset="-59,25"/>
 				<static textres="class_label_startingPresence" />
 			</string_characteristiclabel>	
+
+			<buttoncontrol>
+				<icon normal="info_alert" pressed="info_alert" />
+				<tooltip textres="tooltip_class_basics" />
+				<bounds>172,5,20,20</bounds>
+			</buttoncontrol>
 
 			<!-- <button_checkbox name="choice1">
 				<bounds>90,30,20,20</bounds>
@@ -343,10 +355,12 @@
 			</label_content_column>
 			<string_content_columnh name="prerequisite" />
 
+			<!-- TODO: investigate why the tooltip for this checkbox is wrong -->
 			<label_content_column name="repeatable_label">
 				<static textres="label_selected_class" />
+				<tooltip textres="char_tooltip_choose" />
 			</label_content_column>
-			<button_checkbox_content_columnh name="repeatable" />
+			<button_checkbox_content_columnh name="checkbox" />
 
 			<ft_content_column_full name="text" />
 		</sheetdata>

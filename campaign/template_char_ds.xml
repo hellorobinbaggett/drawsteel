@@ -117,8 +117,8 @@
 
 	<template name="button_checkbox">
 		<buttonfield>
-			<state icon="button_checkoff" tooltipres="char_tooltip_characteristic_might" />
-			<state icon="button_checkon" tooltipres="char_tooltip_characteristic_empty" />
+			<state icon="button_checkoff" tooltipres="char_tooltip_characteristic_empty" />
+			<state icon="button_checkon" />
 		</buttonfield>
 	</template>
 

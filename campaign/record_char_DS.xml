@@ -172,6 +172,13 @@
 				<labelres>char_label_subclass</labelres>
 			</string_labeled>
 
+			<buttonfield name="tutorial">
+				<state icon="info_warning" />
+				<state icon="button_help" tooltipres="tooltip_character_builder" />
+				<bounds>-60,25,20,20</bounds>
+			</buttonfield>
+
+
 			<!-- TODO: implement linkable fields for the subclass,class,ancetry,and career (similar to 5e) -->
 			<!-- vv below is some code from 5e for how they have linkfield_record setup vv -->
 			<!-- <label_charframetop name="speciestitle">
