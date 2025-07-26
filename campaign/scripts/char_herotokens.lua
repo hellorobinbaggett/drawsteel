@@ -1,6 +1,5 @@
 function onInit()
     setValue(DB.getValue(nodeHeroToken, "herotoken"));
-    Debug.chat(DB.getValue(nodeHeroToken, "herotoken"));
 end
 
 function onValueChanged()

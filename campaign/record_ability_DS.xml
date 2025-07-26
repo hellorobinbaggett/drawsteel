@@ -156,6 +156,12 @@
 			<number_columnh name="ability_cost">
 			</number_columnh>
 
+			<label_column name="ability_cost_string_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string">
+			</string_columnh>
+
 			<label_column name="ability_level_label">
 				<static textres="ability_label_abilitylevel" />
 			</label_column>

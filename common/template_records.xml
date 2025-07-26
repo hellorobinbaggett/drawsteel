@@ -287,13 +287,11 @@
 	</windowclass>
 
 	<windowclass name="record_content_abilities" copy="record_context_text_base">
-		<!-- <script file="campaign/scripts/ability_monster.lua" /> -->
+		<script file="campaign/scripts/monster_abilities.lua" />
 		<target>abilities</target>
 		<!-- First Ability -->
 		<sheetdata name="sheetdata_ability">
 		<anchor_column name="columnanchor" />
-			<line_column name="divider1" />
-
 			<basicstring name="abilityname_ability">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -304,43 +302,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label">
-				<static textres="ability_label_type" />
-				<anchored to="keywords" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type">
-				<anchored to="type_label" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label">
+			<label_column name="target_label">
 				<static textres="ability_label_target" />
-				<anchored to="distance" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target">
-				<anchored to="target_label" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<!-- POWER ROLL -->
 		
@@ -424,35 +417,35 @@
                         characteristicMod = 0;
                         -- AGL
                         if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
+                            characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
                         if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
+                            characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
                         if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
+                            characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
                         if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
+                            characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
+                        if (characteristic == 5) then
+                            characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
@@ -501,43 +494,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_2">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_2">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_2">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_2" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_2">
-				<anchored to="type_label_2" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords_2">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_2">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_2">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_2">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_2">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_2">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_2">
+			<label_column name="target_label_2">
 				<static textres="ability_label_target" />
-				<anchored to="distance_2" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_2">
-				<anchored to="target_label_2" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_2">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_2">
 				<static textres="ability_label_powerrollplus" />
@@ -618,35 +606,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -696,43 +684,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_3">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_3">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_3">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_3" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_3">
-				<anchored to="type_label_3" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_3">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_3">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_3">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_3">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_3">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_3">
+			<label_column name="target_label_3">
 				<static textres="ability_label_target" />
-				<anchored to="distance_3" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_3">
-				<anchored to="target_label_3" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_3">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_3">
 				<static textres="ability_label_powerrollplus" />
@@ -813,35 +796,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -891,43 +874,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_4">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_4">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_4">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_4" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_4">
-				<anchored to="type_label_4" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_4">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_4">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_4">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_4">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_4">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_4">
+			<label_column name="target_label_4">
 				<static textres="ability_label_target" />
-				<anchored to="distance_4" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_4">
-				<anchored to="target_label_4" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_4">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_4">
 				<static textres="ability_label_powerrollplus" />
@@ -1008,35 +986,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -1086,43 +1064,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_5">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_5">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_5">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_5" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_5">
-				<anchored to="type_label_5" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_5">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_5">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_5">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_5">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_5">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_5">
+			<label_column name="target_label_5">
 				<static textres="ability_label_target" />
-				<anchored to="distance_5" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_5">
-				<anchored to="target_label_5" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_5">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_5">
 				<static textres="ability_label_powerrollplus" />
@@ -1203,35 +1176,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -1281,43 +1254,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_6">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_6">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_6">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_6" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_6">
-				<anchored to="type_label_6" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_6">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_6">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_6">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_6">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_6">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_6">
+			<label_column name="target_label_6">
 				<static textres="ability_label_target" />
-				<anchored to="distance_6" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_6">
-				<anchored to="target_label_6" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_6">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_6">
 				<static textres="ability_label_powerrollplus" />
@@ -1398,35 +1366,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -1476,43 +1444,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_7">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_7">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_7">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_7" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_7">
-				<anchored to="type_label_7" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_7">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_7">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_7">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_7">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_7">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_7">
+			<label_column name="target_label_7">
 				<static textres="ability_label_target" />
-				<anchored to="distance_7" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_7">
-				<anchored to="target_label_7" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_7">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_7">
 				<static textres="ability_label_powerrollplus" />
@@ -1593,35 +1556,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -1671,43 +1634,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_8">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_8">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_8">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_8" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_8">
-				<anchored to="type_label_8" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_8">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_8">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_8">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_8">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_8">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_8">
+			<label_column name="target_label_8">
 				<static textres="ability_label_target" />
-				<anchored to="distance_8" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_8">
-				<anchored to="target_label_8" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_8">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_8">
 				<static textres="ability_label_powerrollplus" />
@@ -1788,35 +1746,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
@@ -1866,43 +1824,38 @@
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
 
-			<!-- KEYWORDS -->
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_label_9">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<basicstring name="keywords_9">
-				<anchored width="160" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
-			<!-- TYPE -->
-			<label name="type_label_9">
-				<static textres="ability_label_type" />
-				<anchored to="keywords_9" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="type_9">
-				<anchored to="type_label_9" position="righthigh" offset="-50,0" width="91" height="20" />
-			</basicstring>
+			<string_columnh name="keywords">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
 
+			<label_column name="type_label_9">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_9">
+				<delaykeyupdate />
+			</string_columnh>
 
 			<label_column name="distance_label_9">
 				<static textres="ability_label_distance" />
 			</label_column>
-			<basicstring name="distance_9">
-				<anchored width="100" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="80" />
-				</anchored>
-			</basicstring>
+			<string_columnh name="distance_9">
+				<delaykeyupdate />
+			</string_columnh>
 
-			<label name="target_label_9">
+			<label_column name="target_label_9">
 				<static textres="ability_label_target" />
-				<anchored to="distance_9" position="righthigh" offset="16,0" width="90" height="20" />
-			</label>
-			<basicstring name="target_9">
-				<anchored to="target_label_9" position="righthigh" offset="-40,0" width="160" height="20" />
-			</basicstring>
+			</label_column>
+			<string_columnh name="target_9">
+				<delaykeyupdate />
+			</string_columnh>
 		
 			<label_column name="characteristic_label_9">
 				<static textres="ability_label_powerrollplus" />
@@ -1983,35 +1936,35 @@
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
-                        if (characteristic == 1) then
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(NPCID, "agl");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(NPCID, "rea");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(NPCID, "inu");
 							if (characteristicMod == nil) then
 								characteristicMod = 0;
 							end
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(NPCID, "prs");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;
 							end
                         end
                         -- MGT
-                        if (characteristic == 0) then
+                        if (characteristic == 1) then
                             characteristicMod = DB.getValue(NPCID, "mgt");
 							if (characteristicMod == nill) then
 								characteristicMod = 0;

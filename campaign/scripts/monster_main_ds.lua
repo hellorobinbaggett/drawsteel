@@ -61,12 +61,16 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "label_trait4", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "label_trait5", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "label_trait6", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "label_trait7", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "label_trait8", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name2", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name3", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name4", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name5", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name6", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "traits_name7", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "traits_name8", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "creaturerole_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "organization_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "maxstamina", bReadOnly) then bSection1 = true; end;
@@ -111,6 +115,7 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "weakness_name", bReadOnly) then bSection2 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "immunity_name", bReadOnly) then bSection2 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly) then bSection2 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "speedtype_name", bReadOnly) then bSection2 = true; end;
 	else
 		-- WindowManager.callSafeControlUpdate(self, "size", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "maxstamina", bReadOnly, true);
@@ -124,6 +129,7 @@ function update()
 		WindowManager.callSafeControlUpdate(self, "weakness_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "immunity_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly, true);
+		WindowManager.callSafeControlUpdate(self, "speedtype_name", bReadOnly, true);
 	end
 
 	local bSection3 = false;

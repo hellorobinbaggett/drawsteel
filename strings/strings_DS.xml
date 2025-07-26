@@ -575,6 +575,8 @@
 	<!-- Abilities -->
 	<string name="ability_label_name">Name</string>
 	<string name="ability_label_cost">Cost</string>
+	<string name="ability_label_cost_string">Resource</string>
+	<string name="ability_label_resource">Resource</string>
 	<string name="ability_label_class">Class</string>
 	<string name="ability_label_subclass">Subclass</string>
 	<string name="ability_label_ancestry">Ancestry</string>

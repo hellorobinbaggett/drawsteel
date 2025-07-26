@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="iso-8859-1"?>
 
-<!-- 
-  Please see the license.html file included with this distribution for 
+<!--
+  Please see the license.html file included with this distribution for
   attribution and copyright information.
 -->
 
@@ -30,7 +30,7 @@
 				local sColor = "630000";
 
 				local nWindedValue = nMaxStamina / 2;
-				
+
 				if nCurrentStamina > nWindedValue then
 					sColor = "1a6313";
 				end
@@ -55,7 +55,7 @@
 			<resource>tab_abilities</resource>
 			<class>record_content_abilities</class>
 			<embed />
-		</tab>		
+		</tab>
 		<!-- <tab merge="add">
 			<name>abilities</name>
 			<resource>tab_abilities</resource>
@@ -92,23 +92,21 @@
 		<margins control="0,0,0,2" />
 		<script file="campaign/scripts/monster_main_ds.lua" />
 		<sheetdata>
-			<anchor_column name="columnanchor" />
-
 			<label_column name="level_name_label">
 				<static textres="npc_label_level" />
-				<bounds>175,1,60,20</bounds>
+				<bounds>3,5,60,20</bounds>
 			</label_column>
 			<number_column name="level_name">
-				<bounds>210,1,25,20</bounds>
+				<bounds>40,5,20,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
 					end
 				</script>
-			</number_column>	
+			</number_column>
 
 			<string_column name="role_name">
-				<bounds>240,1,-5,20</bounds>
+				<bounds>65,5,90,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -116,7 +114,7 @@
 				</script>
 			</string_column>
 
-			<label_column name="keywords_name_label">
+			<!-- <label_column name="keywords_name_label">
 				<static textres="npc_label_keywords" />
 				<bounds>5,1,60,20</bounds>
 			</label_column>
@@ -127,15 +125,15 @@
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
 					end
 				</script>
-			</string_column>
+			</string_column> -->
 
 
 			<label_column name="ev_label">
 				<static textres="npc_label_ev" />
-				<bounds>170,30,60,20</bounds>
+				<bounds>170,5,60,20</bounds>
 			</label_column>
 			<number_column name="ev">
-				<bounds>190,28,30,20</bounds>
+				<bounds>190,5,30,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -143,7 +141,7 @@
 				</script>
 			</number_column>
 			<string_column name="ev_description">
-				<bounds>225,28,-5,20</bounds>
+				<bounds>225,5,-5,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -152,40 +150,39 @@
 			</string_column>
 
 			<line_column name="break">
-				<bounds>5,55,-5,3</bounds>
+				<bounds>5,35,-5,3</bounds>
 			</line_column>
 
 			<basicstringc name="size">
 				<center />
 				<font>reference-b-large</font>
-				<bounds>10,82,40,30</bounds>
+				<bounds>10,62,40,30</bounds>
 				<default>1M</default>
 			</basicstringc>
 			<basicnumber name="speed">
-				<bounds>75,82,40,30</bounds>
+				<bounds>75,62,40,30</bounds>
 				<target>speed</target>
 			</basicnumber>
 			<basicnumber name="stamina" source="hp.stamina">
 				<script file="campaign/scripts/stamina_monster.lua" />
-				<bounds>140,82,40,20</bounds>
+				<bounds>140,62,40,20</bounds>
 				<target>stamina</target>
 			</basicnumber>
 			<basicnumber name="maxstamina" source="hp.max">
-				<bounds>140,105,40,17</bounds>
+				<bounds>140,85,40,17</bounds>
 				<target>stamina</target>
 			</basicnumber>
 			<basicnumber name="stability">
-				<bounds>205,82,40,30</bounds>
+				<bounds>205,62,40,30</bounds>
 				<target>stability</target>
-			</basicnumber>	
+			</basicnumber>
 			<basicnumber name="freestrike">
-				<bounds>270,82,40,30</bounds>
+				<bounds>270,62,40,30</bounds>
 				<target>freestrike</target>
-			</basicnumber>	 
+			</basicnumber>
 
 			<label name="size_label">
 				<static textres="npc_label_size" />
-				<!-- <bounds>x,y,width,height</bounds> -->
 				<anchored to="size">
 					<top offset="-22" />
 					<left offset="9" />
@@ -198,7 +195,7 @@
 					<top offset="-22" />
 					<left offset="0" />
 				</anchored>
-			</label>			
+			</label>
 
 			<label name="stamina_label">
 				<static textres="npc_label_stamina" />
@@ -207,7 +204,7 @@
 					<left offset="-5" />
 				</anchored>
 			</label>
-				
+
 			<label name="stability_label">
 				<static textres="npc_label_stability" />
 				<anchored to="stability">
@@ -224,82 +221,109 @@
 				</anchored>
 			</label>
 
-			<!-- immunities -->
+			<anchor_column name="columnanchor" >
+				<anchored>
+					<top offset="105" />
+				</anchored>
+			</anchor_column>
+
+			<!-- immunities & weaknesses -->
 			<label_column name="immunity_name_label">
 				<static textres="npc_label_immunities" />
-				<bounds>5,112,90,20</bounds>
+				<!-- <bounds>5,112,90,20</bounds> -->
 			</label_column>
 			<string_columnh name="immunity_name" >
-				<bounds>5,130,160,20</bounds>
-			</string_columnh>	
-
-
-
-			<!-- weaknesses -->
+				<!-- <bounds>5,130,160,20</bounds> -->
+			</string_columnh>
 			<label_column name="weakness_name_label">
 				<static textres="npc_label_weaknesses" />
-				<bounds>-85,112,90,20</bounds>
+				<!-- <bounds>-85,112,90,20</bounds> -->
 			</label_column>
 			<string_columnh name="weakness_name" >
-				<bounds>175,130,-5,20</bounds>
-			</string_columnh>			
+				<!-- <bounds>175,130,-5,20</bounds> -->
+			</string_columnh>
 
+			<!-- movement & captain -->
 			<label_column name="speedtype_name_label">
 				<static textres="npc_label_movement" />
-				<bounds>5,173,90,20</bounds>
+				<!-- <bounds>5,173,90,20</bounds> -->
 			</label_column>
 			<string_columnh name="speedtype_name">
-				<bounds>5,153,160,20</bounds>
+				<!-- <bounds>5,153,160,20</bounds> -->
 				<default></default>
-			</string_columnh> 
-
+			</string_columnh>
 			<label_column name="withcaptain_label">
 				<static textres="npc_label_withcaptain" />
-				<bounds>-85,173,90,20</bounds>
+				<!-- <bounds>-85,173,90,20</bounds> -->
 			</label_column>
 			<string_columnh name="withcaptain">
-				<bounds>175,153,-5,20</bounds>
+				<!-- <bounds>175,153,-5,20</bounds> -->
 				<default></default>
-			</string_columnh> 
+			</string_columnh>
 
-			<genericcontrol name="divider_section">
+			<line_column name="divider1" />
+
+			<!-- <genericcontrol name="divider_section">
 				<anchored height="130">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
 					<left />
 					<right />
 				</anchored>
 			<disabled />
-			</genericcontrol>
+			</genericcontrol> -->
 
 
-			<label_column name="spacer">
-			</label_column>
+			<anchor_column name="columnanchor2" >
+				<anchored>
+					<top offset="10" />
+				</anchored>
+			</anchor_column>
 
 			<number_powerroll_characteristic name="mgt">
-				<bounds>20,200,40,30</bounds>
+				<!-- <bounds>20,200,40,30</bounds> -->
+				<anchored to="withcaptain_label">
+					<top offset="40" />
+					<left offset="30" />
+				</anchored>
 				<target>mgt</target>
 				<displaysign />
-			</number_powerroll_characteristic>	
+			</number_powerroll_characteristic>
 			<number_powerroll_characteristic name="agl">
-				<bounds>85,200,40,30</bounds>
+				<anchored to="mgt">
+					<top offset="0" />
+					<left offset="65" />
+				</anchored>
+				<!-- <bounds>85,200,40,30</bounds> -->
 				<target>agl</target>
 				<displaysign />
 			</number_powerroll_characteristic>
 			<number_powerroll_characteristic name="rea">
-				<bounds>150,200,40,30</bounds>
+				<anchored to="agl">
+					<top offset="0" />
+					<left offset="65" />
+				</anchored>
+				<!-- <bounds>150,200,40,30</bounds> -->
 				<target>rea</target>
 				<displaysign />
 			</number_powerroll_characteristic>
 			<number_powerroll_characteristic name="inu">
-				<bounds>215,200,40,30</bounds>
+				<anchored to="rea">
+					<top offset="0" />
+					<left offset="65" />
+				</anchored>
+				<!-- <bounds>215,200,40,30</bounds> -->
 				<target>inu</target>
 				<displaysign />
-			</number_powerroll_characteristic>	
+			</number_powerroll_characteristic>
 			<number_powerroll_characteristic name="prs">
-				<bounds>280,200,40,30</bounds>
+				<anchored to="inu">
+					<top offset="0" />
+					<left offset="65" />
+				</anchored>
+				<!-- <bounds>280,200,40,30</bounds> -->
 				<target>prs</target>
 				<displaysign />
-			</number_powerroll_characteristic>	 
+			</number_powerroll_characteristic>
 
 			<label name="mgt_label">
 				<static textres="npc_label_mgt" />
@@ -308,14 +332,14 @@
 					<left offset="-19" />
 				</anchored>
 			</label>
-					
+
 			<label name="agl_label">
 				<static textres="npc_label_agl" />
 				<anchored to="agl">
 					<top offset="5" />
 					<left offset="-17" />
 				</anchored>
-			</label>			
+			</label>
 
 			<label name="rea_label">
 				<static textres="npc_label_rea" />
@@ -324,7 +348,7 @@
 					<left offset="-16" />
 				</anchored>
 			</label>
-				
+
 			<label name="inu_label">
 				<static textres="npc_label_inu" />
 				<anchored to="inu">
@@ -344,7 +368,7 @@
 
 			<genericcontrol>
 				<anchored height="0">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="105" />
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="70" />
 					<left />
 					<right />
 				</anchored>
@@ -359,42 +383,54 @@
 			</string_column_full>
 			<string_columnh_full name="traits_name">
 			</string_columnh_full>
-			<line_column name="divider1" />
+
 
 			<string_column_full name="label_trait2">
 				<font>reference-b-large</font>
 			</string_column_full>
 			<string_columnh_full name="traits_name2">
 			</string_columnh_full>
-			<line_column name="divider2" />
+
 
 			<string_column_full name="label_trait3">
 				<font>reference-b-large</font>
 			</string_column_full>
 			<string_columnh_full name="traits_name3">
 			</string_columnh_full>
-			<line_column name="divider3" />
+
 
 			<string_column_full name="label_trait4">
 				<font>reference-b-large</font>
 			</string_column_full>
 			<string_columnh_full name="traits_name4">
 			</string_columnh_full>
-			<line_column name="divider4" />
+
 
 			<string_column_full name="label_trait5">
 				<font>reference-b-large</font>
 			</string_column_full>
 			<string_columnh_full name="traits_name5">
 			</string_columnh_full>
-			<line_column name="divider5" />
+
 
 			<string_column_full name="label_trait6">
 				<font>reference-b-large</font>
 			</string_column_full>
 			<string_columnh_full name="traits_name6">
 			</string_columnh_full>
-			<line_column name="divider6" />
+
+			<string_column_full name="label_trait7">
+				<font>reference-b-large</font>
+			</string_column_full>
+			<string_columnh_full name="traits_name7">
+			</string_columnh_full>
+
+			<string_column_full name="label_trait8">
+				<font>reference-b-large</font>
+			</string_column_full>
+			<string_columnh_full name="traits_name8">
+			</string_columnh_full>
+
 
 
 			<!-- Current Stamina || Max Stamina -->
@@ -404,7 +440,7 @@
 			</label_column>
 			<number_column name="a">
 				<default>0</default>
-			</number_column>		
+			</number_column>
 
 			<label_column_right name="currentstamina_label">
 				<anchored to="a" />
@@ -415,7 +451,7 @@
 				<default>0</default>
 			</number_column_right> -->
 
-			<!-- Speed || Movement Type --> 
+			<!-- Speed || Movement Type -->
 			<!-- <label_column name="speed_label">
 				<static textres="npc_label_speed" />
 			</label_column>
@@ -429,7 +465,7 @@
 			</basicstring> -->
 
 
-			<!-- Size --> 
+			<!-- Size -->
 			<!-- <label_column name="size_label">
 				<static textres="npc_label_size" />
 			</label_column>
@@ -465,22 +501,22 @@
 			</string_columnh> -->
 
 
-<!-- 
+<!--
 			<label name="mgt_label">
 				<static textres="npc_label_mgt" />
 				<bounds>30,60,40,72</bounds>
 			</label>
-					
+
 			<label name="agl_label">
 				<static textres="npc_label_agl" />
 				<bounds>80,60,40,72</bounds>
-			</label>			
+			</label>
 
 			<label name="rea_label">
 				<static textres="npc_label_rea" />
 				<bounds>130,60,40,72</bounds>
 			</label>
-				
+
 			<label name="inu_label">
 				<static textres="npc_label_inu" />
 				<bounds>180,60,40,72</bounds>
@@ -494,11 +530,11 @@
 			<label_column name="spacer">
 			</label_column>
 
-			
+
 			<number_powerroll_characteristic name="mgt">
 				<bounds>20,245,40,30</bounds>
 				<target>mgt</target>
-			</number_powerroll_characteristic>	
+			</number_powerroll_characteristic>
 			<number_powerroll_characteristic name="agl">
 				<bounds>70,245,40,30</bounds>
 				<target>agl</target>
@@ -510,11 +546,11 @@
 			<number_powerroll_characteristic name="inu">
 				<bounds>170,245,40,30</bounds>
 				<target>inu</target>
-			</number_powerroll_characteristic>	
+			</number_powerroll_characteristic>
 			<number_powerroll_characteristic name="prs">
 				<bounds>220,245,40,30</bounds>
 				<target>prs</target>
-			</number_powerroll_characteristic>	 
+			</number_powerroll_characteristic>
 
 			<genericcontrol name="divider">
 					<anchored height="55">
@@ -525,7 +561,7 @@
 			<disabled />
 			</genericcontrol> -->
 
-			
+
 
 
 
@@ -538,7 +574,7 @@
 
 			<!-- traits -->
 			<!-- <line_column name="divider" />
-			
+
 			<label_column name="traits_label">
 				<static textres="npc_label_traits" />
 				<top parent="columnanchor" anchor="bottom" relation="current" offset="30" />
@@ -547,7 +583,7 @@
 			</string_column>	 -->
 
 			<!-- abilities -->
-			
+
 			<!-- <label_column name="skills_label">
 				<static textres="npc_label_skills" />
 			</label_column>
@@ -564,7 +600,7 @@
 			<label_column name="languages_label">
 				<static textres="npc_label_languages" />
 			</label_column>
-			<string_columnh name="languages" /> -->			
+			<string_columnh name="languages" /> -->
 
 		</sheetdata>
 	</windowclass>
@@ -575,28 +611,28 @@
 		<sheetdata>
 			<anchor_column name="columnanchor" />
 
-			<!-- Interest -->			
+			<!-- Interest -->
 			<label_column name="interest_label">
 				<static textres="npc_label_interest" />
 			</label_column>
 			<number_column name="interest">
 				<default>0</default>
 			</number_column>
-			<!-- Patience -->	
+			<!-- Patience -->
 			<label_column name="patience_label">
 				<static textres="npc_label_patience" />
 			</label_column>
 			<number_column name="patience">
 				<default>0</default>
 			</number_column>
-			<!-- Impression score -->	
+			<!-- Impression score -->
 			<label_column name="impressionscore_label">
 				<static textres="npc_label_impressionscore" />
 			</label_column>
 			<number_column name="impressionscore">
 				<default>0</default>
 			</number_column>
-			
+
 
 			<!-- Motivations -->
 			<label_column name="motivations_label">
@@ -608,13 +644,13 @@
 			<label_column name="pitfalls_label">
 				<static textres="npc_label_pitfalls" />
 			</label_column>
-			<string_columnh name="pitfalls" />			
+			<string_columnh name="pitfalls" />
 
 			<!-- Outcomes -->
 			<label_column name="outcomes_label">
 				<static textres="npc_label_outcomes" />
 			</label_column>
-			<string_columnh name="outcomes" />	
+			<string_columnh name="outcomes" />
 		</sheetdata>
 	</windowclass>
 </root>

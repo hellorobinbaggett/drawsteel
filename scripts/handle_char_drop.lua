@@ -127,7 +127,6 @@ function onDrop(x, y, draginfo)
                 for key,value in pairs(tNodes) do
                     local level = DB.createChild(value, "level");
                     local checkbox = DB.createChild(value, "checkbox");
-                    Debug.chat(checkbox);
                     if(level.getValue() == heroLevel.getValue()) then
                         if(checkbox.getValue() == 1) then
                             DB.createChildAndCopy(heroChoiceList, value);
