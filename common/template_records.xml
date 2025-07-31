@@ -398,6 +398,19 @@
 				<delaykeyupdate />
 			</string_columnh>
 
+			<label_column name="ability_cost_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string">
+			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll">
 				<anchored to="abilityname_ability" height="40" width="40">
@@ -495,7 +508,7 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_2">
+			<label_column name="keywords_2_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
 			<string_columnh name="keywords_2">
@@ -506,28 +519,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_2">
+			<label_column name="type_2_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_2">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_2">
+			<label_column name="distance_2_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_2">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_2">
+			<label_column name="target_2_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_2">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_2">
+			<label_column name="characteristic_2_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -543,7 +556,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_2">
+			<label_column name="tier1_2_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -552,7 +565,7 @@
 			<string_columnh name="tier1_2" source="tier1_2">
 			</string_columnh>
 
-			<label_column name="tier2_label_2">
+			<label_column name="tier2_2_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -560,7 +573,7 @@
 			</label_column>
 			<string_columnh name="tier2_2" source="tier2_2" />
 
-			<label_column name="tier3_label_2">
+			<label_column name="tier3_2_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -569,23 +582,36 @@
 			<string_columnh name="tier3_2" source="tier3_2" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_2">
+			<label_column name="trigger_2_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_2">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_2">
+			<label_column name="effect_2_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_2" source="effect_2">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_2">
+			<label_column name="special_2_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_2">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_2_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_2">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_2_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_2">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -685,10 +711,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_3">
+			<label_column name="keywords_3_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_3">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -696,28 +722,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_3">
+			<label_column name="type_3_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_3">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_3">
+			<label_column name="distance_3_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_3">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_3">
+			<label_column name="target_3_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_3">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_3">
+			<label_column name="characteristic_3_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -733,7 +759,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_3">
+			<label_column name="tier1_3_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -742,7 +768,7 @@
 			<string_columnh name="tier1_3" source="tier1_3">
 			</string_columnh>
 
-			<label_column name="tier2_label_3">
+			<label_column name="tier2_3_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -750,7 +776,7 @@
 			</label_column>
 			<string_columnh name="tier2_3" source="tier2_3" />
 
-			<label_column name="tier3_label_3">
+			<label_column name="tier3_3_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -759,23 +785,36 @@
 			<string_columnh name="tier3_3" source="tier3_3" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_3">
+			<label_column name="trigger_3_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_3">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_3">
+			<label_column name="effect_3_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_3" source="effect_3">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_3">
+			<label_column name="special_3_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_3">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_3_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_3">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_3_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_3">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -875,10 +914,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_4">
+			<label_column name="keywords_4_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_4">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -886,28 +925,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_4">
+			<label_column name="type_4_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_4">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_4">
+			<label_column name="distance_4_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_4">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_4">
+			<label_column name="target_4_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_4">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_4">
+			<label_column name="characteristic_4_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -923,7 +962,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_4">
+			<label_column name="tier1_4_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -932,7 +971,7 @@
 			<string_columnh name="tier1_4" source="tier1_4">
 			</string_columnh>
 
-			<label_column name="tier2_label_4">
+			<label_column name="tier2_4_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -940,7 +979,7 @@
 			</label_column>
 			<string_columnh name="tier2_4" source="tier2_4" />
 
-			<label_column name="tier3_label_4">
+			<label_column name="tier3_4_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -949,23 +988,36 @@
 			<string_columnh name="tier3_4" source="tier3_4" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_4">
+			<label_column name="trigger_4_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_4">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_4">
+			<label_column name="effect_4_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_4" source="effect_4">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_4">
+			<label_column name="special_4_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_4">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_4_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_4">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_4_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_4">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -1065,10 +1117,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_5">
+			<label_column name="keywords_5_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_5">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -1076,28 +1128,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_5">
+			<label_column name="type_5_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_5">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_5">
+			<label_column name="distance_5_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_5">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_5">
+			<label_column name="target_5_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_5">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_5">
+			<label_column name="characteristic_5_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -1113,7 +1165,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_5">
+			<label_column name="tier1_5_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -1122,7 +1174,7 @@
 			<string_columnh name="tier1_5" source="tier1_5">
 			</string_columnh>
 
-			<label_column name="tier2_label_5">
+			<label_column name="tier2_5_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -1130,7 +1182,7 @@
 			</label_column>
 			<string_columnh name="tier2_5" source="tier2_5" />
 
-			<label_column name="tier3_label_5">
+			<label_column name="tier3_5_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -1139,23 +1191,36 @@
 			<string_columnh name="tier3_5" source="tier3_5" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_5">
+			<label_column name="trigger_5_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_5">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_5">
+			<label_column name="effect_5_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_5" source="effect_5">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_5">
+			<label_column name="special_5_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_5">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_5_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_5">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_5_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_5">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -1255,10 +1320,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_6">
+			<label_column name="keywords_6_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_6">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -1266,28 +1331,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_6">
+			<label_column name="type_6_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_6">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_6">
+			<label_column name="distance_6_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_6">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_6">
+			<label_column name="target_6_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_6">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_6">
+			<label_column name="characteristic_6_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -1303,7 +1368,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_6">
+			<label_column name="tier1_6_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -1312,7 +1377,7 @@
 			<string_columnh name="tier1_6" source="tier1_6">
 			</string_columnh>
 
-			<label_column name="tier2_label_6">
+			<label_column name="tier2_6_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -1320,7 +1385,7 @@
 			</label_column>
 			<string_columnh name="tier2_6" source="tier2_6" />
 
-			<label_column name="tier3_label_6">
+			<label_column name="tier3_6_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -1329,23 +1394,36 @@
 			<string_columnh name="tier3_6" source="tier3_6" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_6">
+			<label_column name="trigger_6_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_6">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_6">
+			<label_column name="effect_6_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_6" source="effect_6">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_6">
+			<label_column name="special_6_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_6">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_6_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_6">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_6_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_6">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -1445,10 +1523,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_7">
+			<label_column name="keywords_7_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_7">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -1456,28 +1534,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_7">
+			<label_column name="type_7_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_7">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_7">
+			<label_column name="distance_7_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_7">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_7">
+			<label_column name="target_7_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_7">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_7">
+			<label_column name="characteristic_7_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -1493,7 +1571,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_7">
+			<label_column name="tier1_7_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -1502,7 +1580,7 @@
 			<string_columnh name="tier1_7" source="tier1_7">
 			</string_columnh>
 
-			<label_column name="tier2_label_7">
+			<label_column name="tier2_7_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -1510,7 +1588,7 @@
 			</label_column>
 			<string_columnh name="tier2_7" source="tier2_7" />
 
-			<label_column name="tier3_label_7">
+			<label_column name="tier3_7_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -1519,23 +1597,36 @@
 			<string_columnh name="tier3_7" source="tier3_7" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_7">
+			<label_column name="trigger_7_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_7">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_7">
+			<label_column name="effect_7_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_7" source="effect_7">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_7">
+			<label_column name="special_7_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_7">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_7_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_7">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_7_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_7">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -1635,10 +1726,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_8">
+			<label_column name="keywords_8_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_8">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -1646,28 +1737,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_8">
+			<label_column name="type_8_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_8">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_8">
+			<label_column name="distance_8_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_8">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_8">
+			<label_column name="target_8_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_8">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_8">
+			<label_column name="characteristic_8_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -1683,7 +1774,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_8">
+			<label_column name="tier1_8_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -1692,7 +1783,7 @@
 			<string_columnh name="tier1_8" source="tier1_8">
 			</string_columnh>
 
-			<label_column name="tier2_label_8">
+			<label_column name="tier2_8_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -1700,7 +1791,7 @@
 			</label_column>
 			<string_columnh name="tier2_8" source="tier2_8" />
 
-			<label_column name="tier3_label_8">
+			<label_column name="tier3_8_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -1709,23 +1800,36 @@
 			<string_columnh name="tier3_8" source="tier3_8" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_8">
+			<label_column name="trigger_8_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_8">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_8">
+			<label_column name="effect_8_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_8" source="effect_8">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_8">
+			<label_column name="special_8_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_8">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_8_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_8">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_8_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_8">
 			</string_columnh>
 
 			<!-- // power roll button -->
@@ -1825,10 +1929,10 @@
 			</basicstring>
 
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_label_9">
+			<label_column name="keywords_9_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords">
+			<string_columnh name="keywords_9">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -1836,28 +1940,28 @@
 				</script>
 			</string_columnh>
 
-			<label_column name="type_label_9">
+			<label_column name="type_9_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_9">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="distance_label_9">
+			<label_column name="distance_9_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_9">
 				<delaykeyupdate />
 			</string_columnh>
 
-			<label_column name="target_label_9">
+			<label_column name="target_9_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_9">
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_label_9">
+			<label_column name="characteristic_9_label">
 				<static textres="ability_label_powerrollplus" />
 				<anchored>
 					<top offset="5" />
@@ -1873,7 +1977,7 @@
                 <tooltip textres="skill_tooltip" />
             </button_characteristic>
 
-			<label_column name="tier1_label_9">
+			<label_column name="tier1_9_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
 					<left offset="36" />
@@ -1882,7 +1986,7 @@
 			<string_columnh name="tier1_9" source="tier1_9">
 			</string_columnh>
 
-			<label_column name="tier2_label_9">
+			<label_column name="tier2_9_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
 					<left offset="36" />
@@ -1890,7 +1994,7 @@
 			</label_column>
 			<string_columnh name="tier2_9" source="tier2_9" />
 
-			<label_column name="tier3_label_9">
+			<label_column name="tier3_9_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
 					<left offset="36" />
@@ -1899,23 +2003,36 @@
 			<string_columnh name="tier3_9" source="tier3_9" />
 
 			<!-- OTHER -->
-			<label_column name="trigger_label_9">
+			<label_column name="trigger_9_label">
 				<static textres="ability_label_trigger" />
 			</label_column>
 			<string_columnh name="trigger_9">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="effect_label_9">
+			<label_column name="effect_9_label">
 				<static textres="ability_label_effect" />
 			</label_column>
 			<string_columnh name="effect_9" source="effect_9">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="special_label_9">
+			<label_column name="special_9_label">
 				<static textres="ability_label_special" />
 			</label_column>
 			<string_columnh name="special_9">
 				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_9_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_9">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_9_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_9">
 			</string_columnh>
 
 			<!-- // power roll button -->

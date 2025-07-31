@@ -61,7 +61,7 @@
 			<list_content_column name="features">
 				<datasource>.features</datasource>
 				<class>reference_classfeature_listitem</class>
-				<sortby><field>level</field><field>name</field></sortby>
+				<sortby><control>level</control><field>name</field></sortby>
 			</list_content_column>
 
 			<header_content_framed_headersimple name="featurechoices_header">
@@ -80,7 +80,7 @@
 			<list_content_column name="featurechoices">
 				<datasource>.featurechoices</datasource>
 				<class>reference_classfeaturechoice_listitem</class>
-				<sortby><field>choicetype</field><field>level</field><field>name</field></sortby>
+				<sortby><field>level</field><field>choicetype</field><field>name</field></sortby>
 			</list_content_column>
 		</sheetdata>
 	</windowclass>

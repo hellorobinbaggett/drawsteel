@@ -14,6 +14,7 @@ aRecordOverrides = {
 		aCustomFilters = {
 			["Level"] = { sField = "level_name" },
 			["Role"] = { sField = "role_name" },
+			["Organization"] = { sField = "organization_name" },
 			-- TODO: make npc keywords useful
 			-- ["Keywords"] = { sField = "keywords_name" },
 		},
@@ -37,11 +38,11 @@ aRecordOverrides = {
 		bExport = true,
 		aDataMap = { "ability", "reference.abilities" },
 		aCustomFilters = {
-			["Ancestry"] = { sField = "ancestry" },
 			["Class"] = { sField = "class" },
 			["Cost"] = { sField = "ability_cost" },
+			["Cost Type"] = { sField = "ability_cost_string" },
 			["Level"] = { sField = "ability_level" },
-			["Type"] = { sField = "abilitytype" },
+			["Ability Type"] = { sField = "abilitytype" },
 		},
 	},
 	["kit"] = {

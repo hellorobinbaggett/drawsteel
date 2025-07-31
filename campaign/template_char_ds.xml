@@ -602,6 +602,19 @@
 			<script>		
 				function action(draginfo)
 				local characteristic = tostring(target[1]);
+
+				if(characteristic == "mgt") or (characteristic == "MGT") then
+					characteristic = "Might"
+				elseif (characteristic == "agl") or (characteristic == "AGL") then
+					characteristic = "Agility"
+				elseif (characteristic == "rea") or (characteristic == "REA") then
+					characteristic = "Reason"
+				elseif (characteristic == "inu") or (characteristic == "INU") then
+					characteristic = "Intuition"
+				elseif (characteristic == "prs") or (characteristic == "PRS") then
+					characteristic = "Presence"
+				end
+
 				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
 				local nodePC = ActorManager.getCreatureNode(rActor);
 					local rRoll = { 

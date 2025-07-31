@@ -5,7 +5,7 @@
 	<windowclass name="kit" copy="record_window">
 		<minimize>minimized_item</minimize>
 		<sizelimits>
-			<minimum width="360" height="420" />
+			<minimum width="405" height="495" />
 		</sizelimits>
 	</windowclass>
 

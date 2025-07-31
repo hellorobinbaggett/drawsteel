@@ -517,6 +517,8 @@
 	<string name="battle_tooltip_refreshev">Calculate EV</string>
 
 	<!-- NPCs -->
+	<string name="organization_tooltip">Organization</string>
+	<string name="role_tooltip">Role</string>
 	<string name="npc_label_ev">EV</string>
 	<string name="npc_label_unidentified">Non-ID Name</string>
 	<string name="npc_label_type">Type</string>

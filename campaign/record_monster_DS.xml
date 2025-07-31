@@ -97,7 +97,7 @@
 				<bounds>3,5,60,20</bounds>
 			</label_column>
 			<number_column name="level_name">
-				<bounds>40,5,20,20</bounds>
+				<bounds>40,5,18,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -105,13 +105,24 @@
 				</script>
 			</number_column>
 
-			<string_column name="role_name">
-				<bounds>65,5,90,20</bounds>
+			<string_column name="organization_name">
+				<bounds>63,5,45,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
 					end
 				</script>
+				<tooltip textres="organization_tooltip" />
+			</string_column>
+
+			<string_column name="role_name">
+				<bounds>114,5,62,20</bounds>
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+				<tooltip textres="role_tooltip" />
 			</string_column>
 
 			<!-- <label_column name="keywords_name_label">
@@ -130,10 +141,10 @@
 
 			<label_column name="ev_label">
 				<static textres="npc_label_ev" />
-				<bounds>170,5,60,20</bounds>
+				<bounds>190,5,60,20</bounds>
 			</label_column>
 			<number_column name="ev">
-				<bounds>190,5,30,20</bounds>
+				<bounds>210,5,30,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -141,7 +152,7 @@
 				</script>
 			</number_column>
 			<string_column name="ev_description">
-				<bounds>225,5,-5,20</bounds>
+				<bounds>245,5,-5,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
