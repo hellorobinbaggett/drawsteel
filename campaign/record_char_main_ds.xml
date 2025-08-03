@@ -445,51 +445,78 @@
 				<nodrag />
 			</stringu> -->
 
+		<!-- VICTORIES -->
+		<label_charframetop name="victoriestitle">
+			<anchored height="20" width="80">
+				<top anchor="bottom" offset="-80" />
+				<left offset="43" />
+			</anchored>
+			<icons>char_stats</icons>
+		</label_charframetop>
+
+		<basicnumber name="victories" source="victories">
+			<anchored to="victoriestitle" width="55" height="30">
+				<top anchor="bottom" offset="8" />
+				<left anchor="center" offset="-25" />
+			</anchored>
+			<font>reference-b-large</font>
+			<script>
+				function onValueChanged()
+				end
+			</script>
+			<target>victories</target>
+		</basicnumber>
+
+		<label_charfieldtop name="victories_label">
+			<anchored to="victories" offset="0,8" />
+			<static textres="char_label_victories" />
+		</label_charfieldtop>
+
 		<!-- CLASS RESOURCE AND SURGES AND HERO TOKENS -->
-			<label_charframetop name="classresourcetitle">
-				<anchored height="20">
-					<top anchor="bottom" offset="-80" />
-					<left offset="105" />
-					<right offset="-105" />
-				</anchored>
-				<icons>char_stats</icons>
-			</label_charframetop>
+		<label_charframetop name="classresourcetitle">
+			<anchored height="20">
+				<top anchor="bottom" offset="-80" />
+				<left offset="165" />
+				<right offset="-45" />
+			</anchored>
+			<icons>char_stats</icons>
+		</label_charframetop>
 
 		<basicnumber name="classresource" source="classresource">
-				<anchored to="classresourcetitle" width="100" height="30">
-					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-120" />
-				</anchored>
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_classresource" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
-				<target>classresource</target>
-			</basicnumber>
+			<anchored to="classresourcetitle" width="100" height="30">
+				<top anchor="bottom" offset="8" />
+				<left anchor="center" offset="-120" />
+			</anchored>
+			<font>reference-b-large</font>
+			<description textres="char_tooltip_classresource" />
+			<script>
+				function onValueChanged()
+				end
+			</script>
+			<target>classresource</target>
+		</basicnumber>
 
-			<label_charfieldtop name="classresource_label">
-				<anchored to="classresource" offset="0,8" />
-				<static textres="char_label_classresource" />
-			</label_charfieldtop>
+		<label_charfieldtop name="classresource_label">
+			<anchored to="classresource" offset="0,8" />
+			<static textres="char_label_classresource" />
+		</label_charfieldtop>
 
-			<basicnumber name="surges" source="surges">
-				<anchored to="classresource" position="righthigh" offset="15,0" width="40" height="30" />
-				<font>reference-b-large</font>
-				<description textres="char_tooltip_surges" />
-				<tooltip textres="char_tooltip_surgesdescription" />
-				<min value="0" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
-			</basicnumber>
+		<basicnumber name="surges" source="surges">
+			<anchored to="classresource" position="righthigh" offset="15,0" width="40" height="30" />
+			<font>reference-b-large</font>
+			<description textres="char_tooltip_surges" />
+			<tooltip textres="char_tooltip_surgesdescription" />
+			<min value="0" />
+			<script>
+				function onValueChanged()
+				end
+			</script>
+		</basicnumber>
 
-			<label_charfieldtop name="surges_label">
-				<anchored to="surges" offset="0,8" />
-				<static textres="char_label_surges" />
-			</label_charfieldtop>
+		<label_charfieldtop name="surges_label">
+			<anchored to="surges" offset="0,8" />
+			<static textres="char_label_surges" />
+		</label_charfieldtop>
 
 			<!-- TODO: make hero tokens the same for every character sheet -->
 			<basicnumber name="herotokens" source="herotokens">

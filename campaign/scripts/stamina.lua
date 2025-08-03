@@ -14,5 +14,3 @@ function onValueChanged()
     end
     window.onHealthChanged();
 end
-
-

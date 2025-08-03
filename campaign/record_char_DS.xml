@@ -141,36 +141,45 @@
 				<labelres>char_label_kit</labelres>
 			</string_labeled>
 
-			<!-- LEVEL -->
-			<number_labeled name="levelnumbertitle">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="40" />
-				<labelres>char_label_level</labelres>
-				<default>1</default>
-			</number_labeled>
-
-			<!-- XP -->
-			<string_labeled name="xptitle" >
-				<anchored to="levelnumbertitle" position="righthigh" offset="5,0" width="20" />
-				<labelres>char_label_xp</labelres>
-			</string_labeled>
-
 			<!-- VICTORIES -->
-			<string_labeled name="victoriestitle" >
+			<!-- <string_labeled name="victoriestitle" >
 				<anchored to="xptitle" position="righthigh" offset="5,0" width="60" />
 				<labelres>char_label_victories</labelres>
-			</string_labeled>
+			</string_labeled> -->
 
 			<!-- CLASS -->
 			<string_labeled name="classtitle">
-				<anchored to="victoriestitle" position="righthigh" offset="5,0" width="90" />
+				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="90" />
 				<labelres>char_label_class</labelres>
 			</string_labeled>
 
 			<!-- SUBCLASS -->
 			<string_labeled name="subclasstitle">
-				<anchored to="classtitle" position="righthigh" offset="5,0" width="110" />
+				<anchored to="classtitle" position="righthigh" offset="5,0" width="95" />
 				<labelres>char_label_subclass</labelres>
 			</string_labeled>
+
+			<!-- XP -->
+			<string_labeled name="xptitle" >
+				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="20" />
+				<labelres>char_label_xp</labelres>
+			</string_labeled>
+
+			<!-- LEVEL -->
+			<number_labeled name="levelnumbertitle">
+				<anchored to="xptitle" position="righthigh" offset="5,-3" width="40" />
+				<labelres>char_label_level</labelres>
+				<default>1</default>
+				<script file="campaign/scripts/echelon_DS.lua" />
+			</number_labeled>
+
+			<!-- ECHELON -->
+			<number_labeled name="echelonnumbertitle">
+				<anchored to="levelnumbertitle" position="righthigh" offset="5,0" width="60" />
+				<labelres>char_label_echelon</labelres>
+				<default>1</default>
+				<tooltip textres="skill_tooltip" />
+			</number_labeled>
 
 			<buttonfield name="tutorial">
 				<state icon="info_warning" />

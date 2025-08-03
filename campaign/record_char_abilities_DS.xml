@@ -8,15 +8,42 @@
 <root>
 	<windowclass name="charsheet_abilities">
 		<sheetdata>
+		<!-- VICTORIES -->
+		<label_charframetop name="victoriestitle">
+			<anchored height="20" width="80">
+				<top anchor="bottom" offset="-80" />
+				<left offset="43" />
+			</anchored>
+			<icons>char_stats</icons>
+		</label_charframetop>
+
+		<basicnumber name="victories" source="victories">
+			<anchored to="victoriestitle" width="55" height="30">
+				<top anchor="bottom" offset="8" />
+				<left anchor="center" offset="-25" />
+			</anchored>
+			<font>reference-b-large</font>
+			<script>
+				function onValueChanged()
+				end
+			</script>
+			<target>victories</target>
+		</basicnumber>
+
+		<label_charfieldtop name="victories_label">
+			<anchored to="victories" offset="0,8" />
+			<static textres="char_label_victories" />
+		</label_charfieldtop>
+
 		<!-- CLASS RESOURCE AND SURGES -->
-			<label_charframetop name="classresourcetitle">
-				<anchored height="20">
-					<top anchor="bottom" offset="-80" />
-					<left offset="105" />
-					<right offset="-105" />
-				</anchored>
-				<icons>char_stats</icons>
-			</label_charframetop>
+		<label_charframetop name="classresourcetitle">
+			<anchored height="20">
+				<top anchor="bottom" offset="-80" />
+				<left offset="165" />
+				<right offset="-45" />
+			</anchored>
+			<icons>char_stats</icons>
+		</label_charframetop>
 
 		<basicnumber name="classresource" source="classresource">
 				<anchored to="classresourcetitle" width="100" height="30">
