@@ -30,6 +30,7 @@ function update()
 	if WindowManager.callSafeControlUpdate(self, "distance", bReadOnly) then bSection2 = true; end;
 	if WindowManager.callSafeControlUpdate(self, "target", bReadOnly) then bSection2 = true; end;
 
+	if WindowManager.callSafeControlUpdate(self, "characteristicoption", bReadOnly) then bSection3 = true; end;
 	if WindowManager.callSafeControlUpdate(self, "tier1", bReadOnly) then bSection3 = true; end;
 	if WindowManager.callSafeControlUpdate(self, "tier2", bReadOnly) then bSection3 = true; end;
 	if WindowManager.callSafeControlUpdate(self, "tier3", bReadOnly) then bSection3 = true; end;
