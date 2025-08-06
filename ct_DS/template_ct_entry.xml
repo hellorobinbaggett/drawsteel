@@ -185,7 +185,7 @@
 			<gmeditonly />
 			<script>
 				function onValueChanged()
-					super.onValueChanged();
+					WindowManager.onValueChanged();
 					if window.onIDChanged then
 						window.onIDChanged();
 					end
@@ -200,7 +200,7 @@
 			<state icon="button_toolbar_visibility_on" tooltipres="ct_tooltip_shownpcoff" merge="add" />
 			<script>
 				function onValueChanged()
-					super.onValueChanged();
+					WindowManager.onValueChanged();
 					if window.onVisibilityChanged then
 						window.onVisibilityChanged();
 					end

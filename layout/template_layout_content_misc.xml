@@ -239,13 +239,13 @@
 			<empty font="assetview_empty" textres="assetview_empty" />
 			<script>
 				function onActivate(sAssetName, sAssetType)
-					AssetWindowManager.onActivate(UtilityManager.getTopWindow(window), sAssetName, sAssetType);
+					AssetWindowManager.onActivate(WindowManager.getTopWindow(window), sAssetName, sAssetType);
 				end
 				function onViewChange()
-					AssetWindowManager.handleViewTypeUpdate(UtilityManager.getTopWindow(window));
+					AssetWindowManager.handleViewTypeUpdate(WindowManager.getTopWindow(window));
 				end
 				function onValueChanged()
-					AssetWindowManager.handleValueUpdate(UtilityManager.getTopWindow(window));
+					AssetWindowManager.handleValueUpdate(WindowManager.getTopWindow(window));
 				end
 			</script>
 		</assetviewcontrol>

@@ -14,7 +14,7 @@ end
 
 function onListChanged()
 	if window.update then
-		local wTop = UtilityManager.getTopWindow(window);
+		local wTop = WindowManager.getTopWindow(window);
 		local bReadOnly = WindowManager.getReadOnlyState(wTop.getDatabaseNode());
 		window.update(bReadOnly);
 	end
@@ -34,7 +34,7 @@ function updateFilter()
 end
 
 function getFilter()
-	local wTop = UtilityManager.getTopWindow(window);
+	local wTop = WindowManager.getTopWindow(window);
 	if not wTop[sFilter] then
 		return "";
 	end

@@ -33,7 +33,7 @@
 	<windowclass name="ancestry_header_advanced" copy="record_header_story">
 		<script>
 			function update()
-				super.update();
+				WindowManager.update();
 				story_paste.update();
 			end
 		</script>

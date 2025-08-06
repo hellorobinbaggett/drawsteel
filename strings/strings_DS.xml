@@ -44,7 +44,7 @@
 	<string name="label_cost">Cost</string>
 	<string name="class_header_features">FEATURES</string>
 	<string name="class_header_featurechoices">CLASS CHOICES</string>
-	<string name="tooltip_class_featurechoices">In order to add your chosen features, please open the feature, and check the checkbox. When you drag this class onto a character sheet, it will add the features with checked boxes.</string>
+	<string name="tooltip_class_featurechoices">Features under "FEATURES" will automatically be added to your character sheet. For "CLASS CHOICES", you will need to select them manually. When you drag this class onto a character sheet, it will add the class choice features with checked boxes.</string>
 	<string name="tooltip_class_basics">You can edit the values of these characteristics. When you drag this class record onto your character sheet, it will automatically set your starting characteristics.</string>
 	<string name="ancestry_header_features">SIGNATURE TRAIT</string>
 	<string name="ancestry_header_featurechoices">PURCHASED TRAITS</string>

@@ -224,7 +224,7 @@
 			</anchored>
 			<script>
 				function onButtonPress()
-					super.onButtonPress();
+					WindowManager.onButtonPress();
 					window.filter.setValue();
 				end
 			</script>
