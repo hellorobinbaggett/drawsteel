@@ -280,7 +280,7 @@
 			<state icon="button_toolbar_visibility_on" tooltipres="ct_tooltip_shownpcalloff" merge="add" />
 			<script>
 				function onValueChanged()
-					UtilityManager.getTopWindow(window).list.toggleVisibility();
+					WindowManager.getTopWindow(window).list.toggleVisibility();
 				end
 			</script>
 		</buttonc_listitem_icon_simple_base>

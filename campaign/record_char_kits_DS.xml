@@ -124,7 +124,7 @@
 
 
 			<string_labeled name="size">
-				<anchored to="combatframe" position="insidetopleft" offset="95,40" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,10" width="20" />
 				<description textres="char_tooltip_size" />
 				<default>1M</default>
 			</string_labeled>
@@ -134,7 +134,7 @@
 			</string_characteristiclabel>
 
 			<number_characteristicscore name="stability" source="abilities.stability.value">
-				<anchored to="combatframe" position="insidetopleft" offset="95,70" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,35" width="20" />
 				<description textres="char_tooltip_stability" />
 				<default>0</default>
 			</number_characteristicscore>
@@ -144,7 +144,7 @@
 			</string_characteristiclabel>	
 
 			<number_characteristicscore name="speed" source="abilities.speed.value">
-				<anchored to="combatframe" position="insidetopleft" offset="95,100" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,60" width="20" />
 				<description textres="char_tooltip_speed" />
 				<default>0</default>
 			</number_characteristicscore>
@@ -154,13 +154,48 @@
 			</string_characteristiclabel>		
 
 			<number_characteristicscore name="disengage" source="abilities.disengage.value">
-				<anchored to="combatframe" position="insidetopleft" offset="95,130" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,85" width="20" />
 				<description textres="char_tooltip_disengage" />
 				<default>0</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="disengage_label">
 				<anchored to="disengage" />
 				<static textres="disengage" />
+			</string_characteristiclabel>	
+
+			<label>
+				<anchored to="combatframe" position="insidetopleft" offset="35,110" width="80" />
+				<static textres="potencies" />
+			</label>
+
+			<number_characteristicscore name="weak" source="abilities.weak.value">
+				<anchored to="combatframe" position="insidetopleft" offset="95,130" width="20" />
+				<description textres="char_tooltip_weak" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="weak_label">
+				<anchored to="weak" />
+				<static textres="weak" />
+			</string_characteristiclabel>	
+
+			<number_characteristicscore name="average" source="abilities.average.value">
+				<anchored to="combatframe" position="insidetopleft" offset="95,150" width="20" />
+				<description textres="char_tooltip_average" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="average_label">
+				<anchored to="average" />
+				<static textres="average" />
+			</string_characteristiclabel>	
+
+			<number_characteristicscore name="strong" source="abilities.strong.value">
+				<anchored to="combatframe" position="insidetopleft" offset="95,170" width="20" />
+				<description textres="char_tooltip_strong" />
+				<default>0</default>
+			</number_characteristicscore>
+            <string_characteristiclabel name="strong_label">
+				<anchored to="strong" />
+				<static textres="strong" />
 			</string_characteristiclabel>	
 
 			<!-- <string_labeled name="Kit.Magic.Damage.Tier1" source="Kit.Magic.Damage.Tier1">

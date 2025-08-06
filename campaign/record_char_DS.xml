@@ -18,6 +18,11 @@
 		<softclose />
 		<export>character</export>
 		<sheetdata>
+
+			<windowmenubar_charsheet name="menubar"/>
+			<anchor_content_charsheet_tabbed_top/>
+			<anchor_content_charsheet_bottom/>
+
 			<sub_charsheet_overview name="overview" />
 
 			<sub_charsheet name="main_ds">
@@ -89,7 +94,6 @@
 				</tab>
 			</tabs_charsheet>
 		
-			<close_charsheet />
 			<resize_charsheet />
 		</sheetdata>
 	</windowclass>

@@ -295,9 +295,13 @@
 	<string name="reach">Reach</string>
 	<string name="experience">XP/Epic</string>
 	<string name="size">Size</string>
+	<string name="weak">Weak</string>
+	<string name="average">Average</string>
+	<string name="strong">Strong</string>
 	<string name="speed">Speed</string>
 	<string name="stability">Stability</string>
 	<string name="disengage">Disengage</string>
+	<string name="potencies">Potencies</string>
 	<string name="weight">Weight</string>
 	<string name="victories">Victories</string>
 	<string name="char_label_value">Value</string>
@@ -371,13 +375,14 @@
 
 	<!-- Characters -->
 	<string name="char_label_skills">Skills</string>
-	<string name="char_label_crafting">Crafting Skills</string>
+	<string name="char_label_craftingskill">Crafting Skills</string>
 	<string name="char_label_exploration">Exploration Skills</string>
 	<string name="char_label_interpersonal">Interpersonal Skills</string>
 	<string name="char_label_intrigue">Intrigue Skills</string>
 	<string name="char_label_lore">Lore Skills</string>
 	<string name="char_label_characteristics">Characteristics</string>
 	<string name="char_label_characteristic">Characteristic:</string>
+	<string name="char_label_skillplus">+</string>
 	<string name="char_label_stats">Stats</string>
 	<string name="char_label_surges">Surges</string>
 	<string name="char_label_herotokens">Hero Tokens</string>

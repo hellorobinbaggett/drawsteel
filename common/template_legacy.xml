@@ -620,7 +620,7 @@
 					draginfo.setTokenData(getValue());
 					local sRecordPath = window.getDatabasePath();
 					if sRecordPath then
-						draginfo.setShortcutData(UtilityManager.getTopWindow(window).getClass(), sRecordPath);
+						draginfo.setShortcutData(WindowManager.getTopWindow(window).getClass(), sRecordPath);
 					end
 					return true;
 				end

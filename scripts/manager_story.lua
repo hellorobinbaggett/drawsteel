@@ -393,7 +393,7 @@ function updatePageSub(cSub, sRecord)
 	end
 
 	cSub.setVisible(true);
-	cSub.subwindow.page_top.setVisible(bBookRecord and (UtilityManager.getTopWindow(cSub.subwindow).getClass() ~= "reference_manual"));
+	cSub.subwindow.page_top.setVisible(bBookRecord and (WindowManager.getTopWindow(cSub.subwindow).getClass() ~= "reference_manual"));
 	cSub.subwindow.page_prev.setVisible(sPrevPath ~= "");
 	cSub.subwindow.page_next.setVisible(sNextPath ~= "");
 end
@@ -452,7 +452,7 @@ end
 --
 
 function onLinkActivated(w, sClass, sRecord)
-	local wTop = UtilityManager.getTopWindow(w);
+	local wTop = WindowManager.getTopWindow(w);
 	local sTopClass = wTop.getClass();
 	if sTopClass == "reference_manual" then
 		StoryManager.activateLink(w, sClass, sRecord, Input.isShiftPressed());
@@ -461,7 +461,7 @@ function onLinkActivated(w, sClass, sRecord)
 	end
 end
 function activateLink(w, sClass, sRecord, bPopOut)
-	local wTop = UtilityManager.getTopWindow(w);
+	local wTop = WindowManager.getTopWindow(w);
 	local sTopClass = wTop.getClass();
 	if (sTopClass ~= "reference_manual") then
 		local tRecordTypes = RecordDataManager.getAllRecordTypesFromDisplayClass(sTopClass);
@@ -681,7 +681,7 @@ function onBookIndexDelete(w)
 		return;
 	end
 	if w.getClass() == "story_book_index_page" then
-		local wTop = UtilityManager.getTopWindow(w);
+		local wTop = WindowManager.getTopWindow(w);
 		if wTop.getClass() == "reference_manual" then
 			local _, sPath = wTop.content.getValue();
 			if sPath ~= "" then

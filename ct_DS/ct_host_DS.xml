@@ -93,9 +93,9 @@
 			<label_ct_controls_rounds name="label_round" />
 
 			<area_ct_controls_center name="area_center" />
-			<button_ct_controls_faction_friend name="button_faction_friend" />
+			<!-- <button_ct_controls_faction_friend name="button_faction_friend" />
 			<button_ct_controls_faction_neutral name="button_faction_neutral" />
-			<button_ct_controls_faction_foe name="button_faction_foe" />
+			<button_ct_controls_faction_foe name="button_faction_foe" /> -->
 		</sheetdata>
 	</windowclass>
 </root>

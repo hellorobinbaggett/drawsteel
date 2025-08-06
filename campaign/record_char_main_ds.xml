@@ -39,7 +39,7 @@
 				return sColor;
 			end
 		</script>
-		<margins control="0,0,0,2" />
+		<margins control="0,0,0,0" />
 		<sheetdata>
 
         <!-- CHARACTERISTICS -->

@@ -51,10 +51,10 @@ function isImageWindow(w)
 	if not w then
 		return false;
 	end
-	return StringManager.contains({ "imagewindow", "imagebackpanel", "imagemaxpanel", "imagefullpanel" }, UtilityManager.getTopWindow(w).getClass());
+	return StringManager.contains({ "imagewindow", "imagebackpanel", "imagemaxpanel", "imagefullpanel" }, WindowManager.getTopWindow(w).getClass());
 end
 function getImageControlFromWindow(w)
-	local wTop = UtilityManager.getTopWindow(w);
+	local wTop = WindowManager.getTopWindow(w);
 	if not wTop then
 		return nil;
 	end
@@ -240,7 +240,7 @@ function onToolbarToggleInit(c)
 	ImageManager.onToolbarToggleValueChanged(c);
 end
 function onToolbarToggleValueChanged(c)
-	local wTop = UtilityManager.getTopWindow(c.window);
+	local wTop = WindowManager.getTopWindow(c.window);
 	wTop.toolbar.setVisible(c.getValue() == 1);
 
 	local cImage = WindowManager.callOuterWindowFunction(c.window, "getImage");
@@ -248,7 +248,7 @@ function onToolbarToggleValueChanged(c)
 end
 
 function onToolbarNavigationValueChanged(c)
-	local wTop = UtilityManager.getTopWindow(c.window);
+	local wTop = WindowManager.getTopWindow(c.window);
 
 	local cCameraControls;
 	if wTop.getClass() == "imagewindow" then
@@ -655,7 +655,7 @@ function checkImagePanelDeletion(nodeImageRecord)
 end
 
 function performSizeUp(w)
-	local wTop = UtilityManager.getTopWindow(w);
+	local wTop = WindowManager.getTopWindow(w);
 	local sClass = wTop.getClass();
 	if sClass == "imagewindow" then
 		ImageManager.sendWindowToBackPanel(wTop);
@@ -666,7 +666,7 @@ function performSizeUp(w)
 	end
 end
 function performSizeDown(w)
-	local wTop = UtilityManager.getTopWindow(w);
+	local wTop = WindowManager.getTopWindow(w);
 	local sClass = wTop.getClass();
 	if sClass == "imagebackpanel" then
 		ImageManager.sendBackPanelToWindow();

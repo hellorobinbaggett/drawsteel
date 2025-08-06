@@ -2203,7 +2203,7 @@
 						else
 							setIcon("sidebar_icon_default");
 						end
-						local sFont = string.format("%s_header", UtilityManager.getTopWindow(window).getFrame());
+						local sFont = string.format("%s_header", WindowManager.getTopWindow(window).getFrame());
 						if not Interface.isFont(sFont) then
 							sFont = "recordsheet_header";
 						end

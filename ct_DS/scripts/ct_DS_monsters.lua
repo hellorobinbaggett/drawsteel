@@ -74,6 +74,6 @@ end
 
 -- TODO: have drop functionality change the specific monster section list
 function onDrop(x, y, draginfo)
-	local sCTNode = UtilityManager.getWindowDatabasePath(getWindowAt(x,y));
+	local sCTNode = WindowManager.getDatabasePath(getWindowAt(x,y));
 	return CombatDropManager.handleAnyDrop(draginfo, sCTNode);
 end

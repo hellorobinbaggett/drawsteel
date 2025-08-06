@@ -528,7 +528,7 @@
 	</template>
 	<template name="sub_charsheet_overview">
 		<subwindow>
-			<anchored position="insidetopleft" offset="15,20">
+			<anchored position="insidetopleft" offset="15,40">
 				<right offset="-30" />
 			</anchored>
 			<activate />
