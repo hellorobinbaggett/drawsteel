@@ -164,7 +164,7 @@
 			</string_characteristiclabel>	
 
 			<label>
-				<anchored to="combatframe" position="insidetopleft" offset="35,110" width="80" />
+				<anchored to="combatframe" position="insidetopleft" offset="33,110" width="80" />
 				<static textres="potencies" />
 			</label>
 

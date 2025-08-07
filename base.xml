@@ -6,19 +6,17 @@
 -->
 
 <root version="1.0" release="1" logo="logo.png">
-	<announcement text="Draw Steel Ruleset (v0.35) by EXXODIS" font="emotefont" icon="power_roll_down" />
+	<announcement text="Draw Steel Ruleset (v0.36) by EXXODIS" font="emotefont" icon="power_roll_down" />
 
 	<!-- Attributes -->
 	<description>
-		<displayname>Draw Steel</displayname>
+		<displayname>Draw Steel (DEV)</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
 
 	<!-- Announcements --> 
-	<announcement text="THIS IS A HOTFIX FOR THE AUGUST UPDATE (you may experience bugs and issues - please report to EXXODIS)
-	" font="emotefont" icon="" />
-	<announcement text="Draw Steel Ruleset v0.35 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
+	<announcement text="Draw Steel Ruleset v0.36 is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. \r\n &#169; 2024 MCDM Productions, LLC.  (https://www.mcdmproductions.com/draw-steel-creator-license)
 	" font="emotefont" icon="" />
 	
 	<announcement text="Check out these community modules:" />
@@ -68,7 +66,7 @@
 
 	<!-- Common templates -->
 	<includefile source="common/template_common.xml" />
-	<includefile source="common/template_buttons.xml" />
+	<includefile source="common/template_buttons_DS.xml" />
 	<includefile source="common/template_column.xml" />
 	<!-- <includefile source="common/template_combobox.xml" /> -->
 	<includefile source="common/template_lists.xml" />

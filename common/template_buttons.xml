@@ -1,12 +1,10 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- DEPRECATED: now uses the button templates from CoreRPG -->
+
 
 <!-- 
-  Please see the license.html file included with this distribution for 
-  attribution and copyright information.
--->
+<?xml version="1.0" encoding="iso-8859-1"?>
 
 <root>
-	<!-- Draw Steel buttons -->
 	<template name="power_roll">
 		<buttoncontrol>
 			<anchored width="20" height="20" />
@@ -344,12 +342,6 @@
 		</buttoncontrol>
 	</template>
 
-	<template name="button_iconcycler">
-		<genericcontrol>
-			<anchored width="20" height="20" />
-			<script file="common/scripts/button_iconcycler.lua" />
-		</genericcontrol>
-	</template>
 	<template name="button_stringcycler">
 		<genericcontrol>
 			<anchored height="20" />
@@ -460,4 +452,4 @@
 			<anchored width="20" height="20" />
 		</colorpick>
 	</template>
-</root>
+</root> -->
