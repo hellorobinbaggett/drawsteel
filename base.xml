@@ -46,6 +46,7 @@
 	<includefile source="campaign/record_char_skills_DS.xml" />
 	<includefile source="campaign/record_monster_DS.xml" />
 	<includefile source="campaign/template_monster_ability.xml" />
+	<includefile source="campaign/record_item.xml" />
 	<includefile source="graphics/graphics_buttons_DS.xml" />
 
 	<!-- COMBAT TRACKER -->
@@ -82,7 +83,8 @@
 	<!-- NOTE: Initialize window menu toolbar settings before any other scripts run. -->
 	<script name="WindowMenuManager" file="scripts/manager_window_menu.lua" />
 
-	<!-- High-level scripts : added for effects -->
+	<!-- High-level scripts -->
+	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
 	<script name="DataCommon" file="scripts/data_common_DS.lua" />
 	<script name="Effects" file="scripts/data_common_DS.lua" />
 

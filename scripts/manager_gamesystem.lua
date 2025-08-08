@@ -80,3 +80,28 @@ function onInit()
 
 	};
 end
+
+function getCharSelectDetailHost(nodeChar)
+	local sValue = "";
+	local nLevel = DB.getValue(nodeChar, "level", 0);
+	if nLevel > 0 then
+		sValue = "Level " .. math.floor(nLevel*100)*0.01;
+	end
+	return sValue;
+end
+
+function requestCharSelectDetailClient()
+	return "name,#level";
+end
+
+function receiveCharSelectDetailClient(vDetails)
+	return vDetails[1], "Level " .. math.floor(vDetails[2]*100)*0.01;
+end
+
+function getPregenCharSelectDetail(nodePregenChar)
+	return CharManager.getClassSummary(nodePregenChar);
+end
+
+function getDistanceUnitsPerGrid()
+	return 5;
+end

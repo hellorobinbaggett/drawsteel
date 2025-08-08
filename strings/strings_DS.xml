@@ -224,7 +224,7 @@
 
 	<!-- Languages -->
 	<string name="language_value_caelian">Caelian</string>
-	
+
 	<!-- Valsoiran Human Languages -->
 	<string name="language_value_uvalic">Uvalic</string>
 	<string name="language_value_higaran">Higaran</string>
@@ -604,7 +604,7 @@
 	<string name="item_label_unidentified">Non-ID Name</string>
 	<string name="item_label_unidentifiednotes">Notes</string>
 	<string name="item_label_cost">Cost</string>
-	<string name="item_label_prerequisites">Prerequisites</string>
+	<string name="item_label_prerequisites">Item Prerequisites</string>
 	<string name="item_label_researchmaterials">Materials</string>
 	<string name="item_label_projectsource">Source</string>
 	<string name="item_label_keywords">Keywords</string>
@@ -612,6 +612,7 @@
 	<string name="item_label_type">Type</string>
 	<string name="item_label_echelon">Echelon</string>
 	<string name="item_label_projectroll">Project Roll</string>
+	<string name="item_label_projectrollcharacteristic">Characteristic</string>
 	<string name="item_label_projectgoal">Project Goal</string>
 	<string name="item_label_weight">Weight</string>
 	<string name="item_label_subitems">Included Items</string>
