@@ -42,7 +42,7 @@ function onIDChanged()
 	name.setVisible(bID);
 	nonid_name.setVisible(not bID);
 
-	isidentified.setVisible(RecordDataManager.getIDMode(sRecordType));
+	-- isidentified.setVisible(RecordDataManager.getIDMode(sRecordType));
 end
 function onFactionChanged()
 	-- Update the entry frame

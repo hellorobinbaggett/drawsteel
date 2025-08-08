@@ -158,18 +158,29 @@
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
 					end
 				</script>
+				<tooltip textres="ev_rider_tooltip" />
 			</string_column>
 
 			<line_column name="break">
 				<bounds>5,35,-5,3</bounds>
 			</line_column>
 
+
+			<basicstring name="size">
+				<center />
+				<font>sheettext</font>
+				<font>reference-b-large</font>
+				<default>1M</default>
+				<bounds>20,62,40,30</bounds>
+			</basicstring>
+
+<!-- 
 			<basicstringc name="size">
 				<center />
 				<font>reference-b-large</font>
 				<bounds>10,62,40,30</bounds>
 				<default>1M</default>
-			</basicstringc>
+			</basicstringc> -->
 			<basicnumber name="speed">
 				<bounds>75,62,40,30</bounds>
 				<target>speed</target>
@@ -182,6 +193,7 @@
 			<basicnumber name="maxstamina" source="hp.max">
 				<bounds>140,85,40,17</bounds>
 				<target>stamina</target>
+				<tooltip textres="maximum_stamina_tooltip" />
 			</basicnumber>
 			<basicnumber name="stability">
 				<bounds>205,62,40,30</bounds>
@@ -388,58 +400,69 @@
 
 			<line_column name="divider_traits" />
 
+			<label name="title_traits">
+				<static textres="npc_label_traits" />
+				<anchored to="divider_traits">
+					<top offset="0" />
+					<left offset="-30" />
+				</anchored>
+			</label>
+
 			<!-- traits -->
 			<string_column_full name="label_trait1">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
-			<string_columnh_full name="traits_name">
+			<string_columnh_full name="traits_name1">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
-
 
 			<string_column_full name="label_trait2">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
 			<string_columnh_full name="traits_name2">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
-
 
 			<string_column_full name="label_trait3">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
 			<string_columnh_full name="traits_name3">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
-
 
 			<string_column_full name="label_trait4">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
 			<string_columnh_full name="traits_name4">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
-
 
 			<string_column_full name="label_trait5">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
 			<string_columnh_full name="traits_name5">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
-
 
 			<string_column_full name="label_trait6">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
 			<string_columnh_full name="traits_name6">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
 
 			<string_column_full name="label_trait7">
 				<font>reference-b-large</font>
+				<tooltip textres="trait_title_tooltip" />
 			</string_column_full>
 			<string_columnh_full name="traits_name7">
-			</string_columnh_full>
-
-			<string_column_full name="label_trait8">
-				<font>reference-b-large</font>
-			</string_column_full>
-			<string_columnh_full name="traits_name8">
+				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
 
 

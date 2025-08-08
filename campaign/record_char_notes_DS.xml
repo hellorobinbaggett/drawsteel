@@ -134,7 +134,7 @@
 				<target>languages</target>
 			</button_iadd>
 			<buttonfield name="tutorial">
-				<state icon="button_help" tooltipres="tooltip_character_languages" />
+				<state icon="button_toolbar_help" tooltipres="tooltip_character_languages" />
 				<tooltip textres="tooltip_character_languages" />
 				<bounds>320,80,20,20</bounds>
 			</buttonfield>

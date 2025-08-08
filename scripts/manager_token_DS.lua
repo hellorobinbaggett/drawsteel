@@ -17,3 +17,12 @@ end
 function handleIFEffectTag(rActor, nodeEffect, vComp)
 	return EffectManager_DS.checkConditional(rActor, nodeEffect, vComp.remainder);
 end
+
+function updateSpaceReach(nodeField)
+	Debug.console("function updateSpaceReach(nodeField):", nodeField.getValue());
+	local nodeCT = DB.getParent(nodeField);
+	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
+	if tokenCT then
+		TokenManager.updateSizeHelper(tokenCT, nodeCT);
+	end
+end
