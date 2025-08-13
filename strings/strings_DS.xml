@@ -586,6 +586,11 @@
 	<string name="npc_label_weaknesses">Weaknesses</string>
 	<string name="npc_label_immunities">Immunities</string>
 	<string name="npc_label_weight">Weight</string>
+	<string name="npc_label_mgt_full">MIGHT</string>
+	<string name="npc_label_agl_full">AGILITY</string>
+	<string name="npc_label_rea_full">REASON</string>
+	<string name="npc_label_inu_full">INTUITION</string>
+	<string name="npc_label_prs_full">PRESENCE</string>
 	<string name="npc_label_mgt">M</string>
 	<string name="npc_label_agl">A</string>
 	<string name="npc_label_rea">R</string>

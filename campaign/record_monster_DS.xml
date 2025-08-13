@@ -228,7 +228,8 @@
 				</anchored>
 			</label>
 
-			<label name="stability_label">
+			<label name="stability_label_readonly">
+				<readonly />
 				<static textres="npc_label_stability" />
 				<anchored to="stability">
 					<top offset="-22" />
@@ -304,8 +305,8 @@
 
 			<number_powerroll_characteristic name="mgt">
 				<!-- <bounds>20,200,40,30</bounds> -->
-				<anchored to="withcaptain_label">
-					<top offset="40" />
+				<anchored to="divider1">
+					<top offset="20" />
 					<left offset="30" />
 				</anchored>
 				<target>mgt</target>
@@ -351,47 +352,47 @@
 			<label name="mgt_label">
 				<static textres="npc_label_mgt" />
 				<anchored to="mgt">
-					<top offset="5" />
-					<left offset="-19" />
+					<top offset="-15" />
+					<left offset="13" />
 				</anchored>
 			</label>
 
 			<label name="agl_label">
 				<static textres="npc_label_agl" />
 				<anchored to="agl">
-					<top offset="5" />
-					<left offset="-17" />
+					<top offset="-15" />
+					<left offset="13" />
 				</anchored>
 			</label>
 
 			<label name="rea_label">
 				<static textres="npc_label_rea" />
 				<anchored to="rea">
-					<top offset="5" />
-					<left offset="-16" />
+					<top offset="-15" />
+					<left offset="13" />
 				</anchored>
 			</label>
 
 			<label name="inu_label">
 				<static textres="npc_label_inu" />
 				<anchored to="inu">
-					<top offset="5" />
-					<left offset="-15" />
+					<top offset="-15" />
+					<left offset="13" />
 				</anchored>
 			</label>
 
 			<label name="prs_label">
 				<static textres="npc_label_prs" />
 				<anchored to="prs">
-					<top offset="5" />
-					<left offset="-15" />
+					<top offset="-15" />
+					<left offset="13" />
 				</anchored>
 			</label>
 
 
 			<genericcontrol>
 				<anchored height="0">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="70" />
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="54" />
 					<left />
 					<right />
 				</anchored>
@@ -403,8 +404,8 @@
 			<label name="title_traits">
 				<static textres="npc_label_traits" />
 				<anchored to="divider_traits">
-					<top offset="0" />
-					<left offset="-30" />
+					<top offset="-16" />
+					<right offset="-160" />
 				</anchored>
 			</label>
 
@@ -464,177 +465,6 @@
 			<string_columnh_full name="traits_name7">
 				<tooltip textres="trait_tooltip" />
 			</string_columnh_full>
-
-
-
-			<!-- Current Stamina || Max Stamina -->
-			<!-- <label_column name="maxstamina_label">
-				<static textres="npc_label_maxstamina" />
-				<anchored offset="40" />
-			</label_column>
-			<number_column name="a">
-				<default>0</default>
-			</number_column>
-
-			<label_column_right name="currentstamina_label">
-				<anchored to="a" />
-				<static textres="npc_label_currentstamina" />
-			</label_column_right>
-			<number_column_right name="stamina" source="hp.stamina">
-				<anchored to="a" />
-				<default>0</default>
-			</number_column_right> -->
-
-			<!-- Speed || Movement Type -->
-			<!-- <label_column name="speed_label">
-				<static textres="npc_label_speed" />
-			</label_column>
-			<number_column name="speed">
-				<default>0</default>
-				<anchored width="20"/>
-			</number_column>
-
-			<basicstring name="speedtype_name">
-				<anchored to="speed" position="righthigh" offset="5,0" width="90" height="20" />
-			</basicstring> -->
-
-
-			<!-- Size -->
-			<!-- <label_column name="size_label">
-				<static textres="npc_label_size" />
-			</label_column>
-			<basicstring name="size">
-				<default>1M</default>
-				<anchored width="20" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="97" />
-				</anchored>
-			</basicstring>
-
-			<label_column name="stability_label">
-				<static textres="npc_label_stability" />
-				<bounds>170,205,60,20</bounds>
-			</label_column>
-			<number_column name="stability">
-				<bounds>240,205,-5,20</bounds>
-			</number_column> -->
-
-			<!-- Free Strike -->
-			<!-- <label_column name="freestrike_label">
-				<static textres="npc_label_freestrike" />
-			</label_column>
-			<number_column name="freestrike">
-			</number_column> -->
-
-			<!-- With Captain -->
-			<!-- <label_column name="withcaptain_label">
-				<static textres="npc_label_withcaptain" />
-			</label_column>
-			<string_columnh name="withcaptain">
-				<default></default>
-			</string_columnh> -->
-
-
-<!--
-			<label name="mgt_label">
-				<static textres="npc_label_mgt" />
-				<bounds>30,60,40,72</bounds>
-			</label>
-
-			<label name="agl_label">
-				<static textres="npc_label_agl" />
-				<bounds>80,60,40,72</bounds>
-			</label>
-
-			<label name="rea_label">
-				<static textres="npc_label_rea" />
-				<bounds>130,60,40,72</bounds>
-			</label>
-
-			<label name="inu_label">
-				<static textres="npc_label_inu" />
-				<bounds>180,60,40,72</bounds>
-			</label>
-
-			<label name="prs_label">
-				<static textres="npc_label_prs" />
-				<bounds>230,60,40,72</bounds>
-			</label>
-
-			<label_column name="spacer">
-			</label_column>
-
-
-			<number_powerroll_characteristic name="mgt">
-				<bounds>20,245,40,30</bounds>
-				<target>mgt</target>
-			</number_powerroll_characteristic>
-			<number_powerroll_characteristic name="agl">
-				<bounds>70,245,40,30</bounds>
-				<target>agl</target>
-			</number_powerroll_characteristic>
-			<number_powerroll_characteristic name="rea">
-				<bounds>120,245,40,30</bounds>
-				<target>rea</target>
-			</number_powerroll_characteristic>
-			<number_powerroll_characteristic name="inu">
-				<bounds>170,245,40,30</bounds>
-				<target>inu</target>
-			</number_powerroll_characteristic>
-			<number_powerroll_characteristic name="prs">
-				<bounds>220,245,40,30</bounds>
-				<target>prs</target>
-			</number_powerroll_characteristic>
-
-			<genericcontrol name="divider">
-					<anchored height="55">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left />
-					<right />
-					</anchored>
-			<disabled />
-			</genericcontrol> -->
-
-
-
-
-
-			<!-- languages -->
-			<!-- <label_column name="languages_name_label">
-				<static textres="npc_label_languages" />
-			</label_column>
-			<string_columnh name="languages_name" />	 -->
-
-
-			<!-- traits -->
-			<!-- <line_column name="divider" />
-
-			<label_column name="traits_label">
-				<static textres="npc_label_traits" />
-				<top parent="columnanchor" anchor="bottom" relation="current" offset="30" />
-			</label_column>
-			<string_column name="traits_name">
-			</string_column>	 -->
-
-			<!-- abilities -->
-
-			<!-- <label_column name="skills_label">
-				<static textres="npc_label_skills" />
-			</label_column>
-			<string_columnh name="skills">
-				<nodragselect />
-				<script file="campaign/scripts/npc_roll.lua" />
-			</string_columnh> -->
-
-			<!-- <label_column name="items_label">
-				<static textres="npc_label_items" />
-			</label_column>
-			<string_columnh name="items" />
-
-			<label_column name="languages_label">
-				<static textres="npc_label_languages" />
-			</label_column>
-			<string_columnh name="languages" /> -->
 
 		</sheetdata>
 	</windowclass>

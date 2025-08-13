@@ -325,4 +325,242 @@ function update()
 	WindowManager.callSafeControlUpdate(self, "ability_cost_9", bReadOnly);
 	WindowManager.callSafeControlUpdate(self, "ability_cost_string_9", bReadOnly);
 
+	-- ABILITY 2
+	local bSection1_10 = false;
+	local bSection2_10 = false;
+	local bSection3_10 = false;
+	local bSection4_10 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_10", bReadOnly) then bSection2_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_10", bReadOnly) then bSection2_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_10", bReadOnly) then bSection2_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_10", bReadOnly) then bSection2_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_10", bReadOnly) then bSection2_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_10", bReadOnly) then bSection3_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_10", bReadOnly) then bSection3_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_10", bReadOnly) then bSection3_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_10", bReadOnly) then bSection3_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_10", bReadOnly) then bSection4_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_10", bReadOnly) then bSection4_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_10", bReadOnly) then bSection4_10 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_10", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_10", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_10", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_10", bReadOnly);
+
+	-- ABILITY 2
+	local bSection1_11 = false;
+	local bSection2_11 = false;
+	local bSection3_11 = false;
+	local bSection4_11 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_11", bReadOnly) then bSection2_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_11", bReadOnly) then bSection2_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_11", bReadOnly) then bSection2_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_11", bReadOnly) then bSection2_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_11", bReadOnly) then bSection2_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_11", bReadOnly) then bSection3_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_11", bReadOnly) then bSection3_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_11", bReadOnly) then bSection3_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_11", bReadOnly) then bSection3_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_11", bReadOnly) then bSection4_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_11", bReadOnly) then bSection4_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_11", bReadOnly) then bSection4_11 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_11", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_11", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_11", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_11", bReadOnly);
+
+	-- ABILITY 2
+	local bSection1_12 = false;
+	local bSection2_12 = false;
+	local bSection3_12 = false;
+	local bSection4_12 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_12", bReadOnly) then bSection2_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_12", bReadOnly) then bSection2_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_12", bReadOnly) then bSection2_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_12", bReadOnly) then bSection2_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_12", bReadOnly) then bSection2_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_12", bReadOnly) then bSection3_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_12", bReadOnly) then bSection3_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_12", bReadOnly) then bSection3_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_12", bReadOnly) then bSection3_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_12", bReadOnly) then bSection4_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_12", bReadOnly) then bSection4_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_12", bReadOnly) then bSection4_12 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_12", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_12", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_12", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_12", bReadOnly);
+
+	-- ABILITY 2
+	local bSection1_13 = false;
+	local bSection2_13 = false;
+	local bSection3_13 = false;
+	local bSection4_13 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_13", bReadOnly) then bSection2_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_13", bReadOnly) then bSection2_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_13", bReadOnly) then bSection2_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_13", bReadOnly) then bSection2_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_13", bReadOnly) then bSection2_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_13", bReadOnly) then bSection3_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_13", bReadOnly) then bSection3_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_13", bReadOnly) then bSection3_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_13", bReadOnly) then bSection3_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_13", bReadOnly) then bSection4_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_13", bReadOnly) then bSection4_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_13", bReadOnly) then bSection4_13 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_13", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_13", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_13", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_13", bReadOnly);
+
+	-- ABILITY 2
+	local bSection1_14 = false;
+	local bSection2_14 = false;
+	local bSection3_14 = false;
+	local bSection4_14 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_14", bReadOnly) then bSection2_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_14", bReadOnly) then bSection2_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_14", bReadOnly) then bSection2_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_14", bReadOnly) then bSection2_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_14", bReadOnly) then bSection2_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_14", bReadOnly) then bSection3_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_14", bReadOnly) then bSection3_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_14", bReadOnly) then bSection3_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_14", bReadOnly) then bSection3_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_14", bReadOnly) then bSection4_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_14", bReadOnly) then bSection4_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_14", bReadOnly) then bSection4_14 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_14", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_14", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_14", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_14", bReadOnly);
+
+	-- ABILITY 2
+	local bSection1_15 = false;
+	local bSection2_15 = false;
+	local bSection3_15 = false;
+	local bSection4_15 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_15", bReadOnly) then bSection2_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_15", bReadOnly) then bSection2_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_15", bReadOnly) then bSection2_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_15", bReadOnly) then bSection2_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_15", bReadOnly) then bSection2_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_15", bReadOnly) then bSection3_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_15", bReadOnly) then bSection3_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_15", bReadOnly) then bSection3_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_15", bReadOnly) then bSection3_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_15", bReadOnly) then bSection4_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_15", bReadOnly) then bSection4_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_15", bReadOnly) then bSection4_15 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_15", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_15", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_15", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_15", bReadOnly);
+
+	-- ABILITY 2
+	local bSection1_16 = false;
+	local bSection2_16 = false;
+	local bSection3_16 = false;
+	local bSection4_16 = false;
+	if WindowManager.callSafeControlUpdate(self, "abilityname_ability_16", bReadOnly) then bSection2_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "keywords_16", bReadOnly) then bSection2_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "type_16", bReadOnly) then bSection2_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "distance_16", bReadOnly) then bSection2_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "target_16", bReadOnly) then bSection2_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "characteristic_label_16", bReadOnly) then bSection3_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier1_16", bReadOnly) then bSection3_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier2_16", bReadOnly) then bSection3_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "tier3_16", bReadOnly) then bSection3_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "trigger_16", bReadOnly) then bSection4_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "effect_16", bReadOnly) then bSection4_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "special_16", bReadOnly) then bSection4_16 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_16", bReadOnly) then bSection4 = true; end;
+	if WindowManager.callSafeControlUpdate(self, "ability_cost_string_16", bReadOnly) then bSection4 = true; end;
+	-- hides fields
+	WindowManager.callSafeControlUpdate(self, "abilityname_ability_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "type_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "distance_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "target_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier1_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier2_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "tier3_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "trigger_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "effect_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "special_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_16", bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "ability_cost_string_16", bReadOnly);
+
 end

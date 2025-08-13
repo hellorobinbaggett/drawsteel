@@ -169,7 +169,7 @@
 			</label>
 
 			<number_characteristicscore name="weak" source="abilities.weak.value">
-				<anchored to="combatframe" position="insidetopleft" offset="95,130" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,130" width="20" height="17"/>
 				<description textres="char_tooltip_weak" />
 				<default>0</default>
 			</number_characteristicscore>
@@ -179,7 +179,7 @@
 			</string_characteristiclabel>	
 
 			<number_characteristicscore name="average" source="abilities.average.value">
-				<anchored to="combatframe" position="insidetopleft" offset="95,150" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,150" width="20" height="17" />
 				<description textres="char_tooltip_average" />
 				<default>0</default>
 			</number_characteristicscore>
@@ -189,7 +189,7 @@
 			</string_characteristiclabel>	
 
 			<number_characteristicscore name="strong" source="abilities.strong.value">
-				<anchored to="combatframe" position="insidetopleft" offset="95,170" width="20" />
+				<anchored to="combatframe" position="insidetopleft" offset="95,170" width="20" height="17" />
 				<description textres="char_tooltip_strong" />
 				<default>0</default>
 			</number_characteristicscore>

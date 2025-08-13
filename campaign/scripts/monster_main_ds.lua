@@ -63,7 +63,7 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "label_trait6", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "label_trait7", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "label_trait8", bReadOnly) then bSection1 = true; end;
-		if WindowManager.callSafeControlUpdate(self, "traits_name", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "traits_name1", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name2", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name3", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "traits_name4", bReadOnly) then bSection1 = true; end;
