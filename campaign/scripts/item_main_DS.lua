@@ -18,7 +18,7 @@ function onStateChanged()
 	local nodeRecord = getDatabaseNode();
 	local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
 	local bID = RecordDataManager.getIDState("item", nodeRecord);
-    Debug.chat(bID);
+	
 	WindowManager.callSafeControlsSetLockMode(self, { "notes", "description", }, bReadOnly);
 	WindowManager.callSafeControlsSetVisible(self, { "notes", "description", }, bID);
 

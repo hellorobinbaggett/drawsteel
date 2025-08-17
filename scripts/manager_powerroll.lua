@@ -2,6 +2,9 @@ function powerRoll(rMessage, rRoll)
 
     -- set crit threshold for power roll
 	local nCritThreshold = 19;
+	local heroResource = DB.getChild(CharSheetID, "classresource");
+	local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+    local CharSheetID = DB.findNode(sCharSheetID);
 
 	-- check to see if any edge/bane desktop buttons are pressed
 	ActionsManager_DS.encodeDesktopMods(rRoll);

@@ -10,6 +10,7 @@
         <script file="campaign/scripts/monster_abilities_ds.lua" />
             <sheetdata>
                 <anchor_column name="columnanchor" />
+                    Debug.console("campaign/scripts/template_monster_ability");
                     <line_column name="divider1" />
 
                     <basicstring name="abilityname">

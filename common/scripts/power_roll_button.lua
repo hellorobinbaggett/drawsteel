@@ -2,41 +2,41 @@ function action(draginfo)
     local nodeWin = window.getDatabaseNode();
     local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
     local CharSheetID = DB.findNode(sCharSheetID);
-    local characteristic = DB.getValue(nodeWin, "ability.characteristic.button");
+    local characteristic = DB.getValue(nodeWin, "characteristic");
+    local characteristicMod = 0;
 
-    -- add the characteristic that is chosed for the skill
-    characteristicMod = 0;
-    -- AGL
+    -- add the characteristic that is chosen for the skill
+    -- MGT
     if (characteristic == 1) then
+        characteristicMod = DB.getValue(CharSheetID, "MGT");
+        if (characteristicMod == nill) then
+            characteristicMod = 0;
+        end
+    end
+    -- AGL
+    if (characteristic == 2) then
         characteristicMod = DB.getValue(CharSheetID, "AGL");
         if (characteristicMod == nill) then
             characteristicMod = 0;
         end
     end
     -- REA
-    if (characteristic == 2) then
+    if (characteristic == 3) then
         characteristicMod = DB.getValue(CharSheetID, "REA");
         if (characteristicMod == nill) then
             characteristicMod = 0;
         end
     end
     -- INU
-    if (characteristic == 3) then
+    if (characteristic == 4) then
         characteristicMod = DB.getValue(CharSheetID, "INU");
         if (characteristicMod == nil) then
             characteristicMod = 0;
         end
     end
     -- PRS
-    if (characteristic == 4) then
+    if (characteristic == 5) then
         characteristicMod = DB.getValue(CharSheetID, "PRS");
-        if (characteristicMod == nill) then
-            characteristicMod = 0;
-        end
-    end
-    -- MGT
-    if (characteristic == 0) then
-        characteristicMod = DB.getValue(CharSheetID, "MGT");
         if (characteristicMod == nill) then
             characteristicMod = 0;
         end
@@ -48,9 +48,25 @@ function action(draginfo)
     local heroResource = DB.getChild(CharSheetID, "classresource");
     local rActor = ActorManager.resolveActor(window.getDatabaseNode());
     local nodePC = ActorManager.getCreatureNode(rActor);
+    
+    -- building the rRoll information
+    local rRoll = { 
+        sType = "dice", 
+        sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+        aDice = { "d10", "d10" },
+        nMod = characteristicMod,
+        t1 = DB.getValue(nodeWin, "tier1"),
+        t2 = DB.getValue(nodeWin, "tier2"),
+        t3 = DB.getValue(nodeWin, "tier3");
+        effect = DB.getValue(nodeWin, "effect");
+    };
+    -- getting any system specific mods/bonuses/penalties
+    ActionsManager_DS.encodeDesktopMods(rRoll);
+    -- Call the function to execute the roll
+    ActionsManager.performAction(draginfo, rActor, rRoll);
 
+    -- TODO: This currently displays this upon clicking/dragging dice. It should display AFTER the dice are rolled
     local current = DB.getValue(CharSheetID, "classresource"); 
-
     if (current ~= nill) then --source from char sheet?
         if (current >= abilityCost) then
             if (abilityCost > 0) then --ability costs?
@@ -64,20 +80,6 @@ function action(draginfo)
             ChatManager.SystemMessageResource("ability_message_resourcewarning");
         end
     end
-
-    
-    local rRoll = { 
-        sType = "dice", 
-        sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
-        aDice = { "d10", "d10" },
-        nMod = characteristicMod,
-        t1 = DB.getValue(nodeWin, "tier1"),
-        t2 = DB.getValue(nodeWin, "tier2"),
-        t3 = DB.getValue(nodeWin, "tier3");
-        effect = DB.getValue(nodeWin, "effect");
-    };
-    ActionsManager_DS.encodeDesktopMods(rRoll);
-    ActionsManager.performAction(draginfo, rActor, rRoll);
     return true;
 end
 

@@ -24,8 +24,6 @@ function update()
 	};
 	WindowManager.callSafeControlsUpdate(self, tFields, bReadOnly);
 
-	Debug.chaat("hello");
-
 	local bSection1 = false;
 	if Session.IsHost then
 		if WindowManager.callSafeControlUpdate(self, "abilityname", bReadOnly, true) then bSection1 = true; end;

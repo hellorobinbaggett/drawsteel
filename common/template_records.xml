@@ -342,7 +342,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic" source="ability.characteristic.button">
+			<button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -415,8 +415,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button");
-
+						local characteristic = DB.getValue(nodeWin, "characteristic");
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
                         -- AGL
@@ -538,7 +537,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_2" source="ability.characteristic.button_2">
+			<button_characteristic name="characteristic_2" source="characteristic_2">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -618,7 +617,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_2");
+						local characteristic = DB.getValue(nodeWin, "characteristic_2");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -741,7 +740,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_3" source="ability.characteristic.button_3">
+			<button_characteristic name="characteristic_3" source="characteristic_3">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -821,7 +820,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_3");
+						local characteristic = DB.getValue(nodeWin, "characteristic_3");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -944,7 +943,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_4" source="ability.characteristic.button_4">
+			<button_characteristic name="characteristic_4" source="characteristic_4">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -1024,7 +1023,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_4");
+						local characteristic = DB.getValue(nodeWin, "characteristic_4");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -1147,7 +1146,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_5" source="ability.characteristic.button_5">
+			<button_characteristic name="characteristic_5" source="characteristic_5">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -1227,7 +1226,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_5");
+						local characteristic = DB.getValue(nodeWin, "characteristic_5");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -1350,7 +1349,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_6" source="ability.characteristic.button_6">
+			<button_characteristic name="characteristic_6" source="characteristic_6">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -1430,7 +1429,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_6");
+						local characteristic = DB.getValue(nodeWin, "characteristic_6");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -1553,7 +1552,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_7" source="ability.characteristic.button_7">
+			<button_characteristic name="characteristic_7" source="characteristic_7">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -1633,7 +1632,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_7");
+						local characteristic = DB.getValue(nodeWin, "characteristic_7");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -1756,7 +1755,7 @@
 				</anchored>
 			</label_column>
 
-			<button_characteristic name="characteristic_8" source="ability.characteristic.button_8">
+			<button_characteristic name="characteristic_8" source="characteristic_8">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -1835,7 +1834,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_8");
+						local characteristic = DB.getValue(nodeWin, "characteristic_8");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -1951,7 +1950,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_9" source="ability.characteristic.button_9">
+			<button_characteristic name="characteristic_9" source="characteristic_9">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -2026,7 +2025,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_9");
+						local characteristic = DB.getValue(nodeWin, "characteristic_9");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -2141,7 +2140,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_10" source="ability.characteristic.button_10">
+			<button_characteristic name="characteristic_10" source="characteristic_10">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -2216,7 +2215,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_10");
+						local characteristic = DB.getValue(nodeWin, "characteristic_10");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -2331,7 +2330,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_11" source="ability.characteristic.button_11">
+			<button_characteristic name="characteristic_11" source="characteristic_11">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -2406,7 +2405,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_11");
+						local characteristic = DB.getValue(nodeWin, "characteristic_11");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -2521,7 +2520,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_12" source="ability.characteristic.button_12">
+			<button_characteristic name="characteristic_12" source="characteristic_12">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -2596,7 +2595,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_12");
+						local characteristic = DB.getValue(nodeWin, "characteristic_12");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -2711,7 +2710,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_13" source="ability.characteristic.button_13">
+			<button_characteristic name="characteristic_13" source="characteristic_13">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -2786,7 +2785,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_13");
+						local characteristic = DB.getValue(nodeWin, "characteristic_13");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -2901,7 +2900,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_14" source="ability.characteristic.button_14">
+			<button_characteristic name="characteristic_14" source="characteristic_14">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -2976,7 +2975,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_14");
+						local characteristic = DB.getValue(nodeWin, "characteristic_14");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -3091,7 +3090,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_15" source="ability.characteristic.button_15">
+			<button_characteristic name="characteristic_15" source="characteristic_15">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -3166,7 +3165,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_15");
+						local characteristic = DB.getValue(nodeWin, "characteristic_15");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
@@ -3281,7 +3280,7 @@
 					<top offset="5" />
 				</anchored>
 			</label_column>
-			<button_characteristic name="characteristic_16" source="ability.characteristic.button_16">
+			<button_characteristic name="characteristic_16" source="characteristic_16">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
@@ -3356,7 +3355,7 @@
 						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "ability.characteristic.button_16");
+						local characteristic = DB.getValue(nodeWin, "characteristic_16");
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;

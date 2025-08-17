@@ -14,25 +14,25 @@ function action(draginfo)
 
     -- add the characteristic that is chosed for the skill
     characteristicMod = 0;
-    -- AGL
+    -- MGT
     if (characteristic == 1) then
+        characteristicMod = DB.getValue(nodeWin, "MGT");
+    end
+    -- AGL
+    if (characteristic == 2) then
         characteristicMod = DB.getValue(nodeWin, "AGL");
     end
     -- REA
-    if (characteristic == 2) then
+    if (characteristic == 3) then
         characteristicMod = DB.getValue(nodeWin, "REA");
     end
     -- INU
-    if (characteristic == 3) then
+    if (characteristic == 4) then
         characteristicMod = DB.getValue(nodeWin, "INU");
     end
     -- PRS
-    if (characteristic == 4) then
+    if (characteristic == 5) then
         characteristicMod = DB.getValue(nodeWin, "PRS");
-    end
-    -- MGT
-    if (characteristic == 0) then
-        characteristicMod = DB.getValue(nodeWin, "MGT");
     end
 
     local abilityName = DB.getValue(nodeWin, "skill.alchemy", "");
