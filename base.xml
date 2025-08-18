@@ -137,7 +137,7 @@
 	<script name="ActorCommonManager" file="scripts/manager_actor_common.lua" />
 	<script name="ActorDisplayManager" file="scripts/manager_actor_display.lua" />
 	<script name="ActorHealthManager" file="scripts/manager_actor_health.lua" />
-	<script name="ActionsManager" file="scripts/manager_actions.lua" />
+	<!-- <script name="ActionsManager" file="scripts/manager_actions.lua" /> -->
 	<script name="CalendarManager" file="scripts/manager_calendar.lua" />
 	<script name="CombatManagerDS" file="scripts/manager_combat_DS.lua" />
 	<script name="CombatDropManager" file="scripts/manager_combat_drop.lua" />

@@ -6,6 +6,7 @@
 -->
 
 <root>
+	<!-- The power roll logic is in ability_window class -->
 	<windowclass name="ability" copy="ability_window">
 		<minimize>minimized_item</minimize>
 	</windowclass>
