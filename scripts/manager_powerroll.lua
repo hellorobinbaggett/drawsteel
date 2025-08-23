@@ -25,48 +25,54 @@ function powerRoll(rMessage, rRoll)
 	end
 
 	-- if 2d10 are rolled, it is a power roll.
-	if string.match(rRoll.aDice.expr, "2d10") then
-		local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
-		local powerRollTotalMod = ActionsManager.total(rRoll);
+	if string.match(rRoll.aDice[1], "d10") then
+		if string.match(rRoll.aDice[2], "d10") then
+			Debug.chat("This is a power roll");
 
-		-- write in chat what tier result it is
-		if powerRollTotalMod <= 11 then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: \n" .. tostring(rRoll.t1) .. "\n\n" .. tostring(rRoll.effect);
-		elseif powerRollTotalMod >= 17 then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
-		elseif powerRollTotalMod == powerRollTotalMod then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: \n" .. tostring(rRoll.t2) .. "\n\n" .. tostring(rRoll.effect);
-		end
+			-- add the two rolls togethor to get the natural roll
+			local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
+			-- get the total after any modifications
+			local powerRollTotalMod = ActionsManager.total(rRoll);
 
-		-- check for double edges
-		if string.match(rRoll.sDesc, "Double Edge") then
+			-- write in chat what tier result it is
 			if powerRollTotalMod <= 11 then
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: \n" .. tostring(rRoll.t1) .. "\n\n" .. tostring(rRoll.effect);
+			elseif powerRollTotalMod >= 17 then
+				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
+			elseif powerRollTotalMod == powerRollTotalMod then
 				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: \n" .. tostring(rRoll.t2) .. "\n\n" .. tostring(rRoll.effect);
-			elseif powerRollTotalMod >= 17 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
-			elseif powerRollTotalMod == powerRollTotalMod then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
 			end
-		end
 
-		-- check for double baness
-		if string.match(rRoll.sDesc, "Double Bane") then
-			if powerRollTotalMod <= 11 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: \n" .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
-			elseif powerRollTotalMod >= 17 then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: \n" .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
-			elseif powerRollTotalMod == powerRollTotalMod then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: \n" .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
+			-- check for double edges
+			if string.match(rRoll.sDesc, "Double Edge") then
+				if powerRollTotalMod <= 11 then
+					rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: \n" .. tostring(rRoll.t2) .. "\n\n" .. tostring(rRoll.effect);
+				elseif powerRollTotalMod >= 17 then
+					rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
+				elseif powerRollTotalMod == powerRollTotalMod then
+					rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 3: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
+				end
 			end
-		end
 
-		-- check for critical hits and natural 20s
-		if powerRollTotal == nCritThreshold then
-			rMessage.text = tostring(rMessage.text) .. "\n[CRITICAL]";
-		end
-		-- natural 20s are always Tier 3 no matter what modifiers or banes present
-		if powerRollTotal > nCritThreshold then
-			rMessage.text = tostring(rRoll.sDesc) .. "\nPower Roll: Automatic TIER 3\n[CRITICAL]\n[NATURAL 20]";
+			-- check for double baness
+			if string.match(rRoll.sDesc, "Double Bane") then
+				if powerRollTotalMod <= 11 then
+					rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: \n" .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
+				elseif powerRollTotalMod >= 17 then
+					rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 2: \n" .. tostring(rRoll.t2) .. "\n" .. tostring(rRoll.effect);
+				elseif powerRollTotalMod == powerRollTotalMod then
+					rMessage.text = tostring(rRoll.sDesc) .. "\nTIER 1: \n" .. tostring(rRoll.t1) .. "\n" .. tostring(rRoll.effect);
+				end
+			end
+
+			-- check for critical hits and natural 20s
+			if powerRollTotal == nCritThreshold then
+				rMessage.text = tostring(rMessage.text) .. "\n[CRITICAL]";
+			end
+			-- natural 20s are always Tier 3 no matter what modifiers or banes present
+			if powerRollTotal > nCritThreshold then
+				rMessage.text = tostring(rRoll.sDesc) .. "\nPower Roll: Automatic TIER 3\n[CRITICAL]\n[NATURAL 20]";
+			end
 		end
 	end
 	

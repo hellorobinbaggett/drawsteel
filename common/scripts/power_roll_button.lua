@@ -49,7 +49,21 @@ function action(draginfo)
     local rActor = ActorManager.resolveActor(window.getDatabaseNode());
     local nodePC = ActorManager.getCreatureNode(rActor);
     
-    -- building the rRoll information
+    local current = DB.getValue(CharSheetID, "classresource"); 
+
+    if (current ~= nill) then --source from char sheet?
+        if (current >= abilityCost) then
+            if (abilityCost > 0) then --ability costs?
+                local newTotal = (current - abilityCost);
+                DB.setValue(CharSheetID, "classresource", "number", newTotal);
+                local heroName = DB.getChild(CharSheetID, "name").getValue();
+                ChatManager.SystemMessageResource("ability_message_resource", heroName, tostring(abilityCost));
+            end
+        else
+            ChatManager.SystemMessageResource("ability_message_resourcewarning");
+        end
+    end
+
     local rRoll = { 
         sType = "dice", 
         sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
@@ -60,27 +74,12 @@ function action(draginfo)
         t3 = DB.getValue(nodeWin, "tier3");
         effect = DB.getValue(nodeWin, "effect");
     };
-    -- getting any system specific mods/bonuses/penalties
+
     ActionsManager_DS.encodeDesktopMods(rRoll);
-    -- Call the function to execute the roll
     ActionsManager.performAction(draginfo, rActor, rRoll);
 
-    -- TODO: This currently displays this upon clicking/dragging dice. It should display AFTER the dice are rolled
-    local current = DB.getValue(CharSheetID, "classresource"); 
-    if (current ~= nill) then --source from char sheet?
-        if (current >= abilityCost) then
-            if (abilityCost > 0) then --ability costs?
-                local newTotal = (current - abilityCost);
-
-                DB.setValue(CharSheetID, "classresource", "number", newTotal);
-                local heroName = DB.getChild(CharSheetID, "name").getValue();
-                ChatManager.SystemMessageResource("ability_message_resource", heroName, tostring(abilityCost));
-            end
-        else
-            ChatManager.SystemMessageResource("ability_message_resourcewarning");
-        end
-    end
     return true;
+
 end
 
 function onDragStart(button, x, y, draginfo)
