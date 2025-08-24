@@ -116,6 +116,18 @@
 				<delaykeyupdate />
 			</string_content_columnh>
 
+			<label_content_column name="echelon_label">
+				<static textres="item_label_echelon" />
+			</label_content_column>
+			<number_content_columnh name="echelon" >
+                <delaykeyupdate />
+                <script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onTypeChanged");
+					end
+				</script>
+            </number_content_columnh>
+
 			<label_content_column name="keyword_label">
 				<static textres="item_label_keywords" />
 			</label_content_column>

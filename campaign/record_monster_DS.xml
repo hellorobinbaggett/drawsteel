@@ -285,6 +285,22 @@
 				<default></default>
 			</string_columnh>
 
+			<!-- hazard traits -->
+			<label_column name="sizenote_name_label">
+				<static textres="npc_label_sizenote" />
+				<!-- <bounds>5,112,90,20</bounds> -->
+			</label_column>
+			<string_columnh name="sizenote_name" >
+				<!-- <bounds>5,130,160,20</bounds> -->
+			</string_columnh>
+			<label_column name="staminanote_name_label">
+				<static textres="npc_label_staminanote" />
+				<!-- <bounds>-85,112,90,20</bounds> -->
+			</label_column>
+			<string_columnh name="staminanote_name" >
+				<!-- <bounds>175,130,-5,20</bounds> -->
+			</string_columnh>
+
 			<line_column name="divider1" />
 
 			<!-- <genericcontrol name="divider_section">

@@ -114,6 +114,8 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "languages_name", bReadOnly) then bSection2 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "weakness_name", bReadOnly) then bSection2 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "immunity_name", bReadOnly) then bSection2 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "sizenote_name", bReadOnly) then bSection2 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "staminanote_name", bReadOnly) then bSection2 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly) then bSection2 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "speedtype_name", bReadOnly) then bSection2 = true; end;
 	else
@@ -129,6 +131,8 @@ function update()
 		WindowManager.callSafeControlUpdate(self, "weakness_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "immunity_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "withcaptain", bReadOnly, true);
+		WindowManager.callSafeControlUpdate(self, "sizenote_name", bReadOnly, true);
+		WindowManager.callSafeControlUpdate(self, "staminanote_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "speedtype_name", bReadOnly, true);
 	end
 

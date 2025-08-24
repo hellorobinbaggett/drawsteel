@@ -62,8 +62,8 @@ aListViews = {
 	["ability"] = {
 		["byclass"] = {
 			aColumns = {
-				{ sName = "cost", sType = "basicnumber", sHeadingRes = "ability_grouped_label_cost", nWidth=200 },
-				{ sName = "name", sType = "basicnumber", sHeadingRes = "ability_grouped_label_name", nWidth=200 },
+				{ sName = "ability_cost", sType = "basicnumber", sHeadingRes = "ability_grouped_label_cost", nWidth=50 },
+				{ sName = "name", sType = "basicstring", sHeadingRes = "ability_grouped_label_name", nWidth=350 },
 			},
 			aFilters = {},
 			aGroups = { { sDBField = "class" } },
@@ -71,13 +71,51 @@ aListViews = {
 		},
 		["byancestry"] = {
 			aColumns = {
-				{ sName = "cost", sType = "basicnumber", sHeadingRes = "ability_grouped_label_cost", nWidth=200 },
-				{ sName = "name", sType = "basicnumber", sHeadingRes = "ability_grouped_label_name", nWidth=200 },
+				{ sName = "ability_cost", sType = "basicnumber", sHeadingRes = "ability_grouped_label_cost", nWidth=50 },
+				{ sName = "name", sType = "basicstring", sHeadingRes = "ability_grouped_label_name", nWidth=350 },
 			},
 			aFilters = {},
 			aGroups = { { sDBField = "ancestry" } },
 			aGroupValueOrder = {},
 		},
+	},
+	["npc"] = {
+		["bylevel"] = {
+			aColumns = {
+				{ sName = "level_name", sType = "basicnumber", sHeadingRes = "npc_grouped_label_cost", nWidth=50 },
+				{ sName = "name", sType = "basicstring", sHeadingRes = "npc_grouped_label_name", nWidth=350 },
+			},
+			aFilters = {},
+			aGroups = { { sDBField = "level_name" } },
+			aGroupValueOrder = {},
+		},
+		["byrole"] = {
+			aColumns = {
+				{ sName = "level_name", sType = "basicnumber", sHeadingRes = "npc_grouped_label_cost", nWidth=50 },
+				{ sName = "name", sType = "basicstring", sHeadingRes = "npc_grouped_label_name", nWidth=350 },
+			},
+			aFilters = {},
+			aGroups = { { sDBField = "role_name" } },
+			aGroupValueOrder = {},
+		}
+	},
+	["item"] = {
+		["byechelon"] = {
+			aColumns = {
+				{ sName = "name", sType = "basicnumber", sHeadingRes = "npc_grouped_label_name", nWidth=400 },
+			},
+			aFilters = {},
+			aGroups = { { sDBField = "echelon" } },
+			aGroupValueOrder = {},
+		},
+		["bytype"] = {
+			aColumns = {
+				{ sName = "name", sType = "basicstring", sHeadingRes = "npc_grouped_label_name", nWidth=400 },
+			},
+			aFilters = {},
+			aGroups = { { sDBField = "type" } },
+			aGroupValueOrder = {},
+		}
 	},
 };
 

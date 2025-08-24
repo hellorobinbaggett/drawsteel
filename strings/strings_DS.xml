@@ -2,6 +2,7 @@
 
 <root>
 	<string name="monsters">Monsters</string>
+	<string name="items">Items</string>
 
 	<!-- Utility -->
 	<string name="library_recordtype_label_npc">Monsters</string>
@@ -31,6 +32,7 @@
 	<string name="library_recordview_label_ability_byclass">By Class</string>
 	<string name="library_recordview_label_ability_byancestry">By Ancestry</string>
 	<string name="library_recordtype_label_monsters">Monsters</string>
+	<string name="library_recordtype_label_items">Items</string>
 	<string name="library_recordtype_label_ancestry">Ancestries</string>
 	<string name="library_recordtype_single_ancestry">Ancestry</string>
 	<string name="library_recordtype_label_data">Data</string>
@@ -585,6 +587,8 @@
 	<string name="npc_label_traits">Traits</string>
 	<string name="npc_label_weaknesses">Weaknesses</string>
 	<string name="npc_label_immunities">Immunities</string>
+	<string name="npc_label_sizenote">Size Note</string>
+	<string name="npc_label_staminanote">Stamina Note</string>
 	<string name="npc_label_weight">Weight</string>
 	<string name="npc_label_mgt_full">MIGHT</string>
 	<string name="npc_label_agl_full">AGILITY</string>
@@ -646,7 +650,9 @@
 	<string name="ability_label_tier2">12-16</string>
 	<string name="ability_label_tier3">17+</string>
 	<string name="ability_grouped_label_name">Name</string>
+	<string name="npc_grouped_label_name">Name</string>
 	<string name="ability_grouped_label_cost">Cost</string>
+	<string name="npc_grouped_label_level">Level</string>
 	<string name="ability_message_resource">%s spent %s heroic resources</string>
 	<string name="ability_message_resourcewarning">You don't have enough class resources</string>
 

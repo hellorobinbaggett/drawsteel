@@ -20,10 +20,17 @@
 
 	<string name="library_recordtype_label_ability">Abilities</string>
 	<string name="library_recordtype_single_ability">Ability</string>
+	<string name="library_recordtype_empty_npc">&#171; New Monster &#187;</string>
 	<string name="library_recordtype_empty_ability">&#171; New Ability &#187;</string>
 	<string name="library_recordview_label_ability_bytype">By Type</string>
 	<string name="library_recordview_label_ability_byclass">By Class</string>
 	<string name="library_recordview_label_ability_byancestry">By Ancestry</string>
+	<string name="library_recordview_label_ability_bylevel">By Level</string>
+	<string name="library_recordview_label_npc_bylevel">By Level</string>
+	<string name="library_recordview_label_npc_byrole">By Role</string>
+	<string name="library_recordview_label_npc_byorganization">By Organization</string>
+	<string name="library_recordview_label_item_bytype">By Type</string>
+	<string name="library_recordview_label_item_byechelon">By Echelon</string>
 
 	<string name="library_recordtype_label_ancestry">Ancestries</string>
 	<string name="library_recordtype_single_ancestry">Ancestry</string>

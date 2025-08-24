@@ -336,20 +336,27 @@
 			</string_columnh>
 
 			<!-- POWER ROLL -->
-			<label_column name="characteristic_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<label_column name="mod_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic" source="characteristic">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+			
 			<label_column name="tier1_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -416,43 +423,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic");
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords", "");
@@ -463,7 +434,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -484,7 +455,7 @@
 				</script>
 			</power_roll>	
 
-			<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider2" />
 
 			<basicstring name="abilityname_ability_2">
@@ -530,21 +501,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_2_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_2_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_2" source="characteristic_2">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_2">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_2_label">
 				<static textres="ability_label_tier1" />
@@ -618,44 +595,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_2");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_2")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_2", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_2", "");
@@ -666,7 +606,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -687,7 +627,7 @@
 				</script>
 			</power_roll>
 
-			<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider3" />
 
 			<basicstring name="abilityname_ability_3">
@@ -733,21 +673,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_3_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_3_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_3" source="characteristic_3">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_3">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_3_label">
 				<static textres="ability_label_tier1" />
@@ -821,44 +767,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_3");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_3")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_3", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_3", "");
@@ -869,7 +778,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -890,7 +799,7 @@
 				</script>
 			</power_roll>
 
-						<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider4" />
 
 			<basicstring name="abilityname_ability_4">
@@ -936,21 +845,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_4_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_4_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_4" source="characteristic_4">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_4">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_4_label">
 				<static textres="ability_label_tier1" />
@@ -1024,44 +939,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_4");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_4")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_4", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_4", "");
@@ -1072,7 +950,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -1093,7 +971,7 @@
 				</script>
 			</power_roll>
 
-						<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider5" />
 
 			<basicstring name="abilityname_ability_5">
@@ -1139,21 +1017,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_5_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_5_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_5" source="characteristic_5">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_5">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_5_label">
 				<static textres="ability_label_tier1" />
@@ -1227,44 +1111,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_5");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_5")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_5", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_5", "");
@@ -1275,7 +1122,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -1296,7 +1143,7 @@
 				</script>
 			</power_roll>
 
-						<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider6" />
 
 			<basicstring name="abilityname_ability_6">
@@ -1342,21 +1189,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_6_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_6_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_6" source="characteristic_6">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_6">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_6_label">
 				<static textres="ability_label_tier1" />
@@ -1430,44 +1283,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_6");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_6")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_6", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_6", "");
@@ -1478,7 +1294,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -1499,7 +1315,7 @@
 				</script>
 			</power_roll>
 
-						<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider7" />
 
 			<basicstring name="abilityname_ability_7">
@@ -1545,21 +1361,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_7_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_7_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_7" source="characteristic_7">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_7">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_7_label">
 				<static textres="ability_label_tier1" />
@@ -1633,44 +1455,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_7");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_7")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_7", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_7", "");
@@ -1681,7 +1466,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -1702,7 +1487,7 @@
 				</script>
 			</power_roll>
 
-						<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider8" />
 
 			<basicstring name="abilityname_ability_8">
@@ -1748,21 +1533,27 @@
 				<delaykeyupdate />
 			</string_columnh>
 		
-			<label_column name="characteristic_8_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+			<!-- POWER ROLL -->
+			<label_column name="mod_8_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-
-			<button_characteristic name="characteristic_8" source="characteristic_8">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_8">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
 
 			<label_column name="tier1_8_label">
 				<static textres="ability_label_tier1" />
@@ -1821,6 +1612,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_8">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_8">
 				<anchored to="abilityname_ability_8" height="40" width="40">
@@ -1835,44 +1627,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_8");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_8")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_8", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_8", "");
@@ -1883,7 +1638,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -1904,8 +1659,9 @@
 				</script>
 			</power_roll>
 
-			<!-- Second Ability -->
+	<!-- Second Ability -->
 			<line_column name="divider9" />
+
 			<basicstring name="abilityname_ability_9">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -1915,6 +1671,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_9_label">
 				<static textres="ability_label_keywords" />
@@ -1926,38 +1683,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_9_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_9">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_9_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_9">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_9_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_9">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_9_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_9_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_9" source="characteristic_9">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_9">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_9_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -1966,6 +1735,7 @@
 			</label_column>
 			<string_columnh name="tier1_9" source="tier1_9">
 			</string_columnh>
+
 			<label_column name="tier2_9_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -1973,6 +1743,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_9" source="tier2_9" />
+
 			<label_column name="tier3_9_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -1980,6 +1751,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_9" source="tier3_9" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_9_label">
 				<static textres="ability_label_trigger" />
@@ -2012,6 +1784,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_9">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_9">
 				<anchored to="abilityname_ability_9" height="40" width="40">
@@ -2026,44 +1799,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_9");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_9")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_9", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_9", "");
@@ -2074,7 +1810,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -2095,7 +1831,9 @@
 				</script>
 			</power_roll>
 
+	<!-- Second Ability -->
 			<line_column name="divider10" />
+
 			<basicstring name="abilityname_ability_10">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -2105,49 +1843,62 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_10_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords_10">
+			<string_columnh name="keywords_2">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_10_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_10">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_10_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_10">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_10_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_10">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_10_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_10_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_10" source="characteristic_10">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_10">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_10_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -2156,6 +1907,7 @@
 			</label_column>
 			<string_columnh name="tier1_10" source="tier1_10">
 			</string_columnh>
+
 			<label_column name="tier2_10_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -2163,6 +1915,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_10" source="tier2_10" />
+
 			<label_column name="tier3_10_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -2170,6 +1923,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_10" source="tier3_10" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_10_label">
 				<static textres="ability_label_trigger" />
@@ -2202,6 +1956,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_10">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_10">
 				<anchored to="abilityname_ability_10" height="40" width="40">
@@ -2216,44 +1971,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_10");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_10")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_10", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_10", "");
@@ -2264,7 +1982,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -2285,7 +2003,9 @@
 				</script>
 			</power_roll>
 
+	<!-- Second Ability -->
 			<line_column name="divider11" />
+
 			<basicstring name="abilityname_ability_11">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -2295,6 +2015,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_11_label">
 				<static textres="ability_label_keywords" />
@@ -2306,38 +2027,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_11_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_11">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_11_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_11">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_11_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_11">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_11_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_11_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_11" source="characteristic_11">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_11">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_11_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -2346,6 +2079,7 @@
 			</label_column>
 			<string_columnh name="tier1_11" source="tier1_11">
 			</string_columnh>
+
 			<label_column name="tier2_11_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -2353,6 +2087,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_11" source="tier2_11" />
+
 			<label_column name="tier3_11_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -2360,6 +2095,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_11" source="tier3_11" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_11_label">
 				<static textres="ability_label_trigger" />
@@ -2392,6 +2128,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_11">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_11">
 				<anchored to="abilityname_ability_11" height="40" width="40">
@@ -2406,44 +2143,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_11");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_11")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_11", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_11", "");
@@ -2454,7 +2154,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -2475,7 +2175,9 @@
 				</script>
 			</power_roll>
 
+	<!-- Second Ability -->
 			<line_column name="divider12" />
+
 			<basicstring name="abilityname_ability_12">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -2485,6 +2187,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_12_label">
 				<static textres="ability_label_keywords" />
@@ -2496,38 +2199,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_12_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_12">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_12_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_12">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_12_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_12">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_12_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_12_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_12" source="characteristic_12">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_12">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_12_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -2536,6 +2251,7 @@
 			</label_column>
 			<string_columnh name="tier1_12" source="tier1_12">
 			</string_columnh>
+
 			<label_column name="tier2_12_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -2543,6 +2259,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_12" source="tier2_12" />
+
 			<label_column name="tier3_12_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -2550,6 +2267,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_12" source="tier3_12" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_12_label">
 				<static textres="ability_label_trigger" />
@@ -2582,6 +2300,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_12">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_12">
 				<anchored to="abilityname_ability_12" height="40" width="40">
@@ -2596,44 +2315,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_12");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_12")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_12", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_12", "");
@@ -2644,7 +2326,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -2665,7 +2347,9 @@
 				</script>
 			</power_roll>
 
+	<!-- Second Ability -->
 			<line_column name="divider13" />
+
 			<basicstring name="abilityname_ability_13">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -2675,6 +2359,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_13_label">
 				<static textres="ability_label_keywords" />
@@ -2686,38 +2371,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_13_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_13">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_13_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_13">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_13_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_13">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_13_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_13_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_13" source="characteristic_13">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_13">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_13_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -2726,6 +2423,7 @@
 			</label_column>
 			<string_columnh name="tier1_13" source="tier1_13">
 			</string_columnh>
+
 			<label_column name="tier2_13_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -2733,6 +2431,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_13" source="tier2_13" />
+
 			<label_column name="tier3_13_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -2740,6 +2439,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_13" source="tier3_13" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_13_label">
 				<static textres="ability_label_trigger" />
@@ -2772,6 +2472,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_13">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_13">
 				<anchored to="abilityname_ability_13" height="40" width="40">
@@ -2786,44 +2487,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_13");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_13")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_13", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_13", "");
@@ -2834,7 +2498,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -2855,7 +2519,181 @@
 				</script>
 			</power_roll>
 
+	<!-- Second Ability -->
 			<line_column name="divider14" />
+
+			<basicstring name="abilityname_ability_13">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_13_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_13">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_13_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_13">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_13_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_13">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_13_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_13">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_13_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_13">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_13_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_13" source="tier1_13">
+			</string_columnh>
+
+			<label_column name="tier2_13_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_13" source="tier2_13" />
+
+			<label_column name="tier3_13_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_13" source="tier3_13" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_13_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_13">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_13_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_13" source="effect_13">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_13_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_13">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_13_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_13">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_13_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_13">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_13">
+				<anchored to="abilityname_ability_13" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_13");
+						local mod = DB.getValue(nodeWin, "mod_13")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_13", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_13", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_13");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider15" />
+
 			<basicstring name="abilityname_ability_14">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -2865,6 +2703,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_14_label">
 				<static textres="ability_label_keywords" />
@@ -2876,38 +2715,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_14_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_14">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_14_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_14">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_14_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_14">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_14_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_14_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_14" source="characteristic_14">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_14">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_14_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -2916,6 +2767,7 @@
 			</label_column>
 			<string_columnh name="tier1_14" source="tier1_14">
 			</string_columnh>
+
 			<label_column name="tier2_14_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -2923,6 +2775,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_14" source="tier2_14" />
+
 			<label_column name="tier3_14_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -2930,6 +2783,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_14" source="tier3_14" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_14_label">
 				<static textres="ability_label_trigger" />
@@ -2962,6 +2816,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_14">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_14">
 				<anchored to="abilityname_ability_14" height="40" width="40">
@@ -2976,44 +2831,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_14");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_14")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_14", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_14", "");
@@ -3024,7 +2842,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -3045,7 +2863,9 @@
 				</script>
 			</power_roll>
 
-			<line_column name="divider15" />
+	<!-- Second Ability -->
+			<line_column name="divider16" />
+
 			<basicstring name="abilityname_ability_15">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -3055,6 +2875,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_15_label">
 				<static textres="ability_label_keywords" />
@@ -3066,38 +2887,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_15_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_15">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_15_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_15">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_15_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_15">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_15_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_15_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_15" source="characteristic_15">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_15">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_15_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -3106,6 +2939,7 @@
 			</label_column>
 			<string_columnh name="tier1_15" source="tier1_15">
 			</string_columnh>
+
 			<label_column name="tier2_15_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -3113,6 +2947,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_15" source="tier2_15" />
+
 			<label_column name="tier3_15_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -3120,6 +2955,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_15" source="tier3_15" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_15_label">
 				<static textres="ability_label_trigger" />
@@ -3152,6 +2988,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_15">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_15">
 				<anchored to="abilityname_ability_15" height="40" width="40">
@@ -3166,44 +3003,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_15");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_15")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_15", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_15", "");
@@ -3214,7 +3014,7 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
@@ -3235,7 +3035,9 @@
 				</script>
 			</power_roll>
 
-			<line_column name="divider16" />
+	<!-- Second Ability -->
+			<line_column name="divider17" />
+
 			<basicstring name="abilityname_ability_16">
 				<font>recordsheet_header</font>
 				<anchored>
@@ -3245,6 +3047,7 @@
 				</anchored>
 				<multilinespacing>45</multilinespacing>
 			</basicstring>
+
 			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
 			<label_column name="keywords_16_label">
 				<static textres="ability_label_keywords" />
@@ -3256,38 +3059,50 @@
 					end
 				</script>
 			</string_columnh>
+
 			<label_column name="type_16_label">
 				<static textres="ability_label_type" />
 			</label_column>
 			<string_columnh name="type_16">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="distance_16_label">
 				<static textres="ability_label_distance" />
 			</label_column>
 			<string_columnh name="distance_16">
 				<delaykeyupdate />
 			</string_columnh>
+
 			<label_column name="target_16_label">
 				<static textres="ability_label_target" />
 			</label_column>
 			<string_columnh name="target_16">
 				<delaykeyupdate />
 			</string_columnh>
-			<label_column name="characteristic_16_label">
-				<static textres="ability_label_powerrollplus" />
-				<anchored>
-					<top offset="5" />
-				</anchored>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_16_label">
+				<static textres="ability_label_powerroll" />
 			</label_column>
-			<button_characteristic name="characteristic_16" source="characteristic_16">
+			<!-- <button_characteristic name="characteristic" source="characteristic">
                 <anchored width="20" height="20">
 					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
 					<left offset="80" />
 				</anchored>
-                <default>1</default>
+                <default>0</default>
                 <tooltip textres="skill_tooltip" />
-            </button_characteristic>
+            </button_characteristic> -->
+			<number_columnh name="mod_16">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
 			<label_column name="tier1_16_label">
 				<static textres="ability_label_tier1" />
 				<anchored>
@@ -3296,6 +3111,7 @@
 			</label_column>
 			<string_columnh name="tier1_16" source="tier1_16">
 			</string_columnh>
+
 			<label_column name="tier2_16_label">
 				<static textres="ability_label_tier2" />
 				<anchored>
@@ -3303,6 +3119,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier2_16" source="tier2_16" />
+
 			<label_column name="tier3_16_label">
 				<static textres="ability_label_tier3" />
 				<anchored>
@@ -3310,6 +3127,7 @@
 				</anchored>
 			</label_column>
 			<string_columnh name="tier3_16" source="tier3_16" />
+
 			<!-- OTHER -->
 			<label_column name="trigger_16_label">
 				<static textres="ability_label_trigger" />
@@ -3342,6 +3160,7 @@
 			</label_column>
 			<string_columnh name="ability_cost_string_16">
 			</string_columnh>
+
 			<!-- // power roll button -->
 			<power_roll name="power_roll_16">
 				<anchored to="abilityname_ability_16" height="40" width="40">
@@ -3356,44 +3175,7 @@
 						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
 						local NPCID = DB.findNode(sNPCID);
 						local characteristic = DB.getValue(nodeWin, "characteristic_16");
-
-                        -- add the characteristic that is chosed for the skill
-                        characteristicMod = 0;
-                        -- AGL
-                        if (characteristic == 2) then
-                            characteristicMod = DB.getValue(NPCID, "agl");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- REA
-                        if (characteristic == 3) then
-                            characteristicMod = DB.getValue(NPCID, "rea");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- INU
-                        if (characteristic == 4) then
-                            characteristicMod = DB.getValue(NPCID, "inu");
-							if (characteristicMod == nil) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- PRS
-                        if (characteristic == 5) then
-                            characteristicMod = DB.getValue(NPCID, "prs");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
-                        -- MGT
-                        if (characteristic == 1) then
-                            characteristicMod = DB.getValue(NPCID, "mgt");
-							if (characteristicMod == nill) then
-								characteristicMod = 0;
-							end
-                        end
+						local mod = DB.getValue(nodeWin, "mod_16")
 
 						local abilityName = DB.getValue(nodeWin, "abilityname_ability_16", "");
 						local abilityKeywords = DB.getValue(nodeWin, "keywords_16", "");
@@ -3404,11 +3186,1215 @@
 							sType = "dice", 
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
-							nMod = characteristicMod,
+							nMod = mod,
 							t1 = DB.getValue(nodeWin, "tier1"),
 							t2 = DB.getValue(nodeWin, "tier2"),
 							t3 = DB.getValue(nodeWin, "tier3");
 							effect = DB.getValue(nodeWin, "effect_16");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider18" />
+
+			<basicstring name="abilityname_ability_17">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_17_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_17">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_17_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_17">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_17_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_17">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_17_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_17">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_17_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_17">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_17_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_17" source="tier1_17">
+			</string_columnh>
+
+			<label_column name="tier2_17_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_17" source="tier2_17" />
+
+			<label_column name="tier3_17_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_17" source="tier3_17" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_17_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_17">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_17_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_17" source="effect_17">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_17_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_17">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_17_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_17">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_17_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_17">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_17">
+				<anchored to="abilityname_ability_17" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_17");
+						local mod = DB.getValue(nodeWin, "mod_17")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_17", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_17", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_17");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider19" />
+
+			<basicstring name="abilityname_ability_18">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_18_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_18">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_18_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_18">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_18_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_18">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_18_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_18">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_18_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_18">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_18_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_18" source="tier1_18">
+			</string_columnh>
+
+			<label_column name="tier2_18_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_18" source="tier2_18" />
+
+			<label_column name="tier3_18_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_18" source="tier3_18" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_18_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_18">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_18_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_18" source="effect_18">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_18_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_18">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_18_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_18">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_18_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_18">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_18">
+				<anchored to="abilityname_ability_18" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_18");
+						local mod = DB.getValue(nodeWin, "mod_18")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_18", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_18", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_18");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+	
+	<!-- Second Ability -->
+			<line_column name="divider20" />
+
+			<basicstring name="abilityname_ability_19">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_19_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_19">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_19_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_19">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_19_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_19">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_19_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_19">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_19_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_19">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_19_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_19" source="tier1_19">
+			</string_columnh>
+
+			<label_column name="tier2_19_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_19" source="tier2_19" />
+
+			<label_column name="tier3_19_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_19" source="tier3_19" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_19_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_19">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_19_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_19" source="effect_19">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_19_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_19">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_19_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_19">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_19_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_19">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_19">
+				<anchored to="abilityname_ability_19" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_19");
+						local mod = DB.getValue(nodeWin, "mod_19")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_19", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_19", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_19");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider21" />
+
+			<basicstring name="abilityname_ability_20">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_20_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_20">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_20_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_20">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_20_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_20">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_20_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_20">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_20_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_20">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_20_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_20" source="tier1_20">
+			</string_columnh>
+
+			<label_column name="tier2_20_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_20" source="tier2_20" />
+
+			<label_column name="tier3_20_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_20" source="tier3_20" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_20_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_20">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_20_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_20" source="effect_20">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_20_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_20">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_20_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_20">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_20_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_20">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_20">
+				<anchored to="abilityname_ability_20" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_20");
+						local mod = DB.getValue(nodeWin, "mod_20")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_20", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_20", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_20");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider22" />
+
+			<basicstring name="abilityname_ability_21">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_21_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_21">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_21_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_21">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_21_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_21">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_21_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_21">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_21_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_21">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_21_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_21" source="tier1_21">
+			</string_columnh>
+
+			<label_column name="tier2_21_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_21" source="tier2_21" />
+
+			<label_column name="tier3_21_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_21" source="tier3_21" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_21_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_21">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_21_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_21" source="effect_21">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_21_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_21">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_21_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_21">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_21_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_21">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_21">
+				<anchored to="abilityname_ability_21" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_21");
+						local mod = DB.getValue(nodeWin, "mod_21")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_21", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_21", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_21");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider23" />
+
+			<basicstring name="abilityname_ability_22">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_22_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_22">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_22_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_22">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_22_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_22">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_22_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_22">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_22_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_22">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_22_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_22" source="tier1_22">
+			</string_columnh>
+
+			<label_column name="tier2_22_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_22" source="tier2_22" />
+
+			<label_column name="tier3_22_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_22" source="tier3_22" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_22_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_22">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_22_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_22" source="effect_22">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_22_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_22">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_22_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_22">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_22_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_22">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_22">
+				<anchored to="abilityname_ability_22" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_22");
+						local mod = DB.getValue(nodeWin, "mod_22")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_22", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_22", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_22");
+						};
+						ActionsManager_DS.encodeDesktopMods(rRoll);
+						ActionsManager.performAction(draginfo, rActor, rRoll);
+						return true;
+					end
+					
+					function onDragStart(button, x, y, draginfo)
+						return action(draginfo);
+					end
+
+					function onButtonPress()
+						return action();
+					end
+				</script>
+			</power_roll>
+
+	<!-- Second Ability -->
+			<line_column name="divider23" />
+
+			<basicstring name="abilityname_ability_23">
+				<font>recordsheet_header</font>
+				<anchored>
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
+					<left offset="60" />
+					<right offset="-5" />
+				</anchored>
+				<multilinespacing>45</multilinespacing>
+			</basicstring>
+
+			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
+			<label_column name="keywords_23_label">
+				<static textres="ability_label_keywords" />
+			</label_column>
+			<string_columnh name="keywords_23">
+				<script>
+					function onValueChanged()
+						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
+					end
+				</script>
+			</string_columnh>
+
+			<label_column name="type_23_label">
+				<static textres="ability_label_type" />
+			</label_column>
+			<string_columnh name="type_23">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="distance_23_label">
+				<static textres="ability_label_distance" />
+			</label_column>
+			<string_columnh name="distance_23">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="target_23_label">
+				<static textres="ability_label_target" />
+			</label_column>
+			<string_columnh name="target_23">
+				<delaykeyupdate />
+			</string_columnh>
+		
+			<!-- POWER ROLL -->
+			<label_column name="mod_23_label">
+				<static textres="ability_label_powerroll" />
+			</label_column>
+			<!-- <button_characteristic name="characteristic" source="characteristic">
+                <anchored width="20" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="80" />
+				</anchored>
+                <default>0</default>
+                <tooltip textres="skill_tooltip" />
+            </button_characteristic> -->
+			<number_columnh name="mod_23">
+				<displaysign />
+				<anchored width="30" height="20">
+					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
+					<left offset="70" />
+				</anchored>
+                <default>0</default>
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="tier1_23_label">
+				<static textres="ability_label_tier1" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier1_23" source="tier1_23">
+			</string_columnh>
+
+			<label_column name="tier2_23_label">
+				<static textres="ability_label_tier2" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier2_23" source="tier2_23" />
+
+			<label_column name="tier3_23_label">
+				<static textres="ability_label_tier3" />
+				<anchored>
+					<left offset="36" />
+				</anchored>
+			</label_column>
+			<string_columnh name="tier3_23" source="tier3_23" />
+
+			<!-- OTHER -->
+			<label_column name="trigger_23_label">
+				<static textres="ability_label_trigger" />
+			</label_column>
+			<string_columnh name="trigger_23">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="effect_23_label">
+				<static textres="ability_label_effect" />
+			</label_column>
+			<string_columnh name="effect_23" source="effect_23">
+				<delaykeyupdate />
+			</string_columnh>
+			<label_column name="special_23_label">
+				<static textres="ability_label_special" />
+			</label_column>
+			<string_columnh name="special_23">
+				<delaykeyupdate />
+			</string_columnh>
+
+			<label_column name="ability_cost_23_label">
+				<static textres="ability_label_cost" />
+			</label_column>
+			<number_columnh name="ability_cost_23">
+				<hideonvalue>0</hideonvalue>
+			</number_columnh>
+
+			<label_column name="ability_cost_string_23_label">
+				<static textres="ability_label_resource" />
+			</label_column>
+			<string_columnh name="ability_cost_string_23">
+			</string_columnh>
+
+			<!-- // power roll button -->
+			<power_roll name="power_roll_23">
+				<anchored to="abilityname_ability_23" height="40" width="40">
+					<left offset="-50"/>
+					<top offset="4"/>
+				</anchored>
+				<tooltip textres="tooltip_pr" />
+				<script>	
+					function action(draginfo)
+						local nodeWin = window.getDatabaseNode();
+						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
+						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
+						local NPCID = DB.findNode(sNPCID);
+						local characteristic = DB.getValue(nodeWin, "characteristic_23");
+						local mod = DB.getValue(nodeWin, "mod_23")
+
+						local abilityName = DB.getValue(nodeWin, "abilityname_ability_23", "");
+						local abilityKeywords = DB.getValue(nodeWin, "keywords_23", "");
+						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
+						local nodePC = ActorManager.getCreatureNode(rActor);
+
+						local rRoll = { 
+							sType = "dice", 
+							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
+							aDice = { "d10", "d10" },
+							nMod = mod,
+							t1 = DB.getValue(nodeWin, "tier1"),
+							t2 = DB.getValue(nodeWin, "tier2"),
+							t3 = DB.getValue(nodeWin, "tier3");
+							effect = DB.getValue(nodeWin, "effect_23");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
 						ActionsManager.performAction(draginfo, rActor, rRoll);
