@@ -13,7 +13,16 @@ actions = {
 	["death_auto"] = { },
 	["damage"] = { sIcon = "action_damage", sTargeting = "all", bUseModStack = true },
 	["heal"] = { sIcon = "action_heal", sTargeting = "all", bUseModStack = true },
-	["effect"] = { sIcon = "action_effect", sTargeting = "all" }
+    ["effect"] = { sIcon = "action_effect", sTargeting = "all" },
+};
+
+targetactions = {
+	"cast",
+	"powersave",
+	"attack",
+	"damage",
+	"heal",
+	"effect"
 };
 
 currencyDefault = "GP";
