@@ -136,19 +136,19 @@ function onDrop(x, y, draginfo)
 
                 local staminaPerLevel = DB.getChild(nodeSource, "staminaPerLevel");
                 local startingStamina = DB.getChild(nodeSource, "startingStamina");
-                local heroMaxStamina = DB.getChild(nodeSource, "hp.max");
-                local heroCurrentStamina = DB.getChild(nodeSource, "hp.stamina");
+                local heroMaxStamina = DB.getChild(nodeSource, "stamina.max");
+                local heroCurrentStamina = DB.getChild(nodeSource, "stamina.current");
                 if(heroLevel.getValue() == 1) then
-                    DB.copyNode(startingStamina, DB.getChild(node, "hp.stamina"));
-                    DB.copyNode(startingStamina, DB.getChild(node, "hp.max"));
-                    ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(DB.getChild(node, "hp.max").getValue()), tostring(heroName));
+                    DB.copyNode(startingStamina, DB.getChild(node, "stamina.current"));
+                    DB.copyNode(startingStamina, DB.getChild(node, "stamina.max"));
+                    ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(DB.getChild(node, "stamina.max").getValue()), tostring(heroName));
                 end
                 if(heroLevel.getValue() > 1) then
                     local levelMultiplyer = (heroLevel.getValue() - 1)
                     local additionalStamina = (staminaPerLevel.getValue() * levelMultiplyer);
                     local totalStamina = (additionalStamina + startingStamina.getValue());
-                    DB.setValue(node, "hp.stamina", "number", totalStamina);
-                    DB.setValue(node, "hp.max", "number", totalStamina);
+                    DB.setValue(node, "stamina.current", "number", totalStamina);
+                    DB.setValue(node, "stamina.max", "number", totalStamina);
                     ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(totalStamina), tostring(heroName));
                 end
                 

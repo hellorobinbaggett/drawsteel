@@ -23,8 +23,8 @@
 				local nMaxStamina = 0;
 				local nCurrentStamina = 0;
 				if nodePC then
-					nMaxStamina = math.max(DB.getValue(nodePC, "hp.max", 0), 0);
-					nCurrentStamina = math.max(DB.getValue(nodePC, "hp.stamina", 0), 0);
+					nMaxStamina = math.max(DB.getValue(nodePC, "stamina.max", 0), 0);
+					nCurrentStamina = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 				end
 
 				local sColor = "630000";
@@ -185,12 +185,12 @@
 				<bounds>75,62,40,30</bounds>
 				<target>speed</target>
 			</basicnumber>
-			<basicnumber name="stamina" source="hp.stamina">
+			<basicnumber name="stamina" source="stamina.current">
 				<script file="campaign/scripts/stamina_monster.lua" />
 				<bounds>140,62,40,20</bounds>
 				<target>stamina</target>
 			</basicnumber>
-			<basicnumber name="maxstamina" source="hp.max">
+			<basicnumber name="maxstamina" source="stamina.max">
 				<bounds>140,85,40,17</bounds>
 				<target>stamina</target>
 				<tooltip textres="maximum_stamina_tooltip" />

@@ -128,10 +128,10 @@
 							local total = current - 2;
 							DB.setValue(node, "herotokens", "number", total);
 
-							local stamina = DB.getChild(node, "hp.stamina").getValue();
+							local stamina = DB.getChild(node, "stamina.current").getValue();
 							local recovery = DB.getChild(node, "recoveryvalue").getValue();
 							local totalStamina = stamina + recovery;
-							DB.setValue(node, "hp.stamina", "number", totalStamina);
+							DB.setValue(node, "stamina.current", "number", totalStamina);
 						end
 					end
 				</script>

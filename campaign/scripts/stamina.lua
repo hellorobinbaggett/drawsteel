@@ -1,7 +1,7 @@
 function onValueChanged()
     local nodeWin = window.getDatabaseNode();
-    local nCurrent = DB.getValue(nodeWin, "hp.stamina");
-    local nMax = DB.getValue(nodeWin, "hp.max");
+    local nCurrent = DB.getValue(nodeWin, "stamina.current");
+    local nMax = DB.getValue(nodeWin, "stamina.max");
     local nWinded = DB.getValue(nodeWin, "hp.winded");
     local nDead = (0 - nWinded);
     

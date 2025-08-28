@@ -165,8 +165,8 @@ function getPCSheetWoundColor(nodePC)
 	local nMaxStamina = 0;
 	local nCurrentStamina = 0;
 	if nodePC then
-		nMaxStamina = math.max(DB.getValue(nodePC, "hp.max", 0), 0);
-		nCurrentStamina = math.max(DB.getValue(nodePC, "hp.stamina", 0), 0);
+		nMaxStamina = math.max(DB.getValue(nodePC, "stamina.max", 0), 0);
+		nCurrentStamina = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 	end
 
 	local sColor = "630000";

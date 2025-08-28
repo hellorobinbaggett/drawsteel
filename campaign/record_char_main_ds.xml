@@ -20,8 +20,8 @@
 				local nMaxStamina = 0;
 				local nCurrentStamina = 0;
 				if nodePC then
-					nMaxStamina = math.max(DB.getValue(nodePC, "hp.max", 0), 0);
-					nCurrentStamina = math.max(DB.getValue(nodePC, "hp.stamina", 0), 0);
+					nMaxStamina = math.max(DB.getValue(nodePC, "stamina.max", 0), 0);
+					nCurrentStamina = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 				end
 
 				local sColor = "630000";
@@ -118,7 +118,7 @@
 				</anchored>
 			</label_frametop>
 
-			<number_charstamina name="stamina" source="hp.stamina">
+			<number_charstamina name="stamina" source="stamina.current">
 				<anchored to="staminaframe" width="48" height="30">
 					<top anchor="top" offset="45" />
 					<left anchor="center" offset="-55" />
@@ -128,7 +128,7 @@
 				<script file="campaign/scripts/stamina.lua" />
 			</number_charstamina>
 
-			<basicnumber name="max" source="hp.max">
+			<basicnumber name="max" source="stamina.max">
 				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_max" />
@@ -139,7 +139,7 @@
 				</script>
 			</basicnumber>
 
-			<basicnumber name="temp" source="hp.temporary">
+			<basicnumber name="temp" source="stamina.temporary">
 				<anchored to="staminaframe" width="48" height="30">
 					<top anchor="top" offset="95" />
 					<left anchor="center" offset="-55" />
@@ -158,14 +158,14 @@
 				<hideonvalue>0</hideonvalue>
 				<script>
 				function onInit()
-					addSource("hp.max");
+					addSource("stamina.max");
 
 					super.onInit();
 				end
 
 				function onSourceUpdate()
 					local nodeWin = window.getDatabaseNode();
-					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					local nCurrentScore = DB.getValue(nodeWin, "stamina.max");
 					
 					local nBonus;
 
@@ -176,7 +176,7 @@
 
 				function onDoubleClick()
 					local nodeWin = window.getDatabaseNode();
-					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					local nCurrentScore = DB.getValue(nodeWin, "stamina.max");
 					
 					local nBonus;
 
@@ -291,18 +291,18 @@
 					local node = window.getDatabaseNode();
 					local recoverycurrent = DB.getChild(node, "recoverycurrent");
 					local current = recoverycurrent.getValue();
-					local nMax = DB.getValue(nodeWin, "hp.max");
-					local nCurrent = DB.getValue(nodeWin, "hp.stamina");
+					local nMax = DB.getValue(nodeWin, "stamina.max");
+					local nCurrent = DB.getValue(nodeWin, "stamina.current");
 
 						if(current > 0) then
 							if(nMax > nCurrent) then
 								local total = current - 1;
 								DB.setValue(node, "recoverycurrent", "number", total);
 
-								local stamina = DB.getChild(node, "hp.stamina").getValue();
+								local stamina = DB.getChild(node, "stamina.current").getValue();
 								local recovery = DB.getChild(node, "recoveryvalue").getValue();
 								local totalStamina = stamina + recovery;
-								DB.setValue(node, "hp.stamina", "number", totalStamina);
+								DB.setValue(node, "stamina.current", "number", totalStamina);
 							end
 						end
 					end
@@ -321,14 +321,14 @@
 				<hideonvalue>0</hideonvalue>
 				<script>
 				function onInit()
-					addSource("hp.max");
+					addSource("stamina.max");
 
 					super.onInit();
 				end
 
 				function onSourceUpdate()
 					local nodeWin = window.getDatabaseNode();
-					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					local nCurrentScore = DB.getValue(nodeWin, "stamina.max");
 					
 					local nBonus;
 
@@ -339,7 +339,7 @@
 
 				function onDoubleClick()
 					local nodeWin = window.getDatabaseNode();
-					local nCurrentScore = DB.getValue(nodeWin, "hp.max");
+					local nCurrentScore = DB.getValue(nodeWin, "stamina.max");
 					
 					local nBonus;
 
@@ -544,6 +544,8 @@
 							local surges = DB.getChild(node, "surges").getValue();
 							local totalSurges = surges + 2;
 							DB.setValue(node, "surges", "number", totalSurges);
+
+							ChatManager.SystemMessage("1 Hero Token has been spent.");
 						end
 					end
 				</script>
@@ -563,10 +565,12 @@
 							local total = current - 2;
 							DB.setValue(node, "herotokens", "number", total);
 
-							local stamina = DB.getChild(node, "hp.stamina").getValue();
+							local stamina = DB.getChild(node, "stamina.current").getValue();
 							local recovery = DB.getChild(node, "recoveryvalue").getValue();
 							local totalStamina = stamina + recovery;
-							DB.setValue(node, "hp.stamina", "number", totalStamina);
+							DB.setValue(node, "stamina.current", "number", totalStamina);
+
+							ChatManager.SystemMessage("2 Hero Tokens have been spent.");
 						end
 					end
 				</script>

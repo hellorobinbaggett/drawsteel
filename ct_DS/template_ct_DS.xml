@@ -135,6 +135,19 @@
 			<bounds>-160,4,300,14</bounds>
 		</label>
 	</template>
+	<template name="label_ct_header_herotokens">
+		<label>
+			<static textres="ct_label_herotokens" />
+			<bounds>60,4,300,14</bounds>
+		</label>
+	</template>
+	<template name="label_ct_header_malice">
+		<label>
+			<static textres="ct_label_malice" />
+			<bounds>-145,4,300,14</bounds>
+		</label>
+	</template>
+
 	<template name="label_ct_header_name_v2_heroes">
 		<label>
 			<static textres="ct_label_name_heroes" />
@@ -488,5 +501,25 @@
 		<string_ct_summary>
 			<script file="ct/scripts/ct_target_summary.lua" />
 		</string_ct_summary>
+	</template>
+
+	<!-- TODO: this is not working -->
+	<template name="number_ctentry_stamina">
+		<number_ct_crosslink name="stamina.current">
+			<anchored to="rightanchor" width="30" height="20">
+				<top />
+				<right anchor="left" relation="relative" offset="-25" />
+			</anchored>
+			<hideonvalue>0</hideonvalue>
+			<tabtarget prev="nonid_name" />
+			<script>
+				function update()
+					window.windowlist.applySort();
+				end
+				function onDragStart(button, x, y, draginfo)
+					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
+				end
+			</script>
+		</number_ct_crosslink>
 	</template>
 </root>
