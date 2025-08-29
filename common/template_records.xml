@@ -74,7 +74,6 @@
 			</sub_content_framed_groupbox_top>
 
 			<power_roll name="abilityroll">
-				<!-- <anchored to="header" /> -->
 				<bounds>27,50,30,30</bounds>
 				<tooltip textres="tooltip_pr" />
 				<script file="common/scripts/power_roll_button.lua" />

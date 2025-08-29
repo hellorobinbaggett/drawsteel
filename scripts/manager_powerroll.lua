@@ -1,5 +1,4 @@
 function powerRoll(rMessage, rRoll)
-
     -- set crit threshold for power roll
 	local nCritThreshold = 19;
 	local heroResource = DB.getChild(CharSheetID, "classresource");
@@ -24,14 +23,11 @@ function powerRoll(rMessage, rRoll)
 		rRoll.effect = "";
 	end
 
-	-- if 2d10 are rolled, it is a power roll.
-	if string.match(rRoll.aDice[1], "d10") then
-		if string.match(rRoll.aDice[2], "d10") then
-			Debug.chat("This is a power roll");
-
-			-- add the two rolls togethor to get the natural roll
-			local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;	
+	-- if 2d10 are rolled, we need to check if it's a critical hit.
+	if string.match(rRoll.aDice[1].type, "d10") then
+		if string.match(rRoll.aDice[2].type, "d10") then
 			-- get the total after any modifications
+			local powerRollTotal = rRoll.aDice[1].result + rRoll.aDice[2].result;
 			local powerRollTotalMod = ActionsManager.total(rRoll);
 
 			-- write in chat what tier result it is
@@ -65,14 +61,14 @@ function powerRoll(rMessage, rRoll)
 				end
 			end
 
-			-- check for critical hits and natural 20s
-			if powerRollTotal == nCritThreshold then
-				rMessage.text = tostring(rMessage.text) .. "\n[CRITICAL]";
+			-- check for critical hits
+			if powerRollTotal >= nCritThreshold then
+				rMessage.text = tostring(rRoll.sDesc) .. "\nCRITICAL HIT: \n" .. tostring(rRoll.t3) .. "\n\n" .. tostring(rRoll.effect);
 			end
 			-- natural 20s are always Tier 3 no matter what modifiers or banes present
-			if powerRollTotal > nCritThreshold then
-				rMessage.text = tostring(rRoll.sDesc) .. "\nPower Roll: Automatic TIER 3\n[CRITICAL]\n[NATURAL 20]";
-			end
+			-- if powerRollTotal > nCritThreshold then
+			-- 	rMessage.text = tostring(rRoll.sDesc) .. "\nPower Roll: Automatic TIER 3\n[CRITICAL]\n[NATURAL 20]";
+			-- end
 		end
 	end
 	

@@ -10,7 +10,6 @@
 	<template name="number_charstamina">
 		<basicnumber name="stamina" source="stamina">
 		<datasource>stamina</datasource>
-			<min value="-99" />
 			<script>
 				function onInit()
 					if super.onInit then

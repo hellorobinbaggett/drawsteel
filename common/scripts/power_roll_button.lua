@@ -64,6 +64,7 @@ function action(draginfo)
         end
     end
 
+    -- it is using only this aDesc -> TODO: need to update aDesc with results
     local rRoll = { 
         sType = "dice", 
         sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
@@ -74,10 +75,10 @@ function action(draginfo)
         t3 = DB.getValue(nodeWin, "tier3");
         effect = DB.getValue(nodeWin, "effect");
     };
-
+    -- first, get any modifiers (edges/banes)
     ActionsManager_DS.encodeDesktopMods(rRoll);
+    -- this will eventually hit the powerroll script in the resolveAction function
     ActionsManager.performAction(draginfo, rActor, rRoll);
-
     return true;
 
 end

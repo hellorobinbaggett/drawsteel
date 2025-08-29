@@ -13,7 +13,7 @@ function onTabletopInit()
 		User.addEventHandler("onIdentityStateChange", TokenManager.onIdentityStateChange);
 
 		CombatManager.setCustomDeleteCombatantHandler(TokenManager.onCombatantDelete);
-		CombatManager.addAllCombatantFieldChangeHandler("size", "onUpdate", TokenManager_DS.updateSpaceReach);
+		CombatManager.addAllCombatantFieldChangeHandler("space", "onUpdate", TokenManager.updateSpaceReach);
 		CombatManager.addAllCombatantFieldChangeHandler("reach", "onUpdate", TokenManager.updateSpaceReach);
 	end
 	DB.addHandler("charsheet.*", "onDelete", TokenManager.deleteOwner);
@@ -179,8 +179,8 @@ function getImageTokenLockState(token)
 end
 
 function onCombatantDelete(nodeCT)
-	if TokenManager2 and TokenManager2.onCombatantDelete then
-		if TokenManager2.onCombatantDelete(nodeCT) then
+	if TokenManager_DS and TokenManager_DS.onCombatantDelete then
+		if TokenManager_DS.onCombatantDelete(nodeCT) then
 			return;
 		end
 	end
@@ -446,13 +446,13 @@ function updateAttributesHelper(tokenCT, nodeCT)
 	if TokenManager.isDefaultEffectsEnabled() then
 		TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 	end
-	if TokenManager2 and TokenManager2.updateAttributesHelper then
-		TokenManager2.updateAttributesHelper(tokenCT, nodeCT);
+	if TokenManager_DS and TokenManager_DS.updateAttributesHelper then
+		TokenManager_DS.updateAttributesHelper(tokenCT, nodeCT);
 	end
 end
 function updateTooltip(tokenCT, nodeCT)
-	if TokenManager2 and TokenManager2.updateTooltip then
-		TokenManager2.updateTooltip(tokenCT, nodeCT);
+	if TokenManager_DS and TokenManager_DS.updateTooltip then
+		TokenManager_DS.updateTooltip(tokenCT, nodeCT);
 		return;
 	end
 
@@ -755,8 +755,8 @@ function updateFaction(nodeFaction)
 		if TokenManager.isDefaultEffectsEnabled() then
 			TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 		end
-		if TokenManager2 and TokenManager2.updateFaction then
-			TokenManager2.updateFaction(tokenCT, nodeCT);
+		if TokenManager_DS and TokenManager_DS.updateFaction then
+			TokenManager_DS.updateFaction(tokenCT, nodeCT);
 		end
 	end
 end
@@ -786,7 +786,6 @@ function updateFactionHelper(tokenCT, nodeCT)
 end
 
 function updateSpaceReach(nodeField)
-	Debug.console("function updateSpaceReach(nodeField):", nodeField.getValue());
 	local nodeCT = DB.getParent(nodeField);
 	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
 	if tokenCT then

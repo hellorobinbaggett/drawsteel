@@ -180,3 +180,29 @@ function applyModifiers(rSource, rTarget, rRoll, bSkipModStack)
 	
 	return bAddModStack;
 end
+
+function performAction(draginfo, rActor, rRoll)
+
+	if not rRoll then
+		return;
+	end
+
+	if Session.IsHost and CombatManager.isCTHidden(ActorManager.getCTNode(rActor)) then
+		rRoll.bSecret = true;
+	end
+
+	ActionsManager_DS.performMultiAction(draginfo, rActor, rRoll.sType, { rRoll });
+end
+
+function performMultiAction(draginfo, rActor, sType, rRolls)
+	if not rRolls or #rRolls < 1 then
+		return false;
+	end
+
+	if draginfo then
+		ActionsManager.encodeActionForDrag(draginfo, rActor, sType, rRolls);
+	else
+		ActionsManager.actionDirect(rActor, sType, rRolls);
+	end
+	return true;
+end

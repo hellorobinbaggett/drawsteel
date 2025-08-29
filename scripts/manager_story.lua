@@ -1901,7 +1901,6 @@ function addBlockHeader(wBlock)
 end
 function addBlockText(wBlock, sAlign, bUseSecondField)
 	local sFrame = StoryManager.getBlockFrame(wBlock, sAlign);
-
 	local sSource;
 	if bUseSecondField then
 		sSource = "text2";
