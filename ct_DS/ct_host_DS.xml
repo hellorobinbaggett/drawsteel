@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<!-- General combat tracker window -->
+	<!-- Master window (subheader and subfooter) for host -->
 	<windowclass name="combattracker_host">
 		<frame>ctbox</frame>
 		<sizelimits>
@@ -56,6 +56,7 @@
 			<label_ct_header_malice name="label_malice" />
 			<label_ct_header_herotokens name="label_herotokens" />
 			<basicnumber name="herotokens" source="herotokens">
+				<target>herotokens</target>
 				<bounds>160,0,30,20</bounds>
 			</basicnumber>
 			<basicnumber name="malice" source="malice">

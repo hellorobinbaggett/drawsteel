@@ -5,6 +5,7 @@
   attribution and copyright information.
 -->
 
+<!-- HOST: Expandable buttons on each entry (target, square, effect) -->
 <root>
 	<!-- Section - Targeting -->
 	<windowclass name="ct_section_targets">

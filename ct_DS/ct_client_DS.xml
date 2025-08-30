@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<!-- General combat tracker window -->
+	<!-- Master window (subheader and subfooter) for client -->
 	<windowclass name="combattracker_client">
 		<frame>ctbox</frame>
 		<sizelimits>
@@ -31,8 +31,11 @@
 			<sub_ct_header_host_heroes name="sub_header_heroes" />
 			<sub_ct_header_host_monsters name="sub_header_monsters" />
 
+			<!-- The top window -->
 			<list_ct_host name="list" />
+			<!-- The bottom left window -->
 			<list_ct_host_heroes name="heroes" />
+			<!-- The bottom right window -->
 			<list_ct_host_monsters name="monsters" />
 			<scrollbar_content_list />
 

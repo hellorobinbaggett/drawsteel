@@ -5,6 +5,7 @@
   attribution and copyright information.
 -->
 
+<!-- TEMPLATES -->
 <root>
 	<!-- General combat tracker window -->
 	<template name="list_ctbox_base">
