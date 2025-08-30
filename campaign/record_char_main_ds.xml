@@ -118,7 +118,7 @@
 				</anchored>
 			</label_frametop>
 
-			<number_charstamina name="stamina" source="stamina.current">
+			<basicnumber name="stamina" source="stamina.current">
 				<anchored to="staminaframe" width="48" height="30">
 					<top anchor="top" offset="45" />
 					<left anchor="center" offset="-55" />
@@ -126,7 +126,7 @@
 				<description textres="char_tooltip_stamina" />
 				<font>reference-b-large</font>
 				<script file="campaign/scripts/stamina.lua" />
-			</number_charstamina>
+			</basicnumber>
 
 			<basicnumber name="max" source="stamina.max">
 				<anchored to="stamina" position="righthigh" offset="15,0" width="48" height="30" />

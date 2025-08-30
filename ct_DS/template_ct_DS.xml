@@ -132,8 +132,8 @@
 	</template>
 	<template name="label_ct_header_stamina">
 		<label>
-			<static textres="ct_label_hp" />
-			<bounds>-160,4,300,14</bounds>
+			<static textres="ct_label_stamina" />
+			<bounds>-180,4,300,14</bounds>
 		</label>
 	</template>
 	<template name="label_ct_header_herotokens">
@@ -145,7 +145,7 @@
 	<template name="label_ct_header_malice">
 		<label>
 			<static textres="ct_label_malice" />
-			<bounds>-145,4,300,14</bounds>
+			<bounds>-90,4,300,14</bounds>
 		</label>
 	</template>
 
@@ -255,7 +255,7 @@
 	<template name="list_ct_host_heroes">
 		<list_ctbox_base_heroes>
 			<class>ct_entry_heroes</class>
-			<empty font="list-empty-ct" textres="char_emptylist_ancestryfeatures" />
+			<empty font="list-empty-ct" textres="ct_emptylist_heroes" />
 			<allowcreate />
 			<script file="ct_DS/scripts/ct_DS_heroes.lua" />
 		</list_ctbox_base_heroes>
@@ -506,21 +506,13 @@
 
 	<!-- TODO: this is not working -->
 	<template name="number_ctentry_stamina">
-		<number_ct_crosslink name="stamina.current">
+		<number_ct_crosslink name="stamina">
+			<tooltip textres="ct_stamina_tooltip" />
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
 				<right anchor="left" relation="relative" offset="-25" />
 			</anchored>
-			<hideonvalue>0</hideonvalue>
 			<tabtarget prev="nonid_name" />
-			<script>
-				function update()
-					window.windowlist.applySort();
-				end
-				function onDragStart(button, x, y, draginfo)
-					return CombatManager.handleCTInitDragStart(window.getDatabaseNode(), draginfo);
-				end
-			</script>
 		</number_ct_crosslink>
 	</template>
 </root>

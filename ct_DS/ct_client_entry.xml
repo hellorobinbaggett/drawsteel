@@ -36,9 +36,10 @@
 			<button_ct_section_targets name="button_section_targets" />
 
 			<button_ctentry_friendfoe name="friendfoe" />
-
-			<!-- <number_ctentry_stamina name="stamina" /> -->
-			<number_ctentry_initresult name="initresult" />
+			
+			<number_ctentry_stamina name="stamina.max" />
+			
+			<!-- <number_ctentry_initresult name="initresult" /> -->
 
 			<string_ct_entry_name name="name" />
 			<string_ct_entry_name_nonid name="nonid_name" />
@@ -90,8 +91,17 @@
 			<button_ct_section_targets name="button_section_targets" />
 
 			<button_ctentry_friendfoe name="friendfoe" />
+			<button_gone name="gone" >
+			<script>
+				function onButtonPress()
+				    local nodeWin = window.getDatabaseNode();
+    				local nCurrent = DB.getValue(nodeWin, "initresult");
+					DB.setValue(nodeWin, "initresult", "number", 1);
+				end
+			</script>
+			</button_gone>
 
-			<number_ctentry_initresult name="initresult" />
+			<!-- <number_ctentry_initresult name="initresult" /> -->
 
 			<string_ct_entry_name name="name" />
 			<string_ct_entry_name_nonid name="nonid_name" />
@@ -143,8 +153,17 @@
 			<button_ct_section_targets name="button_section_targets" />
 
 			<button_ctentry_friendfoe name="friendfoe" />
+			<button_gone name="gone"  >
+			<script>
+				function onButtonPress()
+				    local nodeWin = window.getDatabaseNode();
+    				local nCurrent = DB.getValue(nodeWin, "initresult");
+					DB.setValue(nodeWin, "initresult", "number", 1);
+				end
+			</script>
+			</button_gone>
 
-			<number_ctentry_initresult name="initresult" />
+			<!-- <number_ctentry_initresult name="initresult" /> -->
 
 			<string_ct_entry_name name="name" />
 			<string_ct_entry_name_nonid name="nonid_name" />

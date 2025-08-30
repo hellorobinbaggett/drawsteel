@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<!-- Top sub window (the initiative order stack) -->
+	<!-- General combat tracker window -->
 	<windowclass name="ct_entry">
 		<margins control="0,0,0,2" />
 		<frame>ctentrybox</frame>

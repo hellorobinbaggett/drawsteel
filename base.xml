@@ -6,11 +6,11 @@
 -->
 
 <root version="1.0" release="1" logo="logo.png">
-	<announcement text="Draw Steel Ruleset (v0.55) by EXXODIS" font="emotefont" icon="power_roll_down" />
+	<announcement text="Draw Steel Ruleset (v0.66) by EXXODIS" font="emotefont" icon="power_roll_down" />
 
 	<!-- Attributes -->
 	<description>
-		<displayname>Draw Steel</displayname>
+		<displayname>Draw Steel (DEV)</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
@@ -104,6 +104,7 @@
 	<includefile source="desktop/desktop_classes_DS.xml" />
 
 	<!-- Global scripts -->
+	<script name="HeroicResource" file="scripts/increment_heroic_resource.lua" />
 	<script name="EffectManager_DS" file="scripts/manager_effect_DS.lua" />
 	<script name="Desktop" file="scripts/data_desktop.lua" />
 	<script name="ToolbarManager" file="scripts/manager_toolbar.lua" />

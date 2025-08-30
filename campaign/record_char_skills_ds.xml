@@ -133,26 +133,27 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
                         end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
-                        end
+                        
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill1", "");
 
@@ -220,25 +221,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill2", "");
@@ -307,25 +308,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill3", "");
@@ -394,25 +395,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill4", "");
@@ -481,25 +482,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill5", "");
@@ -568,25 +569,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill6", "");
@@ -655,25 +656,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill7", "");
@@ -742,25 +743,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill8", "");
@@ -829,25 +830,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill9", "");
@@ -916,25 +917,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill10", "");
@@ -1007,25 +1008,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill11", "");
@@ -1094,25 +1095,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill12", "");
@@ -1181,25 +1182,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill13", "");
@@ -1268,25 +1269,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill14", "");
@@ -1355,25 +1356,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill15", "");
@@ -1442,25 +1443,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill16", "");
@@ -1529,25 +1530,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill17", "");
@@ -1616,25 +1617,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill18", "");
@@ -1703,25 +1704,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill19", "");
@@ -1790,25 +1791,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.skill20", "");
@@ -1880,25 +1881,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonal_skill1", "");
@@ -1967,25 +1968,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill2", "");
@@ -2054,25 +2055,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill3", "");
@@ -2141,25 +2142,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill4", "");
@@ -2228,25 +2229,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill5", "");
@@ -2315,25 +2316,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill6", "");
@@ -2402,25 +2403,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill7", "");
@@ -2489,25 +2490,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill8", "");
@@ -2576,25 +2577,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonalskill9", "");
@@ -2663,25 +2664,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonal_skill10", "");
@@ -2751,25 +2752,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonal_skill11", "");
@@ -2839,25 +2840,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonal_skill12", "");
@@ -2927,25 +2928,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.interpersonal_skill13", "");
@@ -3018,25 +3019,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill11", "");
@@ -3105,25 +3106,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill12", "");
@@ -3192,25 +3193,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill13", "");
@@ -3279,25 +3280,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill14", "");
@@ -3366,25 +3367,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill15", "");
@@ -3453,25 +3454,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill16", "");
@@ -3540,25 +3541,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill17", "");
@@ -3627,25 +3628,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill18", "");
@@ -3714,25 +3715,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill19", "");
@@ -3801,25 +3802,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill20", "");
@@ -3889,25 +3890,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill21", "");
@@ -3977,25 +3978,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.intrigue_skill22", "");
@@ -4067,25 +4068,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill11", "");
@@ -4154,25 +4155,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill12", "");
@@ -4241,25 +4242,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill13", "");
@@ -4328,25 +4329,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill14", "");
@@ -4415,25 +4416,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill15", "");
@@ -4502,25 +4503,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill16", "");
@@ -4589,25 +4590,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill17", "");
@@ -4676,25 +4677,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill18", "");
@@ -4763,25 +4764,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill19", "");
@@ -4850,25 +4851,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill20", "");
@@ -4938,25 +4939,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill21", "");
@@ -5026,25 +5027,25 @@
 
                         -- add the characteristic that is chosed for the skill
                         characteristicMod = 0;
-                        -- AGL
+                        -- MGT
                         if (characteristic == 1) then
+                            characteristicMod = DB.getValue(nodeWin, "MGT");
+                        end
+                        -- AGL
+                        if (characteristic == 2) then
                             characteristicMod = DB.getValue(nodeWin, "AGL");
                         end
                         -- REA
-                        if (characteristic == 2) then
+                        if (characteristic == 3) then
                             characteristicMod = DB.getValue(nodeWin, "REA");
                         end
                         -- INU
-                        if (characteristic == 3) then
+                        if (characteristic == 4) then
                             characteristicMod = DB.getValue(nodeWin, "INU");
                         end
                         -- PRS
-                        if (characteristic == 4) then
+                        if (characteristic == 5) then
                             characteristicMod = DB.getValue(nodeWin, "PRS");
-                        end
-                        -- MGT
-                        if (characteristic == 0) then
-                            characteristicMod = DB.getValue(nodeWin, "MGT");
                         end
 
                         local abilityName = DB.getValue(nodeWin, "skill.lore_skill22", "");

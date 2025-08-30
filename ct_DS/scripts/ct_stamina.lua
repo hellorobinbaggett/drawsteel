@@ -1,19 +1,11 @@
--- 
--- Please see the license.html file included with this distribution for 
--- attribution and copyright information.
---
+function onValueChanged()
+    local nodeWin = window.getDatabaseNode();
+    local nCurrent = DB.getValue(nodeWin, "stamina.current");
+    local nMax = DB.getValue(nodeWin, "stamina.max");
+    
+    if(nCurrent > nMax) then
+        setValue(nMax);
+    end
 
-function onInit()
-	if Session.IsHost then
-		-- setHoverCursor("hand");
-	end
-end
-
-function onDragStart(button, x, y, draginfo)
-	if Session.IsHost then
-		draginfo.setType("combattrackerentry");
-		draginfo.setStringData(getValue());
-		draginfo.setCustomData(window.getDatabaseNode());
-		return true;
-	end
+    window.onHealthChanged();
 end

@@ -6,6 +6,33 @@
 -->
 
 <root>
+	<template name="button_ctentry_gone">
+		<button_faction>
+			<anchored to="rightanchor">
+				<top />
+				<right anchor="left" relation="relative" offset="-15" />
+			</anchored>
+			<script>
+				function onValueChanged()
+					window.onFactionChanged();
+				end
+			</script>
+		</button_faction>
+	</template>
+
+	<template name="button_gone">
+		<buttonfield>
+			<state icon="ct_gone" tooltipres="char_tooltip_prof_off" />
+			<state icon="ct_gone" tooltipres="char_tooltip_prof_on" />
+			<anchored to="rightanchor" width="20" height="20">
+				<top />
+				<right anchor="left" relation="relative" offset="-10" />
+			</anchored>
+			<tabtarget prev="nonid_name" />
+			<tooltip textres="ct_tooltip_turn" />
+		</buttonfield>
+	</template>
+
 	<!-- Summary string sections -->
 	<template name="string_ct_entry_summary">
 		<stringcontrol>

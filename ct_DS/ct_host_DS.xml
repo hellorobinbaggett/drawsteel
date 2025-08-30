@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<!-- Master window (subheader and subfooter) for host -->
+	<!-- WIP: Master window (subheader and subfooter) for host -->
 	<windowclass name="combattracker_host">
 		<frame>ctbox</frame>
 		<sizelimits>
@@ -61,10 +61,10 @@
 			</basicnumber>
 			<basicnumber name="malice" source="malice">
 				<gmeditonly />
-				<bounds>-80,0,30,20</bounds>
+				<bounds>-35,0,30,20</bounds>
 			</basicnumber>
 
-			<!-- <label_ct_header_stamina name="label_name" /> -->
+			<label_ct_header_stamina name="label_name" />
 		</sheetdata>
 	</windowclass>
 	<windowclass name="sub_ct_header_host_heroes" source="heroestest">

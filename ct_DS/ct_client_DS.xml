@@ -6,7 +6,7 @@
 -->
 
 <root>
-	<!-- Master window (subheader and subfooter) for client -->
+	<!-- WIP: Master window (subheader and subfooter) for client -->
 	<windowclass name="combattracker_client">
 		<frame>ctbox</frame>
 		<sizelimits>
