@@ -641,8 +641,7 @@
                             aDice = { "d10" },
 							nMod = 0,
                         };
-                        ActionsManager.performAction(draginfo, rActor, rRoll);
-                        return true;
+                        ActionsManager_DS.performAction(draginfo, rActor, rRoll);
                     end
                     
                     function onDragStart(button, x, y, draginfo)

@@ -670,7 +670,7 @@ function resolveAction(rSource, rTarget, rRoll)
 	if fResult then
 		fResult(rSource, rTarget, rRoll);
 	else
-		local rMessage = ActionsManager.createActionMessage(rSource, rRoll);
+		local rMessage = ActionsManager_DS.createActionMessage(rSource, rRoll);
         -- This is where it gets the power roll message
         PowerRollManager.powerRoll(rMessage, rRoll);
 		Comm.deliverChatMessage(rMessage);
