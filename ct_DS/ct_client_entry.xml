@@ -37,7 +37,7 @@
 
 			<button_ctentry_friendfoe name="friendfoe" />
 			
-			<number_ctentry_stamina name="stamina.max" />
+			<number_ctentry_stamina name="stamina.current" />
 			
 			<!-- <number_ctentry_initresult name="initresult" /> -->
 

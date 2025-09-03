@@ -179,8 +179,8 @@ function getImageTokenLockState(token)
 end
 
 function onCombatantDelete(nodeCT)
-	if TokenManager_DS and TokenManager_DS.onCombatantDelete then
-		if TokenManager_DS.onCombatantDelete(nodeCT) then
+	if TokenManager2 and TokenManager2.onCombatantDelete then
+		if TokenManager2.onCombatantDelete(nodeCT) then
 			return;
 		end
 	end
@@ -446,13 +446,13 @@ function updateAttributesHelper(tokenCT, nodeCT)
 	if TokenManager.isDefaultEffectsEnabled() then
 		TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 	end
-	if TokenManager_DS and TokenManager_DS.updateAttributesHelper then
-		TokenManager_DS.updateAttributesHelper(tokenCT, nodeCT);
+	if TokenManager2 and TokenManager2.updateAttributesHelper then
+		TokenManager2.updateAttributesHelper(tokenCT, nodeCT);
 	end
 end
 function updateTooltip(tokenCT, nodeCT)
-	if TokenManager_DS and TokenManager_DS.updateTooltip then
-		TokenManager_DS.updateTooltip(tokenCT, nodeCT);
+	if TokenManager2 and TokenManager2.updateTooltip then
+		TokenManager2.updateTooltip(tokenCT, nodeCT);
 		return;
 	end
 
@@ -755,8 +755,8 @@ function updateFaction(nodeFaction)
 		if TokenManager.isDefaultEffectsEnabled() then
 			TokenManager.updateEffectsHelper(tokenCT, nodeCT);
 		end
-		if TokenManager_DS and TokenManager_DS.updateFaction then
-			TokenManager_DS.updateFaction(tokenCT, nodeCT);
+		if TokenManager2 and TokenManager2.updateFaction then
+			TokenManager2.updateFaction(tokenCT, nodeCT);
 		end
 	end
 end
@@ -911,13 +911,17 @@ function calcTokenSpace(nSpace)
 	end
 	return 1;
 end
+
+-- TODO: figure out a way to get creature size
 function getTokenSpace(tokenMap)
 	local nSpace = TokenManager.getDragTokenUnits();
+	Debug.chat(nSpace);
 	if not nSpace then
 		local nodeCT = CombatManager.getCTFromToken(tokenMap);
 		if nodeCT then
 			nSpace = DB.getValue(nodeCT, "space");
 		end
+		Debug.chat(nSpace);
 	end
 	return TokenManager.calcTokenSpace(nSpace);
 end

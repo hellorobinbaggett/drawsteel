@@ -112,5 +112,5 @@ function getPregenCharSelectDetail(nodePregenChar)
 end
 
 function getDistanceUnitsPerGrid()
-	return 5;
+	return 1;
 end

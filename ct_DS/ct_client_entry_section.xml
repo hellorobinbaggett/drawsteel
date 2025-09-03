@@ -125,6 +125,14 @@
 				<anchored to="reachlabel" position="righthigh" offset="10,0" />
 			</number_ct_section_space_reach>
 
+			<label name="speedlabel">
+				<anchored to="reach" position="righthigh" offset="10,0"/>
+				<static textres="ct_label_space_speed" />
+			</label>
+			<number_ct_section_space_speed name="speed">
+				<anchored to="speedlabel" position="righthigh" offset="10,0" />
+			</number_ct_section_space_speed>
+
 			<genericcontrol name="spacer">
 				<anchored to="anchor_section" height="30">
 					<top anchor="bottom" relation="relative" />

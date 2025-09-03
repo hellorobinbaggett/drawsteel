@@ -162,14 +162,11 @@
 				<bounds>5,50,-5,3</bounds>
 			</line_column>
 
-			<basicstring name="size">
-				<center />
-				<font>sheettext</font>
-				<font>reference-b-large</font>
-				<default>1M</default>
+			<basicnumber name="space" source="space">
 				<bounds>20,73,40,30</bounds>
-			</basicstring>
-			<basicnumber name="speed">
+				<target>space</target>
+			</basicnumber>
+			<basicnumber name="speed" source="speed">
 				<bounds>75,73,40,30</bounds>
 				<target>speed</target>
 			</basicnumber>
@@ -192,9 +189,9 @@
 				<target>freestrike</target>
 			</basicnumber>
 
-			<label name="size_label">
+			<label name="space_label">
 				<static textres="npc_label_size" />
-				<anchored to="size">
+				<anchored to="space">
 					<top offset="-22" />
 					<left offset="9" />
 				</anchored>

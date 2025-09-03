@@ -236,8 +236,6 @@
 	<template name="number_ct_section_space_size">
 		<number_ct name="space">
 			<description textres="ct_tooltip_space_size" />
-			<hideonvalue value="0" />
-			<default>1</default>
 		</number_ct>
 	</template>
 	<template name="number_ct_section_space_reach">
@@ -245,6 +243,11 @@
 			<description textres="ct_tooltip_space_reach" />
 			<hideonvalue value="0" />
 			<default>1</default>
+		</number_ct>
+	</template>
+	<template name="number_ct_section_space_speed">
+		<number_ct name="size">
+			<description textres="ct_tooltip_space_size" />
 		</number_ct>
 	</template>
 
