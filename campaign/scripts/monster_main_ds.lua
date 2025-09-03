@@ -46,12 +46,14 @@ function update()
 	local bID = LibraryData.getIDState("npc", nodeRecord);
 	local tFields = { 
 		"level_name", "organization_name",
-		"ev",
+		"ev", "keywords_name"
 	};
 	WindowManager.callSafeControlsUpdate(self, tFields, bReadOnly);
+	WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly);
 
 	local bSection1 = false;
 	if Session.IsHost then
+		if WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly, true) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "level_name", bReadOnly, true) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "role_name", bReadOnly, true) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "ev", bReadOnly, true) then bSection1 = true; end;
@@ -80,9 +82,10 @@ function update()
 		if WindowManager.callSafeControlUpdate(self, "stability_label", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "freestrike", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "ev_description", bReadOnly) then bSection1 = true; end;
-		if WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly) then bSection1 = true; end;
+		if WindowManager.callSafeControlUpdate(self, "monsterkeywords_name", bReadOnly) then bSection1 = true; end;
 		if WindowManager.callSafeControlUpdate(self, "role_name", bReadOnly) then bSection1 = true; end;
 	else
+		WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "level_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "role_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "ev", bReadOnly, true);
@@ -96,7 +99,7 @@ function update()
 		WindowManager.callSafeControlUpdate(self, "stability_label", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "freestrike", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "ev_description", bReadOnly, true);
-		WindowManager.callSafeControlUpdate(self, "keywords_name", bReadOnly, true);
+		WindowManager.callSafeControlUpdate(self, "monsterkeywords_name", bReadOnly, true);
 		WindowManager.callSafeControlUpdate(self, "role_name", bReadOnly, true);
 	end
 	-- divider.setVisible(bSection1);

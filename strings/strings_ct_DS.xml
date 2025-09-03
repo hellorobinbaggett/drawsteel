@@ -26,7 +26,8 @@
 	<string name="ct_label_herotokens">HERO TOKENS</string>
 
 	<string name="ct_tooltip_gone">Gone</string>
-	<string name="ct_tooltip_turn">Start Turn</string>
+	<string name="ct_tooltip_turn">Go Next</string>
+	<string name="ct_tooltip_remove">Remove from initiative</string>
 	<string name="ct_tooltip_ta">Triggered Action</string>
 	<string name="ct_tooltip_menu">Click for CT menu</string>
 

@@ -20,7 +20,7 @@
 		</button_faction>
 	</template>
 
-	<template name="button_gone">
+	<template name="button_initiative_gone">
 		<buttonfield>
 			<state icon="ct_gone" tooltipres="char_tooltip_prof_off" />
 			<state icon="ct_gone" tooltipres="char_tooltip_prof_on" />
@@ -30,6 +30,19 @@
 			</anchored>
 			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_turn" />
+		</buttonfield>
+	</template>
+
+	<template name="button_initiative_remove">
+		<buttonfield>
+			<state icon="ct_remove" tooltipres="char_tooltip_prof_off" />
+			<state icon="ct_remove" tooltipres="char_tooltip_prof_on" />
+			<anchored to="rightanchor" width="20" height="20">
+				<top />
+				<right anchor="left" relation="relative" offset="-10" />
+			</anchored>
+			<tabtarget prev="nonid_name" />
+			<tooltip textres="ct_tooltip_remove" />
 		</buttonfield>
 	</template>
 

@@ -90,6 +90,7 @@
 	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
 	<script name="DataCommon" file="scripts/data_common_DS.lua" />
 	<script name="Effects" file="scripts/data_common_DS.lua" />
+	<script name="ManagerGetRefData" file="scripts/manager_get_ref_data.lua" />
 
 	<!-- Draw Steel Ruleset scripts -->
 	<script name="ActorManager_DS" file="scripts/manager_actor_DS.lua" />

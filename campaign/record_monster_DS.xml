@@ -92,12 +92,23 @@
 		<margins control="0,0,0,2" />
 		<script file="campaign/scripts/monster_main_ds.lua" />
 		<sheetdata>
+			<label_column name="keywords_name_label">
+				<static textres="npc_label_keywords" />
+				<bounds>5,1,60,20</bounds>
+			</label_column>
+			<string_column name="keywords_name">
+				<bounds>70,1,-5,20</bounds>
+				<nodragselect />
+				<script file="common/scripts/string_keywords_line.lua" />
+				<traittype>creature</traittype>
+			</string_column>
+
 			<label_column name="level_name_label">
 				<static textres="npc_label_level" />
-				<bounds>3,5,60,20</bounds>
+				<bounds>3,25,60,20</bounds>
 			</label_column>
 			<number_column name="level_name">
-				<bounds>40,5,18,20</bounds>
+				<bounds>40,25,18,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -106,7 +117,7 @@
 			</number_column>
 
 			<string_column name="organization_name">
-				<bounds>63,5,45,20</bounds>
+				<bounds>63,25,45,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -116,7 +127,7 @@
 			</string_column>
 
 			<string_column name="role_name">
-				<bounds>114,5,62,20</bounds>
+				<bounds>114,25,62,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -125,26 +136,12 @@
 				<tooltip textres="role_tooltip" />
 			</string_column>
 
-			<!-- <label_column name="keywords_name_label">
-				<static textres="npc_label_keywords" />
-				<bounds>5,1,60,20</bounds>
-			</label_column>
-			<string_column name="keywords_name">
-				<bounds>5,28,150,20</bounds>
-				<script>
-					function onValueChanged()
-						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
-					end
-				</script>
-			</string_column> -->
-
-
 			<label_column name="ev_label">
 				<static textres="npc_label_ev" />
-				<bounds>190,5,60,20</bounds>
+				<bounds>190,25,60,20</bounds>
 			</label_column>
 			<number_column name="ev">
-				<bounds>210,5,30,20</bounds>
+				<bounds>210,25,30,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -152,7 +149,7 @@
 				</script>
 			</number_column>
 			<string_column name="ev_description">
-				<bounds>245,5,-5,20</bounds>
+				<bounds>245,25,-5,20</bounds>
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -162,45 +159,36 @@
 			</string_column>
 
 			<line_column name="break">
-				<bounds>5,35,-5,3</bounds>
+				<bounds>5,50,-5,3</bounds>
 			</line_column>
-
 
 			<basicstring name="size">
 				<center />
 				<font>sheettext</font>
 				<font>reference-b-large</font>
 				<default>1M</default>
-				<bounds>20,62,40,30</bounds>
+				<bounds>20,73,40,30</bounds>
 			</basicstring>
-
-<!-- 
-			<basicstringc name="size">
-				<center />
-				<font>reference-b-large</font>
-				<bounds>10,62,40,30</bounds>
-				<default>1M</default>
-			</basicstringc> -->
 			<basicnumber name="speed">
-				<bounds>75,62,40,30</bounds>
+				<bounds>75,73,40,30</bounds>
 				<target>speed</target>
 			</basicnumber>
 			<basicnumber name="stamina" source="stamina.current">
 				<script file="campaign/scripts/stamina_monster.lua" />
-				<bounds>140,62,40,20</bounds>
+				<bounds>140,73,40,20</bounds>
 				<target>stamina</target>
 			</basicnumber>
 			<basicnumber name="maxstamina" source="stamina.max">
-				<bounds>140,85,40,17</bounds>
+				<bounds>140,90,40,17</bounds>
 				<target>maxstamina</target>
 				<tooltip textres="maximum_stamina_tooltip" />
 			</basicnumber>
 			<basicnumber name="stability">
-				<bounds>205,62,40,30</bounds>
+				<bounds>205,73,40,30</bounds>
 				<target>stability</target>
 			</basicnumber>
 			<basicnumber name="freestrike">
-				<bounds>270,62,40,30</bounds>
+				<bounds>270,73,40,30</bounds>
 				<target>freestrike</target>
 			</basicnumber>
 
@@ -211,7 +199,6 @@
 					<left offset="9" />
 				</anchored>
 			</label>
-
 			<label name="speed_label">
 				<static textres="npc_label_speed" />
 				<anchored to="speed">
@@ -219,7 +206,6 @@
 					<left offset="0" />
 				</anchored>
 			</label>
-
 			<label name="stamina_label">
 				<static textres="npc_label_stamina" />
 				<anchored to="stamina">
@@ -227,7 +213,6 @@
 					<left offset="-5" />
 				</anchored>
 			</label>
-
 			<label name="stability_label_readonly">
 				<readonly />
 				<static textres="npc_label_stability" />
@@ -236,7 +221,6 @@
 					<left offset="-5" />
 				</anchored>
 			</label>
-
 			<label name="freestrike_label">
 				<static textres="npc_label_freestrike" />
 				<anchored to="freestrike">

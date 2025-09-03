@@ -20,7 +20,7 @@ function update()
 	local bID = LibraryData.getIDState("npc", nodeRecord);
 	local tFields = { 
 		"level_name", "organization_name",
-		"ev",
+		"ev", "keywords_name"
 	};
 	WindowManager.callSafeControlsUpdate(self, tFields, bReadOnly);
 

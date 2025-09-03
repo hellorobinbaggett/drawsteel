@@ -1,3 +1,24 @@
+function getKeywordValues(vNode)
+	local sKeywords = DB.getValue(vNode, "keywords_name", ""):lower();
+	local aFilterValues = {};
+	
+	-- TODO - further refine the gsub calls below to strip out other suffixes - e.g. B, P or S.
+	
+	if sKeywords ~= "" then
+		-- Remove any numerical keyword suffixes to leave the base keyword - e.g. Additive 1 -> Additive
+		sKeywords = string.gsub(sKeywords, " %d+", "");
+		-- Remove" ft."
+		sKeywords = string.gsub(sKeywords, " %sft%.", "");
+		sKeywords = StringManager.titleCase(sKeywords);
+		aFilterValues = StringManager.split(sKeywords, " ,", true);
+	end
+	
+	if #aFilterValues > 0 then
+		return aFilterValues;
+	else
+		return Interface.getString("library_recordtype_filter_empty");
+	end
+end
 
 aRecordOverrides = {
 	-- CoreRPG overrides
@@ -13,10 +34,9 @@ aRecordOverrides = {
 		},
 		aCustomFilters = {
 			["Level"] = { sField = "level_name" },
+			["Keywords"] = { sField = "keywords_name", fGetValue = getKeywordValues },
 			["Role"] = { sField = "role_name" },
 			["Organization"] = { sField = "organization_name" },
-			-- TODO: make npc keywords useful
-			-- ["Keywords"] = { sField = "keywords_name" },
 		},
 	},
 	["ancestry"] = {
