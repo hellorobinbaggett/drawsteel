@@ -606,9 +606,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_2"),
+							t2 = DB.getValue(nodeWin, "tier2_2"),
+							t3 = DB.getValue(nodeWin, "tier3_2");
 							effect = DB.getValue(nodeWin, "effect_2");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -626,7 +626,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Third Ability -->
 			<line_column name="divider3" />
 
 			<basicstring name="abilityname_ability_3">
@@ -778,9 +778,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_3"),
+							t2 = DB.getValue(nodeWin, "tier2_3"),
+							t3 = DB.getValue(nodeWin, "tier3_3");
 							effect = DB.getValue(nodeWin, "effect_3");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -798,7 +798,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Fourth Ability -->
 			<line_column name="divider4" />
 
 			<basicstring name="abilityname_ability_4">
@@ -950,9 +950,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_4"),
+							t2 = DB.getValue(nodeWin, "tier2_4"),
+							t3 = DB.getValue(nodeWin, "tier3_4");
 							effect = DB.getValue(nodeWin, "effect_4");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -970,7 +970,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Fifth Ability -->
 			<line_column name="divider5" />
 
 			<basicstring name="abilityname_ability_5">
@@ -1122,9 +1122,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_5"),
+							t2 = DB.getValue(nodeWin, "tier2_5"),
+							t3 = DB.getValue(nodeWin, "tier3_5");
 							effect = DB.getValue(nodeWin, "effect_5");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -1142,7 +1142,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Sixth Ability -->
 			<line_column name="divider6" />
 
 			<basicstring name="abilityname_ability_6">
@@ -1294,9 +1294,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_6"),
+							t2 = DB.getValue(nodeWin, "tier2_6"),
+							t3 = DB.getValue(nodeWin, "tier3_6");
 							effect = DB.getValue(nodeWin, "effect_6");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -1314,7 +1314,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Seventh Ability -->
 			<line_column name="divider7" />
 
 			<basicstring name="abilityname_ability_7">
@@ -1466,9 +1466,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_7"),
+							t2 = DB.getValue(nodeWin, "tier2_7"),
+							t3 = DB.getValue(nodeWin, "tier3_7");
 							effect = DB.getValue(nodeWin, "effect_7");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -1486,7 +1486,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Eighth Ability -->
 			<line_column name="divider8" />
 
 			<basicstring name="abilityname_ability_8">
@@ -1638,9 +1638,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_8"),
+							t2 = DB.getValue(nodeWin, "tier2_8"),
+							t3 = DB.getValue(nodeWin, "tier3_8");
 							effect = DB.getValue(nodeWin, "effect_8");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -1658,7 +1658,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Ninth Ability -->
 			<line_column name="divider9" />
 
 			<basicstring name="abilityname_ability_9">
@@ -1810,9 +1810,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_9"),
+							t2 = DB.getValue(nodeWin, "tier2_9"),
+							t3 = DB.getValue(nodeWin, "tier3_9");
 							effect = DB.getValue(nodeWin, "effect_9");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -1830,7 +1830,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Tenth Ability -->
 			<line_column name="divider10" />
 
 			<basicstring name="abilityname_ability_10">
@@ -1847,7 +1847,7 @@
 			<label_column name="keywords_10_label">
 				<static textres="ability_label_keywords" />
 			</label_column>
-			<string_columnh name="keywords_2">
+			<string_columnh name="keywords_10">
 				<script>
 					function onValueChanged()
 						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
@@ -1982,9 +1982,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_10"),
+							t2 = DB.getValue(nodeWin, "tier2_10"),
+							t3 = DB.getValue(nodeWin, "tier3_10");
 							effect = DB.getValue(nodeWin, "effect_10");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -2002,7 +2002,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Elventh Ability -->
 			<line_column name="divider11" />
 
 			<basicstring name="abilityname_ability_11">
@@ -2154,9 +2154,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_11"),
+							t2 = DB.getValue(nodeWin, "tier2_11"),
+							t3 = DB.getValue(nodeWin, "tier3_11");
 							effect = DB.getValue(nodeWin, "effect_11");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -2174,7 +2174,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Twelf Ability -->
 			<line_column name="divider12" />
 
 			<basicstring name="abilityname_ability_12">
@@ -2326,9 +2326,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_12"),
+							t2 = DB.getValue(nodeWin, "tier2_12"),
+							t3 = DB.getValue(nodeWin, "tier3_12");
 							effect = DB.getValue(nodeWin, "effect_12");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -2346,7 +2346,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- Thirteenth Ability -->
 			<line_column name="divider13" />
 
 			<basicstring name="abilityname_ability_13">
@@ -2498,9 +2498,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_13"),
+							t2 = DB.getValue(nodeWin, "tier2_13"),
+							t3 = DB.getValue(nodeWin, "tier3_13");
 							effect = DB.getValue(nodeWin, "effect_13");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -2518,180 +2518,8 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 14 Ability -->
 			<line_column name="divider14" />
-
-			<basicstring name="abilityname_ability_13">
-				<font>recordsheet_header</font>
-				<anchored>
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="7" />
-					<left offset="60" />
-					<right offset="-5" />
-				</anchored>
-				<multilinespacing>45</multilinespacing>
-			</basicstring>
-
-			<!-- KEYWORDS, TYPE, DISTANCE, TARGET FIELDS -->
-			<label_column name="keywords_13_label">
-				<static textres="ability_label_keywords" />
-			</label_column>
-			<string_columnh name="keywords_13">
-				<script>
-					function onValueChanged()
-						WindowManager.callOuterWindowFunction(window, "onSummaryChanged");
-					end
-				</script>
-			</string_columnh>
-
-			<label_column name="type_13_label">
-				<static textres="ability_label_type" />
-			</label_column>
-			<string_columnh name="type_13">
-				<delaykeyupdate />
-			</string_columnh>
-
-			<label_column name="distance_13_label">
-				<static textres="ability_label_distance" />
-			</label_column>
-			<string_columnh name="distance_13">
-				<delaykeyupdate />
-			</string_columnh>
-
-			<label_column name="target_13_label">
-				<static textres="ability_label_target" />
-			</label_column>
-			<string_columnh name="target_13">
-				<delaykeyupdate />
-			</string_columnh>
-		
-			<!-- POWER ROLL -->
-			<label_column name="mod_13_label">
-				<static textres="ability_label_powerroll" />
-			</label_column>
-			<!-- <button_characteristic name="characteristic" source="characteristic">
-                <anchored width="20" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
-					<left offset="80" />
-				</anchored>
-                <default>0</default>
-                <tooltip textres="skill_tooltip" />
-            </button_characteristic> -->
-			<number_columnh name="mod_13">
-				<displaysign />
-				<anchored width="30" height="20">
-					<top parent="columnanchor" anchor="bottom" relation="relative" offset="5" />
-					<left offset="70" />
-				</anchored>
-                <default>0</default>
-				<hideonvalue>0</hideonvalue>
-			</number_columnh>
-
-			<label_column name="tier1_13_label">
-				<static textres="ability_label_tier1" />
-				<anchored>
-					<left offset="36" />
-				</anchored>
-			</label_column>
-			<string_columnh name="tier1_13" source="tier1_13">
-			</string_columnh>
-
-			<label_column name="tier2_13_label">
-				<static textres="ability_label_tier2" />
-				<anchored>
-					<left offset="36" />
-				</anchored>
-			</label_column>
-			<string_columnh name="tier2_13" source="tier2_13" />
-
-			<label_column name="tier3_13_label">
-				<static textres="ability_label_tier3" />
-				<anchored>
-					<left offset="36" />
-				</anchored>
-			</label_column>
-			<string_columnh name="tier3_13" source="tier3_13" />
-
-			<!-- OTHER -->
-			<label_column name="trigger_13_label">
-				<static textres="ability_label_trigger" />
-			</label_column>
-			<string_columnh name="trigger_13">
-				<delaykeyupdate />
-			</string_columnh>
-			<label_column name="effect_13_label">
-				<static textres="ability_label_effect" />
-			</label_column>
-			<string_columnh name="effect_13" source="effect_13">
-				<delaykeyupdate />
-			</string_columnh>
-			<label_column name="special_13_label">
-				<static textres="ability_label_special" />
-			</label_column>
-			<string_columnh name="special_13">
-				<delaykeyupdate />
-			</string_columnh>
-
-			<label_column name="ability_cost_13_label">
-				<static textres="ability_label_cost" />
-			</label_column>
-			<number_columnh name="ability_cost_13">
-				<hideonvalue>0</hideonvalue>
-			</number_columnh>
-
-			<label_column name="ability_cost_string_13_label">
-				<static textres="ability_label_resource" />
-			</label_column>
-			<string_columnh name="ability_cost_string_13">
-			</string_columnh>
-
-			<!-- // power roll button -->
-			<power_roll name="power_roll_13">
-				<anchored to="abilityname_ability_13" height="40" width="40">
-					<left offset="-50"/>
-					<top offset="4"/>
-				</anchored>
-				<tooltip textres="tooltip_pr" />
-				<script>	
-					function action(draginfo)
-						local nodeWin = window.getDatabaseNode();
-						local sCharSheetID = DB.getPath(DB.getChild(nodeWin, '...'));
-						local sNPCID = DB.getPath(DB.getChild(nodeWin, '.'));
-						local NPCID = DB.findNode(sNPCID);
-						local characteristic = DB.getValue(nodeWin, "characteristic_13");
-						local mod = DB.getValue(nodeWin, "mod_13")
-
-						local abilityName = DB.getValue(nodeWin, "abilityname_ability_13", "");
-						local abilityKeywords = DB.getValue(nodeWin, "keywords_13", "");
-						local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-						local nodePC = ActorManager.getCreatureNode(rActor);
-
-						local rRoll = { 
-							sType = "dice", 
-							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
-							aDice = { "d10", "d10" },
-							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
-							effect = DB.getValue(nodeWin, "effect_13");
-						};
-						ActionsManager_DS.encodeDesktopMods(rRoll);
-						ActionsManager.performAction(draginfo, rActor, rRoll);
-						return true;
-					end
-					
-					function onDragStart(button, x, y, draginfo)
-						return action(draginfo);
-					end
-
-					function onButtonPress()
-						return action();
-					end
-				</script>
-			</power_roll>
-
-	<!-- Second Ability -->
-			<line_column name="divider15" />
 
 			<basicstring name="abilityname_ability_14">
 				<font>recordsheet_header</font>
@@ -2842,9 +2670,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_14"),
+							t2 = DB.getValue(nodeWin, "tier2_14"),
+							t3 = DB.getValue(nodeWin, "tier3_14");
 							effect = DB.getValue(nodeWin, "effect_14");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -2862,7 +2690,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 15 Ability -->
 			<line_column name="divider16" />
 
 			<basicstring name="abilityname_ability_15">
@@ -3014,9 +2842,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_15"),
+							t2 = DB.getValue(nodeWin, "tier2_15"),
+							t3 = DB.getValue(nodeWin, "tier3_15");
 							effect = DB.getValue(nodeWin, "effect_15");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -3034,7 +2862,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 16 Ability -->
 			<line_column name="divider17" />
 
 			<basicstring name="abilityname_ability_16">
@@ -3186,9 +3014,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_16"),
+							t2 = DB.getValue(nodeWin, "tier2_16"),
+							t3 = DB.getValue(nodeWin, "tier3_16");
 							effect = DB.getValue(nodeWin, "effect_16");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -3206,7 +3034,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 17 Ability -->
 			<line_column name="divider18" />
 
 			<basicstring name="abilityname_ability_17">
@@ -3358,9 +3186,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_17"),
+							t2 = DB.getValue(nodeWin, "tier2_17"),
+							t3 = DB.getValue(nodeWin, "tier3_17");
 							effect = DB.getValue(nodeWin, "effect_17");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -3378,7 +3206,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 18 Ability -->
 			<line_column name="divider19" />
 
 			<basicstring name="abilityname_ability_18">
@@ -3530,9 +3358,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_18"),
+							t2 = DB.getValue(nodeWin, "tier2_18"),
+							t3 = DB.getValue(nodeWin, "tier3_18");
 							effect = DB.getValue(nodeWin, "effect_18");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -3550,7 +3378,7 @@
 				</script>
 			</power_roll>
 	
-	<!-- Second Ability -->
+	<!-- 19 Ability -->
 			<line_column name="divider20" />
 
 			<basicstring name="abilityname_ability_19">
@@ -3702,9 +3530,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_19"),
+							t2 = DB.getValue(nodeWin, "tier2_19"),
+							t3 = DB.getValue(nodeWin, "tier3_19");
 							effect = DB.getValue(nodeWin, "effect_19");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -3722,7 +3550,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 20 Ability -->
 			<line_column name="divider21" />
 
 			<basicstring name="abilityname_ability_20">
@@ -3874,9 +3702,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_20"),
+							t2 = DB.getValue(nodeWin, "tier2_20"),
+							t3 = DB.getValue(nodeWin, "tier3_20");
 							effect = DB.getValue(nodeWin, "effect_20");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -3894,7 +3722,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 21 Ability -->
 			<line_column name="divider22" />
 
 			<basicstring name="abilityname_ability_21">
@@ -4046,9 +3874,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_21"),
+							t2 = DB.getValue(nodeWin, "tier2_21"),
+							t3 = DB.getValue(nodeWin, "tier3_21");
 							effect = DB.getValue(nodeWin, "effect_21");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -4066,7 +3894,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 22 Ability -->
 			<line_column name="divider23" />
 
 			<basicstring name="abilityname_ability_22">
@@ -4218,9 +4046,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_22"),
+							t2 = DB.getValue(nodeWin, "tier2_22"),
+							t3 = DB.getValue(nodeWin, "tier3_22");
 							effect = DB.getValue(nodeWin, "effect_22");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
@@ -4238,7 +4066,7 @@
 				</script>
 			</power_roll>
 
-	<!-- Second Ability -->
+	<!-- 23 Ability -->
 			<line_column name="divider23" />
 
 			<basicstring name="abilityname_ability_23">
@@ -4390,9 +4218,9 @@
 							sDesc = "" .. abilityName .. " \n(" .. abilityKeywords .. ")", 
 							aDice = { "d10", "d10" },
 							nMod = mod,
-							t1 = DB.getValue(nodeWin, "tier1"),
-							t2 = DB.getValue(nodeWin, "tier2"),
-							t3 = DB.getValue(nodeWin, "tier3");
+							t1 = DB.getValue(nodeWin, "tier1_23"),
+							t2 = DB.getValue(nodeWin, "tier2_23"),
+							t3 = DB.getValue(nodeWin, "tier3_23");
 							effect = DB.getValue(nodeWin, "effect_23");
 						};
 						ActionsManager_DS.encodeDesktopMods(rRoll);
