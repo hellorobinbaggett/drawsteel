@@ -601,6 +601,7 @@
                 <script>	
                     function action(draginfo)
                         local nodeWin = window.getDatabaseNode();
+						local current = DB.getValue(nodeWin, "classresource");
 
                         local rRoll = { 
                             sType = "dice", 
@@ -609,6 +610,11 @@
 							nMod = 0,
                         };
                         ActionsManager.performAction(draginfo, rActor, rRoll);
+						
+						-- grab the rolled amount, then add it to class resource
+						local node = window.getDatabaseNode();
+						DB.setValue(node, "classresource", "number", 0);
+
                         return true;
                     end
                     

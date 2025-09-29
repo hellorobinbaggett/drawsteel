@@ -30,9 +30,9 @@ function onInitiativeChanged()
 
 	-- If initiative result is 0, hide from top tracker
 	if initresult.getValue() == 0 then
-		Debug.chat(initresult.getValue(), "true");
+		-- Debug.chat(initresult.getValue(), "true");
 	else
-		Debug.chat(initresult.getValue(), "false");
+		-- Debug.chat(initresult.getValue(), "false");
 	end
 end
 

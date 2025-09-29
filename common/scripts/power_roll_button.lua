@@ -50,7 +50,6 @@ function action(draginfo)
     local nodePC = ActorManager.getCreatureNode(rActor);
     
     local current = DB.getValue(CharSheetID, "classresource"); 
-
     if (current ~= nill) then --source from char sheet?
         if (current >= abilityCost) then
             if (abilityCost > 0) then --ability costs?

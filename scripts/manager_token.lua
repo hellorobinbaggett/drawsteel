@@ -915,13 +915,13 @@ end
 -- TODO: figure out a way to get creature size
 function getTokenSpace(tokenMap)
 	local nSpace = TokenManager.getDragTokenUnits();
-	Debug.chat(nSpace);
+	-- Debug.chat(nSpace);
 	if not nSpace then
 		local nodeCT = CombatManager.getCTFromToken(tokenMap);
 		if nodeCT then
 			nSpace = DB.getValue(nodeCT, "space");
 		end
-		Debug.chat(nSpace);
+		-- Debug.chat(nSpace);
 	end
 	return TokenManager.calcTokenSpace(nSpace);
 end
