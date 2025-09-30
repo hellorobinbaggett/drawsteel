@@ -24,9 +24,10 @@
 		<buttonfield>
 			<state icon="ct_gone" tooltipres="char_tooltip_prof_off" />
 			<state icon="ct_gone" tooltipres="char_tooltip_prof_on" />
-			<anchored to="rightanchor" width="20" height="20">
+			<anchored to="leftanchor" width="28" height="28">
 				<top />
-				<right anchor="left" relation="relative" offset="-10" />
+				<right anchor="left" relation="relative" offset="-2" />
+				<top offset="-10" />
 			</anchored>
 			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_turn" />
@@ -37,9 +38,10 @@
 		<buttonfield>
 			<state icon="ct_remove" tooltipres="char_tooltip_prof_off" />
 			<state icon="ct_remove" tooltipres="char_tooltip_prof_on" />
-			<anchored to="rightanchor" width="20" height="20">
+			<anchored to="leftanchor" width="28" height="28">
 				<top />
-				<right anchor="left" relation="relative" offset="-10" />
+				<right anchor="left" relation="relative" offset="-2" />
+				<top offset="-10" />
 			</anchored>
 			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_remove" />

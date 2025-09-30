@@ -65,7 +65,7 @@
 			<!-- NOTE: Legacy override short term for layout -->
 			<sub_content_framed_groupbox_top name="header">
 				<anchored to="contentanchor">
-					<left offset="10" />
+					<left offset="14" />
 					<right offset="-10" />
 					<top relation="relative" offset="10" postoffset="10" />
 				</anchored>
@@ -73,11 +73,11 @@
 				<class>record_header</class>
 			</sub_content_framed_groupbox_top>
 
-			<power_roll name="abilityroll">
-				<bounds>27,50,30,30</bounds>
+			<NEW_power_roll name="abilityroll">
+				<bounds>15,41,47,47</bounds>
 				<tooltip textres="tooltip_pr" />
 				<script file="common/scripts/power_roll_button.lua" />
-			</power_roll>
+			</NEW_power_roll>
 
 			<sub_content_framed_groupbox name="content" />
 			<scrollbar_content />

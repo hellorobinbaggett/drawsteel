@@ -133,7 +133,7 @@
 	<template name="label_ct_header_stamina">
 		<label>
 			<static textres="ct_label_stamina" />
-			<bounds>-180,4,300,14</bounds>
+			<bounds>-160,4,300,14</bounds>
 		</label>
 	</template>
 	<template name="label_ct_header_herotokens">
@@ -145,7 +145,7 @@
 	<template name="label_ct_header_malice">
 		<label>
 			<static textres="ct_label_malice" />
-			<bounds>-90,4,300,14</bounds>
+			<bounds>90,4,300,14</bounds>
 		</label>
 	</template>
 
@@ -197,11 +197,11 @@
 			<gmeditonly />
 		</number_listitem_right>
 	</template>
-	<template name="label_ct_controls_rounds">
+	<!-- <template name="label_ct_controls_rounds">
 		<label_listitem_right>
 			<static textres="ct_label_round" />
 		</label_listitem_right>
-	</template>
+	</template> -->
 	<template name="area_ct_controls_center">
 		<genericcontrol name="area_center">
 			<anchored to="leftanchor" height="20">
@@ -510,7 +510,7 @@
 			<tooltip textres="ct_stamina_tooltip" />
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
-				<right anchor="left" relation="relative" offset="-25" />
+				<right anchor="left" relation="relative" offset="-5" />
 			</anchored>
 			<tabtarget prev="nonid_name" />
 		</number_ct_crosslink>

@@ -395,11 +395,11 @@
 					<tooltip textres="char_tooltip_doublebane" />
 				</button_modifierkey>	
 				<!-- DEPRECATED: this is now in the character sheet "skills" tab -->
-				<!-- <button_modifierkey name="SKILL">
+				<button_modifierkey name="SKILL">
 					<bounds>222,6,60,48</bounds>
 					<text>Skill</text>
 					<tooltip textres="char_tooltip_skill" />
-				</button_modifierkey>						 -->
+				</button_modifierkey>
 			</sheetdata>
 		</windowclass>
 

@@ -57,17 +57,20 @@
 			<spacer_ct_header_buttons_host name="spacer_buttons_header" />
 
 			<label_ct_header_malice name="label_malice" />
-			<label_ct_header_herotokens name="label_herotokens" />
-			<basicnumber name="herotokens" source="herotokens">
-				<bounds>160,0,30,20</bounds>
-			</basicnumber>
 			<basicnumber name="malice" source="malice">
 				<gmeditonly />
-				<bounds>-80,0,30,20</bounds>
+				<bounds>145,3,30,20</bounds>
 			</basicnumber>
+
+			<!-- DEPRECATED -->
+			<!-- <label_ct_header_herotokens name="label_herotokens" />
+			<basicnumber name="herotokens" source="herotokens">
+				<bounds>160,0,30,20</bounds>
+			</basicnumber> -->
 		</sheetdata>
 	</windowclass>
 
+	<!-- These are just the header for hero section and monster section respectively -->
 	<windowclass name="sub_ct_header_host_heroes" source="heroestest">
 		<margins control="0,0,0,2" />
 		<sheetdata>

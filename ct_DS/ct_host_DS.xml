@@ -54,15 +54,17 @@
 			<spacer_ct_header_buttons_host name="spacer_buttons_header" />
 
 			<label_ct_header_malice name="label_malice" />
-			<label_ct_header_herotokens name="label_herotokens" />
+			<basicnumber name="malice" source="malice">
+				<gmeditonly />
+				<bounds>145,3,30,20</bounds>
+			</basicnumber>
+
+			<!-- DEPRECATED -->
+			<!-- <label_ct_header_herotokens name="label_herotokens" />
 			<basicnumber name="herotokens" source="herotokens">
 				<target>herotokens</target>
 				<bounds>160,0,30,20</bounds>
-			</basicnumber>
-			<basicnumber name="malice" source="malice">
-				<gmeditonly />
-				<bounds>-35,0,30,20</bounds>
-			</basicnumber>
+			</basicnumber> -->
 
 			<label_ct_header_stamina name="label_name" />
 		</sheetdata>
