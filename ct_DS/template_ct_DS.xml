@@ -29,7 +29,7 @@
 			</anchored>
 			<bounds>18,418,280,-70</bounds>
 			<datasource>.list</datasource>
-			<!-- This is where I want to filter by faction and initiative result -->
+			<!-- Script to filter where only PCs are shown who HAVEN'T acted -->
 			<script>
                 function onFilter( w )
 				local nodeCT = w.getDatabaseNode();
@@ -50,7 +50,7 @@
 		<list_content name="list_monsters">
 			<bounds>298,418,-30,-70</bounds>
 			<datasource>.list</datasource>
-			<!-- This is where I want to filter by faction and initiative result -->
+			<!-- Script to filter where only NPCs are shown who HAVEN'T acted -->
 			<script>
 				function onFilter( w )
 				local nodeCT = w.getDatabaseNode();
