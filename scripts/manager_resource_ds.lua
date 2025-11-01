@@ -4,12 +4,11 @@ function resourceRoll(rMessage, rRoll)
 	local rRoll = { 
 		rResult = result,
 	};
-
-	-- if rRoll.aDice[1].result > 5 then
-	-- 	rMessage.text = tostring(rMessage.text) .. " Heroes go first!";
-	-- else
-	-- 	rMessage.text = tostring(rRoll.sDesc) .. " Monsters go first!";
-	-- end
+	
+	-- nCurrent = DB.getValue(rActor, "heroicresource", 0);
+	-- nRoll = result;
+	-- nTotal = nRoll + nCurrent;
+	-- DB.setValue(nodePC, "heroicresource", "number", nTotal);
 	
 	return rMessage;
 end

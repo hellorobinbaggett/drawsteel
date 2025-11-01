@@ -2122,7 +2122,7 @@ function onCopyButtonPressed(c)
 	StoryManager.performRecordCopy(c.window);
 end
 function onPasteButtonInit(c)
-    Debug.chat(c);
+    -- Debug.chat(c);
 	c.onStateChanged();
 end
 function onPasteButtonPressed(c)

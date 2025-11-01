@@ -226,6 +226,9 @@
 	<string name="ct_tooltip_move">Move</string>
 	<string name="ct_tooltip_maneuver">Maneuver</string>
 	<string name="ct_tooltip_menu">Click for CT menu</string>
+	<string name="saveends">Save Ends</string>
+	<string name="endofturn">End of Next Turn</string>
+	<string name="endofencounter">End of Encounter</string>
 
 	<!-- Languages -->
 	<string name="language_value_caelian">Caelian</string>
@@ -709,4 +712,24 @@
 	<!-- CT -->
 	<string name="ct_emptylist_heroes">Drop PC links to add entries.</string>
 	<string name="ct_emptylist_monsters">Drop NPC or encounter links to add entries.</string>
+
+	<!-- Hero Tokens -->
+	<string name="tooltip_herotokengm">Hero Token (drag off to remove)
+	\nSpend 1 token to gain 2 surges. 
+	\nSpend 1 hero token to succeed on a save. 
+	\nSpend 1 to reroll a test. You must use the new roll.
+	\nSpend 2 tokens on your turn or when you take damage (no action required) to regain stamina equal to your Recovery value before taking the damage.</string>
+	<string name="tooltip_herotokengm_gm">Hero Token(drag off to remove)\nCTRL+MouseWheel to manually adjust.
+	\nAt the start of a new game session, the heroes have a number of hero tokens equal to the number of heroes in the party. 
+	\nSpend 1 token to gain 2 surges. 
+	\nSpend 1 hero token to succeed on a save. 
+	\nSpend 1 to reroll a test. You must use the new roll.
+	\nSpend 2 tokens on your turn or when you take damage (no action required) to regain stamina equal to your Recovery value before taking the damage.</string>
+
+
+	<string name="herotoken_player_user_by_user">'%s' spent a Hero Token.</string>
+	<string name="herotoken_player_played_by_gm">A Hero Token has been spent by the Director.</string>
+	<string name="herotoken_player_user_by_user_for_character">A Hero Token has been spent by '%s', for character '%s'.</string>
+	<string name="herotoken_player_decremented">Hero Tokens are reduced to '%s'.</string>
+	<string name="herotoken_gm_used">The director spent a Hero Token.</string>
 </root>

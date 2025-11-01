@@ -20,6 +20,10 @@
 	<icon name="info_alert" file="graphics/buttons/button_info.png" />
 	<icon name="info_warning" file="graphics/buttons/button_info_yellow.png" />
 	<icon name="logo" file="graphics/logos/logo.png" />
+	<icon name="button_se" file="graphics/buttons/button_se.png" />
+	<icon name="button_eot" file="graphics/buttons/button_eot.png" />
+	<icon name="button_eoe" file="graphics/buttons/button_eoe.png" />
+	
     <!-- Skills -->
 	<icon name="button_prof" file="graphics/buttons/button_prof.png" />
 	<icon name="button_prof_down" file="graphics/buttons/button_prof_down.png" />

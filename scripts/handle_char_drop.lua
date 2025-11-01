@@ -63,6 +63,9 @@ function onDrop(x, y, draginfo)
                     return nil;
                 end
 
+                -- set name of heroic resource
+                DB.copyNode(DB.getChild(nodeSource, "classResource"), DB.getChild(node, "classresource_label"));
+
                 -- handle adding starting characteristics
                 DB.copyNode(DB.getChild(nodeSource, "startingMight"), DB.getChild(node, "MGT"));
                 DB.copyNode(DB.getChild(nodeSource, "startingAgility"), DB.getChild(node, "AGL"));
@@ -139,17 +142,17 @@ function onDrop(x, y, draginfo)
                 local heroMaxStamina = DB.getChild(nodeSource, "stamina.max");
                 local heroCurrentStamina = DB.getChild(nodeSource, "stamina.current");
                 if(heroLevel.getValue() == 1) then
-                    DB.copyNode(startingStamina, DB.getChild(node, "stamina.current"));
                     DB.copyNode(startingStamina, DB.getChild(node, "stamina.max"));
                     ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(DB.getChild(node, "stamina.max").getValue()), tostring(heroName));
+                    DB.copyNode(startingStamina, DB.getChild(node, "stamina.current"));
                 end
                 if(heroLevel.getValue() > 1) then
                     local levelMultiplyer = (heroLevel.getValue() - 1)
                     local additionalStamina = (staminaPerLevel.getValue() * levelMultiplyer);
                     local totalStamina = (additionalStamina + startingStamina.getValue());
-                    DB.setValue(node, "stamina.current", "number", totalStamina);
                     DB.setValue(node, "stamina.max", "number", totalStamina);
                     ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(totalStamina), tostring(heroName));
+                    DB.setValue(node, "stamina.current", "number", totalStamina);
                 end
                 
 

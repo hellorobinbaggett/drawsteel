@@ -9,13 +9,3 @@ function saveRoll(rMessage, rRoll)
 	
 	return rMessage;
 end
-
-function resourceRoll(rRoll)   
-
-	local result = rRoll.aDice[1].result;
-
-	-- get character sheet
-	-- get resource
-
-    return true;
-end

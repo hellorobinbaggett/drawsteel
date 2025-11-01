@@ -629,6 +629,14 @@
 			<center />
 		</label>
 	</template>
+	<template name="label_charfieldtop_edit">
+		<string_labeled>
+			<anchored position="above" offset="0,3" />
+			<font>subwindowsmalltitle</font>
+			<color value="#FFFFFF" />
+			<center />
+		</string_labeled>
+	</template>
 	<template name="label_charfieldbottom">
 		<label>
 			<anchored position="below" offset="0,3" />

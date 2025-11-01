@@ -449,7 +449,7 @@
 		<label_charframetop name="victoriestitle">
 			<anchored height="20" width="80">
 				<top anchor="bottom" offset="-80" />
-				<left offset="43" />
+				<left offset="40" />
 			</anchored>
 			<icons>char_stats</icons>
 		</label_charframetop>
@@ -472,20 +472,20 @@
 			<static textres="char_label_victories" />
 		</label_charfieldtop>
 
-		<!-- CLASS RESOURCE AND SURGES AND HERO TOKENS -->
+		<!-- CLASS RESOURCE -->
 		<label_charframetop name="classresourcetitle">
-			<anchored height="20">
+			<anchored height="20" width="136">
 				<top anchor="bottom" offset="-80" />
-				<left offset="165" />
-				<right offset="-45" />
+				<left offset="170" />
 			</anchored>
 			<icons>char_stats</icons>
 		</label_charframetop>
 
 		<basicnumber name="classresource" source="classresource">
+			<target>classresource</target>
 			<anchored to="classresourcetitle" width="100" height="30">
 				<top anchor="bottom" offset="8" />
-				<left anchor="center" offset="-120" />
+				<left anchor="center" offset="-44" />
 			</anchored>
 			<font>reference-b-large</font>
 			<description textres="char_tooltip_classresource" />
@@ -496,13 +496,28 @@
 			<target>classresource</target>
 		</basicnumber>
 
-		<label_charfieldtop name="classresource_label">
-			<anchored to="classresource" offset="0,8" />
-			<static textres="char_label_classresource" />
-		</label_charfieldtop>
+		<string_labeled_resource name="classresource_label" source="classresource_label">
+			<anchored to="classresource" position="above" offset="0,8" width="60" height="20"/>
+			<default>Class Resource</default>
+			<font>subwindowsmalltitle</font>
+			<color value="#FFFFFF" />
+			<center />
+		</string_labeled_resource>
+
+		<!-- SURGES -->
+		<label_charframetop name="surgestitle">
+			<anchored height="20" width="80">
+				<top anchor="bottom" offset="-80" />
+				<left offset="350" />
+			</anchored>
+			<icons>char_stats</icons>
+		</label_charframetop>
 
 		<basicnumber name="surges" source="surges">
-			<anchored to="classresource" position="righthigh" offset="15,0" width="40" height="30" />
+			<anchored to="surgestitle" width="55" height="30">
+				<top anchor="bottom" offset="8" />
+				<left anchor="center" offset="-25" />
+			</anchored>
 			<font>reference-b-large</font>
 			<description textres="char_tooltip_surges" />
 			<tooltip textres="char_tooltip_surgesdescription" />
@@ -518,14 +533,14 @@
 			<static textres="char_label_surges" />
 		</label_charfieldtop>
 
-			<!-- TODO: make hero tokens the same for every character sheet -->
-			<basicnumber name="herotokens" source="herotokens">
+			<!-- DEPRECATED - tokens have been moved to desktop -->
+			<!-- <basicnumber name="herotokens" source="herotokens">
 				<anchored to="surges" position="righthigh" offset="15,0" width="90" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_herotokens" />
 				<tooltip textres="char_tooltip_herotokendescription" />
 				<min value="0" />
-				<!-- <script file="campaign/scripts/char_herotokens.lua" /> -->
+				<script file="campaign/scripts/char_herotokens.lua" />
 			</basicnumber>
 
 			<buttoncontrol name="surges">
@@ -579,7 +594,7 @@
 			<label_charfieldtop name="herotokens_label">
 				<anchored to="herotokens" offset="300,8" />
 				<static textres="char_label_herotokens" />
-			</label_charfieldtop>
+			</label_charfieldtop> -->
 
 
 		<!-- STAMINA SECTION -->
@@ -595,7 +610,7 @@
 			<initiative_roll name="classresource_roll">
                 <anchored to="classresourcetitle" width="30" height="30">
 					<top anchor="bottom" offset="8" />
-					<left anchor="center" offset="-140" />
+					<left anchor="center" offset="-60" />
 				</anchored>
                 <tooltip textres="char_tooltip_classresource" />
                 <script>	

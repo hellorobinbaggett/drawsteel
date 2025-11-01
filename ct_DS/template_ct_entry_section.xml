@@ -21,7 +21,7 @@
 	</template>
 
 	<template name="button_initiative_gone">
-		<buttonfield>
+		<buttoncontrol>
 			<state icon="ct_gone" tooltipres="char_tooltip_prof_off" />
 			<state icon="ct_gone" tooltipres="char_tooltip_prof_on" />
 			<anchored to="leftanchor" width="28" height="28">
@@ -31,11 +31,11 @@
 			</anchored>
 			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_turn" />
-		</buttonfield>
+		</buttoncontrol>
 	</template>
 
 	<template name="button_initiative_remove">
-		<buttonfield>
+		<buttoncontrol>
 			<state icon="ct_remove" tooltipres="char_tooltip_prof_off" />
 			<state icon="ct_remove" tooltipres="char_tooltip_prof_on" />
 			<anchored to="leftanchor" width="28" height="28">
@@ -45,7 +45,7 @@
 			</anchored>
 			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_remove" />
-		</buttonfield>
+		</buttoncontrol>
 	</template>
 
 	<!-- Summary string sections -->
@@ -413,6 +413,20 @@
 				end
 			</script>
 		</basicnumber>
+	</template>
+		<template name="button_ct_effect_isduration">
+		<buttonfield name="isduration">
+			<anchored to="rightanchor" height="20">
+				<sizelimits>
+					<minimum width="30" />
+				</sizelimits>
+				<top />
+				<right anchor="left" relation="relative" offset="-10" />
+			</anchored>
+			<state icon="button_se" tooltipres="saveends" />
+			<state icon="button_eot" tooltipres="endofturn" />
+			<state icon="button_eoe" tooltipres="endofencounter" />
+		</buttonfield>
 	</template>
 
 	<template name="string_clientct_effect">

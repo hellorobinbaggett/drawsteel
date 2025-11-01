@@ -1,0 +1,1101 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+	Please see the license.html file included with this distribution for
+	attribution and copyright information.
+-->
+
+
+<root>
+	<!-- Overwritting core -->
+
+	<template name="button_dblink">
+		<buttoncontrol>
+			<anchored width="20" height="20" />
+			<state icon="open_database" pressed="open_database" />
+			<script>
+				function onButtonPress()
+					if target and target[1] then
+						Interface.openWindow("masterindex",target[1]);
+					end
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+
+	<template name="button_iadd_dblink">
+		<buttoncontrol>
+			<anchored width="20" height="20" />
+			<icon normal="button_add" pressed="button_add_down" />
+			<tooltip textres="button_add" />
+			<script>
+				function onInit()
+					if visible then
+						return;
+					end
+					local node = window.getDatabaseNode();
+					if node and node.isReadOnly() then
+						setVisible(false);
+					end
+				end
+				function onButtonPress()
+					if target and target[1] then
+						Interface.openWindow("masterindex",target[1]);
+					end
+				end
+			</script>
+		</buttoncontrol>
+	</template>
+
+	<template name="string_columnh">
+		<string_column>
+			<script file="common/scripts/column_string.lua" />
+		</string_column>
+	</template>
+
+	<template name="ft_columnh">
+		<ft_column>
+			<script file="common/scripts/column_ft.lua" />
+		</ft_column>
+	</template>
+
+	<!-- RESKIN  -->
+	<template name="anchor_title_charsheet">
+		<genericcontrol>
+			<anchored height="0">
+				<top offset="35" />
+				<left parent="" anchor="left" offset="15" />
+				<right parent="" anchor="right" offset="-30" />
+			</anchored>
+			<disabled />
+		</genericcontrol>
+	</template>
+	<template name="anchor_title_charsheethelper">
+		<genericcontrol>
+			<anchored height="0">
+				<top parent="title" anchor="bottom" offset="0" />
+				<left parent="" anchor="left" offset="20" />
+				<right parent="" anchor="right" offset="-20" />
+			</anchored>
+			<disabled />
+		</genericcontrol>
+	</template>
+
+	<!--
+	<template name="sub_charsheet">
+		<subwindow>
+			<anchored to="contentanchor">
+				<top parent="name" anchor="bottom" offset="2" />
+				<left />
+				<right />
+				<bottom parent="" offset="-20" />
+			</anchored>
+		</subwindow>
+	</template>
+	-->
+
+	<template name="sub_npcsheet">
+		<subwindow>
+			<anchored to="contentanchor">
+				<top parent="name" anchor="bottom" offset="2" />
+				<left />
+				<right />
+				<bottom parent="" offset="-20" />
+			</anchored>
+		</subwindow>
+	</template>
+
+	<template name="frame_statblock1">
+		<genericcontrol>
+			<frame name="statblock1" />
+		</genericcontrol>
+	</template>
+
+	<!-- We combine both for all characters, except Rivals, who dont have Strain -->
+	<template name="frame_statblock2a">
+		<genericcontrol>
+			<frame name="statblock2a" />
+		</genericcontrol>
+	</template>
+
+	<template name="frame_statblock2b">
+		<genericcontrol>
+			<frame name="statblock2b" />
+		</genericcontrol>
+	</template>
+
+	<template name="frame_statblock_vehicle">
+		<genericcontrol>
+			<frame name="statblock_vehicle" />
+		</genericcontrol>
+	</template>
+
+	<template name="frame_npc_power_level">
+		<genericcontrol>
+			<frame name="npc_power_level" />
+		</genericcontrol>
+	</template>
+
+	<template name="title_statblock">
+		<basestringcontrol>
+			<font>subwindowsmalltitle</font>
+			<staticcase>upper</staticcase>
+		</basestringcontrol>
+	</template>
+
+	<template name="title_statblock_sm">
+		<basestringcontrol>
+			<font>subwindowsmallertitle</font>
+			<staticcase>upper</staticcase>
+		</basestringcontrol>
+	</template>
+
+	<template name="frame_characteristic_modifier">
+		<genericcontrol>
+			<frame name="characteristic_modifier" />
+		</genericcontrol>
+	</template>
+
+	<!-- RESKIN END -->
+
+	<!-- Genesys templates -->
+
+	<template name="simpleft">
+		<baseformattedtextfield />
+	</template>
+
+	<template name="ft_record">
+		<baseformattedtextfield>
+			<footer>footer_narrow</footer>
+		</baseformattedtextfield>
+	</template>
+
+	<template name="basestringcontrol">
+		<stringcontrol>
+			<font>sheetlabel</font>
+			<underlineoffset>-3</underlineoffset>
+			<nodrop />
+			<nodrag />
+		</stringcontrol>
+	</template>
+
+	<template name="socketedlist">
+		<basewindowlist>
+			<script file="common/scripts/socketedlist.lua" />
+		</basewindowlist>
+	</template>
+
+	<template name="sheetframe">
+		<frame_char />
+	</template>
+
+	<template name="rechargenumberfield">
+		<basicnumber/>
+	</template>
+
+	<windowclass name="empty">
+		<sheetdata>
+		</sheetdata>
+	</windowclass>
+
+	<template name="sheetframelabel">
+		<basestringcontrol>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width>27</width>
+					<height>20</height>
+				</size>
+			</anchored>
+			<center />
+			<font>sheetlabelinline</font>
+		</basestringcontrol>
+	</template>
+
+	<template name="sheetframetitle">
+		<sheettitle>
+			<anchored>
+				<position>insidetop</position>
+				<offset>0,8</offset>
+			</anchored>
+			<center />
+		</sheettitle>
+	</template>
+
+	<template name="sheetlabel">
+		<basestringcontrol>
+			<font>sheetlabel</font>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<height>20</height>
+				</size>
+			</anchored>
+		</basestringcontrol>
+	</template>
+
+	<template name="sheetlist">
+		<basewindowlist>
+			<allowdelete />
+			<script file="common/scripts/sheetlist.lua" />
+		</basewindowlist>
+	</template>
+
+	<template name="sheetcharacteristicvalue">
+		<sheetnumberfieldtr>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width>32</width>
+					<height>32</height>
+				</size>
+			</anchored>
+			<allowdoubleclick />
+			<script file="campaign/scripts/sheetcharacteristicvalue.lua" />
+		</sheetnumberfieldtr>
+	</template>
+
+	<template name="sheetstartingcharacteristic">
+		<sheetnumberfieldtr>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width>32</width>
+					<height>32</height>
+				</size>
+			</anchored>
+		</sheetnumberfieldtr>
+	</template>
+
+	<template name="vehicle_stat">
+		<sheetnumberfieldtr>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width>32</width>
+					<height>32</height>
+				</size>
+			</anchored>
+		</sheetnumberfieldtr>
+	</template>
+
+	<template name="vehicle_stat_linked">
+		<sheetnumberfieldtr>
+			<script file="common/scripts/number_crosslink.lua" />
+			<font>sheetnumber</font>
+			<color>ff000000</color>
+			<zerocolor>ff000000</zerocolor>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width>32</width>
+					<height>32</height>
+				</size>
+			</anchored>
+			<isReadOnly/>
+		</sheetnumberfieldtr>
+	</template>
+
+	<!-- Placeholder templates  replace after done with conversion -->
+	<template name="basewindowlist">
+		<windowlist>
+			<!--    <useallmodules /> -->
+			<script file="common/scripts/basewindowlist.lua" />
+		</windowlist>
+	</template>
+
+	<!-- JOHN: use linkfield instead??? -->
+	<template name="windowbutton">
+		<windowshortcut>
+			<icon>
+				<pressed>button_emptytarget</pressed>
+			</icon>
+			<script file="common/scripts/windowbutton.lua" />
+		</windowshortcut>
+	</template>
+
+	<template name="sheetnumberfieldtr">
+		<basenumberfield>
+			<color>ff000000</color>
+			<zerocolor>ff000000</zerocolor>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width mergerule="replace">25</width>
+					<height mergerule="replace">17</height>
+				</size>
+			</anchored>
+			<frame mergerule="replace">
+				<name>fieldtransparent</name>
+				<offset>4,5,4,3</offset>
+			</frame>
+			<script file="common/scripts/sheetnumberfield.lua" />
+		</basenumberfield>
+	</template>
+
+	<template name="sheetnumberfieldtr_linked">
+		<basenumberfield>
+			<color>ff000000</color>
+			<zerocolor>ff000000</zerocolor>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width mergerule="replace">25</width>
+					<height mergerule="replace">17</height>
+				</size>
+			</anchored>
+			<frame mergerule="replace">
+				<name>fieldtransparent</name>
+				<offset>4,5,4,3</offset>
+			</frame>
+			<script file="common/scripts/number_crosslink.lua" />
+		</basenumberfield>
+	</template>
+
+	<template name="sheetcharacteristicmod">
+		<basicnumber>
+			<anchored position="insidetopleft" width="25" height="20" />
+			<frame mergerule="replace">
+				<name>fieldtransparent</name>
+				<offset>4,5,4,3</offset>
+			</frame>
+			<displaysign />
+			<tooltip textres="tooltip_modifier2"/>
+			<readonly />
+			<color>ff000000</color>
+		</basicnumber>
+	</template>
+
+	<template name="string_columnh_linked">
+		<string_column>
+			<!-- <script file="common/scripts/column_string.lua" /> -->
+			<script file="common/scripts/string_crosslink.lua" />
+		</string_column>
+	</template>
+
+	<template name="number_columnh_linked">
+		<number_column>
+			<!--    <script file="common/scripts/column_number.lua" /> -->
+			<script file="common/scripts/string_crosslink.lua" />
+		</number_column>
+	</template>
+
+	<template name="ft_columnh_linked">
+		<ft_column>
+			<!--    <script file="common/scripts/column_ft.lua" />  -->
+			<script file="common/scripts/string_crosslink.lua" />
+		</ft_column>
+	</template>
+
+	<template name="sheetnumberfield">
+		<basenumberfield>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width mergerule="replace">25</width>
+					<height mergerule="replace">17</height>
+				</size>
+			</anchored>
+			<frame mergerule="replace">
+				<name>fielddark</name>
+				<offset>4,5,4,3</offset>
+			</frame>
+			<script file="common/scripts/sheetnumberfield.lua" />
+		</basenumberfield>
+	</template>
+
+	<template name="sheettitle">
+		<basestringcontrol>
+			<!-- <font>sheetlabelinline</font> -->
+			<staticcase>upper</staticcase>
+		</basestringcontrol>
+	</template>
+
+	<template name="windowshortcut">
+		<buttoncontrol>
+			<icon>
+				<normal>button_link</normal>
+				<pressed>button_link_down</pressed>
+			</icon>
+			<script file="common/scripts/windowshortcut.lua" />
+		</buttoncontrol>
+	</template>
+
+	<template name="basestringfield">
+		<stringfield>
+			<font>sheetlabel</font>
+			<selectioncolor>#90ffffff</selectioncolor>
+			<underlineoffset>-3</underlineoffset>
+			<nodrop />
+			<nodrag />
+			<script file="common/scripts/basestringfield.lua" />
+		</stringfield>
+	</template>
+
+	<template name="baseformattedtextfield">
+		<formattedtextfield>
+			<!--    <empty>Click to enter text</empty> -->
+			<script file="common/scripts/baseformattedtextfield.lua" />
+		</formattedtextfield>
+	</template>
+
+	<template name="sheetformattedtextfield">
+		<baseformattedtextfield>
+			<script file="common/scripts/sheetformattedtextfield.lua" />
+		</baseformattedtextfield>
+	</template>
+
+	<template name="weaponskillcontrol">
+		<genericcontrol>
+			<frame>
+				<name>fielddark</name>
+				<offset>4,5,4,4</offset>
+			</frame>
+			<anchored>
+				<size>
+					<width>25</width>
+					<height>16</height>
+				</size>
+			</anchored>
+			<script file="common/scripts/weaponskillcontrol.lua" />
+		</genericcontrol>
+	</template>
+
+	<template name="basenumberfield">
+		<basicnumber>
+			<!--    <color>ff000000</color> -->
+			<!--    <zerocolor>20000000</zerocolor> - check if i need to activate on some fields -->
+			<minvalue>0</minvalue>
+			<noreset />
+			<nodrop />
+			<nodrag />
+			<script file="common/scripts/basenumberfield.lua" />
+		</basicnumber>
+	</template>
+
+	<template name="ranknumberfield">
+		<basicnumber>
+			<font>sheetnumber</font>
+			<zerocolor>20000000</zerocolor>
+			<minvalue>0</minvalue>
+			<noreset />
+			<nodrop />
+			<nodrag />
+			<script file="common/scripts/ranknumberfield.lua" />
+		</basicnumber>
+	</template>
+
+	<template name="rangecontrol">
+		<genericcontrol>
+			<frame>
+				<name>fielddark</name>
+				<offset>4,5,4,4</offset>
+			</frame>
+			<anchored>
+				<size>
+					<width>25</width>
+					<height>16</height>
+				</size>
+			</anchored>
+			<tooltip textres="tooltip_weapon_range"/>
+			<script file="common/scripts/rangecontrol.lua" />
+		</genericcontrol>
+	</template>
+	<template name="rangecontrolh">
+		<button_stringcycler>
+			<anchored width="45" height="20" />
+			<parameters>
+				<labelsres>S|M|L|E|ST</labelsres>
+				<values>S|M|L|E|ST</values>
+				<defaultlabelres>dash</defaultlabelres>
+			</parameters>
+			<script file="common/scripts/button_stringcycler.lua" />
+		</button_stringcycler>
+	</template>
+	<!--
+	<template name="rangecontrolh">
+		<genericcontrol>
+			<anchored width="45" height="20" />
+			<frame name="fielddark" offset="4,5,4,4," />
+			<tooltip textres="tooltip_weapon_range"/>
+			<script file="common/scripts/rangecontrol.lua" />
+		</genericcontrol>
+	</template>
+	-->
+
+	<template name="characteristiccontrolh">
+		<genericcontrol>
+			<frame>
+				<name>fielddark</name>
+				<offset>4,5,4,4</offset>
+			</frame>
+			<anchored>
+				<size>
+					<width>45</width>
+					<height>20</height>
+				</size>
+			</anchored>
+			<tooltip textres="tooltip_characteristic"/>
+			<script file="common/scripts/characteristiccontrol.lua" />
+		</genericcontrol>
+	</template>
+
+	<template name="weapondicepool">
+		<buttoncontrol>
+			<icon>
+				<normal>field_rollable</normal>
+			</icon>
+			<script file="common/scripts/weapondicepool.lua" />
+		</buttoncontrol>
+	</template>
+
+	<template name="weapondicepool_vehicle">
+		<buttoncontrol>
+			<icon>
+				<normal>field_rollable</normal>
+			</icon>
+			<script file="common/scripts/weapondicepool_vehicle.lua" />
+		</buttoncontrol>
+	</template>
+
+	<template name="sheetnumbercontrol">
+		<basenumbercontrol>
+			<anchored>
+				<position>insidetopleft</position>
+				<size>
+					<width mergerule="replace">25</width>
+					<height mergerule="replace">17</height>
+				</size>
+			</anchored>
+			<frame mergerule="replace">
+				<name>fielddark</name>
+				<offset>4,5,4,3</offset>
+			</frame>
+			<script file="common/scripts/sheetnumbercontrol.lua" />
+		</basenumbercontrol>
+	</template>
+
+	<template name="basenumbercontrol">
+		<numbercontrol>
+			<font>sheetnumber</font>
+			<zerocolor>20000000</zerocolor>
+			<noreset />
+			<nodrop />
+			<nodrag />
+			<keyeditframe>
+				<name>sheetfocus</name>
+				<offset>4,5,4,3</offset>
+			</keyeditframe>
+			<script file="common/scripts/basenumbercontrol.lua" />
+		</numbercontrol>
+	</template>
+
+	<template name="sheetstringfield">
+		<string_labeled>
+			<anchored>
+				<size>
+					<height>20</height>
+				</size>
+			</anchored>
+		</string_labeled>
+	</template>
+
+	<template name="woundnumberfield">
+		<chitnumberfield>
+			<script file="common/scripts/woundnumberfield.lua" />
+		</chitnumberfield>
+	</template>
+
+	<template name="chitnumberfield">
+		<sheetnumberfieldtr>
+			<script file="common/scripts/chitnumberfield.lua" />
+		</sheetnumberfieldtr>
+	</template>
+
+	<template name="strainnumberfield">
+		<chitnumberfield>
+			<script file="common/scripts/strainnumberfield.lua" />
+		</chitnumberfield>
+	</template>
+
+	<template name="skilldicepool">
+		<buttoncontrol>
+			<icon>
+				<normal>field_rollable</normal>
+			</icon>
+			<script file="common/scripts/skilldicepool.lua" />
+		</buttoncontrol>
+	</template>
+
+	<template name="open_database">
+		<buttoncontrol>
+			<icon>
+				<normal>open_database</normal>
+			</icon>
+			<script file="common/scripts/skilldicepool.lua" />
+		</buttoncontrol>
+	</template>
+
+	<!-- Spec Tree templates -->
+	<template name="force_talent_active">
+		<genericcontrol>
+			<frame>
+				<name>force_talent_activeframe</name>
+			</frame>
+			<anchored>
+				<size>
+					<width>66</width>
+					<height>66</height>
+				</size>
+			</anchored>
+		</genericcontrol>
+	</template>
+
+	<!-- Initiative templates -->
+	<template name="initskillcontrol">
+		<genericcontrol>
+			<frame name="modifier" offset="4,5,4,4" />
+			<anchored width="35" height="20" />
+			<script file="common/scripts/initskillcontrol.lua" />
+		</genericcontrol>
+	</template>
+
+	<template name="checkbox">
+		<genericcontrol>
+			<stateicons>
+				<on>button_checkon</on>
+				<off>button_checkoff</off>
+			</stateicons>
+			<script file="common/scripts/checkbox.lua" />
+		</genericcontrol>
+	</template>
+
+	<template name="close_charsheet">
+		<close>
+			<anchored>
+				<top offset="24" />
+				<right offset="-12" />
+			</anchored>
+		</close>
+	</template>
+	<template name="close_charsheethelper">
+		<close>
+			<anchored>
+				<top offset="24" />
+				<right offset="-12" />
+			</anchored>
+		</close>
+	</template>
+
+	<!-- Added from CORERPG, it was removed in the latest FG Update -->
+	<template name="button_header_lock">
+		<buttoncontrol>
+			<anchored width="20" height="20" />
+			<state icon="button_header_locked_off" tooltipres="tooltip_unlock" />
+			<state icon="button_header_locked_on" tooltipres="tooltip_lock" />
+		</buttoncontrol>
+	</template>
+	<template name="button_header_reset">
+		<buttoncontrol>
+			<anchored width="20" height="20" />
+			<state icon="button_header_reset" tooltipres="tooltip_resetpos" />
+		</buttoncontrol>
+	</template>
+
+	<windowclass name="NarrativeDice">
+		<script file="desktop/scripts/narrativetokens.lua" />
+		<noclose />
+		<sheetdata>
+			<button_header_lock name="button_lock">
+				<anchored position="insidetopright" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onLockButtonPressed();
+					end
+				</script>
+			</button_header_lock>
+			<button_header_reset name="button_reset">
+				<anchored position="insidetopright" offset="0,20" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onResetButtonPressed();
+					end
+				</script>
+			</button_header_reset>
+
+			<diepanel name="dAbility">
+				<bounds>0,0,55,55</bounds>
+				<type>dAbility</type>
+				<modifier>mSuccess</modifier>
+				<tooltip>
+					<text>Ability Die</text>
+				</tooltip>
+			</diepanel>
+
+			<diepanel name="dProficiency">
+				<anchored height="55" width="55">
+					<bottom offset="-1" />
+					<left parent="dAbility" relation="relative" anchor="right" />
+				</anchored>
+				<type>dProficiency</type>
+				<modifier>mSuccess</modifier>
+				<tooltip>
+					<text>Proficiency Die</text>
+				</tooltip>
+			</diepanel>
+
+			<diepanel name="dDifficulty">
+				<anchored height="55" width="55">
+					<bottom offset="-1" />
+					<left parent="dAbility" relation="relative" anchor="right" />
+				</anchored>
+				<type>dDifficulty</type>
+				<modifier>mSuccess</modifier>
+				<tooltip>
+					<text>Difficulty Die</text>
+				</tooltip>
+			</diepanel>
+
+			<diepanel name="dChallenge">
+				<anchored height="55" width="55">
+					<bottom offset="-1" />
+					<left parent="dAbility" relation="relative" anchor="right" />
+				</anchored>
+				<type>dChallenge</type>
+				<modifier>mChallenge</modifier>
+				<tooltip>
+					<text>Challenge Die</text>
+				</tooltip>
+			</diepanel>
+
+			<diepanel name="dBoost">
+				<anchored height="55" width="55">
+					<bottom offset="-1" />
+					<left parent="dAbility" relation="relative" anchor="right" />
+				</anchored>
+				<type>dBoost</type>
+				<modifier>mSuccess</modifier>
+				<tooltip>
+					<text>Boost Die</text>
+				</tooltip>
+			</diepanel>
+
+			<diepanel name="dSetback">
+				<anchored height="55" width="55">
+					<bottom offset="-1" />
+					<left parent="dAbility" relation="relative" anchor="right" />
+				</anchored>
+				<type>dSetback</type>
+				<modifier>mSuccess</modifier>
+				<tooltip>
+					<text>Setback Die</text>
+				</tooltip>
+			</diepanel>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="NarrativeTokens">
+		<noclose />
+		<script file="desktop/scripts/narrativetokens.lua" />
+		<sheetdata>
+			<button_header_lock name="button_lock">
+				<anchored position="insidetopright" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onLockButtonPressed();
+					end
+				</script>
+			</button_header_lock>
+			<button_header_reset name="button_reset">
+				<anchored position="insidetopright" offset="0,20" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onResetButtonPressed();
+					end
+				</script>
+			</button_header_reset>
+			<chit name="criticalvehiclechit">
+				<chit>criticalvehicle</chit>
+				<bounds>0,0,56,56</bounds>
+				<tooltip textres="tooltip_criticalvehiclechit" />
+			</chit>
+
+			<chit name="criticalchit">
+				<anchored height="56" width="56">
+					<bottom offset="-1" />
+					<left parent="criticalvehiclechit" relation="relative" anchor="right" />
+				</anchored>
+				<chit>critical</chit>
+				<tooltip textres="tooltip_criticalchit" />
+			</chit>
+
+			<chit name="woundchit">
+				<chit>wound</chit>
+				<anchored height="56" width="56">
+					<bottom offset="-1" />
+					<left parent="criticalvehiclechit" relation="relative" anchor="right" />
+				</anchored>
+			</chit>
+			<genericcontrol name="use_soak_w">
+				<icon>indicator_shield</icon>
+				<iconcolor > ffffff </iconcolor>
+				<anchored to="woundchit">
+					<position>insidetopleft</position>
+					<offset>17,36</offset>
+					<size>
+						<height>20</height>
+						<width>21</width>
+					</size>
+				</anchored>
+			</genericcontrol>
+			<numbercontrol name="woundchit_value" >
+				<anchored to="woundchit">
+					<position>insidetopleft</position>
+					<offset>2,0</offset>
+					<size>
+						<height>50</height>
+						<width>50</width>
+					</size>
+				</anchored>
+				<min >1</min>
+				<default >1</default>
+				<nodrop />
+				<font >chitnumbers</font>
+				<color >000000</color>
+				<tooltip textres="tooltip_woundchit" />
+				<script>
+					local dragging = false;
+					local soakEnabled = true;
+
+					function onInit()
+						registerMenuItem("Reset to 1", "erase", 1);
+						registerMenuItem("Assign 2 chits", "num2", 2);
+						registerMenuItem("Assign 3 chits", "num3", 3);
+						registerMenuItem("Assign 4 chits", "num4", 4);
+						registerMenuItem("Assign 5 chits", "num5", 5);
+						registerMenuItem("Assign 6 chits", "num6", 6);
+						registerMenuItem("Assign 7 chits", "num7", 7);
+						registerMenuItem("Toggle soak application", "icon_enable_soak", 8);
+						DieBoxGenManager.registerWoundChitControl(self);
+						OptionsManager.registerCallback("SWSTP", showToPlayers);
+					end
+
+					function onClose()
+						OptionsManager.unregisterCallback("SWSTP", showToPlayers);
+					end
+
+					function showToPlayers()
+						if not Session.IsHost and OptionsManager.isOption("SWSTP", "off") then
+							window.woundchit.setVisible(false);
+							window.use_soak_w.setVisible(false);
+							self.setVisible(false);
+						else
+							window.woundchit.setVisible(true);
+							window.use_soak_w.setVisible(true);
+							self.setVisible(true);
+						end
+					end
+
+					function onDragStart(button, x, y, draginfo)
+						dragging = false;
+						return onDrag(button, x, y, draginfo);
+					end
+
+					function onDrag(button, x, y, draginfo)
+						local value = getValue();
+						if value > 0 then
+							if not dragging then
+								draginfo.setType("chit");
+								draginfo.setIcon("woundchit");
+								if soakEnabled then
+									draginfo.setCustomData("woundchit_soak_" .. getValue());
+								else
+									draginfo.setCustomData("woundchit_nosoak_" .. getValue());
+								end
+								dragging = true;
+								return true;
+							end
+						end
+					end
+
+					function onDragEnd(draginfo)
+						dragging = false;
+					end
+
+					function onMenuSelection(selection)
+						if selection == 8 then
+							if soakEnabled then
+								soakEnabled = false;
+								window.use_soak_w.setIcon("indicator_shield_disable");
+							else
+								soakEnabled = true;
+								window.use_soak_w.setIcon("indicator_shield");
+							end
+						else
+							setValue(selection);
+						end
+					end
+				</script>
+			</numbercontrol>
+
+			<chit name="strainchit">
+				<chit>strain</chit>
+				<anchored height="56" width="56">
+					<bottom offset="-1" />
+					<left parent="criticalvehiclechit" relation="relative" anchor="right" />
+				</anchored>
+			</chit>
+			<genericcontrol name="use_soak">
+				<icon>indicator_shield_disable</icon>
+				<iconcolor > ffffff </iconcolor>
+				<anchored to="strainchit">
+					<position>insidetopleft</position>
+					<offset>17,36</offset>
+					<size>
+						<height>20</height>
+						<width>21</width>
+					</size>
+				</anchored>
+			</genericcontrol>
+			<numbercontrol name="strainchit_value" >
+				<anchored to="strainchit">
+					<position>insidetopleft</position>
+					<offset>2,0</offset>
+					<size>
+						<height>50</height>
+						<width>50</width>
+					</size>
+				</anchored>
+				<min >1</min>
+				<default >1</default>
+				<nodrop />
+				<font >chitnumbers</font>
+				<color >000000</color>
+				<tooltip textres="tooltip_strainchit" />
+				<script>
+					local dragging = true;
+					local soakEnabled = false;
+
+					function onInit()
+						registerMenuItem("Reset to 1", "erase", 1);
+						registerMenuItem("Assign 2 chits", "num2", 2);
+						registerMenuItem("Assign 3 chits", "num3", 3);
+						registerMenuItem("Assign 4 chits", "num4", 4);
+						registerMenuItem("Assign 5 chits", "num5", 5);
+						registerMenuItem("Assign 6 chits", "num6", 6);
+						registerMenuItem("Assign 7 chits", "num7", 7);
+						registerMenuItem("Toggle soak application", "icon_enable_soak", 8);
+						DieBoxGenManager.registerStrainChitControl(self);
+						OptionsManager.registerCallback("SWSTP", showToPlayers);
+					end
+
+					function onClose()
+						OptionsManager.unregisterCallback("SWSTP", showToPlayers);
+					end
+
+					function showToPlayers()
+						if not Session.IsHost and OptionsManager.isOption("SWSTP", "off") then
+							window.strainchit.setVisible(false);
+							window.use_soak.setVisible(false);
+							self.setVisible(false);
+						else
+							window.strainchit.setVisible(true);
+							window.use_soak.setVisible(true);
+							self.setVisible(true);
+						end
+					end
+
+					function onDragStart(button, x, y, draginfo)
+						dragging = false;
+						return onDrag(button, x, y, draginfo);
+					end
+
+					function onDrag(button, x, y, draginfo)
+						local value = getValue();
+						if value > 0 then
+							if not dragging then
+								draginfo.setType("chit");
+								draginfo.setIcon("strainchit");
+								if soakEnabled then
+									draginfo.setCustomData("strainchit_soak_" .. getValue());
+								else
+									draginfo.setCustomData("strainchit_nosoak_" .. getValue());
+								end
+								dragging = true;
+								return true;
+							end
+						end
+					end
+
+					function onDragEnd(draginfo)
+						dragging = false;
+					end
+
+					function onMenuSelection(selection)
+						if selection == 8 then
+							if soakEnabled then
+								soakEnabled = false;
+								window.use_soak.setIcon("indicator_shield_disable");
+							else
+								soakEnabled = true;
+								window.use_soak.setIcon("indicator_shield");
+							end
+						else
+							setValue(selection);
+						end
+					end
+				</script>
+			</numbercontrol>
+		</sheetdata>
+	</windowclass>
+
+    <windowclass name="NarrativeTokens">
+		<noclose />
+		<script file="desktop/scripts/narrativetokens.lua" />
+		<sheetdata>
+			<button_header_lock name="button_lock">
+				<anchored position="insidetopright" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onLockButtonPressed();
+					end
+				</script>
+			</button_header_lock>
+			<button_header_reset name="button_reset">
+				<anchored position="insidetopright" offset="0,20" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onResetButtonPressed();
+					end
+				</script>
+			</button_header_reset>
+
+            <!-- <chit_pc name="StoryPointPCchit">
+				<chit>StoryPointPC</chit>
+				<bounds>300,0,60,60</bounds>
+				<tooltip textres="tooltip_herotokenpc" />
+			</chit_pc> -->
+			
+            <chit_gm name="StoryPointGMchit">
+				<chit>StoryPointGM</chit>
+				<bounds>70,0,60,60</bounds>
+				<tooltip textres="tooltip_herotokengm" />
+			</chit_gm>
+		</sheetdata>
+	</windowclass>
+
+	<template name="button_vehicle_shared">
+		<buttonfield>
+			<anchored width="18" height="18" />
+			<state icon="padlock_closed" />
+			<state icon="padlock_open" />
+			<tooltip textres="tooltip_button_share_vehicle" />
+		</buttonfield>
+	</template>
+</root>

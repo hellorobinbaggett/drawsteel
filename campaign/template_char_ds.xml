@@ -87,6 +87,32 @@
 			</script>
 		</stringu>
 	</template>
+	<template name="string_labeled_resource">
+		<stringu>
+			<underlineoffset>-30</underlineoffset>
+			<script>
+				labelwidget = nil;
+			
+				function onInit()
+					if labelres then
+						labelwidget = addTextWidget({ 
+							font = "sheetlabelinline", 
+							text = Interface.getString(labelres[1]):upper(),
+						});
+					elseif label then
+						labelwidget = addTextWidget({ 
+							font = "sheetlabelinline", 
+							text = label[1]:upper(),
+						});
+					end
+					if labelwidget then
+						local w,h = labelwidget.getSize();
+						labelwidget.setPosition("bottomleft", w/2, h/2-3);
+					end
+				end
+			</script>
+		</stringu>
+	</template>
 	<template name="stringc_labeled">
 		<stringcu>
 			<anchored height="20" />

@@ -103,6 +103,8 @@ end
 
 function createActionMessage(rSource, rRoll)
 	-- Build the basic message to deliver
+	-- Debug.chat(rRoll.sUser);
+	-- Debug.chat(rSource);
 	local rMessage = ChatManager.createBaseMessage(rSource, rRoll.sUser);
 	rMessage.type = rRoll.sType;
 	rMessage.text = rRoll.sDesc;

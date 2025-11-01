@@ -93,9 +93,15 @@
 			<button_initiative_gone name="gone"  >
 				<script>
 					function onButtonPress()
-						local nodeWin = window.getDatabaseNode();
-						local nCurrent = DB.getValue(nodeWin, "initresult");
-						DB.setValue(nodeWin, "initresult", "number", 1);
+						if Session.IsHost then
+							local nodeWin = window.getDatabaseNode();
+							local nCurrent = DB.getValue(nodeWin, "initresult");
+							DB.setValue(nodeWin, "initresult", "number", 1);
+						else
+							OOB_MSGTYPE_GONE = "Initiative Gone";
+							OOBManager.registerOOBMsgHandler(OOB_MSGTYPE_GONE, ActionInit.handlePlayerGone);
+							ActionsManager.registerResultHandler("init", ActionInit.onResolve);
+						end
 					end
 				</script>
 			</button_initiative_gone>

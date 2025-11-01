@@ -8,17 +8,7 @@
 <root>
 	<windowclass name="charsheet_features">
 		<sheetdata>
-
-			<buttoncontrol name="locked">
-				<anchored to="rightanchor" width="20" height="20">
-					<top />
-					<right anchor="left" relation="relative" offset="0" />
-				</anchored>
-				<state icon="padlock_open" tooltipres="tooltip_unlock" />
-				<state icon="padlock_closed" tooltipres="tooltip_lock" />
-				<script file="common/scripts/button_record_locked.lua" />
-			</buttoncontrol>
-			<!-- ancestry traits section-->
+		<!-- ancestry traits section-->
 			<frame_char name="ancestrytraitsframe">
 				<bounds>0,0,250,150</bounds>
 			</frame_char>
@@ -52,7 +42,7 @@
 				<target>ancestrytraits</target>
 			</button_iadd>
 
-			<!-- titles traits section-->
+		<!-- titles traits section-->
 			<frame_char name="titlesframe">
 				<bounds>240,0,-1,150</bounds>
 			</frame_char>
@@ -92,7 +82,7 @@
 				<target>titles</target>
 			</button_iadd>
 
-			<!-- class features section-->
+		<!-- class features section-->
 			<frame_char name="featuresframe">
 				<bounds>0,145,250,-5</bounds>
 			</frame_char>
@@ -125,9 +115,7 @@
 				<target>features</target>
 			</button_iadd>
 
-
-
-			<!-- subclass features section-->
+		<!-- subclass features section-->
 			<frame_char name="classfeaturechoiceframe">
 				<bounds>240,145,-1,-5</bounds>
 			</frame_char>
@@ -160,6 +148,13 @@
 				<target>classfeaturechoice</target>
 			</button_iadd>
 
+		<!-- lock button -->
+			<buttoncontrol name="locked">
+				<bounds>20,10,20,20</bounds>
+				<state icon="padlock_open" tooltipres="tooltip_unlock" />
+				<state icon="padlock_closed" tooltipres="tooltip_lock" />
+				<script file="common/scripts/button_record_locked.lua" />
+			</buttoncontrol>
 		</sheetdata>
 	</windowclass>
 

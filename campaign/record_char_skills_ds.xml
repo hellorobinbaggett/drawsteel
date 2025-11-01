@@ -883,7 +883,7 @@
             <string_labeled name="skill10_label" source="skill.skill10">
 				<anchored to="craftingskillsframe_char" position="insidetopleft" offset="50,355" width="120" />
 				<labelres>char_label_skilllore</labelres>
-<default>Tailoring</default>
+                <default>Tailoring</default>
 			</string_labeled>
             <button_prof name="skilled_skill10" source="skill10.prof">
                 <anchored to="skill10_label" position="lefthigh" offset="10,0" height="20" width="20" />

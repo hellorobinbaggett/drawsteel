@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+	Please see the license.html file included with this distribution for
+	attribution and copyright information.
+-->
+
+<root>
+	<icon name="sidebar_icon_recordtype_setting" file="graphics/sidebar/sidebar_icon_background.png" />
+	<icon name="sidebar_icon_recordtype_special_ability" file="graphics/sidebar/sidebar_icon_fire.png" />
+	<icon name="sidebar_icon_recordtype_species_archetype" file="graphics/sidebar/sidebar_icon_race.png" />
+	<icon name="sidebar_icon_recordtype_item_attachment" file="graphics/sidebar/sidebar_icon_cpu.png" />
+	<icon name="sidebar_icon_recordtype_specialization" file="graphics/sidebar/sidebar_icon_item_2.png" />
+	<icon name="sidebar_icon_recordtype_planet" file="graphics/sidebar/sidebar_icon_planet.png" />
+	<icon name="sidebar_icon_recordtype_vehicle" file="graphics/sidebar/sidebar_icon_vehicle_4.png" />
+</root>

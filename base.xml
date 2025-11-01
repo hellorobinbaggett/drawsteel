@@ -6,7 +6,7 @@
 -->
 
 <root version="1.0" release="1" logo="logo.png">
-	<announcement text="Draw Steel Ruleset (v0.8) by EXXODIS" font="emotefont" icon="power_roll_down" />
+	<announcement text="Draw Steel Ruleset (v0.9) by EXXODIS" font="emotefont" icon="" />
 
 	<!-- Attributes -->
 	<description>
@@ -15,162 +15,150 @@
 		<website>https://www.fantasygrounds.com</website>
 	</description>
 
-	<!-- Fonts -->
-	<font name="Abyssal">
-		<ttf file="fonts/abyssal.ttf" name="Abyssal" size="28" />
-			<otffile name="fonts/abyssal.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Arabian">
-		<ttf file="fonts/arabian.ttf" name="Arabian" size="28" />
-			<otffile name="fonts/arabian.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Celestial">
-		<ttf file="fonts/celestial.ttf" name="Celestial" size="28" />
-			<otffile name="fonts/celestial.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Cuneiform">
-		<ttf file="fonts/cuneiform.ttf" name="Cuneiform" size="28" />
-			<otffile name="fonts/cuneiform.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Cybertronian">
-		<ttf file="fonts/cybertronian.ttf" name="Cybertronian" size="28" />
-			<otffile name="fonts/cybertronian.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Dovakhiin">
-		<ttf file="fonts/dovahkiin.ttf" name="Dovakhiin" size="28" />
-			<otffile name="fonts/dovahkiin.otf" />
-			<color value="#000000" />
-		</font>		
-				
-		<font name="Draconic">
-		<ttf file="fonts/draconic.ttf" name="Draconic" size="32" />
-			<otffile name="fonts/draconic.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Drow">
-		<ttf file="fonts/drow.ttf" name="Drow" size="28" />
-			<otffile name="fonts/drow.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Dwarven">
-		<ttf file="fonts/dwarven.ttf" name="Dwarven" size="28" />
-			<otffile name="fonts/dwarven.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Dynastic">
-		<ttf file="fonts/dynastic.ttf" name="Dynastic" size="28" />
-			<otffile name="fonts/dynastic.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Elven">
-		<ttf file="fonts/elven.ttf" name="Elven" size="28" />
-			<otffile name="fonts/elven.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Esoteric">
-		<ttf file="fonts/esoteric.ttf" name="Esoteric" size="34" />
-			<otffile name="fonts/esoteric.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Hieroglyphs">
-		<ttf file="fonts/hieroglyphs.ttf" name="Hieroglyphs" size="28" />
-			<otffile name="fonts/hieroglyphs.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Hindi">
-		<ttf file="fonts/hindi.ttf" name="Hindi" size="28" />
-			<otffile name="fonts/hindi.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Infernal">
-		<ttf file="fonts/infernal.ttf" name="Infernal" size="40" />
-			<otffile name="fonts/infernal.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Invisible">
-		<ttf file="fonts/invisible.ttf" name="Invisible" size="28" />
-			<otffile name="fonts/invisible.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Metal">
-		<ttf file="fonts/metal.ttf" name="Metal" size="28" />
-			<otffile name="fonts/metal.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Norse">
-		<ttf file="fonts/norse.ttf" name="Norse" size="28" />
-			<otffile name="fonts/norse.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Primordial">
-		<ttf file="fonts/primordial.ttf" name="Primordial" size="28" />
-			<otffile name="fonts/primordial.otf" />
-			<color value="#000000" />
-		</font>
-
-		<font name="Quenya">
-		<ttf file="fonts/quenya.ttf" name="Quenya" size="28" />
-			<otffile name="fonts/quenya.otf" />
-			<color value="#000000" />
-		</font>		
-		
-		<font name="Runes">
-		<ttf file="fonts/runes.ttf" name="Runes" size="36" />
-			<otffile name="fonts/runes.otf" />
-			<color value="#000000" />
-		</font>
-		
-		<font name="Timescape">
-		<ttf file="fonts/timescape.ttf" name="Timescape" size="28" />
-			<otffile name="fonts/timescape.otf" />
-			<color value="#000000" />
-		</font>
-
 	<!-- Announcements --> 
 	<announcement text="Draw Steel Ruleset is an independent product published under the DRAW STEEL Creator License and is not affiliated with MCDM Productions, LLC. DRAW STEEL &#169; 2024 MCDM Productions, LLC. https://www.mcdmproductions.com/draw-steel-creator-license
 	" font="emotefont" icon="" />
-	
 	<announcement text="Check out these community modules:" />
-	
-	<announcement text="\r\n Ancestries for Draw Steel https://forge.fantasygrounds.com/shop/items/2295/view
+	<announcement text="\r\n Heroes for Draw Steel https://forge.fantasygrounds.com/shop/items/2300/view
 	" font="emotefont" icon="" />
-
-	<announcement text="\r\n Backgrounds &amp; Perks for Draw Steel https://forge.fantasygrounds.com/shop/items/2297/view
-	" font="emotefont" icon="" />
-
-	<announcement text="\r\n Classes for Draw Steel https://forge.fantasygrounds.com/shop/items/2300/view
-	" font="emotefont" icon="" />
-
-	<announcement text="\r\n Kits for Draw Steel https://forge.fantasygrounds.com/shop/items/2296/view
-	" font="emotefont" icon="" />
-
-	<announcement text="\r\n Monsters for Draw Steel https://forge.fantasygrounds.com/shop/items/2339/view
+	<announcement text="\r\n Monsters for Draw Steel https://forge.fantasygrounds.com/shop/items/2335/view
 	" font="emotefont" icon="" />
 	
 	<!-- This allows the ruleset to pull from CoreRPG for the basic scripts and functionality -->
 	<importruleset source="CoreRPG" />
+
+	<!-- Fonts -->
+	<font name="Abyssal">
+	<ttf file="fonts/abyssal.ttf" name="Abyssal" size="28" />
+		<otffile name="fonts/abyssal.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Arabian">
+	<ttf file="fonts/arabian.ttf" name="Arabian" size="28" />
+		<otffile name="fonts/arabian.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Celestial">
+	<ttf file="fonts/celestial.ttf" name="Celestial" size="28" />
+		<otffile name="fonts/celestial.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Cuneiform">
+	<ttf file="fonts/cuneiform.ttf" name="Cuneiform" size="28" />
+		<otffile name="fonts/cuneiform.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Cybertronian">
+	<ttf file="fonts/cybertronian.ttf" name="Cybertronian" size="28" />
+		<otffile name="fonts/cybertronian.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Dovakhiin">
+	<ttf file="fonts/dovahkiin.ttf" name="Dovakhiin" size="28" />
+		<otffile name="fonts/dovahkiin.otf" />
+		<color value="#000000" />
+	</font>		
+			
+	<font name="Draconic">
+	<ttf file="fonts/draconic.ttf" name="Draconic" size="32" />
+		<otffile name="fonts/draconic.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Drow">
+	<ttf file="fonts/drow.ttf" name="Drow" size="28" />
+		<otffile name="fonts/drow.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Dwarven">
+	<ttf file="fonts/dwarven.ttf" name="Dwarven" size="28" />
+		<otffile name="fonts/dwarven.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Dynastic">
+	<ttf file="fonts/dynastic.ttf" name="Dynastic" size="28" />
+		<otffile name="fonts/dynastic.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Elven">
+	<ttf file="fonts/elven.ttf" name="Elven" size="28" />
+		<otffile name="fonts/elven.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Esoteric">
+	<ttf file="fonts/esoteric.ttf" name="Esoteric" size="34" />
+		<otffile name="fonts/esoteric.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Hieroglyphs">
+	<ttf file="fonts/hieroglyphs.ttf" name="Hieroglyphs" size="28" />
+		<otffile name="fonts/hieroglyphs.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Hindi">
+	<ttf file="fonts/hindi.ttf" name="Hindi" size="28" />
+		<otffile name="fonts/hindi.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Infernal">
+	<ttf file="fonts/infernal.ttf" name="Infernal" size="40" />
+		<otffile name="fonts/infernal.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Invisible">
+	<ttf file="fonts/invisible.ttf" name="Invisible" size="28" />
+		<otffile name="fonts/invisible.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Metal">
+	<ttf file="fonts/metal.ttf" name="Metal" size="28" />
+		<otffile name="fonts/metal.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Norse">
+	<ttf file="fonts/norse.ttf" name="Norse" size="28" />
+		<otffile name="fonts/norse.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Primordial">
+	<ttf file="fonts/primordial.ttf" name="Primordial" size="28" />
+		<otffile name="fonts/primordial.otf" />
+		<color value="#000000" />
+	</font>
+
+	<font name="Quenya">
+	<ttf file="fonts/quenya.ttf" name="Quenya" size="28" />
+		<otffile name="fonts/quenya.otf" />
+		<color value="#000000" />
+	</font>		
+	
+	<font name="Runes">
+	<ttf file="fonts/runes.ttf" name="Runes" size="36" />
+		<otffile name="fonts/runes.otf" />
+		<color value="#000000" />
+	</font>
+	
+	<font name="Timescape">
+	<ttf file="fonts/timescape.ttf" name="Timescape" size="28" />
+		<otffile name="fonts/timescape.otf" />
+		<color value="#000000" />
+	</font>
 
 	<!-- Tabletop settings -->
 	<includefile source="gameelements_DS.xml" />
@@ -191,6 +179,7 @@
 	<includefile source="ct_DS/ct_client_DS.xml" />
 
 	<!-- Graphics -->
+	<includefile source="graphics/graphics_chits.xml" />
 	<includefile source="graphics/graphics_icons_DS.xml" />
 	<includefile source="graphics/graphics_sidebar_DS.xml" />
 	
@@ -202,7 +191,7 @@
 	<includefile source="strings/strings_DS.xml" />
 
 	<!-- Common templates -->
-	<includefile source="common/template_common.xml" />
+	<!-- <includefile source="common/template_common.xml" /> -->
 	<includefile source="common/template_buttons_DS.xml" />
 	<includefile source="common/template_column.xml" />
 	<!-- <includefile source="common/template_combobox.xml" /> -->
@@ -212,6 +201,8 @@
 	<includefile source="common/template_windows.xml" />
 	<includefile source="common/template_windows_menu.xml" />
 	<includefile source="common/template_legacy.xml" /> 
+	<includefile source="common/template_common_DS.xml" />
+
 
 	<!-- Layout templates -->
 	<includefile source="layout/template_layout.xml" />
@@ -236,7 +227,13 @@
 	<script name="WindowManager_DS" file="scripts/manager_window_DS.lua" />
 
 	<!-- Desktop -->
+	<script name="Desktop_DS" file="scripts/data_desktop_DS.lua" />
 	<includefile source="desktop/desktop_classes_DS.xml" />
+
+	<!-- hero tokens (chits) -->
+	<includefile source="classes/desktop/chit.xml" />
+
+	<includefile source="definitions/desktop.xml" />
 
 	<!-- Global scripts -->
 	<script name="HeroicResource" file="scripts/increment_heroic_resource.lua" />
@@ -345,7 +342,7 @@
 	<includefile source="campaign/template_char_ds.xml" />
 
 
-
+	<script name="ActionInit" file="scripts/manager_action_init.lua" />
 
 	<!-- CORERPG SCRIPTS -->
 	<!-- _______________________________________________ -->
