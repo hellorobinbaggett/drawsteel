@@ -178,7 +178,6 @@
 						
 						-- grab the rolled amount, then add it to class resource
 						local node = window.getDatabaseNode();
-						DB.setValue(node, "classresource", "number", 0);
 
                         return true;
                     end

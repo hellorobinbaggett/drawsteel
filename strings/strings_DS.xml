@@ -161,6 +161,7 @@
 	<string name="char_label_benefits">NOTES</string>
 	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_itemweight">En</string>
+	<string name="char_label_userecovery">Use Recovery</string>
 	<string name="tooltip_wip">This feature is not implemented yet</string>
 	<string name="char_tooltip_characteristic_empty">Click to select</string>
 	<string name="char_tooltip_characteristic_might">Might</string>

@@ -240,15 +240,17 @@
 				<min value="0" />
 			</basicnumber>
 
-			<label_charfieldbottom name="recoverycurrent_label">
+			<label_charfieldtop name="recoverycurrent_label">
 				<anchored to="recoverycurrent" offset="0,0" />
 				<static textres="char_label_current" />
-			</label_charfieldbottom>
+				<color>000000</color>
+			</label_charfieldtop>
 
-			<label_charfieldbottom name="recoverymax_label">
+			<label_charfieldtop name="recoverymax_label">
 				<anchored to="recoverymax" offset="0,0" />
 				<static textres="char_label_max" />
-			</label_charfieldbottom> 
+				<color>000000</color>
+			</label_charfieldtop> 
 
 			<buttoncontrol name="buttonrecovery">
 				<anchored to="recoverycurrent" position="righthigh" offset="-10,52" width="34" height="34" />
@@ -277,6 +279,12 @@
 					end
 				</script>
 			</buttoncontrol>
+
+			<label_charfieldtop name="recoverybutton_label">
+				<anchored to="buttonrecovery" offset="0,-4" width="60" height="20" />
+				<static textres="char_label_userecovery" />
+				<color>000000</color>
+			</label_charfieldtop> 
 
 			<number_linked_framed name="recoveryvalue" source="recoveryvalue">
 				<anchored to="recoveriesframe" width="86" height="30">
@@ -319,8 +327,9 @@
 				</script>
 			</number_linked_framed>
 			<label_charfieldbottom name="recoveryvalue_label">
-				<anchored to="recoveryvalue" offset="0,0" />
+				<anchored to="recoveryvalue" offset="0,5" />
 				<static textres="char_label_value" />
+				<color>000000</color>
 			</label_charfieldbottom>
 
 		<!-- SKILLS -->
@@ -597,7 +606,6 @@
 						
 						-- grab the rolled amount, then add it to class resource
 						local node = window.getDatabaseNode();
-						DB.setValue(node, "classresource", "number", 0);
 
                         return true;
                     end

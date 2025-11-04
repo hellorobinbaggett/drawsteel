@@ -42,6 +42,17 @@
 			<resize_ctbox />
 
 			<ct_initiative_roll />
+
+			<sub_content_framed_groupbox_top name="maliceframe">
+				<bounds>265,42,70,30</bounds>
+				<frame name="groupbox" />
+			</sub_content_framed_groupbox_top>
+			<label_ct_header_malice name="label_malice" />
+			<basicnumber name="malice" source="malice">
+				<gmeditonly />
+				<bounds>280,40,40,20</bounds>
+				<font>reference-b-large</font>
+			</basicnumber>
 		</sheetdata>
 	</windowclass>
 	<windowclass name="sub_ct_header_client">
@@ -52,15 +63,14 @@
 
 			<spacer_ct_header_active name="spacer_header_active" />
 			<spacer_ct_header_token name="spacer_header_token" />
-			<button_ct_header_visibility name="button_global_visibility" />
 
 			<spacer_ct_header_buttons_host name="spacer_buttons_header" />
 
-			<label_ct_header_malice name="label_malice" />
+			<!-- <label_ct_header_malice name="label_malice" />
 			<basicnumber name="malice" source="malice">
 				<gmeditonly />
 				<bounds>145,3,30,20</bounds>
-			</basicnumber>
+			</basicnumber> -->
 
 			<!-- DEPRECATED -->
 			<!-- <label_ct_header_herotokens name="label_herotokens" />

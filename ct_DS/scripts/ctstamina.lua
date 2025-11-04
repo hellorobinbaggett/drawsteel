@@ -3,7 +3,6 @@ function onInit()
     local sFaction = DB.getValue(nodeWin, "friendfoe");
     local sOptCTSI = OptionsManager.getOption("CTSI");
     local nCurrentScore = DB.getValue(nodeWin, "stamina.current");
-    Debug.Chat(nCurrentScore);
 
     if Session.IsHost then
         setVisible(true);
@@ -21,7 +20,6 @@ function onValueChanged()
     local nodeWin = window.getDatabaseNode();
     local sFaction = DB.getValue(nodeWin, "friendfoe");
     local nCurrentScore = DB.getValue(nodeWin, "stamina.current");
-    Debug.Chat(nCurrentScore);
 
     if Session.IsHost or sOptCTSI == "show" then
         setVisible(true);

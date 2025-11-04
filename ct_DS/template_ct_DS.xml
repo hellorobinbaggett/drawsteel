@@ -373,6 +373,10 @@
 				function onButtonPress()
 					for _,v in pairs(CombatManager.getCombatantNodes()) do
 					DB.setValue(v, "active", "number", 0);
+					-- get current number
+					-- get count of heroes list
+					-- sum = (heroes.count + currentRound)
+					-- send message to gm with new sum variable
 				end
 
 				-- Clear GM identity additions (based on option)
@@ -507,6 +511,7 @@
 	<!-- TODO: this is not working -->
 	<template name="number_ctentry_stamina">
 		<number_ct_crosslink name="stamina">
+			<script file="ct_DS/scripts/ctstamina.lua" />
 			<tooltip textres="ct_stamina_tooltip" />
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
