@@ -172,8 +172,11 @@
 			</basicnumber>
 			<basicnumber name="stamina" source="stamina.current">
 				<script file="campaign/scripts/stamina_monster.lua" />
-				<bounds>140,73,40,20</bounds>
+				<bounds>140,70,40,20</bounds>
 				<target>stamina</target>
+				<description textres="char_tooltip_stamina" />
+				<tooltip textres="char_tooltip_stamina" />
+				<font>reference-b-large</font>	
 			</basicnumber>
 			<basicnumber name="maxstamina" source="stamina.max">
 				<bounds>140,90,40,17</bounds>
@@ -206,7 +209,7 @@
 			<label name="stamina_label">
 				<static textres="npc_label_stamina" />
 				<anchored to="stamina">
-					<top offset="-22" />
+					<top offset="-19" />
 					<left offset="-5" />
 				</anchored>
 			</label>

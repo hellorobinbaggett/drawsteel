@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!--
+	Please see the license.html file included with this distribution for
+	attribution and copyright information.
+-->
+
+<root>
+	<!--
+	<icon name="tab_vehicles" file="graphics/tabs/tab_vehicle.png" />
+	<icon name="tab_dicepool" file="graphics/tabs/tab_dicepool.png" />
+	<icon name="tab_gmrolls" file="graphics/tabs/tab_gmrolls.png" />
+	-->
+
+	<!-- Genesys Talent in Talent Tree -->
+	<framedef name="talent_active">
+		<bitmap file="graphics/frames/talent_active.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_force">
+		<bitmap file="graphics/frames/talent_active_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_ranked">
+		<bitmap file="graphics/frames/talent_active_ranked.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_ranked_force">
+		<bitmap file="graphics/frames/talent_active_ranked_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive">
+		<bitmap file="graphics/frames/talent_passive.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_force">
+		<bitmap file="graphics/frames/talent_passive_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_ranked">
+		<bitmap file="graphics/frames/talent_passive_ranked.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_ranked_force">
+		<bitmap file="graphics/frames/talent_passive_ranked_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<!-- Character Specialization Tree: "checked" -->
+	<framedef name="talent_active_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_active.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_force_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_active_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_ranked_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_active_ranked.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_ranked_force_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_active_ranked_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_passive.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_force_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_passive_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_ranked_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_passive_ranked.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_ranked_force_checked">
+		<bitmap file="graphics/frames/spec_char_checked/talent_passive_ranked_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+	<!-- END: Character Specialization Tree: "checked" -->
+
+	<!-- Character Specialization Tree: "unchecked" -->
+	<framedef name="talent_active_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_active.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_force_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_active_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_ranked_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_active_ranked.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_active_ranked_force_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_active_ranked_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_passive.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_force_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_passive_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_ranked_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_passive_ranked.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+
+	<framedef name="talent_passive_ranked_force_unchecked">
+		<bitmap file="graphics/frames/spec_char_unchecked/talent_passive_ranked_force.png" />
+		<topleft rect="0,0,60,60" />
+		<top rect="60,0,100,60" />
+		<topright rect="157,0,44,60" />
+		<left rect="0,62,33,100" />
+		<middle rect="39,61,100,100" />
+		<right rect="177,61,24,100" />
+		<bottomleft rect="0,191,40,30" />
+		<bottom rect="37,191,20,30" />
+		<bottomright rect="87,191,114,30" />
+	</framedef>
+	<!-- END: Character Specialization Tree: "unchecked" -->
+
+	<framedef name="talent_connector_on">
+		<bitmap file="graphics/frames/talent_connector_on.png" />
+		<middle rect="0,0,20,20" />
+	</framedef>
+
+	<framedef name="talent_connector_off">
+		<bitmap file="graphics/frames/talent_connector_off.png" />
+		<middle rect="0,0,20,20" />
+	</framedef>
+
+	<!-- Headers -->
+	<!--
+	<framedef name="headerref">
+		<bitmap file="graphics/frames/headerref.png" />
+	</framedef>
+	-->
+
+	<!-- Controls -->
+	<!--
+	<framedef name="metalplate">
+		<bitmap file="graphics/frames/genesystag.png" />
+		<topleft rect="0,0,11,10" />
+		<top rect="11,0,177,10" />
+		<topright rect="188,0,12,10" />
+		<left rect="0,10,11,30" />
+		<middle rect="11,10,177,30" />
+		<right rect="188,10,12,30" />
+		<bottomleft rect="0,40,11,10" />
+		<bottom rect="11,40,177,10" />
+		<bottomright rect="188,40,12,10" />
+	</framedef>
+	-->
+	<!--
+	<framedef name="abilityscore">
+		<bitmap file="graphics/frames/abilityscore.png" />
+		<offset>7,7,7,7</offset>
+	</framedef>
+	-->
+
+	<!-- Utility -->
+	<framedef name="durationadjustment">
+		<bitmap file="graphics/frames/durationadjustment.png" />
+		<topleft rect="0,0,12,12" />
+		<top rect="12,0,200,12" />
+		<topright rect="212,0,12,12" />
+		<left rect="0,12,12,187" />
+		<middle rect="12,12,200,187" />
+		<right rect="212,12,12,187" />
+		<bottomleft rect="0,199,12,12" />
+		<bottom rect="12,199,200,12" />
+		<bottomright rect="212,199,12,12" />
+		<decal rect="205,211,19,15" />
+	</framedef>
+
+	<!-- Characters -->
+	<!--
+	<framedef name="acicon">
+		<bitmap file="graphics/frames/acicon.png" />
+		<topleft rect="0,0,35,39" />
+	</framedef>
+	-->
+
+	<!-- Die Cup (Local mode) -->
+	<framedef name="collector">
+		<bitmap file="graphics/frames/collector.png" />
+		<offset>7,7,3,3</offset>
+	</framedef>
+
+	<!-- Roll/Point Modes (Local mode) -->
+	<framedef name="localchatbox">
+		<bitmap file="graphics/frames/chatbox.png" />
+		<offset>44,44,44,44</offset>
+		<insideoffset>0,0,7,3</insideoffset>
+	</framedef>
+	<framedef name="localrollbox">
+		<bitmap file="graphics/frames/chatbox.png" />
+		<offset>44,44,44,44</offset>
+		<insideoffset>0,0,7,3</insideoffset>
+	</framedef>
+
+	<!-- Override CoreRPG ruleset graphics -->
+
+	<framedef name="statblock1">
+		<bitmap file="graphics/frames/statblock1.png" />
+		<middle>0,0,480,71</middle>
+	</framedef>
+
+	<framedef name="statblock2a">
+		<bitmap file="graphics/frames/statblock2a.png" />
+		<middle>0,0,440,64</middle>
+	</framedef>
+
+	<framedef name="statblock2b">
+		<bitmap file="graphics/frames/statblock2b.png" />
+		<middle>0,0,440,64</middle>
+	</framedef>
+
+	<framedef name="npc_power_level">
+		<bitmap file="graphics/frames/npc_power_level.png" />
+		<middle>0,0,260,47</middle>
+	</framedef>
+
+	<framedef name="statblock_vehicle">
+		<bitmap file="graphics/frames/Stat_Block_Vehicle.png" />
+		<middle>0,0,480,97</middle>
+	</framedef>
+
+	<framedef name="characteristic_modifier">
+		<bitmap file="graphics/frames/characteristic_modifier.png" />
+		<middle>0,0,30,30</middle>
+	</framedef>
+
+	<framedef name="dicetower_normal">
+		<bitmap>graphics/frames/dicetower_normal.png</bitmap>
+	</framedef>
+
+	<!-- Control frames -->
+	<framedef name="fieldtransparent">
+		<bitmap file="graphics/frames/fieldtransparent.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+
+	<!-- Controls -->
+	<framedef name="genesysplate1">
+		<bitmap file="graphics/frames/genesystag.png" />
+		<topleft rect="0,0,11,10" />
+		<top rect="11,0,177,10" />
+		<topright rect="188,0,12,10" />
+		<left rect="0,10,11,30" />
+		<middle rect="11,10,177,30" />
+		<right rect="188,10,12,30" />
+		<bottomleft rect="0,40,11,10" />
+		<bottom rect="11,40,177,10" />
+		<bottomright rect="188,40,12,10" />
+	</framedef>
+
+
+	<framedef name="collectordesk">
+		<bitmap file="graphics/frames/collector_desk.png" />
+		<topleft rect="0,0,7,7" />
+		<top rect="7,0,140,7" />
+		<topright rect="147,0,3,7" />
+		<left rect="0,7,7,140" />
+		<middle rect="7,7,140,140" />
+		<right rect="147,7,3,140" />
+		<bottomleft rect="0,147,7,3" />
+		<bottom rect="7,147,140,3" />
+		<bottomright rect="147,147,3,3" />
+	</framedef>
+
+	<!-- Utility -->
+	<framedef name="durationadjustment">
+		<bitmap file="graphics/frames/durationadjustment.png" />
+		<topleft rect="0,0,12,12" />
+		<top rect="12,0,200,12" />
+		<topright rect="212,0,12,12" />
+		<left rect="0,12,12,187" />
+		<middle rect="12,12,200,187" />
+		<right rect="212,12,12,187" />
+		<bottomleft rect="0,199,12,12" />
+		<bottom rect="12,199,200,12" />
+		<bottomright rect="212,199,12,12" />
+		<decal rect="205,211,19,15" />
+	</framedef>
+
+	<!-- Characters -->
+	<framedef name="acicon">
+		<bitmap file="graphics/frames/acicon.png" />
+		<topleft rect="0,0,35,39" />
+	</framedef>
+
+	<!-- Die Cup (Local mode) -->
+	<framedef name="collector">
+		<bitmap file="graphics/frames/collector.png" />
+		<offset>7,7,3,3</offset>
+	</framedef>
+
+	<!-- Roll/Point Modes (Local mode) -->
+	<framedef name="localchatbox">
+		<bitmap file="graphics/frames/chatbox.png" />
+		<offset>44,44,44,44</offset>
+		<insideoffset>0,0,7,3</insideoffset>
+	</framedef>
+	<framedef name="localrollbox">
+		<bitmap file="graphics/frames/chatbox.png" />
+		<offset>44,44,44,44</offset>
+		<insideoffset>0,0,7,3</insideoffset>
+	</framedef>
+
+	<framedef name="fielddice">
+		<bitmap file="graphics/frames/fielddice.png" />
+		<topleft rect="0,0,12,12" />
+		<top rect="12,0,200,12" />
+		<topright rect="212,0,12,12" />
+		<left rect="0,12,12,187" />
+		<middle rect="12,12,200,187" />
+		<right rect="212,12,12,187" />
+		<bottomleft rect="0,199,12,12" />
+		<bottom rect="12,199,200,12" />
+		<bottomright rect="212,199,12,12" />
+		<decal rect="175,212,49,16" />
+	</framedef>
+
+	<framedef name="campaignlist_tables">
+		<bitmap file="graphics/frames/utilitybox3.png" />
+		<topleft rect="0,0,74,75" />
+		<top rect="74,0,504,75" />
+		<topright rect="578,0,77,75" />
+		<left rect="0,75,74,512" />
+		<middle rect="74,75,504,512" />
+		<right rect="578,75,77,512" />
+		<bottomleft rect="0,587,74,63" />
+		<bottom rect="74,587,504,63" />
+		<bottomright rect="578,587,77,63" />
+		<insideoffset>0,0,18,28</insideoffset>
+	</framedef>
+	<framedef name="campaignlistwithtabs">
+		<bitmap file="graphics/frames/scrollbox.png" />
+		<topleft rect="0,0,190,66" />
+		<top rect="190,0,189,66" />
+		<topright rect="379,0,189,66" />
+		<left rect="0,66,190,456" />
+		<middle rect="190,66,189,456" />
+		<right rect="379,66,190,456" />
+		<bottomleft rect="0,522,190,62" />
+		<bottom rect="190,522,189,62" />
+		<bottomright rect="379,522,190,62" />
+		<insideoffset>0,0,9,10</insideoffset>
+	</framedef>
+
+	<!-- Manual Roll -->
+	<framedef name="manualroll_entry">
+		<bitmap file="graphics/frames/manualroll_entry.png" />
+		<offset>6,4,9,7</offset>
+	</framedef>
+
+	<framedef name="malicebox">
+		<bitmap file="graphics/frames/groupbox.png" />
+	</framedef>
+
+	<framedef name="fieldfocus">
+		<bitmap file="graphics/frames/fieldfocus.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+	
+	<template name="frame_char_v2">
+		<genericcontrol>
+			<frame name="fieldfocus" />
+		</genericcontrol>
+	</template>
+
+	<framedef name="fieldfocus2">
+		<bitmap file="graphics/frames/fieldfocus.png" />
+		<offset>12,12,12,12</offset>
+	</framedef>
+
+</root>

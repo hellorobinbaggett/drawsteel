@@ -341,6 +341,7 @@
 	<string name="weight">Weight</string>
 	<string name="victories">Victories</string>
 	<string name="char_label_value">Value</string>
+	<string name="effect_header_pseudoconditions">OTHER</string>
 
 	<!-- Skills -->
 	<string name="alchemy">Alchemy</string>
@@ -537,8 +538,8 @@
 	<string name="char_label_savingthrow">Saving Throw</string>
 	<string name="char_label_kitbonuses">Kit Bonuses</string>
 	<string name="char_label_recoveries">Recoveries</string>
-	<string name="char_label_immunities">Immunities</string>
-	<string name="char_label_weaknessess">Weaknessess</string>
+	<string name="char_label_immunities">Immunity</string>
+	<string name="char_label_weaknessess">Vulnerability</string>
 	<string name="char_label_uniqueeffects">Unique Effects</string>
 	<string name="char_label_conditions">Conditions</string>
 	<string name="char_label_weak">Weak Potency</string>
@@ -557,7 +558,7 @@
 	<string name="char_label_languages">Languages</string>
 	<string name="char_label_notes">Notes</string>
 	<string name="char_label_notesanddowntime">Notes &amp; Downtime Projects</string>
-	<string name="char_label_damages">Damage Weaknesses and Immunities</string>
+	<string name="char_label_damages">Damage Vulnerabilities and Immunities</string>
 	
 	<!-- BATTLE -->
 	<string name="battle_tooltip_refreshev">Calculate EV</string>
@@ -591,7 +592,7 @@
 	<string name="npc_label_items">Equipment</string>
 	<string name="npc_label_languages">Languages</string>
 	<string name="npc_label_traits">Traits</string>
-	<string name="npc_label_weaknesses">Weaknesses</string>
+	<string name="npc_label_weaknesses">Vulnerabilities</string>
 	<string name="npc_label_immunities">Immunities</string>
 	<string name="npc_label_sizenote">Size Note</string>
 	<string name="npc_label_staminanote">Stamina Note</string>
@@ -621,12 +622,12 @@
 	<string name="item_label_cost">Cost</string>
 	<string name="item_label_prerequisites">Item Prerequisites</string>
 	<string name="item_label_researchmaterials">Materials</string>
-	<string name="item_label_projectsource">Source</string>
+	<string name="item_label_projectroll">Source</string>
 	<string name="item_label_keywords">Keywords</string>
 	<string name="item_label_level">Level</string>
 	<string name="item_label_type">Type</string>
 	<string name="item_label_echelon">Echelon</string>
-	<string name="item_label_projectroll">Project Roll</string>
+	<string name="item_label_projectroll">Project Source</string>
 	<string name="item_label_projectrollcharacteristic">Characteristic</string>
 	<string name="item_label_projectgoal">Project Goal</string>
 	<string name="item_label_weight">Weight</string>

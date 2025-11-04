@@ -10,7 +10,7 @@
 
 	<!-- Attributes -->
 	<description>
-		<displayname>Draw Steel</displayname>
+		<displayname>Draw Steel (DEV)</displayname>
 		<author>EXXODIS</author>
 		<website>https://www.fantasygrounds.com</website>
 	</description>
@@ -165,7 +165,6 @@
 	<includefile source="campaign/campaign_masterindex_DS.xml" />
 
 	<!-- DRAW STEEL files -->
-	<includefile source="campaign/record_char_main_DS.xml" />
 	<includefile source="campaign/record_char_skills_DS.xml" />
 	<includefile source="campaign/record_char_skills_DS.xml" />
 	<includefile source="campaign/record_monster_DS.xml" />
@@ -226,6 +225,9 @@
 
 	<script name="WindowManager_DS" file="scripts/manager_window_DS.lua" />
 
+	<!-- Utilities / conditions -->
+	<includefile source="utility/utility_effects_DS.xml" />
+
 	<!-- Desktop -->
 	<script name="Desktop_DS" file="scripts/data_desktop_DS.lua" />
 	<includefile source="desktop/desktop_classes_DS.xml" />
@@ -236,6 +238,9 @@
 	<includefile source="definitions/desktop.xml" />
 
 	<!-- Global scripts -->
+	<script name="CtStaminaManager" file="scripts/ct_DS/scripts/ctstamina.lua" />
+	<script name="LinkPermissionManager" file="ct_DS/scripts/link_permission.lua" />
+	<script name="VisionManager" file="scripts/manager_vision_DS.lua" />
 	<script name="HeroicResource" file="scripts/increment_heroic_resource.lua" />
 	<script name="EffectManager_DS" file="scripts/manager_effect_DS.lua" />
 	<script name="Desktop" file="scripts/data_desktop.lua" />
@@ -270,6 +275,7 @@
 	<script name="ActorCommonManager" file="scripts/manager_actor_common.lua" />
 	<script name="ActorDisplayManager" file="scripts/manager_actor_display.lua" />
 	<script name="ActorHealthManager" file="scripts/manager_actor_health.lua" />
+	<script name="ActorHealthManager_DS" file="manager_actor_health_DS.lua" />
 	<script name="ActionsManager" file="scripts/manager_actions.lua" />
 	<script name="CalendarManager" file="scripts/manager_calendar.lua" />
 	<script name="CombatManagerDS" file="scripts/manager_combat_DS.lua" />

@@ -161,13 +161,13 @@
 	<!-- Genesys templates -->
 
 	<template name="simpleft">
-		<baseformattedtextfield />
+		<formattedtextfield />
 	</template>
 
 	<template name="ft_record">
-		<baseformattedtextfield>
+		<formattedtextfield>
 			<footer>footer_narrow</footer>
-		</baseformattedtextfield>
+		</formattedtextfield>
 	</template>
 
 	<template name="basestringcontrol">
@@ -432,17 +432,10 @@
 		</stringfield>
 	</template>
 
-	<template name="baseformattedtextfield">
-		<formattedtextfield>
-			<!--    <empty>Click to enter text</empty> -->
-			<script file="common/scripts/baseformattedtextfield.lua" />
-		</formattedtextfield>
-	</template>
-
 	<template name="sheetformattedtextfield">
-		<baseformattedtextfield>
+		<formattedtextfield>
 			<script file="common/scripts/sheetformattedtextfield.lua" />
-		</baseformattedtextfield>
+		</formattedtextfield>
 	</template>
 
 	<template name="weaponskillcontrol">

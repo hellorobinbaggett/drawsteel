@@ -45,15 +45,28 @@ function onIDChanged()
 	-- isidentified.setVisible(RecordDataManager.getIDMode(sRecordType));
 end
 function onFactionChanged()
+	local nodeWin = window.getDatabaseNode();
+    local sLink = DB.getValue(nodeWin, "link");
+
 	-- Update the entry frame
 	self.updateDisplay();
 
 	-- If not a friend, then show visibility toggle
 	if friendfoe.getStringValue() == "friend" then
-		tokenvis.setVisible(false);
+		sLink.setVisible(false);
 	else
-		tokenvis.setVisible(true);
+		sLink.setVisible(true);
 	end
+
+	if Session.IsHost then
+        setVisible(true);
+    else
+        if sFaction == "friend" then
+            setVisible(true)
+        else
+            setVisible(false);
+        end
+    end
 end
 function onVisibilityChanged()
 	TokenManager.updateVisibility(getDatabaseNode());
@@ -114,7 +127,7 @@ function linkPCFields()
 		name.setLink(DB.createChild(nodeChar, "name", "string"), true);
 		token.setLink(DB.createChild(nodeChar, "token", "token"));
 		token3Dflat.setLink(DB.createChild(nodeChar, "token3Dflat", "token"));
-		-- stamina.setLink(DB.createChild(nodeChar, "stamina.current", "number"));
+		stamina.setLink(DB.createChild(nodeChar, "stamina.current", "number"));
         
 		if Session.RulesetName == "CoreRPG" then
 			senses.setLink(DB.createChild(nodeChar, "senses", "string"), true);

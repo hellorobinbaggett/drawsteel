@@ -48,26 +48,6 @@ function onInit()
 		},
 	});
 	OptionsManager.registerOptionData({	sKey = "RING", sGroupRes = "option_header_combat", });
-	OptionsManager.registerOptionData({
-		sKey = "CTSI", sGroupRes = "option_header_combat",
-		tCustom = {
-			labelsres = "option_val_all|option_val_friendly",
-			values = "on|friend",
-			baselabelres = "option_val_off",
-			baseval = "off",
-			default = "on",
-		},
-	});
-	OptionsManager.registerOptionData({
-		sKey = "RSHT", sGroupRes = "option_header_combat",
-		tCustom = {
-			labelsres = "option_val_all|option_val_friendly",
-			values = "all|on",
-			baselabelres = "option_val_off",
-			baseval = "off",
-			default = "on",
-		},
-	});
 	OptionsManager.registerOptionData({	sKey = "RSHE", sGroupRes = "option_header_combat", });
 	OptionsManager.registerOptionData({	sKey = "CTSD", sGroupRes = "option_header_combat", });
 	OptionsManager.registerOptionData({	sKey = "CTSH", sGroupRes = "option_header_combat", });
@@ -131,4 +111,16 @@ function onInit()
 	if Session.IsHost then
 		OptionsManager.registerButton("option_label_decalselect", "decal_select", "");
 	end
+
+	
+	OptionsManager.registerOptionData({
+		sKey = "HMFP", sGroupRes = "option_header_combat",
+		tCustom = {
+			labelsres = "option_val_show|option_val_hide",
+			values = "show|hide",
+			baselabelres = "option_val_show",
+			baseval = "off",
+			default = "show",
+		},
+	});
 end

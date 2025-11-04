@@ -35,6 +35,7 @@
 			<button_ct_section_space name="button_section_space" />
 			<button_ct_section_targets name="button_section_targets" />
 
+			<!-- TODO: when this value is changed, update stamina visibility AND link visibility -->
 			<button_ctentry_friendfoe name="friendfoe" />
 
 			<!-- <number_ctentry_stamina name="stamina" /> -->

@@ -29,7 +29,9 @@
 			<token_ctentry name="token" />
 
 			<button_ct_entry_idelete name="idelete" />
-			<link_ct_entry name="link" />
+			<link_ct_entry name="link" >
+				<script file="campaign/scripts/link_permission.lua" />
+			</link_ct_entry>
 
 			<button_ct_section_effects name="button_section_effects" />
 			<button_ct_section_space name="button_section_space" />
@@ -168,7 +170,9 @@
 			<token_ctentry name="token" />
 
 			<button_ct_entry_idelete name="idelete" />
-			<link_ct_entry name="link" />
+			<link_ct_entry name="link" >
+				<script file="campaign/scripts/link_permission.lua" />
+			</link_ct_entry>
 
 			<number_ctentry_stamina name="stamina.current" />
 

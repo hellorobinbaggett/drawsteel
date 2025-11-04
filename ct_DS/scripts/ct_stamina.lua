@@ -1,11 +1,21 @@
 function onValueChanged()
+    onHealthChanged();
+end
+
+function onHealthChanged()
+    setColor(getPCSheetWoundColors());
+end
+
+function getPCSheetWoundColors()
     local nodeWin = window.getDatabaseNode();
     local nCurrent = DB.getValue(nodeWin, "stamina.current");
-    local nMax = DB.getValue(nodeWin, "stamina.max");
-    
-    if(nCurrent > nMax) then
-        setValue(nMax);
+    local nDying = 0;
+
+    local sColor = "1a6313";
+
+    if nCurrent < nDying then
+        sColor = "120909";
     end
 
-    window.onHealthChanged();
+    return sColor;
 end

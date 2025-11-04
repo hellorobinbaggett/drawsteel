@@ -224,6 +224,7 @@
 	<!-- Tokens - Effects - Conditions -->
 	<icon name="cond_blinded" file="graphics/token/token_cond_blinded.png" />
 	<icon name="cond_bleeding" file="graphics/token/token_cond_bleed.png" />
+	<icon name="cond_burning" file="graphics/token/token_cond_burning.png" />
 	<icon name="cond_charmed" file="graphics/token/token_cond_charmed.png" />
 	<icon name="cond_confused" file="graphics/token/token_cond_confused.png" />
 	<icon name="cond_dazed" file="graphics/token/token_cond_dazed.png" />
@@ -232,6 +233,8 @@
 	<icon name="cond_frightened" file="graphics/token/token_cond_frightened.png" />
 	<icon name="cond_grappled" file="graphics/token/token_cond_grappled.png" />
 	<icon name="cond_helpless" file="graphics/token/token_cond_helpless.png" />
+	<icon name="cond_dying" file="graphics/token/token_cond_dying.png" />
+	<icon name="cond_dead" file="graphics/token/token_cond_dead.png" />
 	<icon name="cond_incorporeal" file="graphics/token/token_cond_incorporeal.png" />
 	<icon name="cond_invisible" file="graphics/token/token_cond_invisible.png" />
 	<icon name="cond_paralyzed" file="graphics/token/token_cond_paralyzed.png" />
@@ -245,8 +248,11 @@
 	<icon name="cond_turned" file="graphics/token/token_cond_turned.png" />
 	<icon name="cond_unconscious" file="graphics/token/token_cond_unconscious.png" />
 	<icon name="cond_weakened" file="graphics/token/token_cond_weakened.png" />
+	<icon name="cond_wet" file="graphics/token/token_cond_wet.png" />
+	<icon name="cond_submerged" file="graphics/token/token_cond_submerged.png" />
 
 	<!-- Tokens - Effects - Common -->
+	<icon name="cond_burning" file="graphics/token/token_cond_burning.png" />
 	<icon name="cond_advantage" file="graphics/token/token_cond_advantage.png" />
 	<icon name="cond_bleed" file="graphics/token/token_cond_bleed.png" />
 	<icon name="cond_cover" file="graphics/token/token_cond_cover.png" />
@@ -256,6 +262,8 @@
 	<icon name="cond_regeneration" file="graphics/token/token_cond_regen.png" />
 	<icon name="cond_resistance" file="graphics/token/token_cond_resist.png" />
 	<icon name="cond_vulnerable" file="graphics/token/token_cond_vuln.png" />
+	<icon name="cond_wet" file="graphics/token/token_cond_wet.png" />
+	<icon name="cond_submerged" file="graphics/token/token_cond_submerged.png" />
 
 	<!-- Tokens - Health -->
 	<icon name="healthbar" file="graphics/token/token_healthbar.png" />

@@ -38,22 +38,34 @@ conditionaltags = {
 -- Conditions supported in effect conditionals and for token widgets
 -- (Also shown in Effects window)
 conditions = {
-	"bleeding", 
-	"dazed",
-	"frightened",
-	"grabbed",
 	"prone",
-	"restrained", 
 	"slowed", 
-	"taunted",
+	"grabbed",
+	"restrained", 
+	"frightened",
+	"dazed",
+	"bleeding", 
 	"weakened",
+	"dying",
+	"dead"
+};
+
+pseudoconditions = {
 	"marked",
 	"judged",
-	"burning",
+	"taunted",
 	"hidden",
+	"burning",
 	"submerged",
+	"wet",
 	"captain"
 };
+
+lights = {
+	"holyshit",
+	"torch",
+	"darkness",
+}
 
 -- Condition effect types for token widgets
 condcomps = {
@@ -69,10 +81,13 @@ condcomps = {
 	-- psuedo conditions
 	["marked"] = "cond_pinned",
 	["judged"] = "cond_turned",
-	["burning"] = "cond_conceal",
+	["burning"] = "cond_burning",
 	["hidden"] = "cond_invisible",
-	["submerged"] = "cond_generic",
-	["captain"] = "cond_helpless"
+	["submerged"] = "cond_submerged",
+	["wet"] = "cond_wet",
+	["captain"] = "cond_helpless",
+	["dying"] = "cond_dying",
+	["dead"] = "cond_dead"
 };
 
 -- Other visible effect types for token widgets
@@ -126,6 +141,10 @@ rangetypes = {
 	"ranged"
 };
 
+-- Values for wound comparison
+healthstatusfull = "healthy";
+healthstatushalf = "winded";
+healthstatuswounded = "healthy";
 
 function onInit()
 end

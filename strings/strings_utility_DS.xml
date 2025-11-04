@@ -42,4 +42,9 @@
 
 	<string name="option_val_fun">Fun</string>
 
+	<!-- Options -->
+	<string name="option_label_HMFP">Combat (GM): Hide malice</string>
+	<string name="option_val_show">Show</string>
+	<string name="option_val_hide">Hide</string>
+
 </root>

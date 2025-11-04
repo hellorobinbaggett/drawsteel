@@ -28,7 +28,7 @@ end
 --
 
 function initActorHealth()
-	ActorHealthManager.registerStatusHealthColor(ActorHealthManager.STATUS_UNCONSCIOUS, ColorManager.getUIColor("health_dyingordead"));
+	--ActorHealthManager.registerStatusHealthColor(ActorHealthManager.STATUS_UNCONSCIOUS, ColorManager.getUIColor("health_dyingordead"));
 
 	ActorHealthManager.getWoundPercent = ActorManager_DS.getWoundPercent;
 end
@@ -49,13 +49,13 @@ function getWoundPercent(v)
 	local nodeCT = ActorManager.getCTNode(rActor);
 	if nodeCT then
 		nHP = math.max(DB.getValue(nodeCT, "hptotal", 0), 0);
-		nWounds = math.max(DB.getValue(nodeCT, "wounds", 0), 0);
+		nWounds = math.max(DB.getValue(nodeCT, "current", 0), 0);
 		nDeathSaveFail = DB.getValue(nodeCT, "deathsavefail", 0);
 	elseif ActorManager.isPC(rActor) then
 		local nodePC = ActorManager.getCreatureNode(rActor);
 		if nodePC then
 			nHP = math.max(DB.getValue(nodePC, "hp.total", 0), 0);
-			nWounds = math.max(DB.getValue(nodePC, "hp.wounds", 0), 0);
+			nWounds = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 			nDeathSaveFail = DB.getValue(nodePC, "hp.deathsavefail", 0);
 		end
 	end
@@ -67,13 +67,7 @@ function getWoundPercent(v)
 
 	local sStatus;
 	if nPercentWounded >= 1 then
-		if nDeathSaveFail >= 3 then
-			sStatus = ActorHealthManager.STATUS_DEAD;
-		else
-			sStatus = ActorHealthManager.STATUS_DYING;
-		end
-	else
-		sStatus = ActorHealthManager.getDefaultStatusFromWoundPercent(nPercentWounded);
+		sStatus = ActorHealthManager_DS.getDefaultStatusFromWoundPercent(nPercentWounded);
 	end
 
 	return nPercentWounded, sStatus;
@@ -84,7 +78,7 @@ function getPCSheetWoundColor(nodePC)
 	local nWounds = 0;
 	if nodePC then
 		nHP = math.max(DB.getValue(nodePC, "hp.total", 0), 0);
-		nWounds = math.max(DB.getValue(nodePC, "hp.wounds", 0), 0);
+		nWounds = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 	end
 
 	local nPercentWounded = 0;

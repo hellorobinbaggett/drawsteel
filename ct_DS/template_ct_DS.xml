@@ -145,7 +145,7 @@
 	<template name="label_ct_header_malice">
 		<label>
 			<static textres="ct_label_malice" />
-			<bounds>90,4,300,14</bounds>
+			<bounds>279,64,300,14</bounds>
 		</label>
 	</template>
 

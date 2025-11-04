@@ -83,7 +83,7 @@ function handleRefreshdestinyChits(msgOOB)
 
 		if StoryPointPCnode then
 			-- refresh chits here
-			if StoryPointPCnode.getValue()<=0 then
+			if StoryPointPCnode.getValue() <= 0 then
 				setIcon("StoryPointPCchit0");
 			elseif StoryPointPCnode.getValue()<8 then
 				setIcon("StoryPointPCchit" .. StoryPointPCnode.getValue());
