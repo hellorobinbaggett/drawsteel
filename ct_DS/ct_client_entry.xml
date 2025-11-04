@@ -30,7 +30,7 @@
 
 			<button_ct_entry_idelete name="idelete" />
 			<link_ct_entry name="link" >
-				<script file="campaign/scripts/link_permission.lua" />
+				<script file="ct_DS/scripts/link_permission.lua" />
 			</link_ct_entry>
 
 			<button_ct_section_effects name="button_section_effects" />
@@ -39,6 +39,7 @@
 
 			<button_ctentry_friendfoe name="friendfoe" />
 			
+			<number_ctentry_staminamax name="stamina.max" />
 			<number_ctentry_stamina name="stamina.current" />
 			
 			<!-- <number_ctentry_initresult name="initresult" /> -->
@@ -114,7 +115,9 @@
 			<token_ctentry name="token" />
 
 			<button_ct_entry_idelete name="idelete" />
-			<link_ct_entry name="link" />
+			<link_ct_entry name="link" >
+				<script file="ct_DS/scripts/link_permission.lua" />
+			</link_ct_entry>
 
 			<number_ctentry_stamina name="stamina.current" />
 
@@ -171,7 +174,7 @@
 
 			<button_ct_entry_idelete name="idelete" />
 			<link_ct_entry name="link" >
-				<script file="campaign/scripts/link_permission.lua" />
+				<script file="ct_DS/scripts/link_permission.lua" />
 			</link_ct_entry>
 
 			<number_ctentry_stamina name="stamina.current" />
