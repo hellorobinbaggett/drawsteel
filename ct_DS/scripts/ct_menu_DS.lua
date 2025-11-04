@@ -7,10 +7,11 @@ function onInit()
 	setColor(ColorManager.getButtonTextColor());
 	if Session.IsHost then
 		registerMenuItem(Interface.getString("ct_menu_initmenu"), "turn", 7);
-		registerMenuItem(Interface.getString("ct_menu_initclear"), "pointer_circle", 7, 4);
+		registerMenuItem(Interface.getString("ct_menu_initreset"), "pointer_circle", 7, 4);
 
 		registerMenuItem(Interface.getString("ct_menu_itemdelete"), "delete", 3);
 		registerMenuItem(Interface.getString("ct_menu_itemdeletenonfriendly"), "delete", 3, 1);
+		registerMenuItem(Interface.getString("ct_menu_itemdeleteall"), "delete", 3, 2);
 
 		registerMenuItem(Interface.getString("ct_menu_effectdelete"), "hand", 5);
 		registerMenuItem(Interface.getString("ct_menu_effectdeleteall"), "pointer_circle", 5, 7);
@@ -38,6 +39,10 @@ function onMenuSelection(selection, subselection)
 			if subselection == 1 then
 				CombatManagerDS.deleteNonFaction("friend");
                 CombatManagerDS.deleteFaction("foe");
+			end
+			if subselection == 2 then
+				CombatManagerDS.deleteFaction("foe");
+				CombatManagerDS.deleteFaction("friend");
 			end
 		end
 		if selection == 5 then

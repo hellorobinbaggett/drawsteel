@@ -176,6 +176,9 @@
 	<string name="char_tooltip_recovery">Use Recovery</string>
 	<string name="skill_tooltip">Click to change characteristic</string>
 	<string name="ct_stamina_tooltip">Stamina</string>
+	<string name="ct_menu_initreset">Reset Initiative</string>
+	<string name="ct_menu_itemdeleteall">Delete All</string>
+	<string name="ct_staminamax_tooltip">Maximum Stamina</string>
 	<string name="ct_stamina2_tooltip">NEW STAMINA</string>
 	<string name="echelon_tooltip">A grouping of heroic levels that informs players of the types of heroic deeds the heroes can achieve. There are four echelons of play: 1st echelon (1st to 3rd level), 2nd echelon (4th to 6th level), 3rd echelon (7th to 9th level), and 4th echelon (10th level). </string>
 	<string name="wip_tooltip">This button has not been fully implemented yet.</string>
