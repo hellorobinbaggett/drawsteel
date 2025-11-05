@@ -27,10 +27,8 @@ end
 
 function onLinkChanged()
 	-- If a PC, then set up the links to the char sheet
-	if self.isPC() then
-		self.linkPCFields();
-		name.setLine(false);
-	end
+	self.linkPCFields();
+name.setLine(false);
 	self.onIDChanged();
 end
 function onIDChanged()
@@ -205,6 +203,9 @@ function getPCSheetWoundColor(nodePC)
 		nMaxStamina = math.max(DB.getValue(nodePC, "stamina.max", 0), 0);
 		nCurrentStamina = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 	end
+	
+	nMaxStamina = math.max(DB.getValue(nodePC, "stamina.max", 0), 0);
+	nCurrentStamina = math.max(DB.getValue(nodePC, "stamina.current", 0), 0);
 
 	local sColor = "630000";
 

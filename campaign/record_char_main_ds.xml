@@ -604,8 +604,8 @@
                         };
                         ActionsManager.performAction(draginfo, rActor, rRoll);
 						
-						-- grab the rolled amount, then add it to class resource
-						local node = window.getDatabaseNode();
+						-- NOT WORKING grab the rolled amount, then add it to class resource
+						-- local node = window.getDatabaseNode();
 
                         return true;
                     end

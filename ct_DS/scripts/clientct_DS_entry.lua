@@ -27,10 +27,8 @@ end
 
 function onLinkChanged()
 	-- If a PC, then set up the links to the char sheet
-	if self.isPC() then
-		self.linkPCFields();
-		name.setLine(false);
-	end
+	self.linkPCFields();
+name.setLine(false);
 	self.onIDChanged();
 end
 function onIDChanged()

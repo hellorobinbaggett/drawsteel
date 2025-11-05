@@ -5,6 +5,7 @@
 
 OOB_MSGTYPE_ENDTURN = "endturn";
 OOB_MSGTYPE_INITSWAP = "initiative_swap";
+OOB_MSGTYPE_GONE = "gone";
 
 CT_MAIN_PATH = "combattracker";
 CT_COMBATANT_PATH = "combattracker.list_heroes.*";

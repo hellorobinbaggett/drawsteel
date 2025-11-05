@@ -72,6 +72,8 @@
 				<bounds>145,3,30,20</bounds>
 			</basicnumber> -->
 
+			<label_ct_header_stamina name="label_name" />
+
 			<!-- DEPRECATED -->
 			<!-- <label_ct_header_herotokens name="label_herotokens" />
 			<basicnumber name="herotokens" source="herotokens">

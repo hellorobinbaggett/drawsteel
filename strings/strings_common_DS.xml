@@ -15,5 +15,7 @@
 	<string name="tag_chathandlelang_translation">[Translation]</string>
 	<string name="tag_chathandlelang_partial">[Partial]</string>
 	<string name="tag_chathandlelang_unknown">[Unknown]</string>
-
+	<!-- <string name="message_gone">[%s &lt;-&gt; %s] has gone.</string> -->
+	<!-- temp until I can fix the above -->
+	<string name="message_gone">This feature is currently not implemented</string>
 </root>

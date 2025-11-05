@@ -2,10 +2,10 @@
 	OptionsManager.registerOptionData({
 		sKey = "HMFP", sGroupRes = "option_header_combat",
 		tCustom = {
-			labelsres = "option_val_show|option_val_hide",
-			values = "show|hide",
+			labelsres = "option_val_center|option_val_select",
+			values = "on|select",
 			baselabelres = "option_val_off",
 			baseval = "off",
-			default = "show",
+			default = "on",
 		},
 	});

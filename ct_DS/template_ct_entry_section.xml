@@ -29,7 +29,6 @@
 				<right anchor="left" relation="relative" offset="-2" />
 				<top offset="-10" />
 			</anchored>
-			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_turn" />
 		</buttoncontrol>
 	</template>
@@ -43,7 +42,6 @@
 				<right anchor="left" relation="relative" offset="-2" />
 				<top offset="-10" />
 			</anchored>
-			<tabtarget prev="nonid_name" />
 			<tooltip textres="ct_tooltip_remove" />
 		</buttoncontrol>
 	</template>

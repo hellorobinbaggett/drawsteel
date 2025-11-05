@@ -6,7 +6,7 @@
 -->
 
 <root version="1.0" release="1" logo="logo.png">
-	<announcement text="Draw Steel Ruleset (v0.91) by EXXODIS" font="emotefont" icon="" />
+	<announcement text="Draw Steel Ruleset (v0.92) by EXXODIS" font="emotefont" icon="" />
 
 	<!-- Attributes -->
 	<description>
@@ -238,10 +238,8 @@
 	<includefile source="definitions/desktop.xml" />
 
 	<!-- Global scripts -->
-	<script name="CtStaminaManager" file="scripts/ct_DS/scripts/ctstamina.lua" />
-	<script name="LinkPermissionManager" file="ct_DS/scripts/link_permission.lua" />
-	<script name="VisionManager" file="scripts/manager_vision_DS.lua" />
-	<script name="HeroicResource" file="scripts/increment_heroic_resource.lua" />
+	<script name="StaminaManager" file="campaign/scripts/stamina.lua" />
+	<script name="StaminaManagerMonster" file="campaign/scripts/stamina_monster.lua" />
 	<script name="EffectManager_DS" file="scripts/manager_effect_DS.lua" />
 	<script name="Desktop" file="scripts/data_desktop.lua" />
 	<script name="ToolbarManager" file="scripts/manager_toolbar.lua" />
@@ -275,7 +273,6 @@
 	<script name="ActorCommonManager" file="scripts/manager_actor_common.lua" />
 	<script name="ActorDisplayManager" file="scripts/manager_actor_display.lua" />
 	<script name="ActorHealthManager" file="scripts/manager_actor_health.lua" />
-	<script name="ActorHealthManager_DS" file="manager_actor_health_DS.lua" />
 	<script name="ActionsManager" file="scripts/manager_actions.lua" />
 	<script name="CalendarManager" file="scripts/manager_calendar.lua" />
 	<script name="CombatManagerDS" file="scripts/manager_combat_DS.lua" />

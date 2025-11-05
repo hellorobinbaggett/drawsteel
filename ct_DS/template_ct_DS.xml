@@ -133,7 +133,7 @@
 	<template name="label_ct_header_stamina">
 		<label>
 			<static textres="ct_label_stamina" />
-			<bounds>-160,4,300,14</bounds>
+			<bounds>-190,4,300,14</bounds>
 		</label>
 	</template>
 	<template name="label_ct_header_herotokens">
@@ -373,10 +373,19 @@
 				function onButtonPress()
 					for _,v in pairs(CombatManager.getCombatantNodes()) do
 					DB.setValue(v, "active", "number", 0);
-					-- get current number
+
+					-- TODO: update malice
+
+					-- local rounds = DB.getValue(CombatManager.CT_ROUND, 0);
+					-- local nextRound = 1;
+					-- local totalRounds = (rounds + nextRound);
+					-- Debug.console(totalRounds);
+
 					-- get count of heroes list
-					-- sum = (heroes.count + currentRound)
+					-- sum = (heroes.count + totalRounds)
 					-- send message to gm with new sum variable
+					-- ChatManager.SystemMessage("The Director gains " .. total .. " Malice plus the number of Heroes in combat");
+
 				end
 
 				-- Clear GM identity additions (based on option)
@@ -511,13 +520,25 @@
 	<!-- TODO: this is not working -->
 	<template name="number_ctentry_stamina">
 		<number_ct_crosslink name="stamina">
-			<script file="ct_DS/scripts/ctstamina.lua" />
+			<script file="ct_DS/scripts/stamina_choice.lua" />
 			<tooltip textres="ct_stamina_tooltip" />
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
 				<right anchor="left" relation="relative" offset="-5" />
 			</anchored>
-			<tabtarget prev="nonid_name" />
 		</number_ct_crosslink>
 	</template>
+
+	<template name="number_ctentry_staminamax">
+		<number_ct_crosslink name="stamina.max">
+			<readonly />
+			<tooltip textres="ct_staminamax_tooltip" />
+			<anchored to="rightanchor" width="30" height="20">
+				<top />
+				<right anchor="left" relation="relative" offset="-20" />
+			</anchored>
+		</number_ct_crosslink>
+	</template>
+
+
 </root>

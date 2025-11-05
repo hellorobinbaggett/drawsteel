@@ -5,6 +5,7 @@
 
 OOB_MSGTYPE_ENDTURN = "endturn";
 OOB_MSGTYPE_INITSWAP = "initiative_swap";
+OOB_MSGTYPE_GONE = "gone";
 
 CT_MAIN_PATH = "combattracker";
 CT_COMBATANT_PATH = "combattracker.list.*";
@@ -14,11 +15,54 @@ CT_ROUND = "combattracker.round";
 
 local _bTrackersInit = false;
 
+function initiativeGone()
+	if Session.IsHost then
+		CombatManagerDS.Gone(window);
+	else
+		CombatManagerDS.notifyGone(window);
+	end
+end
+
+function Gone(window)
+	if not Session.IsHost then
+		return;
+	end
+
+	local nodeWin = window.getDatabaseNode();
+	local nCurrent = DB.getValue(nodeWin, "initresult");
+	DB.setValue(nodeWin, "initresult", "number", 1);
+end
+
+function notifyGone(window)
+	local msgOOB = {};
+	msgOOB.type = CombatManagerDS.OOB_MSGTYPE_GONE;
+	msgOOB.user = Session.UserName;
+	msgOOB.nIsHost = Session.IsHost and 1 or 0;
+	msgOOB.nNodeWin = window.getDatabaseNode();
+	Comm.deliverOOBMessage(msgOOB, "");
+end
+
+function handleGone(msgOOB)
+	CombatManagerDS.performGone(nodeWin, (tonumber(msgOOB.nIsHost) == 1));
+end
+
+function performGone(nodeWin, bHost)
+	DB.setValue(nodeWin, "initresult", "number", 1);
+
+	local msg = {
+		font = "narratorfont",
+		text = string.format(Interface.getString("message_gone"), ActorManager.getDisplayName(nodeWin)),
+		secret = bHost;
+	};
+	Comm.deliverChatMessage(msg);
+end
+
 function onTabletopInit()
 	CombatManager.registerStandardCombatHotKeys();
 
 	OOBManager.registerOOBMsgHandler(CombatManager.OOB_MSGTYPE_ENDTURN, CombatManager.handleEndTurn);
 	OOBManager.registerOOBMsgHandler(CombatManager.OOB_MSGTYPE_INITSWAP, CombatManager.handleInitSwap);
+	OOBManager.registerOOBMsgHandler(CombatManagerDS.OOB_MSGTYPE_GONE, CombatManagerDS.handleGone);
 
 	CombatManager.initTrackers();
 
