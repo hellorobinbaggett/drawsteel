@@ -182,38 +182,6 @@
 			</label_charfieldtop>
 
 
-
-			<!-- <string_labeled name="size">
-				<anchored to="statsframe" position="insidetopleft" offset="125,30" />
-				<description textres="char_tooltip_size" />
-				<default>1M</default>
-			</string_labeled>
-            <string_characteristiclabel name="size_label">
-				<anchored to="size" />
-				<static textres="size" />
-			</string_characteristiclabel>
-
-			<number_characteristicscore name="speed" source="abilities.speed.value">
-				<anchored to="size" />
-				<description textres="char_tooltip_speed" />
-				<default>5</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="speed_label">
-				<anchored to="speed" />
-				<static textres="speed" />
-			</string_characteristiclabel>		
-
-			<number_characteristicscore name="stability" source="abilities.stability.value">
-				<anchored to="speed"  />
-				<description textres="char_tooltip_stability" />
-				<default>0</default>
-			</number_characteristicscore>
-            <string_characteristiclabel name="stability_label">
-				<anchored to="stability" />
-				<static textres="stability" />
-			</string_characteristiclabel>	 -->
-
-
         <!-- RECOVERIES -->
             <frame_char name="recoveriesframe">
 				<bounds>340,0,-1,200</bounds>
@@ -230,14 +198,16 @@
 					<left anchor="center" offset="-55" />
 				</anchored>
 				<font>reference-b-large</font>
+				<script file="campaign/scripts/stamina.lua" />
+				<min value="0" />
 			</number_charstamina>
 
-			<number_linked_framed name="recoverymax" source="recoverymax">
+			<number_charstamina name="recoverymax" source="recoverymax">
 				<anchored to="recoverycurrent" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_max" />
 				<min value="0" />
-			</number_linked_framed>
+			</number_charstamina>
 
 			<label_charfieldtop name="recoverycurrent_label">
 				<anchored to="recoverycurrent" offset="0,0" />
