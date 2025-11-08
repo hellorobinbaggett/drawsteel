@@ -344,7 +344,7 @@
 	<string name="potencies">POTENCIES</string>
 	<string name="weight">Weight</string>
 	<string name="victories">Victories</string>
-	<string name="char_label_value">Value</string>
+	<string name="char_label_value">Recovery Value</string>
 	<string name="effect_header_pseudoconditions">OTHER</string>
 
 	<!-- Skills -->
@@ -446,6 +446,7 @@
 	<string name="char_tooltip_doubleedge">Tier Upgrade</string>
 	<string name="char_tooltip_doublebane">Tier Downgrade</string>
 	<string name="char_tooltip_skill">+2 for skills</string>
+	<string name="char_tooltip_respite">Take A Respite</string>
 	<string name="char_tooltip_surgesdescription">Spend up to 3 surges on an attack to deal extra damage (each surge deals damage equal to your highest characteristic score). 
 	\n Spend 2 surges to increase the potency by 1 for one target</string>
 	<string name="char_tooltip_herotokendescription">At the start of a new game session, the heroes have a number of hero tokens equal to the number of heroes in the party. 
@@ -678,6 +679,11 @@
 	<string name="char_emptylist_ancestryfeatures">Drop ancestry link to populate.</string>
 	<string name="char_emptylist_kit">Drop kit link to populate.</string>
 	<string name="char_emptylist_classfeatures">Drop class link to populate.</string>
+
+	<!-- advancement -->
+	<string name="char_emptylist_respite">'%s' has taken a respite.</string>
+	<string name="char_emptylist_levelup">'%s' is now Level '%s'.</string>
+
 
 	<!-- Kits -->
 	<string name="kit_label_equipment">Equipment</string>

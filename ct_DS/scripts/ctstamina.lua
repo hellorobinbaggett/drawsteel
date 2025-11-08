@@ -1,5 +1,5 @@
 function onInit()
-    Debug.chat("ctstamina init");
+    --Debug.chat("ctstamina init");
     local nodeWin = window.getDatabaseNode();
     local sFaction = DB.getValue(nodeWin, "friendfoe");
     local sOptCTSI = OptionsManager.getOption("CTSI");
@@ -18,7 +18,7 @@ end
 -- if stamina value is changed, check to see if ally, then update player visibility
 -- TODO: this should trigger on faction change, not stamina change
 function onValueChanged()
-    Debug.chat("ctstamina valuechange");
+    --Debug.chat("ctstamina valuechange");
     local nodeWin = window.getDatabaseNode();
     local sFaction = DB.getValue(nodeWin, "friendfoe");
     local nCurrentScore = DB.getValue(nodeWin, "stamina.current");

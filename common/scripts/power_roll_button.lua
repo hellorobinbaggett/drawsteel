@@ -55,8 +55,8 @@ function action(draginfo)
             if (abilityCost > 0) then --ability costs?
                 local newTotal = (current - abilityCost);
                 DB.setValue(CharSheetID, "classresource", "number", newTotal);
-                local heroName = DB.getChild(CharSheetID, "name").getValue();
-                ChatManager.SystemMessageResource("ability_message_resource", heroName, tostring(abilityCost));
+                local name = DB.getChild(CharSheetID, "name").getValue();
+                ChatManager.SystemMessageResource("ability_message_resource", name, tostring(abilityCost));
             end
         else
             ChatManager.SystemMessageResource("ability_message_resourcewarning");

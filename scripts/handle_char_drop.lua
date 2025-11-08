@@ -2,7 +2,7 @@ function onDrop(x, y, draginfo)
     if draginfo.isType("shortcut") then
             local sClass, sRecord = draginfo.getShortcutData();
             local node = getDatabaseNode();
-            local heroName = DB.getChild(node, "name").getValue();
+            local name = DB.getChild(node, "name").getValue();
 
             -- career
             if StringManager.contains({ "career" }, sClass) then
@@ -11,7 +11,7 @@ function onDrop(x, y, draginfo)
                 local heroCareer = DB.createChild(node, "career_name"); -- charactersheet career details
 
                 DB.copyNode(careerName, heroCareer); -- copy career name
-                ChatManager.SystemMessageResource("char_abilities_message_careeradd", tostring(careerName.getValue()), tostring(heroName));
+                ChatManager.SystemMessageResource("char_abilities_message_careeradd", tostring(careerName.getValue()), tostring(name));
             end
 
 
@@ -27,7 +27,7 @@ function onDrop(x, y, draginfo)
                 DB.copyNode(nodeSource, nodeKitList); -- copy kit informatioin
                 DB.copyNode(kitName, heroKit); -- copy kit name
                 DB.copyNode(kitAbility, nodeKitAbilityList); -- copy kit ability
-                ChatManager.SystemMessageResource("char_abilities_message_kitadd", tostring(kitName.getValue()), tostring(heroName));
+                ChatManager.SystemMessageResource("char_abilities_message_kitadd", tostring(kitName.getValue()), tostring(name));
             end
 
             -- ancestry
@@ -45,7 +45,7 @@ function onDrop(x, y, draginfo)
                 DB.copyNode(nodeSourceFeatures, nodeAncestryList);
                 DB.copyNode(ancestryName, heroAncestry);
 
-                ChatManager.SystemMessageResource("char_abilities_message_ancestryadd", tostring(ancestryName.getValue()), tostring(heroName));
+                ChatManager.SystemMessageResource("char_abilities_message_ancestryadd", tostring(ancestryName.getValue()), tostring(name));
             end
 
             -- class
@@ -58,6 +58,7 @@ function onDrop(x, y, draginfo)
                 local nodeSource = DB.findNode(sRecord);
                 local className = DB.getChild(nodeSource, "name");
                 local classFeaturesList = DB.createChild(nodeSource, "features");
+                local classChoiceList = DB.createChild(nodeSource, "featurechoices");
 
                 if not heroFeaturesList then
                     return nil;
@@ -72,50 +73,11 @@ function onDrop(x, y, draginfo)
                 DB.copyNode(DB.getChild(nodeSource, "startingReason"), DB.getChild(node, "REA"));
                 DB.copyNode(DB.getChild(nodeSource, "startingIntuition"), DB.getChild(node, "INU"));
                 DB.copyNode(DB.getChild(nodeSource, "startingPresence"), DB.getChild(node, "PRS"));
-                ChatManager.SystemMessageResource("char_abilities_message_add", "MGT", tostring(DB.getChild(nodeSource, "startingMight").getValue()), tostring(heroName));
-                ChatManager.SystemMessageResource("char_abilities_message_add", "AGL", tostring(DB.getChild(nodeSource, "startingAgility").getValue()), tostring(heroName));
-                ChatManager.SystemMessageResource("char_abilities_message_add", "REA", tostring(DB.getChild(nodeSource, "startingReason").getValue()), tostring(heroName));
-                ChatManager.SystemMessageResource("char_abilities_message_add", "INU", tostring(DB.getChild(nodeSource, "startingIntuition").getValue()), tostring(heroName));
-                ChatManager.SystemMessageResource("char_abilities_message_add", "PRS", tostring(DB.getChild(nodeSource, "startingPresence").getValue()), tostring(heroName));
-
-                
-                -- if (check1 == 1 and check2 == 0 and check3 == 0) then
-                --     DB.copyNode(DB.getChild(nodeSource, "startingMight"), DB.getChild(node, "MGT"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingAgility"), DB.getChild(node, "AGL"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingReason"), DB.getChild(node, "REA"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingIntuition"), DB.getChild(node, "INU"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingPresence"), DB.getChild(node, "PRS"));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "MGT", tostring(DB.getChild(nodeSource, "startingMight").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "AGL", tostring(DB.getChild(nodeSource, "startingAgility").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "REA", tostring(DB.getChild(nodeSource, "startingReason").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "INU", tostring(DB.getChild(nodeSource, "startingIntuition").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "PRS", tostring(DB.getChild(nodeSource, "startingPresence").getValue()), tostring(heroName));
-                -- elseif (check2 == 1 and check1 == 0 and check3 == 0) then
-                --     DB.copyNode(DB.getChild(nodeSource, "startingMight2"), DB.getChild(node, "MGT"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingAgility2"), DB.getChild(node, "AGL"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingReason2"), DB.getChild(node, "REA"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingIntuition2"), DB.getChild(node, "INU"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingPresence2"), DB.getChild(node, "PRS"));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "MGT", tostring(DB.getChild(nodeSource, "startingMight2").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "AGL", tostring(DB.getChild(nodeSource, "startingAgility2").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "REA", tostring(DB.getChild(nodeSource, "startingReason2").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "INU", tostring(DB.getChild(nodeSource, "startingIntuition2").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "PRS", tostring(DB.getChild(nodeSource, "startingPresence2").getValue()), tostring(heroName));
-                -- elseif (check3 == 1 and check1 == 0 and check2 == 0) then
-                --     DB.copyNode(DB.getChild(nodeSource, "startingMight3"), DB.getChild(node, "MGT"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingAgility3"), DB.getChild(node, "AGL"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingReason3"), DB.getChild(node, "REA"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingIntuition3"), DB.getChild(node, "INU"));
-                --     DB.copyNode(DB.getChild(nodeSource, "startingPresence3"), DB.getChild(node, "PRS"));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "MGT", tostring(DB.getChild(nodeSource, "startingMight3").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "AGL", tostring(DB.getChild(nodeSource, "startingAgility3").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "REA", tostring(DB.getChild(nodeSource, "startingReason3").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "INU", tostring(DB.getChild(nodeSource, "startingIntuition3").getValue()), tostring(heroName));
-                --     ChatManager.SystemMessageResource("char_abilities_message_add", "PRS", tostring(DB.getChild(nodeSource, "startingPresence3").getValue()), tostring(heroName));
-                -- else
-                --     ChatManager.SystemMessageResource("char_abilities_message_warning");
-                --     return nil;
-                -- end
+                ChatManager.SystemMessageResource("char_abilities_message_add", "MGT", tostring(DB.getChild(nodeSource, "startingMight").getValue()), tostring(name));
+                ChatManager.SystemMessageResource("char_abilities_message_add", "AGL", tostring(DB.getChild(nodeSource, "startingAgility").getValue()), tostring(name));
+                ChatManager.SystemMessageResource("char_abilities_message_add", "REA", tostring(DB.getChild(nodeSource, "startingReason").getValue()), tostring(name));
+                ChatManager.SystemMessageResource("char_abilities_message_add", "INU", tostring(DB.getChild(nodeSource, "startingIntuition").getValue()), tostring(name));
+                ChatManager.SystemMessageResource("char_abilities_message_add", "PRS", tostring(DB.getChild(nodeSource, "startingPresence").getValue()), tostring(name));
 
                 -- add only the class features that are equal to or below class level
                 local tNodes = DB.getChildren(nodeSource, "features")
@@ -143,7 +105,7 @@ function onDrop(x, y, draginfo)
                 local heroCurrentStamina = DB.getChild(nodeSource, "stamina.current");
                 if(heroLevel.getValue() == 1) then
                     DB.copyNode(startingStamina, DB.getChild(node, "stamina.max"));
-                    ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(DB.getChild(node, "stamina.max").getValue()), tostring(heroName));
+                    ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(DB.getChild(node, "stamina.max").getValue()), tostring(name));
                     DB.copyNode(startingStamina, DB.getChild(node, "stamina.current"));
                 end
                 if(heroLevel.getValue() > 1) then
@@ -151,7 +113,7 @@ function onDrop(x, y, draginfo)
                     local additionalStamina = (staminaPerLevel.getValue() * levelMultiplyer);
                     local totalStamina = (additionalStamina + startingStamina.getValue());
                     DB.setValue(node, "stamina.max", "number", totalStamina);
-                    ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(totalStamina), tostring(heroName));
+                    ChatManager.SystemMessageResource("char_abilities_message_add", "Max Stamina", tostring(totalStamina), tostring(name));
                     DB.setValue(node, "stamina.current", "number", totalStamina);
                 end
                 
@@ -159,9 +121,9 @@ function onDrop(x, y, draginfo)
                 DB.copyNode(DB.getChild(nodeSource, "name"), DB.getChild(node, "classtitle"));
                 DB.copyNode(DB.getChild(nodeSource, "startingRecoveries"), DB.getChild(node, "recoverycurrent"));
                 DB.copyNode(DB.getChild(nodeSource, "startingRecoveries"), DB.getChild(node, "recoverymax"));
-                ChatManager.SystemMessageResource("char_abilities_message_add", "Starting Recoveries", tostring(DB.getChild(nodeSource, "startingRecoveries").getValue()), tostring(heroName));
+                ChatManager.SystemMessageResource("char_abilities_message_add", "Starting Recoveries", tostring(DB.getChild(nodeSource, "startingRecoveries").getValue()), tostring(name));
             
-                ChatManager.SystemMessageResource("char_abilities_message_classadd", tostring(className.getValue()), tostring(heroName));
+                ChatManager.SystemMessageResource("char_abilities_message_classadd", tostring(className.getValue()), tostring(name));
             end
 
             -- TODO: abilities
@@ -191,7 +153,7 @@ function onDrop(x, y, draginfo)
                     end
                 end
                 
-                ChatManager.SystemMessageResource("char_abilities_message_abilityadd", tostring(abilityName.getValue()), tostring(heroName));
+                ChatManager.SystemMessageResource("char_abilities_message_abilityadd", tostring(abilityName.getValue()), tostring(name));
             end
         end
 end

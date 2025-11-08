@@ -521,7 +521,6 @@
 	<template name="number_ctentry_stamina">
 		<number_ct_crosslink name="stamina">
 			<script file="ct_DS/scripts/stamina_choice.lua" />
-			<tooltip textres="ct_stamina_tooltip" />
 			<anchored to="rightanchor" width="30" height="20">
 				<top />
 				<right anchor="left" relation="relative" offset="-5" />

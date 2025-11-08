@@ -42,4 +42,12 @@
 		</buttoncontrol>
 	</template>
 
+	<template name="respite_button">
+		<buttoncontrol>
+			<anchored width="40" height="40" />
+			<icon normal="respite" pressed="respite_down" />
+			<tooltip textres="char_tooltip_respite" />
+		</buttoncontrol>
+	</template>
+
 </root>

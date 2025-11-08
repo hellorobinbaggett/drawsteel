@@ -23,6 +23,8 @@
 	<icon name="button_se" file="graphics/buttons/button_se.png" />
 	<icon name="button_eot" file="graphics/buttons/button_eot.png" />
 	<icon name="button_eoe" file="graphics/buttons/button_eoe.png" />
+	<icon name="respite" file="graphics/buttons/respite.png" />
+	<icon name="respite_down" file="graphics/buttons/respite_down.png" />
 	
     <!-- Skills -->
 	<icon name="button_prof" file="graphics/buttons/button_prof.png" />

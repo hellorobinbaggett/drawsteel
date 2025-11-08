@@ -108,7 +108,7 @@
 				</script>
 			</basicnumber>
 
-			<basicnumber name="temp" source="stamina.temporary">
+			<basenumberfield name="temp" source="stamina.temporary">
 				<anchored to="staminaframe" width="48" height="30">
 					<top anchor="top" offset="95" />
 					<left anchor="center" offset="-55" />
@@ -117,7 +117,7 @@
 				<description textres="char_tooltip_temp" />
 				<hideonvalue>0</hideonvalue>
 				<color>0000AA</color>
-			</basicnumber>
+			</basenumberfield>
 
 			<number_linked_framed name="winded" source="hp.winded">
 				<anchored to="temp" position="righthigh" offset="15,0" width="48" height="30" />
@@ -229,16 +229,15 @@
 					<top anchor="top" offset="45" />
 					<left anchor="center" offset="-55" />
 				</anchored>
-				<description textres="char_tooltip_stamina" />
 				<font>reference-b-large</font>
 			</number_charstamina>
 
-			<basicnumber name="recoverymax" source="recoverymax">
+			<number_linked_framed name="recoverymax" source="recoverymax">
 				<anchored to="recoverycurrent" position="righthigh" offset="15,0" width="48" height="30" />
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_max" />
 				<min value="0" />
-			</basicnumber>
+			</number_linked_framed>
 
 			<label_charfieldtop name="recoverycurrent_label">
 				<anchored to="recoverycurrent" offset="0,0" />
@@ -280,11 +279,12 @@
 				</script>
 			</buttoncontrol>
 
-			<label_charfieldtop name="recoverybutton_label">
-				<anchored to="buttonrecovery" offset="0,-4" width="60" height="20" />
+			<label_frametop name="recoverybutton_label">
+				<anchored to="recoveriesframe" >
+					<top anchor="top" offset="78" />
+				</anchored>
 				<static textres="char_label_userecovery" />
-				<color>000000</color>
-			</label_charfieldtop> 
+			</label_frametop>
 
 			<number_linked_framed name="recoveryvalue" source="recoveryvalue">
 				<anchored to="recoveriesframe" width="86" height="30">
@@ -326,11 +326,13 @@
 				end
 				</script>
 			</number_linked_framed>
-			<label_charfieldbottom name="recoveryvalue_label">
-				<anchored to="recoveryvalue" offset="0,5" />
+			<label_frametop name="recoveryvalue_label">
+				<anchored to="recoveriesframe" >
+					<top anchor="top" offset="170" />
+				</anchored>
 				<static textres="char_label_value" />
 				<color>000000</color>
-			</label_charfieldbottom>
+			</label_frametop>
 
 		<!-- SKILLS -->
 			<frame_char name="skillsframe">

@@ -84,6 +84,36 @@
 		</sheetdata>
 	</windowclass>
 
+	<windowclass name="reference_titles_listitem">
+		<margins control="0,0,0,2" />
+		<script>
+			function onInit()
+				self.onLockModeChanged(WindowManager.getWindowReadOnlyState(self));
+			end
+			function onLockModeChanged(bReadOnly)
+				local tControls = { "level", "name", "idelete", };
+				WindowManager.callSafeControlsSetLockMode(self, tControls, bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_listitem_left_sm name="leftanchor" />
+			<anchor_listitem_right_sm name="rightanchor" />
+
+			<button_listitem_idelete_left name="idelete" />
+			<linkc_listitem_left name="shortcut">
+				<class>reference_titles</class>
+			</linkc_listitem_left>
+			<number_listitem_left name="level">
+				<nodrag />
+			</number_listitem_left>
+
+			<string_listitem_center name="name">
+				<empty textres="library_recordtype_empty_title" />
+				<font>sheetlabel</font>
+			</string_listitem_center>
+		</sheetdata>
+	</windowclass>
+
 	<windowclass name="reference_classfeaturechoice_listitem">
 		<margins control="0,0,0,2" />
 		<script>

@@ -164,14 +164,16 @@
 			</string_labeled>
 
 			<!-- XP -->
-			<string_labeled name="xptitle" >
-				<anchored to="subclasstitle" position="righthigh" offset="5,0" width="20" />
+			<number_labeled name="xptitle" >
+				<anchored to="subclasstitle" position="righthigh" offset="5,-3" width="20" />
 				<labelres>char_label_xp</labelres>
-			</string_labeled>
+				<default>0</default>
+				<script file="campaign/scripts/level_DS.lua" />
+			</number_labeled>
 
 			<!-- LEVEL -->
 			<number_labeled name="levelnumbertitle">
-				<anchored to="xptitle" position="righthigh" offset="5,-3" width="40" />
+				<anchored to="xptitle" position="righthigh" offset="5,0" width="40" />
 				<labelres>char_label_level</labelres>
 				<default>1</default>
 				<script file="campaign/scripts/echelon_DS.lua" />
@@ -182,14 +184,19 @@
 				<anchored to="levelnumbertitle" position="righthigh" offset="5,0" width="60" />
 				<labelres>char_label_echelon</labelres>
 				<default>1</default>
-				<tooltip textres="skill_tooltip" />
+				<readonly />
 			</number_labeled>
 
 			<buttonfield name="tutorial">
 				<state icon="info_warning" />
 				<state icon="button_toolbar_help" tooltipres="tooltip_character_builder" />
-				<bounds>-60,25,20,20</bounds>
+				<bounds>-23,35,20,20</bounds>
 			</buttonfield>
+
+			<respite_button>
+				<bounds>-74,20,30,30</bounds>
+				<script file="campaign/scripts/respite_DS.lua" />
+			</respite_button>
 
 
 			<!-- TODO: implement linkable fields for the subclass,class,ancetry,and career (similar to 5e) -->

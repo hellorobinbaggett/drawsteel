@@ -146,7 +146,7 @@
 			<number_characteristicscore name="speed" source="abilities.speed.value">
 				<anchored to="combatframe" position="insidetopleft" offset="95,60" width="20" />
 				<description textres="char_tooltip_speed" />
-				<default>0</default>
+				<default>5</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="speed_label">
 				<anchored to="speed" />
@@ -156,7 +156,7 @@
 			<number_characteristicscore name="disengage" source="abilities.disengage.value">
 				<anchored to="combatframe" position="insidetopleft" offset="95,85" width="20" />
 				<description textres="char_tooltip_disengage" />
-				<default>0</default>
+				<default>1</default>
 			</number_characteristicscore>
             <string_characteristiclabel name="disengage_label">
 				<anchored to="disengage" />
@@ -172,6 +172,7 @@
 				<anchored to="combatframe" position="insidetopleft" offset="95,130" width="20" height="17"/>
 				<description textres="char_tooltip_weak" />
 				<default>0</default>
+				<script file="campaign/scripts/w_potency.lua" />
 			</number_characteristicscore>
             <string_characteristiclabel name="weak_label">
 				<anchored to="weak" />
@@ -182,6 +183,7 @@
 				<anchored to="combatframe" position="insidetopleft" offset="95,150" width="20" height="17" />
 				<description textres="char_tooltip_average" />
 				<default>0</default>
+				<script file="campaign/scripts/a_potency.lua" />
 			</number_characteristicscore>
             <string_characteristiclabel name="average_label">
 				<anchored to="average" />
@@ -192,6 +194,7 @@
 				<anchored to="combatframe" position="insidetopleft" offset="95,170" width="20" height="17" />
 				<description textres="char_tooltip_strong" />
 				<default>0</default>
+				<script file="campaign/scripts/s_potency.lua" />
 			</number_characteristicscore>
             <string_characteristiclabel name="strong_label">
 				<anchored to="strong" />
