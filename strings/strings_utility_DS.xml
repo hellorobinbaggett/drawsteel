@@ -25,6 +25,8 @@
 	<string name="library_recordview_label_ability_bytype">By Type</string>
 	<string name="library_recordview_label_ability_byclass">By Class</string>
 	<string name="library_recordview_label_ability_byancestry">By Ancestry</string>
+	<string name="library_recordview_label_items_bytype">By Type</string>
+	<string name="library_recordview_label_items_byechelon">By Echelon</string>
 	<string name="library_recordview_label_ability_bylevel">By Level</string>
 	<string name="library_recordview_label_npc_bylevel">By Level</string>
 	<string name="library_recordview_label_npc_byrole">By Role</string>

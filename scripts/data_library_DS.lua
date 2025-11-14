@@ -65,6 +65,15 @@ aRecordOverrides = {
 			["Ability Type"] = { sField = "abilitytype" },
 		},
 	},
+	["item"] = {
+		sSidebarCategory = "create",
+		bExport = true,
+		aDataMap = { "item", "reference.items" },
+		aCustomFilters = {
+			["Type"] = { sField = "type" },
+			["Echelon"] = { sField = "echelon" },
+		},
+	},
 	["kit"] = {
 		sSidebarCategory = "create",
 		bExport = true,
@@ -122,7 +131,7 @@ aListViews = {
 	["item"] = {
 		["byechelon"] = {
 			aColumns = {
-				{ sName = "name", sType = "basicnumber", sHeadingRes = "npc_grouped_label_name", nWidth=400 },
+				{ sName = "name", sType = "basicnumber", sHeadingRes = "npc_grouped_label_echelon", nWidth=400 },
 			},
 			aFilters = {},
 			aGroups = { { sDBField = "echelon" } },
@@ -130,7 +139,7 @@ aListViews = {
 		},
 		["bytype"] = {
 			aColumns = {
-				{ sName = "name", sType = "basicstring", sHeadingRes = "npc_grouped_label_name", nWidth=400 },
+				{ sName = "name", sType = "basicstring", sHeadingRes = "ability_label_type", nWidth=400 },
 			},
 			aFilters = {},
 			aGroups = { { sDBField = "type" } },

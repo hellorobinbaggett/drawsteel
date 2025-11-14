@@ -31,6 +31,8 @@
 	<string name="library_recordview_label_ability_bytype">By Type</string>
 	<string name="library_recordview_label_ability_byclass">By Class</string>
 	<string name="library_recordview_label_ability_byancestry">By Ancestry</string>
+	<string name="library_recordview_label_items_bytype">By Type</string>
+	<string name="library_recordview_label_items_byechelon">By Echelon</string>
 	<string name="library_recordtype_label_monsters">Monsters</string>
 	<string name="library_recordtype_label_items">Items</string>
 	<string name="library_recordtype_label_ancestry">Ancestries</string>
@@ -663,6 +665,7 @@
 	<string name="ability_label_tier3">17+</string>
 	<string name="ability_grouped_label_name">Name</string>
 	<string name="npc_grouped_label_name">Name</string>
+	<string name="npc_grouped_label_echelon">Name</string>
 	<string name="ability_grouped_label_cost">Cost</string>
 	<string name="npc_grouped_label_level">Level</string>
 	<string name="ability_message_resource">%s spent %s heroic resources</string>
