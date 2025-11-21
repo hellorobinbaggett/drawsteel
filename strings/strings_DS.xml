@@ -126,7 +126,6 @@
 		Zaliac - Dwarves
 	</string>
 	<string name="char_label_classresource">CLASS RESOURCE</string>
-	<string name="char_label_victories">VICTORIES</string>
 	<string name="char_label_class">CLASS</string>
 	<string name="char_label_subclass">SUBCLASS</string>
 	<string name="char_label_level">LEVEL</string>
@@ -556,8 +555,8 @@
 	<string name="char_label_skills">Skills</string>
 	<string name="char_label_crafting">Crafting</string>
 	<string name="char_label_classresource">Heroic Resource</string>
-	<string name="char_label_victories">Victories</string>
 	<string name="char_label_complications">Complication</string>
+	<string name="char_label_victories">Victories</string>
 	<string name="char_label_titles">Titles</string>
 	<string name="char_label_kit1">Kit #1</string>
 	<string name="char_label_kit2">Kit #2</string>

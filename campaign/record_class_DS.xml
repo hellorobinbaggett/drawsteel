@@ -89,9 +89,9 @@
 		<script file="campaign/scripts/class_basics.lua" />
 		<margins control="0,0,0,5" />
 		<sheetdata>
-			<frame_char_invis name="basicsframe">
+			<genericcontrol name="basicsframe">
 				<bounds>1,20,-1,290</bounds>
-			</frame_char_invis>
+			</genericcontrol>
 
 			<label_frametop>
 				<anchored to="basicsframe" offset="10,-15"/>

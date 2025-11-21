@@ -60,7 +60,7 @@
 		</basicnumber>
 
 		<string_labeled_resource name="classresource_label" source="classresource_label">
-			<anchored to="classresource" position="above" offset="0,8" width="60" height="20"/>
+			<anchored to="classresource" position="above" offset="0,8" height="20"/>
 			<default>Class Resource</default>
 			<font>subwindowsmalltitle</font>
 			<color value="#FFFFFF" />

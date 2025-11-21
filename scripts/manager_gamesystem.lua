@@ -28,6 +28,7 @@ targetactions = {
 currencyDefault = "GP";
 
 function onInit()
+	DiceManager.setDefaultDisabledDesktopDice({ "d4", "d8", "d12", "d20", });
 
 	-- Languages
 	languages = {
@@ -55,7 +56,7 @@ function onInit()
         [Interface.getString("language_value_khoursirian")] = "",
         [Interface.getString("language_value_highkuric")] = "Norse",
         [Interface.getString("language_value_lowkuric")] = "Norse",
-        [Interface.getString("language_value_mindspeech")] = "Invisible",
+        [Interface.getString("language_value_mindspeech")] = "invisible",
         [Interface.getString("language_value_protoctholl")] = "Draconic",
         [Interface.getString("language_value_szetch")] = "Drow",
         [Interface.getString("language_value_tholl")] = "Draconic",
@@ -98,7 +99,7 @@ function onInit()
 		["Hieroglyphs"] = "Hieroglyphs",
 		["Hindi"] = "Hindi",
 		["Infernal"] = "Infernal",
-		["Invisible"] = "Invisible",
+		["Invisible"] = "invisible",
 		["Metal"] = "Metal",
 		["Norse"] = "Norse",
 		["Primordial"] = "Primordial",

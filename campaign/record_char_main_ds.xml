@@ -102,13 +102,9 @@
 				<font>reference-b-large</font>
 				<description textres="char_tooltip_max" />
 				<min value="0" />
-				<script>
-					function onValueChanged()
-					end
-				</script>
 			</basicnumber>
 
-			<basenumberfield name="temp" source="stamina.temporary">
+			<basicnumber name="temp" source="stamina.temporary">
 				<anchored to="staminaframe" width="48" height="30">
 					<top anchor="top" offset="95" />
 					<left anchor="center" offset="-55" />
@@ -117,7 +113,11 @@
 				<description textres="char_tooltip_temp" />
 				<hideonvalue>0</hideonvalue>
 				<color>0000AA</color>
-			</basenumberfield>
+				<minvalue>0</minvalue>
+				<noreset />
+				<nodrop />
+				<nodrag />
+			</basicnumber>
 
 			<number_linked_framed name="winded" source="hp.winded">
 				<anchored to="temp" position="righthigh" offset="15,0" width="48" height="30" />
@@ -447,7 +447,7 @@
 		</basicnumber>
 
 		<string_labeled_resource name="classresource_label" source="classresource_label">
-			<anchored to="classresource" position="above" offset="0,8" width="60" height="20"/>
+			<anchored to="classresource" position="above" offset="0,8" height="20"/>
 			<default>Class Resource</default>
 			<font>subwindowsmalltitle</font>
 			<color value="#FFFFFF" />
