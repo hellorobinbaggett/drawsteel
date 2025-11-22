@@ -6,125 +6,61 @@
 -->
 
 <root>
-	<windowclass name="charsheet">
-		<frame>charsheet</frame>
-		<script file="scripts/handle_char_drop.lua" />
+	<windowclass name="charsheet" copy="charsheet_base">
+		<placement>
+			<size width="525" height="555" />
+		</placement>
 		<sizelimits>
 			<minimum width="525" height="555" />
 			<dynamic />
 		</sizelimits>
-		<minimize>minimized_npc</minimize>
-		<tooltip field="name" />
-		<softclose />
-		<export>character</export>
-		<sheetdata>
-
-			<windowmenubar_charsheet name="menubar"/>
-			<anchor_content_charsheet_tabbed_top/>
-			<anchor_content_charsheet_bottom/>
-
-			<sub_charsheet_overview name="overview" />
-
-			<sub_charsheet name="main_ds">
-				<class>charsheet_main_ds</class>
-			</sub_charsheet>
-			<sub_charsheet name="features">
-				<class>charsheet_features</class>
-			</sub_charsheet>
-			<sub_charsheet name="abilities">
-				<class>charsheet_abilities</class>
-			</sub_charsheet>
-
-			<!-- Skills Tab -->
-			<sub_charsheet name="skills_ds">
-				<class>charsheet_skills_ds</class>
-			</sub_charsheet>
-
-			<sub_charsheet name="modifiers">
-				<class>charsheet_modifiers</class>
-			</sub_charsheet>
-			<sub_charsheet name="notes">
-				<class>charsheet_notes</class>
-			</sub_charsheet>
-			<!-- <sub_charsheet name="other">
-				<class>charsheet_other</class>
-			</sub_charsheet> -->
-			<sub_charsheet name="inventory">
-				<class>charsheet_inventory</class>
-			</sub_charsheet>
-
-			<tabs_charsheet name="tabs">
-				<!-- default core RPG main tab -->
-				<!-- <tab>
-					<tabres>tab_main</tabres>
-					<subwindow>main</subwindow>
-				</tab> -->
-				<!-- default core RPG skills tab -->
-				<tab>
-					<tabres>tab_main</tabres>
-					<subwindow>main_ds</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_features</tabres>
-					<subwindow>features</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_abilities</tabres>
-					<subwindow>abilities</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_skills</tabres>
-					<subwindow>skills_ds</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_combat</tabres>
-					<subwindow>modifiers</subwindow>
-				</tab>
-				<tab>
-					<tabres>tab_notes</tabres>
-					<subwindow>notes</subwindow>
-				</tab>
-				<!-- <tab>
-					<tabres>tab_other</tabres>
-					<subwindow>other_new</subwindow>
-				</tab> -->
-				<tab>
-					<tabres>tab_inventory</tabres>
-					<subwindow>inventory</subwindow>
-				</tab>
-			</tabs_charsheet>
-		
-			<resize_charsheet />
-		</sheetdata>
+		<tab>
+			<name>main</name>
+			<resource>tab_main</resource>
+			<class>charsheet_main_ds</class>
+			<embed />
+		</tab>
+		<tab merge="add">
+			<name>features</name>
+			<resource>tab_features</resource>
+			<class>charsheet_features</class>
+		</tab>
+		<tab merge="add">
+			<name>abilities</name>
+			<resource>tab_abilities</resource>
+			<class>charsheet_abilities</class>
+		</tab>
+		<tab merge="add">
+			<name>skills</name>
+			<resource>tab_skills</resource>
+			<class>charsheet_skills_ds</class>
+		</tab>
+		<tab merge="add">
+			<name>modifiers</name>
+			<resource>tab_combat</resource>
+			<class>charsheet_modifiers</class>
+		</tab>
+		<tab merge="add">
+			<name>notes</name>
+			<resource>tab_notes</resource>
+			<class>charsheet_notes</class>
+		</tab>
+		<tab merge="add">
+			<name>inventory</name>
+			<resource>tab_inventory</resource>
+			<class>charsheet_inventory</class>
+		</tab>
+		<script file="scripts/handle_char_drop.lua" />
 	</windowclass>
 
-	<windowclass name="charsheet_overview">
+	<windowclass name="charsheet_overview" copy="charsheet_overview_base_v2">
 		<sheetdata>
-			<genericcontrol name="leftanchor">
-				<anchored position="insidetopleft" offset="0,0" width="0" height="0" />
-				<disabled />
-			</genericcontrol>
-			<genericcontrol name="rightanchor">
-				<anchored position="insidetopright" offset="0,0" width="0" height="0" />
-				<disabled />
-			</genericcontrol>
-
-			<picture_charsheet name="portrait" />
-
-			<button_charactivate_charsheet name="speak" />
-			
-			<frame_char name="overviewframe">
-				<anchored to="rightanchor" height="70">
-					<top />
-					<left parent="leftanchor" relation="relative" />
-					<right relation="relative" />
-				</anchored>
-			</frame_char>
-
-			<!-- NAME -->
 			<string_labeled name="name">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,10" width="155" />
-				<labelres>char_label_name</labelres>
+				<anchored to="leftanchor" width="155" merge="replace">
+					<top />
+					<left relation="current" offset="10" />
+				</anchored>
+				<font>sheettext</font>
 			</string_labeled>
 
 			<!-- ANCESTRY -->
@@ -133,27 +69,15 @@
 				<labelres>char_label_race</labelres>
 			</string_labeled>
 
-			<!-- CAREER -->
-			<!-- <string_labeled name="career">
-				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
-				<labelres>char_label_career</labelres>
-			</string_labeled>			 -->
-
-			<!-- KIT oops this is messed up but now I can't change it or it will break stuff -->
+			<!-- KIT (incorrect data field label; but left to avoid breakage) -->
 			<string_labeled name="career"> 
 				<anchored to="ancestry" position="righthigh" offset="5,0" width="80" />
 				<labelres>char_label_kit</labelres>
 			</string_labeled>
 
-			<!-- VICTORIES -->
-			<!-- <string_labeled name="victoriestitle" >
-				<anchored to="xptitle" position="righthigh" offset="5,0" width="60" />
-				<labelres>char_label_victories</labelres>
-			</string_labeled> -->
-
 			<!-- CLASS -->
 			<string_labeled name="classtitle">
-				<anchored to="overviewframe" position="insidetopleft" offset="15,35" width="90" />
+				<anchored to="name" position="belowleft" offset="0,10" width="90" />
 				<labelres>char_label_class</labelres>
 			</string_labeled>
 
@@ -188,90 +112,14 @@
 			</number_labeled>
 
 			<buttonfield name="tutorial">
+				<anchored to="rightanchor" position="lefthigh" offset="5,30" width="20" height="20" />
 				<state icon="info_warning" />
 				<state icon="button_toolbar_help" tooltipres="tooltip_character_builder" />
-				<bounds>-23,35,20,20</bounds>
 			</buttonfield>
-
 			<respite_button>
-				<bounds>-74,20,30,30</bounds>
+				<anchored to="rightanchor" position="lefthigh" offset="0,0" width="30" height="30" />
 				<script file="campaign/scripts/respite_DS.lua" />
 			</respite_button>
-
-
-			<!-- TODO: implement linkable fields for the subclass,class,ancetry,and career (similar to 5e) -->
-			<!-- vv below is some code from 5e for how they have linkfield_record setup vv -->
-			<!-- <label_charframetop name="speciestitle">
-				<anchored height="20">
-					<top offset="55" />
-					<left anchor="center" offset="10" />
-					<right offset="-10" />
-				</anchored>
-				<icons>char_race</icons>
-				<static textres="char_label_race" />
-			</label_charframetop>
-			<genericcontrol name="speciesleftanchor">
-				<anchored to="speciestitle" position="belowleft" offset="-10,5" />
-				<disabled />
-			</genericcontrol>
-			<genericcontrol name="speciesrightanchor">
-				<anchored to="speciestitle" position="belowright" offset="-10,5" />
-				<disabled />
-			</genericcontrol>
-			<linkfield_record name="racelink">
-				<anchored to="speciesleftanchor" width="20" height="20">
-					<top />
-					<left relation="relative" offset="2" postoffset="2" />
-				</anchored>
-				<description field="race" />
-				<hideonempty />
-				<nodrag />
-				<script>
-					function onClickDown()
-						return true;
-					end
-					function onClickRelease()
-						return CharManager.onSpeciesLinkPressed(window.getDatabaseNode());
-					end
-				</script>
-			</linkfield_record>
-			<linkfield_record name="subracelink">
-				<anchored to="speciesleftanchor" width="20" height="20">
-					<top />
-					<left relation="relative" offset="2" postoffset="2" />
-				</anchored>
-				<description field="race" />
-				<hideonempty />
-				<nodrag />
-				<script>
-					function onClickDown()
-						return true;
-					end
-					function onClickRelease()
-						return CharManager.onAncestryLinkPressed(window.getDatabaseNode());
-					end
-				</script>
-			</linkfield_record>
-			<button_iadd_recordtype name="button_species_add">
-				<anchored to="speciesrightanchor">
-					<top />
-					<right relation="relative" offset="-2" postoffset="-2" />
-				</anchored>
-				<recordtype>race</recordtype>
-			</button_iadd_recordtype>
-			<stringu name="race">
-				<anchored to="speciesleftanchor">
-					<top />
-					<left relation="relative" offset="5" postoffset="5" />
-					<right parent="speciesrightanchor" relation="relative" offset="-5" postoffset="-5" />
-				</anchored>
-				<script>
-					function onValueChanged()
-						window.onSpeciesChanged();
-					end
-				</script>
-			</stringu> -->
-
 		</sheetdata>
 	</windowclass>
 </root>

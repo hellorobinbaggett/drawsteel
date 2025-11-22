@@ -49,5 +49,4 @@
 			<tooltip textres="char_tooltip_respite" />
 		</buttoncontrol>
 	</template>
-
 </root>

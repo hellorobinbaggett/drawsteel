@@ -6,32 +6,30 @@
 -->
 
 <root>
-	<windowclass name="effectlist_preset_content">
+	<windowclass name="effectlist_preset_content" merge="join">
+		<script>
+			function onInit()
+				if super and super.onInit then
+					super.onInit();
+				end
+
+				if DataCommon and DataCommon.pseudoconditions and (#(DataCommon.pseudoconditions) > 0) then
+					for _,sCondition in ipairs(DataCommon.pseudoconditions) do
+						local w = conditions_list.createWindow();
+						w.setEffect({ sName = StringManager.capitalize(sCondition) });
+					end
+				else
+					pseudoconditions_label.setVisible(false);
+					pseudoconditions_list.setVisible(false);
+				end
+			end
+		</script>
 		<script file="utility/scripts/effectlist_presets.lua" />
 		<sheetdata>
-			<anchor_content_top />
-			<header_content_framed_headersimple name="conditions_label">
-				<static textres="effect_header_conditions" />
-			</header_content_framed_headersimple>
-			<list_content_noscroll_top name="conditions_list">
-				<columns width="120" fillwidth="true" dynamic="true" />
-				<readonly />
-				<class>effect_preset_item</class>
-			</list_content_noscroll_top>
-
-			<header_content_framed_headersimple name="pseudoconditions_label">
+			<header_content_framed_headersimple name="pseudoconditions_label" insertbefore="lights_label">
 				<static textres="effect_header_pseudoconditions" />
 			</header_content_framed_headersimple>
-			<list_content_noscroll_top name="pseudoconditions_list">
-				<columns width="120" fillwidth="true" dynamic="true" />
-				<readonly />
-				<class>effect_preset_item</class>
-			</list_content_noscroll_top>
-
-            <header_content_framed_headersimple name="lights_label">
-				<static textres="effect_header_lights" />
-			</header_content_framed_headersimple>
-			<list_content_noscroll_top name="lights_list">
+			<list_content_noscroll_top name="pseudoconditions_list" insertbefore="lights_label">
 				<columns width="120" fillwidth="true" dynamic="true" />
 				<readonly />
 				<class>effect_preset_item</class>

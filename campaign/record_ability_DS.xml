@@ -7,8 +7,15 @@
 
 <root>
 	<!-- The power roll logic is in ability_window class -->
-	<windowclass name="ability" copy="ability_window">
+	<windowclass name="ability" copy="record_window">
 		<minimize>minimized_item</minimize>
+		<sheetdata>
+			<NEW_power_roll name="abilityroll" insertbefore="content">
+				<bounds>15,41,47,47</bounds>
+				<tooltip textres="tooltip_pr" />
+				<script file="common/scripts/power_roll_button.lua" />
+			</NEW_power_roll>
+		</sheetdata>
 	</windowclass>
 	
 	<windowclass name="ability_main">

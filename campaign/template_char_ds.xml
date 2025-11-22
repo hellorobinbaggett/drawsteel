@@ -6,7 +6,6 @@
 -->
 
 <root>
-	<!-- Character Selection -->
 	<template name="number_charstamina">
 		<basicnumber name="stamina" source="stamina">
 		<datasource>stamina</datasource>
@@ -39,54 +38,6 @@
 		</basicnumber>
 	</template>
 
-	<template name="button_importcharadd">
-		<button_iadd_base>
-			<tooltip textres="charselect_tooltip_importadd" />
-		</button_iadd_base>
-	</template>
-	<template name="button_exportchar">
-		<buttoncontrol>
-			<anchored width="20" height="20" />
-			<icon normal="button_export" pressed="button_export_down" />
-			<tooltip textres="charselect_tooltip_export" />
-		</buttoncontrol>
-	</template>
-
-	<template name="frame_char_invis">
-		<genericcontrol>
-		</genericcontrol>
-	</template>
-	
-	<template name="frame_char">
-		<genericcontrol>
-			<frame name="groupbox" />
-		</genericcontrol>
-	</template>
-	<template name="string_labeled">
-		<stringu>
-			<script>
-				labelwidget = nil;
-			
-				function onInit()
-					if labelres then
-						labelwidget = addTextWidget({ 
-							font = "sheetlabelinline", 
-							text = Interface.getString(labelres[1]):upper(),
-						});
-					elseif label then
-						labelwidget = addTextWidget({ 
-							font = "sheetlabelinline", 
-							text = label[1]:upper(),
-						});
-					end
-					if labelwidget then
-						local w,h = labelwidget.getSize();
-						labelwidget.setPosition("bottomleft", w/2, h/2-3);
-					end
-				end
-			</script>
-		</stringu>
-	</template>
 	<template name="string_labeled_resource">
 		<stringu>
 			<underlineoffset>-30</underlineoffset>
@@ -113,89 +64,6 @@
 			</script>
 		</stringu>
 	</template>
-	<template name="stringc_labeled">
-		<stringcu>
-			<anchored height="20" />
-			<script>
-				labelwidget = nil;
-			
-				function onInit()
-					if labelres then
-						labelwidget = addTextWidget({ 
-							font = "sheetlabelinline", 
-							text = Interface.getString(labelres[1]):upper(),
-						});
-					elseif label then
-						labelwidget = addTextWidget({ 
-							font = "sheetlabelinline", 
-							text = label[1]:upper(),
-						});
-					end
-					if labelwidget then
-						local w,h = labelwidget.getSize();
-						labelwidget.setPosition("bottomleft", w/2, h/2-3);
-					end
-				end
-			</script>
-		</stringcu>
-	</template>
-
-	<template name="button_checkbox">
-		<buttonfield>
-			<state icon="button_checkoff" tooltipres="char_tooltip_characteristic_empty" />
-			<state icon="button_checkon" />
-		</buttonfield>
-	</template>
-
-	<template name="button_charactivate">
-		<buttoncontrol>
-			<icon normal="button_speak" pressed="button_speak_down" />
-			<script>
-				function onInit()
-					if Session.IsHost then
-						setTooltipText(Interface.getString("char_tooltip_speak"));
-					else
-						setTooltipText(Interface.getString("char_tooltip_activate"));
-					end
-				end
-				function onButtonPress()
-					if Session.IsHost then
-						GmIdentityManager.addIdentity(window.name.getValue());
-					else
-						UserManager.activatePlayerID(DB.getName(window.getDatabaseNode()));
-					end
-				end
-			</script>
-		</buttoncontrol>
-	</template>
-	<template name="button_charactivate_charsheet">
-		<button_charactivate>
-			<anchored to="rightanchor" width="23" height="22">
-				<top offset="11" />
-				<right relation="relative" offset="-2" postoffset="-2" />
-			</anchored>
-		</button_charactivate>
-	</template>
-
-	<template name="list_charmaincategory">
-		<windowlist>
-			<class>char_main_category</class>
-			<datasource>.maincategorylist</datasource> 
-			<columns width="222" filldown="true" />
-			<allowcreate />
-			<allowdelete />
-			<sortby><field>label</field></sortby>
-			<script>
-				function addEntry(bFocus)
-					local w = createWindow();
-					if bFocus then
-						w.header.subwindow.label.setFocus();
-					end
-					return w;
-				end
-			</script>
-		</windowlist>
-	</template>
 
 	<template name="list_charskillcategory">
 		<windowlist>
@@ -216,27 +84,6 @@
 			</script>
 		</windowlist>
 	</template>
-
-	<template name="list_charskillcategory_ds">
-		<windowlist>
-			<class>char_skills_category_ds</class>
-			<datasource>.skillcategorylist_ds</datasource> 
-			<columns width="222" filldown="true" />
-			<allowcreate />
-			<allowdelete />
-			<sortby><field>label</field></sortby>
-			<script>
-				function addEntry(bFocus)
-					local w = createWindow();
-					if bFocus then
-						w.header.subwindow.label.setFocus();
-					end
-					return w;
-				end
-			</script>
-		</windowlist>
-	</template>
-
 	<template name="list_charskillcategory_ds">
 		<windowlist>
 			<class>char_skills_category_ds</class>
@@ -299,8 +146,7 @@
 			</script>
 		</windowlist>
 	</template>
-
-		<template name="list_charskillsattribute">
+	<template name="list_charskillsattribute">
 		<windowlist>
 			<child></child>
 			<child><backcolor>1A40301E</backcolor></child>
@@ -343,238 +189,11 @@
 		</windowlist>
 	</template>
 
-	<template name="button_char_inv_carried">
-		<buttonfield>
-			<state icon="button_char_inv_none" tooltipres="char_tooltip_inv_none" />
-			<state icon="button_char_inv_carried" tooltipres="char_tooltip_inv_carried" />
-			<state icon="button_char_inv_equipped" tooltipres="char_tooltip_inv_equipped" />
-			<default>1</default>
-		</buttonfield>
-	</template>
-	<template name="number_charinv">
-		<basicnumber>
-			<nodrag />
-			<hideonvalue>0</hideonvalue>
-			<min>0</min>
-		</basicnumber>
-	</template>
-	<template name="string_charinvname">
-		<string_textlistitem>
-			<nodrop />
-			<script file="campaign/scripts/char_invname.lua" />
-		</string_textlistitem>
-	</template>
-	<template name="string_charinvloc">
-		<string_textlistitem>
-			<nodrop />
-			<delaykeyupdate merge="delete" />
-			<script file="campaign/scripts/char_invloc.lua" />
-		</string_textlistitem>
-	</template>
-	<template name="list_charinv">
-		<windowlist>
-			<child></child>
-			<child><backcolor>1A40301E</backcolor></child>
-			<datasource>.inventorylist</datasource>
-			<class>char_invitem</class>
-			<allowdelete />
-			<script file="campaign/scripts/char_invlist.lua" />
-		</windowlist>
-	</template>
-
-	<template name="list_charskills">
-		<windowlist>
-			<child></child>
-			<child><backcolor>1A40301E</backcolor></child>
-			<datasource>.skilllist</datasource>
-			<class>char_skillitem</class>
-			<allowdelete />
-			<script file="campaign/scripts/char_skilllist.lua" />
-		</windowlist>
-	</template>
-
-	<template name="button_iadd_charcurrency">
-		<button_iadd name="currency_iadd">
-			<script>
-				function onButtonPress()
-					if window.currencylist then
-						window.currencylist.addEntry(true);
-					elseif window.sub_currency.subwindow.list then
-						window.sub_currency.subwindow.list.addEntry(true);
-					end
-				end
-			</script>				
-		</button_iadd>
-	</template>
-	<template name="button_iedit_charcurrency">
-		<button_iedit name="currency_iedit">
-			<script>
-				function onValueChanged()
-					if window.currencylist then
-						WindowManager.onEditModeChanged(window.currencylist);
-					elseif window.sub_currency.subwindow.list then
-						WindowManager.onEditModeChanged(window.sub_currency.subwindow.list);
-					end
-				end
-			</script>
-		</button_iedit>
-	</template>
-	<template name="list_charcurrency_base">
-		<list_text name="currencylist">
-			<class>char_currencyitem</class>
-			<datasource>.coins</datasource>
-			<child merge="delete" />	
-			<script>
-				function onInit()
-					local nodeCurrencyList = getDatabaseNode();
-					if DB.getChildCount(nodeCurrencyList) == 0 then
-						CurrencyManager.populateCharCurrencies(DB.getParent(nodeCurrencyList));
-					end
-				end
-
-				function onSortCompare(w1, w2)
-					return CurrencyManager.sortCampaignCurrenciesUsingNames(w1.name.getValue(), w2.name.getValue());
-				end
-			</script>
-		</list_text>
-	</template>
-
-	<template name="list_charcurrency">
-		<list_charcurrency_base name="currencylist">
-			<anchored to="coinframe">
-				<top offset="40" />
-				<left offset="10" />
-				<right offset="-20" />
-				<bottom offset="-10" />
-			</anchored>
-		</list_charcurrency_base>
-	</template>
-	<template name="scrollbar_currencylist">
-		<scrollbar_content_base name="scrollbar_currencylist">
-			<anchored to="currencylist" />
-			<target>currencylist</target>
-		</scrollbar_content_base>
-	</template>
-	<template name="button_iadd_currencylist">
-		<button_iadd_charcurrency>
-			<anchored to="currencylist" position="aboveright" offset="5,10"/>
-		</button_iadd_charcurrency>
-	</template>
-	<template name="button_iedit_currencylist">
-		<button_iedit_charcurrency>
-			<anchored to="currencylist" position="aboveright" offset="-15,10"/>
-		</button_iedit_charcurrency>
-	</template>
-
-	<template name="list_charcurrency_inline">
-		<list_charcurrency_base name="currencylist">
-			<anchored to="moneytitle" >
-				<top anchor="bottom" relation="relative" offset="10" />
-				<left offset="-5"/>
-				<right offset="5"/>
-			</anchored>
-			<columns width="150" fillwidth="true" />
-			<noscroll />
-		</list_charcurrency_base>
-	</template>
-	<template name="button_iadd_currencylist_inline">
-		<button_iadd_charcurrency name="currencylist_iadd">
-			<anchored to="currencylist" position="aboveright" offset="15,10"/>
-		</button_iadd_charcurrency>
-	</template>
-	<template name="button_iedit_currencylist_inline">
-		<button_iedit_charcurrency name="currencylist_iedit">
-			<anchored to="currencylist" position="aboveright" offset="-5,10"/>
-		</button_iedit_charcurrency>
-	</template>
-	<template name="string_coinother_inline">
-		<stringu name="coinother">
-			<anchored to="moneytitle">
-				<top anchor="bottom" relation="relative" offset="5" />
-				<left />
-				<right />
-			</anchored>
-			<multilinespacing>20</multilinespacing>
-		</stringu>
-	</template>
-
-	<template name="sub_charcurrency">
-		<subwindow name="sub_currency">
-			<anchored to="coinframe">
-				<top offset="40" />
-				<left offset="10" />
-				<right offset="-20" />
-				<bottom offset="-10" />
-			</anchored>
-			<class>char_currency</class>
-			<activate />
-			<fastinit />
-		</subwindow>
-	</template>
-	<template name="scrollbar_sub_charcurrency">
-		<scrollbar_content_base name="scrollbar_currency">
-			<anchored to="sub_currency" />
-			<target>sub_currency</target>
-		</scrollbar_content_base>
-	</template>
-	<template name="button_iadd_sub_charcurrency">
-		<button_iadd_charcurrency>
-			<anchored to="sub_currency" position="aboveright" offset="5,10"/>
-		</button_iadd_charcurrency>
-	</template>
-	<template name="button_iedit_sub_charcurrency">
-		<button_iedit_charcurrency>
-			<anchored to="sub_currency" position="aboveright" offset="-15,10"/>
-		</button_iedit_charcurrency>
-	</template>
-	<template name="list_sub_charcurrency">
-		<list_charcurrency_base name="list">
-			<noscroll />
-		</list_charcurrency_base>
-	</template>
-
-	<template name="list_language">
-		<list_text>
-			<datasource>.languagelist</datasource>
-			<class>char_language</class>
-			<sortby><control>name</control></sortby>
-			<allowcreate />
-			<allowdelete />
-			<script>
-				function onDrop(x, y, draginfo)
-					local sDragType = draginfo.getType();
-					if sDragType == "string" or sDragType == "language" then
-						local w = addEntry(true);
-						w.name.setValue(draginfo.getStringData());
-						return true;
-					end
-				end
-			</script>
-		</list_text>
-	</template>
-
-	<!-- NEW TEMPLATES -->
-	<template name="number_chartotal">
-		<number_modifier_framed>
-			<showemptywidget />
-		</number_modifier_framed>
-	</template>
-	<template name="number_statnumber">
-		<basicnumber>
-			<anchored position="belowleft" offset="0,8" width="32" height="22" />
-			<default>0</default>
-		</basicnumber>
-	</template>
 	<template name="number_characteristicscore">
 		<basicnumber>
 			<anchored position="belowleft" offset="0,8" width="32" height="22" />
 			<default>0</default>
 		</basicnumber>
-	</template>
-	<template name="string_characteristicscore">
-		<string>
-			<anchored position="belowleft" offset="0,8" width="32" height="22" />
-		</string>
 	</template>
 	<template name="string_characteristiclabel">
 		<label>
@@ -589,40 +208,10 @@
 		</label>
 	</template>
 
-	<template name="number_powerroll_skill">
-		<number_characteristicscore>
-			<rollable />
-			<script>		
-				function action(draginfo)
-
-				local sPath = tostring(target[1]);
-
-				local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-				local nodePC = ActorManager.getCreatureNode(rActor);
-					local rRoll = { 
-						sType = "dice", 
-						sDesc = "Skill Test: " .. tostring(target[1]), 
-						aDice = { "d10", "d10" },
-						nMod = DB.getValue(nodePC, "skills." .. sPath, 0);
-					};
-					ActionsManager_DS.encodeDesktopMods(rRoll);
-					ActionsManager.performAction(draginfo, rActor, rRoll);
-					return true;
-				end
-				
-				function onDragStart(button, x, y, draginfo)
-					return action(draginfo);
-				end
-
-				function onDoubleClick(x,y)
-					return action();
-				end
-			</script>
-		</number_characteristicscore>
-	</template>
-
 	<template name="number_powerroll_characteristic">
-		<number_statnumber>
+		<basicnumber>
+			<anchored position="belowleft" offset="0,8" width="32" height="22" />
+			<default>0</default>
 			<rollable />
 			<script>		
 				function action(draginfo)
@@ -661,7 +250,7 @@
 					return action();
 				end
 			</script>
-		</number_statnumber>
+		</basicnumber>
 	</template>
 
 	<template name="button_prof">
@@ -681,98 +270,4 @@
 			<state icon="presence_block" tooltipres="char_tooltip_characteristic_presence" />
 		</buttonfield>
 	</template>
-
-
-	<!-- Individual skill rows -->
-	<template name="skills_row_test">
-            <string_skilllabel name="alchemy_label" source="skill.alchemy">
-                    <bounds></bounds>
-                    <static textres="alchemy" />
-                </string_skilllabel>
-                <button_prof name="skilled_alchemy" source="skill.prof">
-                    <anchored to="alchemy_label" position="lefthigh" offset="10,0" height="20" width="20" />
-                    <default>2</default>
-			    </button_prof>
-                <string_skilllabel name="characteristic_label">
-                    <anchored to="alchemy_label" position="right" offset="0,0">
-                    </anchored>
-                    <static textres="char_label_characteristic" />
-                </string_skilllabel>
-                <button_characteristic name="skill_characteristic" source="skill.characteristic.button">
-                    <anchored to="characteristic_label" position="right" offset="10,0" height="20" width="60" />
-                    <default>0</default>
-                    <tooltip textres="skill_tooltip" />
-			    </button_characteristic>
-
-                <power_roll name="alchemy">
-                    <anchored to="craftingskillsframe_char" position="insidetopright" offset="20,40">
-                    </anchored>
-                    <tooltip textres="tooltip_pr" />
-                    <script>	
-                        function action(draginfo)
-                            local nodeWin = window.getDatabaseNode();
-                            
-                            local skilled = DB.getValue(nodeWin, "skill.prof");
-                            local characteristic = DB.getValue(nodeWin, "skill.characteristic.button");
-
-                            -- If you have this skill, add a +2 to the roll
-                            if (skilled == 0) then
-                                skilledMod = "0";
-                            end
-                            if (skilled == 1) then
-                                skilledMod = "2";
-                            end
-
-                            -- add the characteristic that is chosed for the skill
-                            characteristicMod = 0;
-                            -- AGL
-                            if (characteristic == 1) then
-                                characteristicMod = DB.getValue(nodeWin, "AGL");
-                            end
-                            -- REA
-                            if (characteristic == 2) then
-                                characteristicMod = DB.getValue(nodeWin, "REA");
-                            end
-                            -- INU
-                            if (characteristic == 3) then
-                                characteristicMod = DB.getValue(nodeWin, "INU");
-                            end
-                            -- PRS
-                            if (characteristic == 4) then
-                                characteristicMod = DB.getValue(nodeWin, "PRS");
-                            end
-                            -- MGT
-                            if (characteristic == 0) then
-                                characteristicMod = DB.getValue(nodeWin, "MGT");
-                            end
-
-                            local abilityName = DB.getValue(nodeWin, "skill.alchemy", "");
-
-                            local rActor = ActorManager.resolveActor(window.getDatabaseNode());
-                            local nodePC = ActorManager.getCreatureNode(rActor);
-
-                            local rRoll = { 
-                                sType = "dice", 
-                                sDesc = "" .. abilityName .. "", 
-                                aDice = { "d10", "d10" },
-                                nMod = skilledMod + characteristicMod,
-                                t1 = DB.getValue(nodeWin, "tier1"),
-                                t2 = DB.getValue(nodeWin, "tier2"),
-                                t3 = DB.getValue(nodeWin, "tier3");
-                            };
-                            ActionsManager_DS.encodeDesktopMods(rRoll);
-                            ActionsManager.performAction(draginfo, rActor, rRoll);
-                            return true;
-                        end
-                        
-                        function onDragStart(button, x, y, draginfo)
-                            return action(draginfo);
-                        end
-
-                        function onButtonPress()
-                            return action();
-                        end
-                    </script>
-			    </power_roll>
-				</template>
 </root>

@@ -27,159 +27,10 @@
 	<!-- This allows the ruleset to pull from CoreRPG for the basic scripts and functionality -->
 	<importruleset source="CoreRPG" />
 
-	<!-- Fonts -->
-	<font name="Abyssal">
-	<ttf file="fonts/abyssal.ttf" name="Abyssal" size="28" />
-		<otffile name="fonts/abyssal.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Arabian">
-	<ttf file="fonts/arabian.ttf" name="Arabian" size="28" />
-		<otffile name="fonts/arabian.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Celestial">
-	<ttf file="fonts/celestial.ttf" name="Celestial" size="28" />
-		<otffile name="fonts/celestial.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Cuneiform">
-	<ttf file="fonts/cuneiform.ttf" name="Cuneiform" size="28" />
-		<otffile name="fonts/cuneiform.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Cybertronian">
-	<ttf file="fonts/cybertronian.ttf" name="Cybertronian" size="28" />
-		<otffile name="fonts/cybertronian.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Dovakhiin">
-	<ttf file="fonts/dovahkiin.ttf" name="Dovakhiin" size="28" />
-		<otffile name="fonts/dovahkiin.otf" />
-		<color value="#000000" />
-	</font>		
-			
-	<font name="Draconic">
-	<ttf file="fonts/draconic.ttf" name="Draconic" size="32" />
-		<otffile name="fonts/draconic.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Drow">
-	<ttf file="fonts/drow.ttf" name="Drow" size="28" />
-		<otffile name="fonts/drow.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Dwarven">
-	<ttf file="fonts/dwarven.ttf" name="Dwarven" size="28" />
-		<otffile name="fonts/dwarven.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Dynastic">
-	<ttf file="fonts/dynastic.ttf" name="Dynastic" size="28" />
-		<otffile name="fonts/dynastic.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Elven">
-	<ttf file="fonts/elven.ttf" name="Elven" size="28" />
-		<otffile name="fonts/elven.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Esoteric">
-	<ttf file="fonts/esoteric.ttf" name="Esoteric" size="34" />
-		<otffile name="fonts/esoteric.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Hieroglyphs">
-	<ttf file="fonts/hieroglyphs.ttf" name="Hieroglyphs" size="28" />
-		<otffile name="fonts/hieroglyphs.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Hindi">
-	<ttf file="fonts/hindi.ttf" name="Hindi" size="28" />
-		<otffile name="fonts/hindi.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Infernal">
-	<ttf file="fonts/infernal.ttf" name="Infernal" size="40" />
-		<otffile name="fonts/infernal.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Invisible">
-	<ttf file="fonts/invisible.ttf" name="Invisible" size="28" />
-		<otffile name="fonts/invisible.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Metal">
-	<ttf file="fonts/metal.ttf" name="Metal" size="28" />
-		<otffile name="fonts/metal.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Norse">
-	<ttf file="fonts/norse.ttf" name="Norse" size="28" />
-		<otffile name="fonts/norse.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Primordial">
-	<ttf file="fonts/primordial.ttf" name="Primordial" size="28" />
-		<otffile name="fonts/primordial.otf" />
-		<color value="#000000" />
-	</font>
-
-	<font name="Quenya">
-	<ttf file="fonts/quenya.ttf" name="Quenya" size="28" />
-		<otffile name="fonts/quenya.otf" />
-		<color value="#000000" />
-	</font>		
-	
-	<font name="Runes">
-	<ttf file="fonts/runes.ttf" name="Runes" size="36" />
-		<otffile name="fonts/runes.otf" />
-		<color value="#000000" />
-	</font>
-	
-	<font name="Timescape">
-	<ttf file="fonts/timescape.ttf" name="Timescape" size="28" />
-		<otffile name="fonts/timescape.otf" />
-		<color value="#000000" />
-	</font>
-
-	<!-- Tabletop settings -->
-	<includefile source="gameelements_DS.xml" />
-	<includefile source="campaign/campaign_masterindex_DS.xml" />
-
-	<!-- DRAW STEEL files -->
-	<includefile source="campaign/record_char_skills_DS.xml" />
-	<includefile source="campaign/record_char_skills_DS.xml" />
-	<includefile source="campaign/record_monster_DS.xml" />
-	<includefile source="campaign/template_monster_ability.xml" />
-	<includefile source="campaign/record_item.xml" />
-	<includefile source="graphics/graphics_buttons_DS.xml" />
-
-	<!-- COMBAT TRACKER -->
-	<includefile source="ct_DS/template_ct_DS.xml" />
-	<includefile source="ct_DS/ct_host_DS.xml" />
-	<includefile source="ct_DS/ct_client_DS.xml" />
-
 	<!-- Graphics -->
+	<includefile source="graphics/graphics_buttons_DS.xml" />
 	<includefile source="graphics/graphics_chits.xml" />
-	<includefile source="graphics/graphics_icons_DS.xml" />
+	<includefile source="graphics/graphics_fonts.xml" />
 	<includefile source="graphics/graphics_sidebar_DS.xml" />
 	
 	<!-- String resources -->
@@ -190,141 +41,30 @@
 	<includefile source="strings/strings_DS.xml" />
 
 	<!-- Common templates -->
-	<!-- <includefile source="common/template_common.xml" /> -->
 	<includefile source="common/template_buttons_DS.xml" />
-	<includefile source="common/template_column.xml" />
-	<!-- <includefile source="common/template_combobox.xml" /> -->
-	<includefile source="common/template_lists.xml" />
-	<includefile source="common/template_records.xml" />
-	<includefile source="common/template_toolbar.xml" />
-	<includefile source="common/template_windows.xml" />
-	<includefile source="common/template_windows_menu.xml" />
-	<includefile source="common/template_legacy.xml" /> 
-	<includefile source="common/template_common_DS.xml" />
-
-
-	<!-- Layout templates -->
-	<includefile source="layout/template_layout.xml" />
-
-	<!-- NOTE: Initialize window menu toolbar settings before any other scripts run. -->
-	<script name="WindowMenuManager" file="scripts/manager_window_menu.lua" />
-
-	<!-- High-level scripts -->
-	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
-	<script name="DataCommon" file="scripts/data_common_DS.lua" />
-	<script name="Effects" file="scripts/data_common_DS.lua" />
-	<script name="ManagerGetRefData" file="scripts/manager_get_ref_data.lua" />
-
-	<!-- Draw Steel Ruleset scripts -->
-	<script name="ActorManager_DS" file="scripts/manager_actor_DS.lua" />
-	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
-	<script name="ActionsManager_DS" file="scripts/manager_actions_DS.lua" />
-	<script name="InitiativeManager" file="scripts/manager_initiative_DS.lua" />
-	<script name="ResourceManager" file="scripts/manager_resource_DS.lua" />
-	<script name="RollManager_DS" file="scripts/manager_rolls_DS.lua" />
-
-	<script name="WindowManager_DS" file="scripts/manager_window_DS.lua" />
-
-	<!-- Utilities / conditions -->
-	<includefile source="utility/utility_effects_DS.xml" />
 
 	<!-- Desktop -->
 	<script name="Desktop_DS" file="scripts/data_desktop_DS.lua" />
+	<includefile source="desktop/template_desktop.xml" />
 	<includefile source="desktop/desktop_classes_DS.xml" />
+	<includefile source="desktop/desktop_panels.xml" />
 
-	<!-- hero tokens (chits) -->
-	<includefile source="classes/desktop/chit.xml" />
-
-	<includefile source="definitions/desktop.xml" />
-
-	<!-- Global scripts -->
-	<script name="StaminaManager" file="campaign/scripts/stamina.lua" />
-	<script name="StaminaManagerMonster" file="campaign/scripts/stamina_monster.lua" />
-	<script name="EffectManager_DS" file="scripts/manager_effect_DS.lua" />
-	<script name="Desktop" file="scripts/data_desktop.lua" />
-	<script name="ToolbarManager" file="scripts/manager_toolbar.lua" />
-	<script name="AssetManager" file="scripts/manager_asset.lua" />
-	<script name="AssetWindowManager" file="scripts/manager_asset_window.lua" />
-	<script name="ChatManager" file="scripts/manager_chat.lua" />
-	<script name="ColorManager" file="scripts/manager_color.lua" />
-	<script name="DecalManager" file="scripts/manager_decal.lua" />
-	<script name="DialogManager" file="scripts/manager_dialog.lua" />
-	<script name="DiceManager" file="scripts/manager_dice.lua" />
-	<script name="DiceRollManager" file="scripts/manager_dice_roll.lua" />
-	<script name="ExportManager" file="scripts/manager_export.lua" />
-	<script name="ImportUtilityManager" file="scripts/manager_import_utility.lua" />
-	<script name="LibraryData_DS" file="scripts/data_library_DS.lua" />
-	<script name="ListManager" file="scripts/manager_list.lua" />
-	<script name="OOBManager" file="scripts/manager_oob.lua" />
-	<script name="OptionsManager" file="scripts/manager_options.lua" />
-	<script name="OptionsDS" file="scripts/data_options_DS.lua" />
-	<script name="SoundManager" file="scripts/manager_sound.lua" />
-	<script name="SoundManagerSyrinscape" file="scripts/manager_sound_syrinscape.lua" />
-	<script name="SoundManagerFile" file="scripts/manager_sound_file.lua"/>
-	<script name="SetManager" file="scripts/manager_set.lua" />
-	<script name="StringManager" file="scripts/manager_string.lua" />
-	<script name="StringUTF8Manager" file="scripts/manager_string_utf8.lua" />
-	<script name="UserManager" file="scripts/manager_user.lua" />
-	<script name="VersionManager" file="scripts/manager_version.lua" />
-	<script name="VersionManager2" file="scripts/manager_version2.lua" />
-	<script name="WindowManager" file="scripts/manager_window.lua" />
-	<script name="WindowTabManager" file="scripts/manager_window_tab.lua" />
-	<script name="ActorManager" file="scripts/manager_actor.lua" />
-	<script name="ActorCommonManager" file="scripts/manager_actor_common.lua" />
-	<script name="ActorDisplayManager" file="scripts/manager_actor_display.lua" />
-	<script name="ActorHealthManager" file="scripts/manager_actor_health.lua" />
-	<script name="ActionsManager" file="scripts/manager_actions.lua" />
-	<script name="CalendarManager" file="scripts/manager_calendar.lua" />
-	<script name="CombatManagerDS" file="scripts/manager_combat_DS.lua" />
-	<script name="CombatDropManager" file="scripts/manager_combat_drop.lua" />
-	<script name="CombatDropManager2" file="scripts/manager_combat_drop2.lua" />
-	<script name="CombatFormationManager" file="scripts/manager_combat_formation.lua" />
-	<script name="CombatRecordManager" file="scripts/manager_combat_record.lua" />
-	<script name="CombatManagerMonsters" file="scripts/manager_monsters_combat.lua" />
-	<script name="CombatManagerHeroes" file="scripts/manager_heroes_combat.lua" />
-	<script name="EffectManager" file="scripts/manager_effect.lua" />
-	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
-	<script name="GmIdentityManager" file="scripts/manager_gmidentity.lua" />
-	<script name="LanguageManager" file="scripts/manager_language.lua" />
-	<script name="ManualRollManager" file="scripts/manager_manualrolls.lua" />
-	<script name="ModifierManager" file="scripts/manager_modifier.lua" />
-	<script name="PartyManager" file="scripts/manager_ps.lua" />
-	<script name="PartyFormationManager" file="scripts/manager_party_formation.lua" />
-	<script name="PartyLootManager" file="scripts/manager_ps_loot.lua" />
-	<script name="PartyXPManager" file="scripts/manager_party_xp.lua" />
-	<script name="TargetingManager" file="scripts/manager_targeting.lua" />
-	<script name="TokenManager_DS" file="scripts/manager_token_DS.lua" />
-	<script name="VisionManager" file="scripts/manager_vision.lua" />
-	<script name="CampaignDataManager" file="scripts/manager_campaigndata.lua" />
-	<script name="CharManager" file="scripts/manager_char.lua" />
-	<script name="CharInventoryManager" file="scripts/manager_char_inventory.lua" />
-	<script name="CharEncumbranceManager" file="scripts/manager_char_encumbrance.lua" />
-	<script name="ImageDeathMarkerData" file="scripts/data_image_deathmarker.lua" />
-	<script name="ImageDeathMarkerManager" file="scripts/manager_image_deathmarker.lua"/>
-	<script name="ImageDistanceManager" file="scripts/manager_image_distance.lua" />
-	<script name="ItemManager" file="scripts/manager_item.lua" />
-	<script name="NPCManager" file="scripts/manager_npc.lua" />
-	<script name="PictureManager" file="scripts/manager_picture.lua" />
-	<script name="PowerActionManagerCore" file="scripts/manager_power_action_core.lua" />
-	<script name="PowerManagerCore" file="scripts/manager_power_core.lua" />
-	<script name="QuickMapManager" file="scripts/manager_quickmap.lua" />
-	<script name="SoundsetManager" file="scripts/manager_soundset.lua" />
-	<script name="ActionEffect" file="scripts/manager_action_effect.lua" />
-
-	<!-- NOTE: Initialize desktop management scripts after general scripts registered. -->
-	<script name="CharacterListManager" file="scripts/manager_characterlist.lua" />
-	<script name="CombatListManager" file="scripts/manager_combatlist.lua" />
-	<script name="DiceTowerManager" file="scripts/manager_dicetower.lua" />
-	<script name="ModifierStack" file="scripts/manager_modifierstack.lua" />
-	<script name="WindowSaveManager" file="scripts/manager_window_save.lua" />
-	<script name="StaminaTracker" file="ct_DS/scripts/ct_stamina.lua" />
+	<!-- Top Level Windows -->
+	<includefile source="campaign/campaign_masterindex_DS.xml" />
+	<includefile source="utility/utility_effects_DS.xml" />
 
 	<!-- Campaign Records -->
-	<includefile source="campaign/record_feat_DS.xml" /> 
+	<includefile source="campaign/template_monster_ability.xml" />
+	<includefile source="campaign/record_ability_DS.xml" />
 	<includefile source="campaign/record_ancestry_DS.xml" /> 
-	<includefile source="campaign/record_class_DS.xml" /> 
-	<includefile source="campaign/record_kit_DS.xml" /> 
 	<includefile source="campaign/record_career_DS.xml" /> 
+	<includefile source="campaign/record_class_DS.xml" /> 
+	<includefile source="campaign/record_feat_DS.xml" /> 
+	<includefile source="campaign/record_item.xml" />
+	<includefile source="campaign/record_monster_DS.xml" />
+	<includefile source="campaign/record_kit_DS.xml" /> 
+
+	<includefile source="campaign/template_char_ds.xml" />
 	<includefile source="campaign/record_char_DS.xml" />
 	<includefile source="campaign/record_char_main_DS.xml" />
 	<includefile source="campaign/record_char_abilities_DS.xml" />
@@ -333,84 +73,39 @@
 	<includefile source="campaign/record_char_skills_DS.xml" />
 	<includefile source="campaign/record_char_notes_DS.xml" />
 	<includefile source="campaign/record_char_kits_DS.xml" />
-	<!-- <includefile source="campaign/record_char_other_DS.xml" /> -->
-	<includefile source="campaign/record_ability_DS.xml" />
-	
-	<!-- Combat tracker -->
-	<includefile source="ct_DS/ct_host_entry.xml" />
-	<includefile source="ct_DS/ct_host_entry_section.xml" />
-	<includefile source="ct_DS/ct_client_entry.xml" />
-	<includefile source="ct_DS/ct_client_entry_section.xml" />
-	<includefile source="ct_DS/template_ct_entry_section.xml" />
-	<includefile source="campaign/template_char_ds.xml" />
 
+	<!-- COMBAT TRACKER -->
+	<includefile source="ct/template_ct.xml" />
+	<includefile source="ct/ct_host.xml" />
+	<includefile source="ct/ct_client.xml" />
+	<includefile source="ct/ct_host_entry.xml" />
+	<includefile source="ct/ct_client_entry.xml" />
 
-	<script name="ActionInit" file="scripts/manager_action_init.lua" />
+	<!-- Global scripts -->
+	<script name="GameSystem" file="scripts/manager_gamesystem.lua" />
+	<script name="DataCommon" file="scripts/data_common_DS.lua" />
+	<script name="LibraryData_DS" file="scripts/data_library_DS.lua" />
+	<script name="OptionsDS" file="scripts/data_options_DS.lua" />
 
-	<!-- CORERPG SCRIPTS -->
-	<!-- _______________________________________________ -->
-	<!-- || These were originally copied from CoreRPG ||-->
-	<!-- || They are no longer needed because of the  ||-->
-	<!-- || <importruleset> on line 25.               || -->
-	<!-- =============================================== -->
+	<script name="Desktop" file="scripts/data_desktop.lua" />
+	<script name="ActionsManager" file="scripts/manager_actions.lua" />
+	<script name="CombatRecordManager" file="scripts/manager_combat_record.lua" />
+	<script name="EffectManager" file="scripts/manager_effect.lua" />
 
-	<!-- <includefile source="campaign/record_story.xml" /> -->
-	<!-- <includefile source="campaign/record_story_advanced.xml" /> -->
-	<!-- <includefile source="campaign/record_story_book.xml" /> -->
-	<!-- <includefile source="campaign/record_storytemplate.xml" /> -->
-	<!-- <includefile source="campaign/campaign_masterindex.xml" /> -->
-	<!-- <includefile source="campaign/template_campaign.xml" /> -->
-	<!-- <includefile source="campaign/template_story.xml" />-->
-	<!-- <script name="StoryManager" file="scripts/manager_story.lua" /> -->
-	<!-- <script name="ClassManager" file="scripts/manager_class.lua" /> -->
-	<!-- <script name="AncestryManager" file="scripts/manager_ancestry.lua" /> -->
-	<!-- <script name="StoryTemplateManager" file="scripts/manager_storytemplate.lua" /> -->
-	<!-- <script name="TableManager" file="scripts/manager_table.lua" /> -->
-	<!-- <script name="TokenMoveManager" file="scripts/manager_token_move.lua" /> -->
-	<script name="TokenManager" file="scripts/manager_token.lua" />
-	<!-- <script name="DiceSkinManager" file="scripts/manager_diceskin.lua" /> -->
-	<!-- <script name="OptionsCore" file="scripts/data_options_core.lua" /> -->
-	<!-- <script name="RecordAssetManager" file="scripts/manager_record_asset.lua" /> -->
-	<!-- <script name="RecordDataManager" file="scripts/manager_record_data.lua" /> -->
-	<!-- <script name="RecordIndexManager" file="scripts/manager_record_index.lua" /> -->
-	<!-- <script name="RecordIndexViewManager" file="scripts/manager_record_index_view.lua" /> -->
-	<!-- <script name="RecordShareManager" file="scripts/manager_record_share.lua" /> -->
-	<!-- <script name="UtilityManager" file="scripts/manager_utility.lua" /> -->
-	<!-- <script name="DesktopManager" file="scripts/manager_desktop.lua" /> -->
-	<!-- <includefile source="strings/strings_ps.xml" /> -->
-	<!-- <includefile source="strings/strings_dice.xml" /> -->
-	<!-- <includefile source="strings/strings_sound.xml" /> -->
-	<!-- <script name="CurrencyManager" file="scripts/manager_currency.lua" /> -->
-	<!-- <includefile source="campaign/campaign_pictures.xml" /> -->
-	<!-- <includefile source="campaign/campaign_chars.xml" /> -->
-	<!-- <includefile source="campaign/record_battle.xml" /> -->
-	<!-- <includefile source="campaign/record_battlerandom.xml" /> -->
-	<!-- <includefile source="campaign/record_item.xml" /> -->
-	<!-- <includefile source="campaign/record_note.xml" /> -->
-	<!-- <includefile source="campaign/record_picture.xml" /> -->
-	<!-- <includefile source="campaign/record_parcel.xml" /> -->
-	<!-- <includefile source="campaign/record_quest.xml" /> -->
-	<!-- <includefile source="campaign/record_soundset.xml" /> -->
-	<!-- <includefile source="campaign/record_table.xml" /> -->
-	<!-- <includefile source="campaign/record_vehicle.xml" /> -->
-	<!-- <includefile source="campaign/record_char_main.xml" /> -->
-	<!-- <includefile source="campaign/record_power_action.xml" /> -->
-	<!-- <includefile source="campaign/record_power_item.xml" /> -->
-	<!-- <includefile source="graphics/graphics_buttons.xml" /> -->
-	<!-- <includefile source="graphics/graphics_dice.xml" /> -->
-	<!-- <includefile source="graphics/graphics_fonts.xml" /> -->
-	<!-- <includefile source="graphics/graphics_frames.xml" /> -->
-	<!-- <includefile source="graphics/graphics_icons.xml" /> -->
-	<!-- <includefile source="graphics/graphics_portraits.xml" /> -->
-	<!-- <includefile source="graphics/graphics_radial.xml" /> -->
-	<!-- <includefile source="graphics/graphics_ref.xml" /> -->
-	<!-- <includefile source="graphics/graphics_sidebar.xml" /> -->
-	<!-- <includefile source="graphics/graphics_tabs.xml" /> -->
-	<!-- <includefile source="campaign/record_power_action.xml" /> -->
-	<!-- <includefile source="campaign/record_power_item.xml" /> -->
-	<!-- <includefile source="campaign/record_image.xml" /> -->
-	<!-- <includefile source="campaign/template_char.xml" /> -->
-	<!-- <script name="ImageManager" file="scripts/manager_image.lua" /> -->
-	<!-- <includefile source="ct_DS/template_ct_entry.xml" /> -->
-	<!-- <includefile source="ct_DS/template_ct_entry_section.xml" /> -->
+	<script name="ActionsManager_DS" file="scripts/manager_actions_DS.lua" />
+	<script name="ActorManager_DS" file="scripts/manager_actor_DS.lua" />
+	<script name="CombatDropManager2" file="scripts/manager_combat_drop2.lua" />
+	<script name="CombatManagerDS" file="scripts/manager_combat_DS.lua" />
+	<script name="CombatManagerMonsters" file="scripts/manager_monsters_combat.lua" />
+	<script name="CombatManagerHeroes" file="scripts/manager_heroes_combat.lua" />
+	<script name="EffectManager_DS" file="scripts/manager_effect_DS.lua" />
+	<script name="InitiativeManager" file="scripts/manager_initiative_DS.lua" />
+	<script name="ManagerGetRefData" file="scripts/manager_get_ref_data.lua" />
+	<script name="PowerRollManager" file="scripts/manager_powerroll.lua" />
+	<script name="ResourceManager" file="scripts/manager_resource_DS.lua" />
+	<script name="RollManager_DS" file="scripts/manager_rolls_DS.lua" />
+	<script name="StaminaManager" file="campaign/scripts/stamina.lua" />
+	<script name="StaminaManagerMonster" file="campaign/scripts/stamina_monster.lua" />
+	<script name="TokenManager_DS" file="scripts/manager_token_DS.lua" />
+	<script name="WindowManager_DS" file="scripts/manager_window_DS.lua" />
 </root>
