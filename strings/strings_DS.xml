@@ -13,6 +13,7 @@
 	<string name="tab_main">Main</string>
 	<string name="tab_skills">Skills</string>
 	<string name="tab_abilities">Abilities</string>
+	<string name="tab_malice">Malice</string>
 	<string name="tab_notes">Notes</string>
 	<!-- <string name="tab_kit">Kits</string> -->
 	<string name="tab_modifiers">Modifiers</string>
@@ -21,6 +22,7 @@
 	<string name="tab_career">Career</string>
 	<string name="tab_order">Order</string>
 	<string name="tab_other">Other</string>
+	<string name="tab_negotiate">Negotiate</string>
 	<string name="tab_xp">XP</string>
 	<string name="tab_xp">Abilities</string>
 	<string name="library_recordtype_label_kit">Kits</string>
@@ -138,7 +140,9 @@
 	<string name="char_label_upbringing">UPBRINGING</string>
 	<string name="char_label_renown">RENOWN</string>
 	<string name="char_label_wealthlevel">Wealth Level</string>
-	<string name="char_label_currentfollowers">Current Followers</string>
+	<string name="char_label_wealth">Wealth</string>
+	<string name="char_label_retainer">Retainer</string>
+	<string name="char_label_followers">Followers</string>
 	<string name="char_label_maxfollowers">Max Followers</string>
 	<string name="char_label_project">PROJECT</string>
 	<string name="char_label_points">POINTS</string>
@@ -160,6 +164,9 @@
 	<string name="char_label_magical">MAGICAL</string>
 	<string name="char_label_distance">DISTANCE</string>
 	<string name="char_label_benefits">NOTES</string>
+	<string name="char_label_kits">OTHER</string>
+	<string name="char_label_motivations">Motivations</string>
+	<string name="char_label_pitfalls">Pitfalls</string>
 	<string name="char_label_area">AREA</string><string name="char_tooltip_portrait">Portrait</string>
 	<string name="char_label_itemweight">En</string>
 	<string name="char_label_userecovery">Use Recovery</string>
@@ -204,13 +211,15 @@
 	<string name="char_label_perks">Perks &#38; Titles</string>
 	<string name="char_label_projectnotes">Project Notes</string>
 	<string name="char_label_projects">Projects</string>
+	<string name="char_label_magicitems">Consumables, Trinkets, Treasures, and Artifacts</string>
+	<string name="char_label_downtimeprojects">Downtime Projects</string>
 	<string name="char_menu_delete">Delete Character</string>
 	<string name="char_menu_ownerclear">Clear owner</string>
 	<string name="char_menu_ownergm">Take ownership (as %s)</string>
 
 	<!-- Combat Tracker -->
 	<string name="ct_label_gone">Gone</string>
-	<string name="ct_label_name">Initiative Order</string>
+	<string name="ct_label_name"> </string>
 	<string name="ct_label_name_heroes">Heroes</string>
 	<string name="ct_label_name_monsters">Monsters</string>
 	<string name="ct_label_triggeredaction">T.A.</string>
@@ -219,6 +228,7 @@
 	<string name="ct_label_stamina">STAMINA</string>
 	<string name="ct_label_order">Order</string>
 	<string name="ct_label_malice">MALICE</string>
+	<string name="ct_label_victories">Hero Victories</string>
 	<string name="ct_label_herotokens">HERO TOKENS</string>
 	<string name="ct_tooltip_gone">Gone</string>
 	<string name="ct_tooltip_ta">Triggered Action</string>
@@ -411,7 +421,7 @@
 	<string name="strategy">Strategy</string>
 	<string name="timescape">Timescape</string>
 	<string name="tooltip_pr">Power Roll</string>
-	<string name="tooltip_ir">Roll Initiative</string>
+	<string name="tooltip_ir">START COMBAT</string>
 	<string name="tooltip_st">Saving Throw</string>
 	<string name="tooltip_drawsteel">Draw Steel!</string>
 
@@ -425,7 +435,7 @@
 	<string name="char_label_characteristics">Characteristics</string>
 	<string name="char_label_characteristic">Characteristic:</string>
 	<string name="char_label_skillplus">+</string>
-	<string name="char_label_stats">Stats</string>
+	<string name="char_label_kits">Kits</string>
 	<string name="char_label_surges">Surges</string>
 	<string name="char_label_herotokens">Hero Tokens</string>
 	<string name="char_label_shields">Shields</string>
@@ -483,12 +493,7 @@
 	<string name="char_label_age">AGE</string>
 	<string name="char_label_height">HEIGHT</string>
 	<string name="char_label_weight">WEIGHT</string>
-	<string name="char_label_career">CAREER</string>
 	<string name="char_label_title">TITLE</string>
-	<string name="char_label_environment">ENVIRONMENT</string>
-	<string name="char_label_organization">ORGANIZATION</string>
-	<string name="char_label_upbringing">UPBRINGING</string>
-	<string name="char_label_renown">RENOWN</string>
 	<string name="char_label_project">PROJECT</string>
 	<string name="char_label_points">POINTS</string>
 	<string name="char_label_complication">COMPLICATION</string>
@@ -541,6 +546,7 @@
 	<string name="char_label_temp">Temp</string>
 	<string name="char_label_winded">Winded</string>
 	<string name="char_label_current">Current</string>
+	<string name="char_label_cur">Cur</string>
 	<string name="char_label_savingthrow">Saving Throw</string>
 	<string name="char_label_kitbonuses">Kit Bonuses</string>
 	<string name="char_label_recoveries">Recoveries</string>
@@ -597,6 +603,7 @@
 	<string name="npc_label_skills">Rolls</string>
 	<string name="npc_label_items">Equipment</string>
 	<string name="npc_label_languages">Languages</string>
+	<string name="npc_label_nativelanguage">Native Language</string>
 	<string name="npc_label_traits">Traits</string>
 	<string name="npc_label_weaknesses">Vulnerabilities</string>
 	<string name="npc_label_immunities">Immunities</string>
@@ -613,9 +620,9 @@
 	<string name="npc_label_rea">R</string>
 	<string name="npc_label_inu">I</string>
 	<string name="npc_label_prs">P</string>
-	<string name="npc_label_interest">Interest:</string>
-	<string name="npc_label_patience">Patience:</string>
-	<string name="npc_label_impressionscore">Impression:</string>
+	<string name="npc_label_interest">Interest</string>
+	<string name="npc_label_patience">Patience</string>
+	<string name="npc_label_impressionscore">Impression</string>
 	<string name="npc_label_motivations">Motivations</string>
 	<string name="npc_label_pitfalls">Pitfalls</string>
 	<string name="npc_label_outcomes">Outcomes</string>
@@ -642,6 +649,7 @@
 	<!-- Abilities -->
 	<string name="ability_label_name">Name</string>
 	<string name="ability_label_cost">Cost</string>
+	<string name="ability_label_malice">Malice</string>
 	<string name="ability_label_cost_string">Resource</string>
 	<string name="ability_label_resource">Resource</string>
 	<string name="ability_label_class">Class</string>
